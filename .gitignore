@@ -1,0 +1,8 @@
+backups
+.vscode
+.MAJ/dist/token
+dist/__pycache__
+dist/cache
+dist/client_commands/__pycache__
+dist/ffmpeg
+dist/token
