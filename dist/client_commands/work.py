@@ -140,22 +140,22 @@ async def Work(ctx, xp_, cc):
             def CheckEmoji(reaction, user):
                 return ctx.message.author == user and jm.id == reaction.message.id and (str(reaction.emoji) == "⛏")
 
-            '''try:'''
-            reaction = await cc.bot.wait_for("reaction_add", timeout=60, check=CheckEmoji)
-            data[id]["Hobby"] = 0
-            data[id]["Xp"] = 0
-            data[id]["Level"] = 1
+            try:
+                reaction = await cc.bot.wait_for("reaction_add", timeout=60, check=CheckEmoji)
+                data[id]["Hobby"] = 0
+                data[id]["Xp"] = 0
+                data[id]["Level"] = 1
 
-            with open("data/player_data.json", 'w') as d:
-                json.dump(data, d, indent=4)
-            await jm.delete()
-            await ctx.send(f"Vous êtes devenu(e) mineur avec succès {ctx.author.mention} !")
-            await ctx.send("Pour commencer à travailler faites **c!work** !")
+                with open("data/player_data.json", 'w') as d:
+                    json.dump(data, d, indent=4)
+                await jm.delete()
+                await ctx.send(f"Vous êtes devenu(e) mineur avec succès {ctx.author.mention} !")
+                await ctx.send("Pour commencer à travailler faites **c!work** !")
                 
-            '''except:
+            except:
                 await jm.delete()
                 d = await ctx.reply("Délai dépassé !")
-                await d.delete(delay=15)'''
+                await d.delete(delay=15)
 
         elif "xp" in xp_:
 
