@@ -46,22 +46,22 @@
         }
     },
     "598900088768692348": {
-        "Money": 333.58000000000004,
+        "Money": 704.5600000000001,
         "Bank": 1443151,
         "Ticket": 0,
         "Level": 45,
-        "Xp": 4976.6,
+        "Xp": 5511.6,
         "Hobby": 0,
         "Inventory": {
             "Debrit": 448,
-            "Stone": 460,
+            "Stone": 461,
             "Iron": 106,
             "Gold": 41,
             "Diamond": 0,
             "Rubis": 40,
-            "Silver": 40,
+            "Silver": 41,
             "Fluorite": 12,
-            "Saphir": 34,
+            "Saphir": 35,
             "Platinium": 115,
             "Randomite": 44,
             "Magma Stone": 19,
@@ -198,7 +198,7 @@
         }
     },
     "802945354579968071": {
-        "Money": 8500,
+        "Money": 0.0,
         "Bank": 0,
         "Ticket": 7,
         "Level": 0,
@@ -691,54 +691,6 @@
         },
         "Ticket": 0
     },
-    "815987845218172958": {
-        "Money": 100,
-        "Bank": 0,
-        "Level": 0,
-        "Xp": 0,
-        "Hobby": null,
-        "Ticket": 0,
-        "Inventory": {
-            "Jade": 0,
-            "Cooper": 0,
-            "Coal": 0,
-            "Fluorite": 0,
-            "Debrit": 0,
-            "Turquoise": 0,
-            "Mercury": 0,
-            "Obsidian": 0,
-            "Coke": 0,
-            "Stone": 0,
-            "Iron": 0,
-            "Gold": 0,
-            "Silver": 0,
-            "Diamond": 0,
-            "Rubis": 0,
-            "Saphir": 0,
-            "Platinium": 0,
-            "Randomite": 0,
-            "Magma Stone": 0,
-            "Joseph": 0,
-            "Sacred Stone": 0,
-            "Cobalt": 0,
-            "Fossil": 0,
-            "Emerald": 0,
-            "Grenat": 0,
-            "Amethist": 0,
-            "Platinium Alliage": false,
-            "Rank": 0,
-            "Item Limit": 1,
-            "MP": [
-                0
-            ],
-            "P Item": [
-                0
-            ],
-            "P Rank": [
-                0
-            ]
-        }
-    },
     "210124607833899008": {
         "Money": 1058.1999999999998,
         "Bank": 17705,
@@ -842,6 +794,54 @@
         "Level": 0,
         "Xp": 0,
         "Hobby": null,
+        "Ticket": 0,
+        "Inventory": {
+            "Jade": 0,
+            "Cooper": 0,
+            "Coal": 0,
+            "Fluorite": 0,
+            "Debrit": 0,
+            "Obsidian": 0,
+            "Turquoise": 0,
+            "Mercury": 0,
+            "Coke": 0,
+            "Stone": 0,
+            "Iron": 0,
+            "Gold": 0,
+            "Silver": 0,
+            "Diamond": 0,
+            "Rubis": 0,
+            "Saphir": 0,
+            "Platinium": 0,
+            "Randomite": 0,
+            "Magma Stone": 0,
+            "Joseph": 0,
+            "Sacred Stone": 0,
+            "Cobalt": 0,
+            "Fossil": 0,
+            "Emerald": 0,
+            "Grenat": 0,
+            "Amethist": 0,
+            "Platinium Alliage": false,
+            "Rank": 0,
+            "Item Limit": 1,
+            "MP": [
+                0
+            ],
+            "P Item": [
+                0
+            ],
+            "P Rank": [
+                0
+            ]
+        }
+    },
+    "815987845218172958": {
+        "Money": 100,
+        "Bank": 0,
+        "Level": 1,
+        "Xp": 0,
+        "Hobby": 0,
         "Ticket": 0,
         "Inventory": {
             "Jade": 0,

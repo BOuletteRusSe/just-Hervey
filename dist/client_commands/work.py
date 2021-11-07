@@ -1,4 +1,4 @@
-from os import name
+from asyncio import sleep
 import discord, json, random
 
 
@@ -99,8 +99,8 @@ async def Mining(ctx, id, minerals, data, cc, to_next_level, r):
     embed = discord.Embed(title=cc.item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}", color=mineral_info["Color"])
     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
     embed.set_image(url=mineral_info["Image"])
-    embed.add_field(name="Revente :", value=f"**{mm}€**", inline=True)
-    embed.add_field(name=f"{mineral_info['Emoji']} • {mineral_info['Name']} :", value=data[id]['Inventory'][mineral], inline=True)
+    embed.add_field(name="Bénéfice :", value=f"**{mm}€**", inline=True)
+    embed.add_field(name=f"{mineral_info['Emoji']} • {str(mineral_info['Name'])[int(str(mineral_info['Name']).find('*'))-1:]} :", value=data[id]['Inventory'][mineral], inline=True)
     embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
     embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
     embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
@@ -140,22 +140,22 @@ async def Work(ctx, xp_, cc):
             def CheckEmoji(reaction, user):
                 return ctx.message.author == user and jm.id == reaction.message.id and (str(reaction.emoji) == "⛏")
 
-            try:
-                reaction = await cc.bot.wait_for("reaction_add", timeout=60, check=CheckEmoji)
-                if reaction.emoji == "⛏":
-                    data[id]["Hobby"] = 0
-                    data[id]["Xp"] = 0
-                    data[id]["Level"] = 1
+            '''try:'''
+            reaction = await cc.bot.wait_for("reaction_add", timeout=60, check=CheckEmoji)
+            data[id]["Hobby"] = 0
+            data[id]["Xp"] = 0
+            data[id]["Level"] = 1
 
-                    with open("data/player_data.json", 'w') as d:
-                        json.dump(data, d, indent=4)
-                    await jm.delete()
-                    await ctx.send(f"Vous êtes devenu(e) mineur avec succès {ctx.author.mention} !")
-                    await ctx.send("Pour commencer à travailler faites **c!work** !")
-            except:
+            with open("data/player_data.json", 'w') as d:
+                json.dump(data, d, indent=4)
+            await jm.delete()
+            await ctx.send(f"Vous êtes devenu(e) mineur avec succès {ctx.author.mention} !")
+            await ctx.send("Pour commencer à travailler faites **c!work** !")
+                
+            '''except:
                 await jm.delete()
                 d = await ctx.reply("Délai dépassé !")
-                await d.delete(delay=15)
+                await d.delete(delay=15)'''
 
         elif "xp" in xp_:
 
@@ -242,7 +242,7 @@ async def Work(ctx, xp_, cc):
                 "Silver" : {
                     "Min" : 20,
                     "Max" : 27,
-                    "Name" : "de l**Argent** !",
+                    "Name" : "de l'**Argent** !",
                     "Emoji" : "<:silver:881958476287459408>",
                     "Price" : (50, 100),
                     "Xp" : (50, 100),
@@ -504,7 +504,7 @@ async def Work(ctx, xp_, cc):
                             embed = discord.Embed(title=cc.item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debrit:882240995717156874>", color=0x3a3c3d)
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                             embed.set_image(url="https://i.ibb.co/r3zYVN8/debrit.png")
-                            embed.add_field(name="Revente :", value=f"**{mm}€**", inline=True)
+                            embed.add_field(name="Bénéfice :", value=f"**{mm}€**", inline=True)
                             embed.add_field(name="<:debrit:882240995717156874> • Débrits :", value=data[id]['Inventory']["Debrit"], inline=True)
                             embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
                             embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
@@ -592,7 +592,7 @@ async def Work(ctx, xp_, cc):
                     embed = discord.Embed(title=cc.item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:882241850965118978>", color=0x9f9c9a)
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                     embed.set_image(url="https://i.ibb.co/23Wbsbp/stone.png")
-                    embed.add_field(name="Revente :", value=f"**{mm}€**", inline=True)
+                    embed.add_field(name="Bénéfice :", value=f"**{mm}€**", inline=True)
                     embed.add_field(name="<:stone:882241850965118978> • Pierre :", value=data[id]['Inventory']["Stone"], inline=True)
                     embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
                     embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
