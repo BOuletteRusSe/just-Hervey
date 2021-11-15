@@ -34,6 +34,5 @@ async def Nude(ctx):
                 continue
 
     else:
-        print(f"%s{ctx.author} a fait la commande !nude dans un salon hors NSFW%s" % (fg(126), attr(1)))
         alertMessage = await ctx.reply("Cette commande n'est seulement exécutable que dans un salon NSFW !")
         await alertMessage.delete(delay=15)

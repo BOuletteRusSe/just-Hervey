@@ -54,8 +54,10 @@ with open(r"data\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
+            self.client_version = '3.4.2'
             self.is_stoping = False
             self.is_restarting = False
+            
             self.options = webdriver.ChromeOptions()
             # options.add_argument("--headless")
             # options.add_argument("--disable-gpu")
@@ -63,6 +65,7 @@ with open(r"data\player_data.json") as data:
             self.options.add_argument("--no-sandbox")
             self.options.add_argument("--disable-software-rasterizer")
             self.options.add_experimental_option("excludeSwitches", ["enable-logging"])
+            
             self.lettres = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
             self.item_shop_price = {
                         0: {
@@ -201,7 +204,9 @@ with open(r"data\player_data.json") as data:
                 encrypted_data = file.read()
             self.decrypted_data = f.decrypt(encrypted_data)
 
-
+            print(f"{fg(6)}{discord.__version__} - {discord.version_info}{attr(0)}")
+            print('%s%sClient Version : %s' % (fg(57), attr(1), self.client_version))
+        
         def Start(self):
             while True:
                 try:

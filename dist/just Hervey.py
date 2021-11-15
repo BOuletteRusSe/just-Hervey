@@ -5,7 +5,7 @@ from colored import fg, attr
 from discord import client
 from discord.ext import commands as cmd
 from discord.ext.commands.cooldowns import BucketType
-from app import Client
+from client import Client
 from datetime import datetime
 from client_commands.activity import ChangeActivity
 from client_commands.random_music_play import RandomMusicPlay
@@ -23,10 +23,10 @@ def CommandWriteLogs(ctx, command_name):
 
 @client.bot.event
 async def on_ready():
-    print(f"{fg(6)}{discord.__version__} - {discord.version_info}{attr(0)}\n{fg(2)}Logged as {client.bot.user} !{attr(1)}")
     logs = open("logs.log", "a", encoding="utf-8")
     logs.write(f"{str(datetime.now())} - Bot: Logged as {client.bot.user}\n")
     logs.close()
+    print(f'{fg(2)}Logged as {client.bot.user} !{attr(1)}')
     for guild in client.bot.guilds:
         print(f"{fg(255)}Logged in{attr(0)} {fg(190)}{guild}{attr(1)}")
     client.bot.loop.create_task(ChangeActivity(client))
@@ -563,5 +563,5 @@ async def work_error(ctx, error):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
         await dele.delete(delay=1)
 
-
-client.Start()
+if __name__ == '__main__':
+    client.Start()

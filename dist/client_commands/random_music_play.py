@@ -16,7 +16,7 @@ async def RandomMusicPlay(client):
     
     members_on_voice = list()
     connected = False
-    is_running = True
+    is_running = False
     
     while True:
         
