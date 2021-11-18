@@ -5,7 +5,7 @@ from colored import fg, attr
 async def Youtube(ctx, search_, cc):
 
     deleted_message = await ctx.reply("Chargement...")
-    driver = webdriver.Chrome(executable_path="chromedriver.exe", options=cc.options)
+    driver = webdriver.Chrome(executable_path="assets/chromedriver.exe.exe", options=cc.options)
 
     while True:
 

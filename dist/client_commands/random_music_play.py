@@ -22,7 +22,7 @@ async def RandomMusicPlay(client):
         
         if is_running:
         
-            sounds_paths = glob(r'data\sounds\*.mp3')
+            sounds_paths = glob(r'assets\sounds\*.mp3')
             
             for member in client.bot.get_guild(772461266135416843).members:
                 if member.voice is not None: members_on_voice.append(member.voice)
@@ -31,7 +31,7 @@ async def RandomMusicPlay(client):
                 voicechannel = choice(members_on_voice).channel
                 voice = await voicechannel.connect()
                 log_message = f"{str(datetime.now())} - {client.bot.get_guild(772461266135416843)} : RandomJoin : Le bot a rejoin le salon {voicechannel} de manière aléatoire."
-                with open("logs.log", "a", encoding="utf-8") as logs: logs.write('%s\n' % (log_message))
+                with open("logs/logs.log", "a", encoding="utf-8") as logs: logs.write('%s\n' % (log_message))
                 print(f"{fg(40)}{str(datetime.now())}{attr(1)} - {fg(255)}{client.bot.get_guild(772461266135416843)} : {fg(3)}RandomJoin{attr(0)} : {fg(255)}Le bot a rejoin le salon {voicechannel} de manière aléatoire.{attr(0)}")
                 connected = True
                 voice.play(discord.FFmpegPCMAudio(choice(sounds_paths)), after=lambda e: change_connect_stat(e))

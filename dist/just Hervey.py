@@ -14,7 +14,7 @@ client = Client()
 client.bot.remove_command("help")
 
 def CommandWriteLogs(ctx, command_name):
-    logs = open("logs.log", "a", encoding="utf-8")
+    logs = open("logs/logs.log", "a", encoding="utf-8")
     log_message = f"{str(datetime.now())} - {ctx.message.guild.name} : {ctx.message.channel.name} : {ctx.message.author} ({ctx.author.id}) : {command_name} : {ctx.message.content}"
     print(f"{fg(40)}{str(datetime.now())}{attr(1)} - {fg(255)}{ctx.message.guild.name}{attr(0)} : {fg(21)}{ctx.message.channel.name}{attr(1)} : {fg(160)}{ctx.message.author}{attr(1)} ({ctx.author.id}) : {fg(3)}{command_name}{attr(0)} : {fg(255)}{ctx.message.content}{attr(0)}")
     logs.write(f"{log_message}\n")
@@ -23,7 +23,7 @@ def CommandWriteLogs(ctx, command_name):
 
 @client.bot.event
 async def on_ready():
-    logs = open("logs.log", "a", encoding="utf-8")
+    logs = open("logs/logs.log", "a", encoding="utf-8")
     logs.write(f"{str(datetime.now())} - Bot: Logged as {client.bot.user}\n")
     logs.close()
     print(f'{fg(2)}Logged as {client.bot.user} !{attr(1)}')
@@ -36,7 +36,7 @@ async def on_ready():
 @client.bot.event
 async def on_guild_join(guild):
     print(f"{fg(20)}Joined {guild}.{attr(1)}")
-    logs = open("logs.log", "a", encoding="utf-8")
+    logs = open("logs/logs.log", "a", encoding="utf-8")
     logs.write(f"Joined {guild}.\n")
     logs.close()
     embed = discord.Embed(title=f"just Hervey 💎 • {guild}", description=f"**Salut**, merci de m'avoir ajouter à {guild} ! <a:wavydance:882574990380265472>\n<a:arrow:882574892636200990> Pour consulter la **liste des commandes** vous pouvez faire la commande **c!help** !\nPour toute **demande** ou **report de bug** vous pouvez vous adresser à <@598900088768692348> (mes mp sont ouverts tant que c'est pas pour n'importe quoi).", color=0x3f12e2)
@@ -62,14 +62,14 @@ async def on_guild_join(guild):
 @client.bot.event
 async def on_guild_remove(guild):
     print(f"{fg(20)}Quited {guild}.{attr(1)}")
-    logs = open("logs.log", "a", encoding="utf-8")
+    logs = open("logs/logs.log", "a", encoding="utf-8")
     logs.write(f"Quited {guild}.\n")
     logs.close()
 
 
 @client.bot.event
 async def on_message(message):
-    chats = open("chat.log", "a", encoding="utf-8")
+    chats = open("logs/chat.log", "a", encoding="utf-8")
     if message.attachments:
         chats.write(f"{str(datetime.now())} - {message.guild.name} : {message.channel.name} : {message.author} ({message.author.id}) : {str(message.attachments)}\n")
     else:
@@ -366,14 +366,14 @@ async def gif(ctx, *gif_):
 @cmd.cooldown(3, 2, cmd.BucketType.user)
 async def mot(ctx, *arg):
     CommandWriteLogs(ctx, "Mot")
-    if not arg: await ctx.reply(random.choice([word.strip() for word in open("liste_francais.txt")]))
+    if not arg: await ctx.reply(random.choice([word.strip() for word in open("assets/texts/words_list.txt.txt")]))
     else:
         w = ""
         for word in arg:
             w += word
             w += " "
             
-        rm = random.choice([word.strip() for word in open('liste_francais.txt')])
+        rm = random.choice([word.strip() for word in open('assets/texts/words_list.txt.txt')])
         await ctx.reply(f"{w}{rm}")
 
 

@@ -57,7 +57,7 @@ async def IfUserHasEnoughMoney(ctx, arg, player_1_id):
         
         else:
 
-            with open("data/player_data.json", "r") as data:
+            with open("assets/player_data.json", "r") as data:
 
                 data = json.load(data)
                 c = True
@@ -149,7 +149,7 @@ async def Poker(ctx, arg, c):
                 player_0_id = str(ctx.author.id)
                 c = random.choice([True, False])
 
-                with open("data/player_data.json", "r") as data:
+                with open("assets/player_data.json", "r") as data:
                     data = json.load(data)
 
                     if c:
@@ -161,5 +161,5 @@ async def Poker(ctx, arg, c):
                         data[player_0_id]["Money"] = round(data[player_0_id]["Money"] - pr, 2)
                         await ctx.send(f"<@{player_1_id}> a gagné {pr}€ !\n{ctx.author.mention} vous perdez {pr}€.")
 
-                    with open("data/player_data.json", 'w') as d:
+                    with open("assets/player_data.json", 'w') as d:
                         json.dump(data, d, indent=4)

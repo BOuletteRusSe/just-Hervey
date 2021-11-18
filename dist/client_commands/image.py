@@ -15,7 +15,7 @@ async def Image(ctx, image_, c):
             _image += word
             _image += " "
 
-    driver = webdriver.Chrome(executable_path="chromedriver.exe", options=c.options)
+    driver = webdriver.Chrome(executable_path="assets/chromedriver.exe.exe", options=c.options)
     driver.get(f"https://www.ecosia.org/images?q={image_}")
     try:
         driver.find_element_by_class_name("message-tips__title")

@@ -14,7 +14,7 @@ async def Question(ctx, question_, c):
             question__ += word
             question__ += " "
 
-        driver = webdriver.Chrome(executable_path="chromedriver.exe", options=c.options)
+        driver = webdriver.Chrome(executable_path="assets/chromedriver.exe.exe", options=c.options)
         driver.get(f"https://www.ecosia.org/search?q={question__}")
         try:
             driver.find_element_by_class_name("no-results__lead")

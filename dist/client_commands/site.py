@@ -8,7 +8,7 @@ async def Site(ctx):
     while running:
 
         url = "https://"
-        url += random.choice([word.strip() for word in open("liste_francais.txt")])
+        url += random.choice([word.strip() for word in open("assets/texts/words_list.txt.txt")])
         url += ".fr"
 
         try:

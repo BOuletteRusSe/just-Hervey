@@ -10,7 +10,7 @@ async def Logs(ctx):
 
         n = 11
 
-        with open('logs.log', 'r', encoding='utf8') as f:
+        with open('logs/logs.log', 'r', encoding='utf8') as f:
             for line in f.readlines()[-10:]:
                 n -= 1
                 logs_embed.add_field(name=n, value=line, inline=False)

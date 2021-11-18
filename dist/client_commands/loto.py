@@ -3,7 +3,7 @@ import random, json
 
 async def Loto(ctx, m):
 
-    with open("data/player_data.json") as data:
+    with open("assets/player_data.json") as data:
         data = json.load(data)
 
     c = True
@@ -40,7 +40,7 @@ async def Loto(ctx, m):
                         await ctx.reply(f"Perdu !\nArgent : **{data[id]['Money']}**")
                         if data[id]['Money'] <= 0:
                             await ctx.reply("Vous n'avez plus d'argent !\n(**c!work** pour travailler sale chômeur)")
-                with open("data/player_data.json", 'w') as d:
+                with open("assets/player_data.json", 'w') as d:
                     json.dump(data, d, indent=4)
             except:
                 deleted_message = await ctx.reply("Veuillez choisir une valeur correcte || c!loto **valeur**")

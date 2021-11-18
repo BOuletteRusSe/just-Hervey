@@ -3,7 +3,7 @@ import json, discord
 
 async def Bank(ctx, pos):
 
-    with open("data/player_data.json") as data:
+    with open("assets/player_data.json") as data:
         data = json.load(data)
 
     c = True
@@ -32,7 +32,7 @@ async def Bank(ctx, pos):
                 data[id]['Bank'] += p
                 data[id]['Bank'] = round(data[id]['Bank'])
                 data[id]['Money'] = round(data[id]['Money'])
-                with open("data/player_data.json", 'w') as d:
+                with open("assets/player_data.json", 'w') as d:
                     json.dump(data, d, indent=4)
 
                 money_embed = discord.Embed(title="Transaction effectué avec succès !", color=0x5455b0)
@@ -61,7 +61,7 @@ async def Bank(ctx, pos):
                 data[id]['Money'] += p
                 data[id]['Bank'] = round(data[id]['Bank'])
                 data[id]['Money'] = round(data[id]['Money'])
-                with open("data/player_data.json", 'w') as d:
+                with open("assets/player_data.json", 'w') as d:
                     json.dump(data, d, indent=4)
 
                 money_embed = discord.Embed(title="Transaction effectué avec succès !", color=0x5455b0)

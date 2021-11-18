@@ -3,7 +3,7 @@ import json, discord
 
 async def Sign(ctx):
 
-    with open("data/player_data.json") as data:
+    with open("assets/player_data.json") as data:
         data = json.load(data)
 
     id = str(ctx.author.id)
@@ -63,7 +63,7 @@ async def Sign(ctx):
             }
         }
 
-        with open("data/player_data.json", 'w') as d:
+        with open("assets/player_data.json", 'w') as d:
             json.dump(data, d, indent=4)
 
         sign_embed = discord.Embed(description="Vous vous êtes inscrit avec succès !", color=0xc3b828)

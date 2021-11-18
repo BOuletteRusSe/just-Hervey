@@ -3,7 +3,7 @@ import json, discord, random, asyncio
 
 async def CheckSign(ctx, id):
 
-    with open("data/player_data.json") as data:
+    with open("assets/player_data.json") as data:
         data = json.load(data)
 
     c = False
@@ -21,12 +21,12 @@ async def CheckSign(ctx, id):
 
 async def IfUserHasTicket(ctx, id):
 
-    with open("data/player_data.json") as data:
+    with open("assets/player_data.json") as data:
         data = json.load(data)
 
     if data[id]["Ticket"] >= 1:
         data[id]["Ticket"] -= 1
-        with open("data/player_data.json", 'w') as d:
+        with open("assets/player_data.json", 'w') as d:
             json.dump(data, d, indent=4)
         return 0
     else:
@@ -137,7 +137,7 @@ async def Casino(ctx, arg, cc):
 
                 win_line = tuple(line_1)
                 c = False
-                with open("data/player_data.json") as data:
+                with open("assets/player_data.json") as data:
                     data = json.load(data)
                 for k, v in rewards.items():
                     if k == win_line:
@@ -153,7 +153,7 @@ async def Casino(ctx, arg, cc):
                             for key in v["Description"].keys():
                                 title = key
 
-                            with open("data/player_data.json", 'w') as d:
+                            with open("assets/player_data.json", 'w') as d:
                                 json.dump(data, d, indent=4)
 
                             money_embed = discord.Embed(title=f"{title} Vous avez gagné !", description=f"+ **{m}**€", color=0x278b5b)
@@ -170,7 +170,7 @@ async def Casino(ctx, arg, cc):
                                 for key in v["Description"].keys():
                                     title = key
 
-                                with open("data/player_data.json", 'w') as d:
+                                with open("assets/player_data.json", 'w') as d:
                                     json.dump(data, d, indent=4)
                                     
                                 money_embed = discord.Embed(title=f"{title} Vous avez gagné !", description=f"{cc.item_shop_price_2[v['Item']]['Name']}", color=0x278b5b)
@@ -190,7 +190,7 @@ async def Casino(ctx, arg, cc):
                                 for key in v["Description"].keys():
                                     title = key
 
-                                with open("data/player_data.json", 'w') as d:
+                                with open("assets/player_data.json", 'w') as d:
                                     json.dump(data, d, indent=4)
 
                                 money_embed = discord.Embed(title=f"{title} Vous avez gagné !", description=f"{cc.item_shop_price[v['Rank']]['Name']}", color=0x278b5b)
@@ -229,13 +229,13 @@ async def Casino(ctx, arg, cc):
 
                 else:
 
-                    with open("data/player_data.json") as data:
+                    with open("assets/player_data.json") as data:
                         data = json.load(data)
 
                     if data[id]["Money"] >= 150 * n:
                         data[id]["Money"] -= 150 * n
                         data[id]["Ticket"] += n
-                        with open("data/player_data.json", 'w') as d:
+                        with open("assets/player_data.json", 'w') as d:
                             json.dump(data, d, indent=4)
                         money_embed = discord.Embed(title=f"Vous avez acheté {n} tickets avec succès !", description=f"-**{150 * n}**€", color=0x5455b0)
                         money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)

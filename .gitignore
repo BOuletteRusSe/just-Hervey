@@ -1,8 +1,10 @@
 backups
 .vscode
-.MAJ/dist/token
+.MAJ
 dist/__pycache__
 dist/cache
 dist/client_commands/__pycache__
-dist/ffmpeg
-dist/token
+dist/assets/ffmpeg
+dist/logs
+dist/.PRIVATE
+desktop.ini

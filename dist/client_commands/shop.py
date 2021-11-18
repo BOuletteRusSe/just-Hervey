@@ -2,7 +2,7 @@ import discord, json
 
 async def Shop(ctx, buy, cc):
 
-    with open("data/player_data.json") as data:
+    with open("assets/player_data.json") as data:
         data = json.load(data)
             
     id = str(ctx.author.id)
@@ -59,7 +59,7 @@ async def Shop(ctx, buy, cc):
                                         data[id]['Money'] -= buy_item["Money"]
                                         data[id]['Inventory']["P Rank"].append(int(buy[2]))
 
-                                        with open("data/player_data.json", 'w') as d:
+                                        with open("assets/player_data.json", 'w') as d:
                                             data[id]['Money'] = round(data[id]['Money'], 2)
                                             json.dump(data, d, indent=4)
 
@@ -119,7 +119,7 @@ async def Shop(ctx, buy, cc):
                                             data[id]['Money'] -= buy_item["Money"]
                                             data[id]['Inventory'][buy_item["Price"][0]] -= buy_item["Price"][1]
 
-                                            with open("data/player_data.json", 'w') as d:
+                                            with open("assets/player_data.json", 'w') as d:
 
                                                 if int(buy[2]) == 4:
                                                     data[id]['Inventory']["Platinium Alliage"] = True

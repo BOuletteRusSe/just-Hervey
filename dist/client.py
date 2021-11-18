@@ -46,7 +46,7 @@ from selenium import webdriver
 from datetime import datetime
 from cryptography.fernet import Fernet
 
-with open(r"data\player_data.json") as data:
+with open(r"assets\player_data.json") as data:
     data = json.load(data)
 
     class Client:
@@ -54,7 +54,7 @@ with open(r"data\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.4.2'
+            self.client_version = '3.4.3'
             self.is_stoping = False
             self.is_restarting = False
             
@@ -198,9 +198,9 @@ with open(r"data\player_data.json") as data:
                         }
                     }
 
-            key = open("key.key", "rb").read()
+            key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(key)
-            with open("token", "rb") as file:
+            with open(".PRIVATE/token", "rb") as file:
                 encrypted_data = file.read()
             self.decrypted_data = f.decrypt(encrypted_data)
 
@@ -214,11 +214,11 @@ with open(r"data\player_data.json") as data:
                     break
                 except:
                     if self.is_stoping:
-                        logs = open("logs.log", "a", encoding="utf-8")
+                        logs = open("logs/logs.log", "a", encoding="utf-8")
                         logs.write(f"{str(datetime.now())} - {self.bot.user} loggout.")
                         logs.close()
                     elif self.is_restarting:
-                        logs = open("logs.log", "a", encoding="utf-8")
+                        logs = open("logs/logs.log", "a", encoding="utf-8")
                         logs.write(f"{str(datetime.now())} - {self.bot.user} restarting...")
                         logs.close()
                         os.system("start /min relaunch.bat")

@@ -5,7 +5,7 @@ async def Phrase(ctx):
     phrase_ = ""
 
     for i in range(random.randint(3, 10)):
-        word = random.choice([word.strip() for word in open("liste_francais.txt")])
+        word = random.choice([word.strip() for word in open("assets/texts/words_list.txt.txt")])
         phrase_ += " "
         phrase_ += word
 

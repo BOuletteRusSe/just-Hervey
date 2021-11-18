@@ -14,7 +14,7 @@ async def CheckIfUserIsInGuild(ctx, arg, c):
     2 --> Erreur lors de la mention
     """
 
-    with open("data/player_data.json") as data:
+    with open("assets/player_data.json") as data:
         data = json.load(data)
 
     try:
@@ -43,7 +43,7 @@ async def CheckIfUserIsInGuild(ctx, arg, c):
 
 async def Inventory(ctx, equip, c):
 
-    with open("data/player_data.json") as data:
+    with open("assets/player_data.json") as data:
         data = json.load(data)
 
     if await CheckIfUserIsInGuild(ctx, equip, c) not in [0, 4]:
@@ -142,7 +142,7 @@ async def Inventory(ctx, equip, c):
                     
                     if not False in check_error:
                         await ctx.reply("Le(s) objet(s) ont bien été ajouté(s) à la liste !")
-                        with open("data/player_data.json", "w") as d:
+                        with open("assets/player_data.json", "w") as d:
                             json.dump(data, d ,indent=4)
 
                     else:
@@ -154,7 +154,7 @@ async def Inventory(ctx, equip, c):
                         i = int(equip[2])
                         if i in data[id]['Inventory']["P Rank"]:
                             data[id]['Inventory']["Rank"] = i
-                            with open("data/player_data.json", "w") as d:
+                            with open("assets/player_data.json", "w") as d:
                                 json.dump(data, d ,indent=4)
                             await ctx.reply("Le grade a bien été équipé !")
 

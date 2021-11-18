@@ -15,7 +15,7 @@ async def Crush(ctx, add):
             await deleteMessage.delete(delay=15)
 
         else:
-            addedName = open("crushNames.txt", mode="a")
+            addedName = open("assets/texts/crush_names.txtes.txt", mode="a")
             addedName.write(f"\n{name}")
             addedName.close()
             print(f"%s{ctx.author} a jouté {name} a la liste des crush.%s" % (fg(20), attr(1)))
@@ -60,7 +60,7 @@ async def Crush(ctx, add):
                 if not add:
                     name = ctx.author.mention
 
-            names = [word.strip() for word in open("crushNames.txt")]
+            names = [word.strip() for word in open("assets/texts/crush_names.txtes.txt")]
             await ctx.reply(f"Chargement de l'âme soeur de **{name}**...")
             time.sleep(1.5)
             _ameSoeur = random.choice(names)

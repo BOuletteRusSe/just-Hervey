@@ -3,7 +3,7 @@ import discord, json
 
 async def Leaderboard(ctx, c):
 
-    with open("data/player_data.json") as data:
+    with open("assets/player_data.json") as data:
         data = json.load(data)
 
     t = {}

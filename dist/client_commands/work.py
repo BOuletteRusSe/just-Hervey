@@ -87,13 +87,13 @@ async def Mining(ctx, id, minerals, data, cc, to_next_level, r):
                 r = random.randint(0, 350)
             to_next_level = 10 * (15 * data[id]['Level'])
 
-        with open("data/player_data.json", 'w') as d:
+        with open("assets/player_data.json", 'w') as d:
             json.dump(data, d, indent=4)
         embed = discord.Embed(title=f"**GG**, vous avez atteint le niveau **{data[id]['Level']}** !", description=f"XP nécessaire pour passer au prochain niveau : **{to_next_level}xp**", color=0x56860e)
         embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
         embed.set_image(url="https://i.ibb.co/wyYCHVR/level-up.png")
         await ctx.send(embed=embed)
-    with open("data/player_data.json", 'w') as d:
+    with open("assets/player_data.json", 'w') as d:
         json.dump(data, d, indent=4)
 
     embed = discord.Embed(title=cc.item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}", color=mineral_info["Color"])
@@ -113,7 +113,7 @@ async def Mining(ctx, id, minerals, data, cc, to_next_level, r):
 
 async def Work(ctx, xp_, cc):
 
-    with open("data/player_data.json") as data:
+    with open("assets/player_data.json") as data:
         data = json.load(data)
 
     id = str(ctx.author.id)
@@ -146,7 +146,7 @@ async def Work(ctx, xp_, cc):
                 data[id]["Xp"] = 0
                 data[id]["Level"] = 1
 
-                with open("data/player_data.json", 'w') as d:
+                with open("assets/player_data.json", 'w') as d:
                     json.dump(data, d, indent=4)
                 await jm.delete()
                 await ctx.send(f"Vous êtes devenu(e) mineur avec succès {ctx.author.mention} !")
@@ -476,7 +476,7 @@ async def Work(ctx, xp_, cc):
             if 9 in data[id]['Inventory']["MP"]:
                 if random.randint(0, 7) == 7:
                     data[id]["Ticket"] += 1
-                    with open("data/player_data.json", 'w') as d:
+                    with open("assets/player_data.json", 'w') as d:
                         json.dump(data, d, indent=4)
                     embed = discord.Embed(title="🎟 • Vous avez trouvé un ticket en minant !", color=0x157c0e)
                     embed.add_field(name="🎟 • Tickets :", value=data[id]["Ticket"])
@@ -499,7 +499,7 @@ async def Work(ctx, xp_, cc):
                             if 6 in data[id]['Inventory']["MP"]:
                                 data[id]['Inventory']["Debrit"] += 1
                             data[id]['Inventory']["Debrit"] += 1
-                            with open("data/player_data.json", 'w') as d:
+                            with open("assets/player_data.json", 'w') as d:
                                 json.dump(data, d, indent=4)
                             embed = discord.Embed(title=cc.item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debrit:882240995717156874>", color=0x3a3c3d)
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
@@ -578,7 +578,7 @@ async def Work(ctx, xp_, cc):
                             r = random.randint(0, 350)
                         to_next_level = 10 * (15 *data[id]['Level'])
 
-                    with open("data/player_data.json", 'w') as d:
+                    with open("assets/player_data.json", 'w') as d:
                         json.dump(data, d, indent=4)
 
                     embed = discord.Embed(title=f"**GG**, vous avez atteint le niveau **{data[id]['Level']}** !", description=f"XP nécessaire pour passer au prochain niveau : **{to_next_level}xp**", color=0x56860e)
@@ -587,7 +587,7 @@ async def Work(ctx, xp_, cc):
                     await ctx.send(embed=embed)
                 
                 if v == 1:
-                    with open("data/player_data.json", 'w') as d:
+                    with open("assets/player_data.json", 'w') as d:
                         json.dump(data, d, indent=4)
                     embed = discord.Embed(title=cc.item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:882241850965118978>", color=0x9f9c9a)
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
