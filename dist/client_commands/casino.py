@@ -1,5 +1,5 @@
 import json, discord, random, asyncio
-
+from assets.items_price import item_shop_price, item_shop_price_2
 
 async def CheckSign(ctx, id):
 
@@ -34,7 +34,7 @@ async def IfUserHasTicket(ctx, id):
         return 1
 
 
-async def Casino(ctx, arg, cc):
+async def Casino(ctx, arg):
 
     id = str(ctx.author.id)
     l = 0
@@ -173,7 +173,7 @@ async def Casino(ctx, arg, cc):
                                 with open("assets/player_data.json", 'w') as d:
                                     json.dump(data, d, indent=4)
                                     
-                                money_embed = discord.Embed(title=f"{title} Vous avez gagné !", description=f"{cc.item_shop_price_2[v['Item']]['Name']}", color=0x278b5b)
+                                money_embed = discord.Embed(title=f"{title} Vous avez gagné !", description=f"{item_shop_price_2[v['Item']]['Name']}", color=0x278b5b)
                                 money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                 money_embed.add_field(name="Argent :", value=data[id]['Money'], inline=False)
                                 money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
@@ -193,7 +193,7 @@ async def Casino(ctx, arg, cc):
                                 with open("assets/player_data.json", 'w') as d:
                                     json.dump(data, d, indent=4)
 
-                                money_embed = discord.Embed(title=f"{title} Vous avez gagné !", description=f"{cc.item_shop_price[v['Rank']]['Name']}", color=0x278b5b)
+                                money_embed = discord.Embed(title=f"{title} Vous avez gagné !", description=f"{item_shop_price[v['Rank']]['Name']}", color=0x278b5b)
                                 money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                 money_embed.add_field(name="Argent :", value=data[id]['Money'], inline=False)
                                 money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)

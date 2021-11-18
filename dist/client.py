@@ -42,7 +42,6 @@ from client_commands.filter import Filter
 import discord, time, os, json
 from colored import fg, attr
 from discord.ext import commands
-from selenium import webdriver
 from datetime import datetime
 from cryptography.fernet import Fernet
 
@@ -54,156 +53,11 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.4.3'
-            self.is_stoping = False
-            self.is_restarting = False
-            
-            self.options = webdriver.ChromeOptions()
-            # options.add_argument("--headless")
-            # options.add_argument("--disable-gpu")
-            self.options.add_argument("--disable-dev-shm-usage")
-            self.options.add_argument("--no-sandbox")
-            self.options.add_argument("--disable-software-rasterizer")
-            self.options.add_experimental_option("excludeSwitches", ["enable-logging"])
-            
-            self.lettres = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-            self.item_shop_price = {
-                        0: {
-                            "Name": "Aucun"
-                        },
-                        1: {
-                            "Level": 0,
-                            "Money": 1000,
-                            "Price": False,
-                            "Name": "😮-Mineur Débutant"
-                        },
-                        2: {
-                            "Level": 10,
-                            "Money": 2000,
-                            "Price": False,
-                            "Name": "😋-Mineur Amateur"
-                        },
-                        3: {
-                            "Level": 20,
-                            "Money": 5000,
-                            "Price": False,
-                            "Name": "⛏-Mineur Affirmé"
-                        },
-                        4: {
-                            "Level": 30,
-                            "Money": 10000,
-                            "Price": False,
-                            "Name": "😎-Mineur Professionel"
-                        },
-                        5: {
-                            "Level": 50,
-                            "Money": 50000,
-                            "Price": False,
-                            "Name": "🐱‍🏍-Mineur Légendaire"
-                        },
-                        6: {
-                            "Level": 50,
-                            "Money": 150000,
-                            "Price": False,
-                            "Name": "💎-Géologue"
-                        },
-                        7: {
-                            "Level": 75,
-                            "Money": 100000,
-                            "Price": False,
-                            "Name": "<:sacredstone:882234999145922621>-Récolteur de cristaux"
-                        },
-                        8: {
-                            "Level": 75,
-                            "Money": 500000,
-                            "Price": False,
-                            "Name": "🧚‍♀️-Mineur Mythique"
-                        },
-                        9: {
-                            "Level": 100,
-                            "Money": 1000000,
-                            "Price": False,
-                            "Name": "👑-Mineur Suprême"
-                        },
-                        10: {
-                            "Level": 20,
-                            "Money": 0,
-                            "Price": ["Coke", 10],
-                            "Name" : "<:drogue:882314468086931466>-DROGUÉ"
-                        },
-                        11: {
-                            "Name": "<a:catGroove:881951879653892098>-Créateur"
-                        },
-                        12 : {
-                            "Name": "<a:toucanhype:882315781277376542>-Gagnant du Loto"
-                        }
-                    }
-            self.item_shop_price_2 = {
-
-                        0: {
-                            "Name": "Aucun"
-                        },
-
-                        
-                        1: {
-                            "Name": "🧲|Pioche en Fer",
-                            "Price": ["Iron", 10],
-                            "Money": 2000
-                        },
-
-                        2: {
-                            "Name": "🥇|Pioche en Or",
-                            "Price": ["Gold", 10],
-                            "Money": 7500
-                        },
-
-                        3: {
-                            "Name": "🔥|Pioche de Magma",
-                            "Price": ["Magma Stone", 10],
-                            "Money": 1000
-                        },
-
-                        4: {
-                            "Name": "⛏|Alliage en Platine",
-                            "Price": ["Platinium", 10],
-                            "Money": 2000
-                        },
-
-                        5: {
-                            "Name": "👨‍🔬|PIOCHE DU CHINOIS",
-                            "Price": ["Joseph", 10],
-                            "Money": 100000
-                        },
-
-                        6 : {
-                            "Name": "✖|Pioche de Multiplication",
-                            "Price": ["Cobalt", 30],
-                            "Money": 50000
-                        },
-
-                        7: {
-                            "Name": "🕵️‍♂️|Pioche du Maraudeur",
-                            "Price": ["Stone", 1000],
-                            "Money": 25000
-                        },
-
-                        8: {
-                            "Name": "👾|Multi-Pioche",
-                            "Price": ["Diamond", 5],
-                            "Money": 100000
-                        },
-
-                        9 : {
-                            "Name" : "<a:toucanhype:882315781277376542>|Pioche du Loto"
-                        }
-                    }
-
+            self.client_version = '3.4.3.1'
             key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(key)
-            with open(".PRIVATE/token", "rb") as file:
-                encrypted_data = file.read()
+            with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
             self.decrypted_data = f.decrypt(encrypted_data)
-
             print(f"{fg(6)}{discord.__version__} - {discord.version_info}{attr(0)}")
             print('%s%sClient Version : %s' % (fg(57), attr(1), self.client_version))
         
@@ -250,20 +104,21 @@ with open(r"assets\player_data.json") as data:
 
         @staticmethod
         async def Ping(ctx): await Ping(ctx)
-
-        async def Inventory(self, ctx, equip): await Inventory(ctx, equip, self)
+        
+        @staticmethod
+        async def Inventory(ctx, equip): await Inventory(ctx, equip)
 
         @staticmethod
         async def Choice(ctx): await Choice(ctx)
 
-        async def Casino(self, ctx, arg): await Casino(ctx, arg, self)
+        @staticmethod
+        async def Casino(ctx, arg): await Casino(ctx, arg)
 
         @staticmethod
         async def Say(ctx, text): await Say(ctx, text)
 
         @staticmethod
-        async def Logs(ctx):
-            await Logs(ctx)
+        async def Logs(ctx): await Logs(ctx)
 
         @staticmethod
         async def Invite(ctx): await Invite(ctx)
@@ -274,7 +129,8 @@ with open(r"assets\player_data.json") as data:
         @staticmethod
         async def Bank(ctx, pos): await Bank(ctx, pos)
 
-        async def Shop(self, ctx, buy): await Shop(ctx, buy, self)
+        @staticmethod
+        async def Shop(ctx, buy): await Shop(ctx, buy)
       
         async def Work(self, ctx, xp_): await Work(ctx, xp_, self)
         
@@ -285,7 +141,8 @@ with open(r"assets\player_data.json") as data:
         @staticmethod
         async def Loto(ctx, m): await Loto(ctx, m)
 
-        async def Leaderboard(self, ctx): await Leaderboard(ctx, self)
+        @staticmethod
+        async def Leaderboard(ctx): await Leaderboard(ctx)
 
         @staticmethod
         async def Phrase(ctx):
@@ -302,11 +159,14 @@ with open(r"assets\player_data.json") as data:
 
         async def Help(self, ctx, arg): await Help(ctx, arg, self)
 
-        async def YouTube(self, ctx, search_=False): await Youtube(ctx, search_, self)
+        @staticmethod
+        async def YouTube(ctx, search_=False): await Youtube(ctx, search_)
 
-        async def Question(self, ctx, question_): await Question(ctx, question_, self)
+        @staticmethod
+        async def Question(ctx, question_): await Question(ctx, question_)
 
-        async def Image(self, ctx, image_=False): await Image(ctx, image_, self)
+        @staticmethod
+        async def Image(ctx, image_=False): await Image(ctx, image_)
 
         @staticmethod
         async def Site(ctx): await Site(ctx)
@@ -332,6 +192,7 @@ with open(r"assets\player_data.json") as data:
         @staticmethod
         async def Nude(ctx): await Nude(ctx)
 
-        async def Gif(self, ctx, gif_=False): await Gif(ctx, gif_, self)
+        @staticmethod
+        async def Gif(ctx, gif_=False): await Gif(ctx, gif_)
 
         async def Thanos(self, ctx): await Thanos(ctx, self)

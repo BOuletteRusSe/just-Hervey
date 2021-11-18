@@ -1,8 +1,7 @@
-from asyncio import sleep
 import discord, json, random
+from assets.items_price import item_shop_price, item_shop_price_2
 
-
-async def Mining(ctx, id, minerals, data, cc, to_next_level, r):
+async def Mining(ctx, id, minerals, data, to_next_level, r):
 
     f = False
 
@@ -17,7 +16,7 @@ async def Mining(ctx, id, minerals, data, cc, to_next_level, r):
 
 
     if mineral in ["Rubis", "Saphir", "Emerald"] and not data[id]["Inventory"]["Platinium Alliage"]:
-        embed = discord.Embed(title=cc.item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\nVous avez besoin d'un aliage en platine pour pouvoir le miner ! (c!shop item pour en acheter)", color=0x393838)
+        embed = discord.Embed(title=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\nVous avez besoin d'un aliage en platine pour pouvoir le miner ! (c!shop item pour en acheter)", color=0x393838)
         embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
         embed.set_image(url=mineral_info["Image"])
         await ctx.reply(embed=embed)
@@ -96,7 +95,7 @@ async def Mining(ctx, id, minerals, data, cc, to_next_level, r):
     with open("assets/player_data.json", 'w') as d:
         json.dump(data, d, indent=4)
 
-    embed = discord.Embed(title=cc.item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}", color=mineral_info["Color"])
+    embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}", color=mineral_info["Color"])
     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
     embed.set_image(url=mineral_info["Image"])
     embed.add_field(name="Bénéfice :", value=f"**{mm}€**", inline=True)
@@ -168,7 +167,7 @@ async def Work(ctx, xp_, cc):
             else:
                 to_next_level = 10 * (15 * data[id]["Level"])
 
-            embed=discord.Embed(title=cc.item_shop_price[data[id]['Inventory']["Rank"]]["Name"], color=0x393838)
+            embed=discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], color=0x393838)
             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=False)
             embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=False)
@@ -483,7 +482,7 @@ async def Work(ctx, xp_, cc):
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                     await ctx.reply(embed=embed)
 
-            if await Mining(ctx, id, minerals, data, cc ,to_next_level, r) == False:
+            if await Mining(ctx, id, minerals, data, to_next_level, r) == False:
                 if 7 not in data[id]['Inventory']["MP"] and data[id]['Level'] >= 10:
                     v = random.randint(1, 3)
                     if not v == 1:
@@ -501,7 +500,7 @@ async def Work(ctx, xp_, cc):
                             data[id]['Inventory']["Debrit"] += 1
                             with open("assets/player_data.json", 'w') as d:
                                 json.dump(data, d, indent=4)
-                            embed = discord.Embed(title=cc.item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debrit:882240995717156874>", color=0x3a3c3d)
+                            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debrit:882240995717156874>", color=0x3a3c3d)
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                             embed.set_image(url="https://i.ibb.co/r3zYVN8/debrit.png")
                             embed.add_field(name="Bénéfice :", value=f"**{mm}€**", inline=True)
@@ -589,7 +588,7 @@ async def Work(ctx, xp_, cc):
                 if v == 1:
                     with open("assets/player_data.json", 'w') as d:
                         json.dump(data, d, indent=4)
-                    embed = discord.Embed(title=cc.item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:882241850965118978>", color=0x9f9c9a)
+                    embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:882241850965118978>", color=0x9f9c9a)
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                     embed.set_image(url="https://i.ibb.co/23Wbsbp/stone.png")
                     embed.add_field(name="Bénéfice :", value=f"**{mm}€**", inline=True)

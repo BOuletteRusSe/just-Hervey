@@ -1,11 +1,14 @@
 import random
-from selenium import webdriver
 from colored import fg, attr
+from string import ascii_lowercase
+from selenium import webdriver
+from assets.selenium_presets import Driver
 
-async def Youtube(ctx, search_, cc):
+async def Youtube(ctx, search_):
 
     deleted_message = await ctx.reply("Chargement...")
-    driver = webdriver.Chrome(executable_path="assets/chromedriver.exe.exe", options=cc.options)
+    presets = Driver()
+    driver = webdriver.Chrome(executable_path=presets.executable_path, options=presets.options)
 
     while True:
 
@@ -13,7 +16,7 @@ async def Youtube(ctx, search_, cc):
             search = ""
             c = True
             for i in range(random.randint(2, 8)):
-                _temp = str(random.choice(cc.lettres))
+                _temp = random.choice(ascii_lowercase)
                 search += _temp
         else:
             search = ""

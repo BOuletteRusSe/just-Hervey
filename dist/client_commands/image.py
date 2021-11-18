@@ -1,13 +1,15 @@
 import random, discord
 from selenium import webdriver
+from string import ascii_lowercase
+from assets.selenium_presets import Driver
 
-async def Image(ctx, image_, c):
+async def Image(ctx, image_):
 
     deleted_message = await ctx.reply("Veuillez patienter...")
     if not image_:
         image_ = ""
         for i in range(random.randint(2, 6)):
-            _temp = str(random.choice(c.lettres))
+            _temp = random.choice(ascii_lowercase)
             image_ += _temp
     else:
         _image = ""
@@ -15,7 +17,8 @@ async def Image(ctx, image_, c):
             _image += word
             _image += " "
 
-    driver = webdriver.Chrome(executable_path="assets/chromedriver.exe.exe", options=c.options)
+    presets = Driver()
+    driver = webdriver.Chrome(executable_path=presets.executable_path, options=presets.options)
     driver.get(f"https://www.ecosia.org/images?q={image_}")
     try:
         driver.find_element_by_class_name("message-tips__title")

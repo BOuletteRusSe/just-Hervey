@@ -1,15 +1,16 @@
 import discord, requests, random
 from bs4 import BeautifulSoup
 from colored import fg, attr
+from string import ascii_lowercase
 
-async def Gif(ctx, gif_, c):
+async def Gif(ctx, gif_):
 
     while True:
 
         if not gif_:
             search = ""
             for i in range(random.randint(2, 6)):
-                _temp = str(random.choice(c.lettres))
+                _temp = str(random.choice(ascii_lowercase))
                 search += _temp
         else:
             search = ""

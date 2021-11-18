@@ -1,4 +1,5 @@
 import discord, json, re
+from assets.items_price import item_shop_price, item_shop_price_2
 
 
 def InventoryCheckNone(name, value, id, data, inventory_embed):
@@ -6,7 +7,7 @@ def InventoryCheckNone(name, value, id, data, inventory_embed):
         inventory_embed.add_field(name=name, value=data[id]["Inventory"][value], inline=True)
 
 
-async def CheckIfUserIsInGuild(ctx, arg, c):
+async def CheckIfUserIsInGuild(ctx, arg):
 
     """
     0 --> No Problem
@@ -55,23 +56,23 @@ async def Inventory(ctx, equip, c):
 
     items = ""
     for item in data[id]["Inventory"]["P Item"]:
-        items += f"{str(c.item_shop_price_2[item]['Name'])} ({item}) | "
+        items += f"{str(item_shop_price_2[item]['Name'])} ({item}) | "
 
     e_items = ""
     for item in data[id]["Inventory"]["MP"]:
-        e_items += f"{str(c.item_shop_price_2[item]['Name'])} ({item})"
+        e_items += f"{str(item_shop_price_2[item]['Name'])} ({item})"
 
     if data[id]["Inventory"]["MP"] == []:
         e_items = "Aucun"
 
     ranks = ""
     for rank in data[id]["Inventory"]["P Rank"]:
-        ranks += f"{str(c.item_shop_price[rank]['Name'])} ({rank}) | "
+        ranks += f"{str(item_shop_price[rank]['Name'])} ({rank}) | "
     
     inventory_embed = discord.Embed(title="⚔ INVENTAIRE ⚔", description="Ici, vous pouvez voir tout ce que vous avez a disposition dans votre inventaire.", color=0x1e4843)
     inventory_embed.set_author(name=user, icon_url=user.avatar_url)
     inventory_embed.add_field(name="🛠 • Objet(s) Équipé(s) :", value=e_items)
-    inventory_embed.add_field(name="🎭 • Grade :", value=c.item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], inline=True)
+    inventory_embed.add_field(name="🎭 • Grade :", value=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], inline=True)
     inventory_embed.add_field(name="Liste des Objets :", value=items, inline=True)
     inventory_embed.add_field(name="Liste des Grades :", value=ranks, inline=True)
     inventory_embed.add_field(name="🎟 • Tickets :", value=data[id]["Ticket"], inline=True)

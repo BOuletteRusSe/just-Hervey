@@ -1,6 +1,7 @@
 import discord, json
+from assets.items_price import item_shop_price, item_shop_price_2
 
-async def Shop(ctx, buy, cc):
+async def Shop(ctx, buy):
 
     with open("assets/player_data.json") as data:
         data = json.load(data)
@@ -45,7 +46,7 @@ async def Shop(ctx, buy, cc):
                 if buy[1] == "buy":
                     try:
                         if int(buy[2]) in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
-                            buy_item = cc.item_shop_price[int(buy[2])]
+                            buy_item = item_shop_price[int(buy[2])]
 
                             if data[id]['Level'] >= buy_item["Level"]:
 
@@ -87,7 +88,7 @@ async def Shop(ctx, buy, cc):
 
         elif buy[0] == "item":
 
-            for_changes_prices = cc.item_shop_price_2
+            for_changes_prices = item_shop_price_2
             for_changes_prices[8]["Price"] = ["Diamond", data[id]['Inventory']["Item Limit"] * 5]
             for_changes_prices[8]["Money"] = data[id]['Inventory']["Item Limit"] * 100000
 
@@ -106,7 +107,7 @@ async def Shop(ctx, buy, cc):
                 if buy[1] == "buy":
                     try:
                         if int(buy[2]) in [1, 2, 3, 4, 5, 6, 7, 8]:
-                            buy_item = cc.item_shop_price_2[int(buy[2])]
+                            buy_item = item_shop_price_2[int(buy[2])]
 
                             if data[id]['Inventory'][buy_item["Price"][0]] >= buy_item["Price"][1]:
 

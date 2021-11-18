@@ -1,7 +1,8 @@
 import discord, json
+from assets.items_price import item_shop_price, item_shop_price_2
 
 
-async def Leaderboard(ctx, c):
+async def Leaderboard(ctx):
 
     with open("assets/player_data.json") as data:
         data = json.load(data)
@@ -19,7 +20,7 @@ async def Leaderboard(ctx, c):
 
     for key in t.keys():
         try:
-            r[key] = c.item_shop_price[data[key]["Inventory"]["Rank"]]["Name"]
+            r[key] = item_shop_price[data[key]["Inventory"]["Rank"]]["Name"]
         except:
             continue
 
