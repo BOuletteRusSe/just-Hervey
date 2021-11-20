@@ -262,7 +262,7 @@ async def Help(ctx, arg, cc):
         help_embed = discord.Embed(title="**just Hervey 💎 || Help <a:catGroove:881951879653892098>**", description="__Liste des Commandes 🎉 :__\n*Pour obtenir plus d'information sur une commande vous pouvez utiliser* **c!help <commande>**.", color=0xb09292)
         help_embed.set_author(name=cc.bot.user, icon_url=cc.bot.user.avatar_url)
         help_embed.set_thumbnail(url="https://media.tenor.com/images/36dd82e085114a98fe9cfe428d7a4031/tenor.gif")
-        help_embed.set_footer(text="Hervey, just Hervey.")
+        help_embed.set_footer(text="Hervey, just Hervey. (v. %s)" % (cc.client_version))
 
         for k_, v_ in categorys.items():
             final_chain = ""
