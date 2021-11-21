@@ -102,7 +102,7 @@ async def blacknwhite(ctx):
 
 @client.bot.command()
 @cmd.cooldown(1, 30, cmd.BucketType.user)
-async def curse(ctx, *translat):
+async def curse(ctx, *, translat=None):
     CommandWriteLogs(ctx, 'Curse')
     await client.Curse(ctx, translat)
 
@@ -436,11 +436,11 @@ async def work_error(ctx, error):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
         await dele.delete(delay=1)
         
-@curse.error
+'''@curse.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
-        await dele.delete(delay=1)
+        await dele.delete(delay=1)'''
 
 @casino.error
 async def work_error(ctx, error):

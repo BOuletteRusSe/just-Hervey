@@ -9,18 +9,17 @@ async def Curse(ctx, translat):
         await d.delete(delay=15)    
     else:
         try:
-            ln = int(translat[0])  
+            ln = int(translat[:int(translat.find(' '))])  
         except: 
             d = await ctx.reply('Veuillez entrer un nombre de langue et une phrase valide après la commande !')
             await d.delete(delay=15)       
         else:
-            translated = str()
-            t = translat[1:]
-            for w in t: translated += w + ' '
-            if not translated:
+            if not translat:
                 d = await ctx.reply('Veuillez entrer un nombre de langue et une phrase valide après la commande !')
                 await d.delete(delay=15)
-            else:          
+            else:
+                translated = str()
+                translated = translat[int(translat.find(' ')):]
                 if not (0 < ln <= 100):
                     d = await ctx.reply('Veuillez entrer un nombre de langue entre 0 et 100 !')
                     await d.delete(delay=15)              
