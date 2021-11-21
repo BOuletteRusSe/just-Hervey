@@ -101,6 +101,12 @@ async def blacknwhite(ctx):
     await client.BlackNWhite(ctx)
 
 @client.bot.command()
+@cmd.cooldown(1, 30, cmd.BucketType.user)
+async def curse(ctx, *translat):
+    CommandWriteLogs(ctx, 'Curse')
+    await client.Curse(ctx, translat)
+
+@client.bot.command()
 @cmd.cooldown(1, 5, cmd.BucketType.user)
 async def filter(ctx, *color):
     CommandWriteLogs(ctx, "Filter")
@@ -425,6 +431,12 @@ async def work_error(ctx, error):
         await dele.delete(delay=1)
 
 @music.error
+async def work_error(ctx, error):
+    if isinstance(error, cmd.CommandOnCooldown):
+        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        await dele.delete(delay=1)
+        
+@curse.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')

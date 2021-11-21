@@ -4,6 +4,14 @@ import discord
 async def Help(ctx, arg, cc):
 
     commands_help = { 
+        'Curse • ☢' : {
+        "Command" : "curse",
+        "Description" : "Traduit la phrase voulue dans le nombre langue(s) différente(s) voulue (max 100) avant de la retraduire en Français grâce à google traduction. Donne souvent des résultats amusants.",
+        "Utilisation" : "c!curse <**nombre de langues**> <**phrase**>",
+        "Cooldown" : "30 Secondes par Utilisateur",
+        "Category": "Fun",
+        "Down" : False
+        },            
         'Filter • 🎨' : {
             "Command" : "filter",
             "Description" : "Applique un filtre de la couleure voulu sur l'image voulu. Pour plus d'info vous pouvez fire la commande sans argument.",

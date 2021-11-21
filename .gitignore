@@ -8,3 +8,5 @@ dist/assets/ffmpeg
 dist/logs
 dist/.PRIVATE
 desktop.ini
+__test__
+dist/assets/__pycache__

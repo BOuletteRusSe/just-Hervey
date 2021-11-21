@@ -38,6 +38,7 @@ from client_commands.random_music_play import RdMusic
 from client_commands.blacknwhite import BlackNWhite
 from client_commands.beatcut import BeatCut
 from client_commands.filter import Filter
+from client_commands.curse import Curse
 
 import discord, time, os, json
 from colored import fg, attr
@@ -53,7 +54,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.4.4'
+            self.client_version = '3.4.5'
             key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -89,6 +90,9 @@ with open(r"assets\player_data.json") as data:
         async def Filter(ctx, color): await Filter(ctx, color)
 
         async def Poker(self, ctx, arg): await Poker(ctx, arg, self)
+
+        @staticmethod
+        async def Curse(ctx, translat): await Curse(ctx, translat)
 
         @staticmethod
         async def RdMusic(ctx, is_activate): await RdMusic(ctx, is_activate)
