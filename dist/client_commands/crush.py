@@ -60,7 +60,7 @@ async def Crush(ctx, add):
                 if not add:
                     name = ctx.author.mention
 
-            names = [word.strip() for word in open("assets/texts/crush_names.txtes.txt")]
+            names = [word.strip() for word in open("assets/texts/crush_names.txt")]
             await ctx.reply(f"Chargement de l'âme soeur de **{name}**...")
             time.sleep(1.5)
             _ameSoeur = random.choice(names)
