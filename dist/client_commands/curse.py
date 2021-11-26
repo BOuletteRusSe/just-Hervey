@@ -31,12 +31,12 @@ async def Curse(ctx, translat):
                         from_lang = list()
                         for i in range(ln): from_lang.append(choice(from_langs))
                         
-                        mess = await ctx.reply(translated)
+                        mess = await ctx.reply('**0/%s** : %s' % (ln, translated))
                         
-                        for lang in from_lang:
-                            try: translated = GoogleTranslator(source='auto', target=lang).translate(translated)
+                        for lang in range(len(from_lang)):
+                            try: translated = GoogleTranslator(source='auto', target=from_lang[lang]).translate(translated)
                             except LanguageNotSupportedException: pass
-                            else: await mess.edit(content=translated)
+                            else: await mess.edit(content='**%s/%s** : %s' % (lang, ln, translated))
                             
                         translated = GoogleTranslator(source='auto', target='fr').translate(translated)
                         await mess.delete()

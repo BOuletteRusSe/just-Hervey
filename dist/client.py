@@ -39,6 +39,7 @@ from client_commands.blacknwhite import BlackNWhite
 from client_commands.beatcut import BeatCut
 from client_commands.filter import Filter
 from client_commands.curse import Curse
+from client_commands.issou import Issou
 
 import discord, time, os, json
 from colored import fg, attr
@@ -54,7 +55,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.4.5.2'
+            self.client_version = '3.4.6'
             key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -96,6 +97,9 @@ with open(r"assets\player_data.json") as data:
 
         @staticmethod
         async def RdMusic(ctx, is_activate): await RdMusic(ctx, is_activate)
+
+        @staticmethod
+        async def Issou(ctx): await Issou(ctx)
 
         @staticmethod
         async def Bouliste(ctx): await Bouliste(ctx)

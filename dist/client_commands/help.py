@@ -4,6 +4,14 @@ import discord
 async def Help(ctx, arg, cc):
 
     commands_help = { 
+        'Issou • 😆' : {
+            "Command" : "issou",
+            "Description" : "Envoie une  vidéo aléatoire de IssouTV (https://issoutv.com).",
+            "Utilisation" : "c!issou",
+            "Cooldown" : "1 Secondes par Utilisateur",
+            "Category": "Fun",
+            "Down" : False
+        },      
         'Curse • ☢' : {
         "Command" : "curse",
         "Description" : "Traduit la phrase voulue dans le nombre langue(s) différente(s) voulue (max 100) avant de la retraduire en Français grâce à google traduction. Donne souvent des résultats amusants.",

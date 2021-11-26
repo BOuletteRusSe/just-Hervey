@@ -367,6 +367,11 @@ async def gif(ctx, *gif_):
     CommandWriteLogs(ctx, "Gif")
     await client.Gif(ctx, gif_)
 
+@client.bot.command()
+@cmd.cooldown(1, 3, cmd.BucketType.user)
+async def issou(ctx):
+    CommandWriteLogs(ctx, "Issou")
+    await client.Issou(ctx)
 
 @client.bot.command()
 @cmd.cooldown(3, 2, cmd.BucketType.user)
@@ -381,7 +386,6 @@ async def mot(ctx, *arg):
             
         rm = random.choice([word.strip() for word in open('assets/texts/words_list.txt.txt')])
         await ctx.reply(f"{w}{rm}")
-
 
 @client.bot.command()
 @cmd.cooldown(3, 2, cmd.BucketType.user)
@@ -436,11 +440,17 @@ async def work_error(ctx, error):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
         await dele.delete(delay=1)
         
-'''@curse.error
+@issou.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
-        await dele.delete(delay=1)'''
+        await dele.delete(delay=1)      
+  
+@curse.error
+async def work_error(ctx, error):
+    if isinstance(error, cmd.CommandOnCooldown):
+        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        await dele.delete(delay=1)
 
 @casino.error
 async def work_error(ctx, error):
