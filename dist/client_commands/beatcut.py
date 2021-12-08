@@ -1,5 +1,5 @@
 
-import youtube_dl
+import pytube
 from string import ascii_letters
 from random import choice
 from scipy.io import wavfile
@@ -8,9 +8,8 @@ import discord
 from asyncio import sleep
 import subprocess
 
-def change_connect_stat(e):
-    global connected
-    connected = False
+def change_connect_stat(e, client):
+    client.voice_connect = False
 
 async def CheckVoice(ctx):
     if ctx.author.voice is None:
@@ -20,8 +19,8 @@ async def CheckVoice(ctx):
     else:
         for user in ctx.guild.members: 
             if user.id == 820344845918797854 and user.voice is not None:
-                    await ctx.reply('Le bot est déjà dans un salon vocal !')
-                    return False
+                await ctx.reply('Le bot est déjà dans un salon vocal !')
+                return False
     return True
 
 def beat_cut(path, frq):
@@ -50,50 +49,50 @@ def beat_cut(path, frq):
     
     return path
 
-async def BeatCut(ctx, args):
+async def BeatCut(ctx, args, client):
     
-    global connected
-    
-    connected = False
+    path_name = r'cache\downloaded_sounds'
     file_name = str()
     for i in range(10): file_name += choice(ascii_letters)
-    
-    file_name = r'cache\downloaded_sounds\%s.mp3' % (file_name)
-    ydl_opts = {'format': 'bestaudio/best', 'postprocessors': [{'key': 'FFmpegExtractAudio', 'preferredcodec': 'mp3', 'preferredquality': '192',}], 'outtmpl': file_name, 'quiet': True, 'restrictfilenames': True}
+    file_name += '.mp3'
     steps = ['**1/3** : Vérification...', '**2/3** : Téléchargement de la vidéo...', '**3/3** : Coupage des beats...']
     
     if await CheckVoice(ctx):
         
         if not args:
-            d = await ctx.reply('Veuillez sélectionner une frequence de cut ainsi qu\'un lien YouTube !\n(0 --> Cuts très rapides | 100000(+) --> Cuts très lents)')
+            d = await ctx.reply('Veuillez sélectionner une frequence de cut ainsi qu\'une vidéo YouTube !\n(0 --> Cuts très rapides | 100000(+) --> Cuts très lents)')
             await d.delete(delay=20)
             
         else:
             try:
                 c = await ctx.reply(steps[0])
-                frq = int(args[1])
-                
-                with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-                    try:
-                        if 'list' in args[0]: url = str(args[0])[:int(str(args[0]).index('list'))-1]
-                        else: url = args[0]
-                        await c.edit(content=steps[1])
-                        ydl.download([url])
-                        await c.edit(content=steps[2])
-                        await sleep(1)
-                        path = beat_cut(file_name, frq)
-                        await c.delete()
-                        voicechannel = ctx.author.voice.channel
-                        await ctx.reply('Terminé !\nJe rejoins le salon %s !' % (voicechannel))
-                        voice = await voicechannel.connect()
-                        connected = True
-                        voice.play(discord.FFmpegPCMAudio(path), after=lambda e: change_connect_stat(e))
-                        while connected: await sleep(0.1)
-                        await voice.disconnect()
-                    except: 
-                        await c.delete()
-                        await ctx.reply('Veuillez entrer une url valide !')
-                                
+                frq = int(args[-1])
+
+                try:
+                    if 'list' in args[:-1]: url = str(args[:-1])[:int(str(args[:-1]).index('list'))-1]
+                    else: url = args[:-1]
+                    await c.edit(content=steps[1])
+                    __s__ = str()
+                    for w in url:
+                        __s__ += '%s ' % (w)         
+                    s = str(pytube.Search(__s__).results[0])
+                    video_url = 'https://www.youtube.com/watch?v=%s' % (s[int(s.find('=')+1):][:-1])
+                    pytube.YouTube(video_url).streams.filter(only_audio=True).first().download(output_path=path_name, filename=file_name)
+                    await c.edit(content=steps[2])
+                    await sleep(1)
+                    path = beat_cut(path_name + '\\' + file_name, frq)
+                    await c.delete()
+                    voicechannel = ctx.author.voice.channel
+                    await ctx.reply('Terminé !\nJe rejoins le salon %s !\nVidéo en cours d\'écoute avec un beatcut de %s : %s' % (voicechannel, frq, video_url))
+                    voice = await voicechannel.connect()
+                    client.voice_connect = True
+                    voice.play(discord.FFmpegPCMAudio(path), after=lambda e: change_connect_stat(e, client))
+                    while client.voice_connect: await sleep(0.1)
+                    await voice.disconnect()
+                except: 
+                    await c.delete()
+                    await ctx.reply('URL invalide ou vidéo non-trouvée.')
+                                           
             except:
                 await c.delete()
                 d = await ctx.reply('Veuillez entrer une valeure correcte !\n(0 --> Cuts très rapides | 100000(+) --> Cuts très lents)')

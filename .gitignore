@@ -10,3 +10,4 @@ dist/.PRIVATE
 desktop.ini
 __test__
 dist/assets/__pycache__
+dist/assets/sounds

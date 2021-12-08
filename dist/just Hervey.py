@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import discord, random, sys
+import discord, random, sys, re, json
 from colored import fg, attr
 from discord import client
 from discord.ext import commands as cmd
@@ -9,6 +9,7 @@ from client import Client
 from datetime import datetime
 from client_commands.activity import ChangeActivity
 from client_commands.random_music_play import RandomMusicPlay
+from pytube import Playlist
 
 client = Client()
 client.bot.remove_command("help")
@@ -20,10 +21,14 @@ def CommandWriteLogs(ctx, command_name):
     logs.write(f"{log_message}\n")
     logs.close()
 
-
 @client.bot.event
 async def on_ready():
     logs = open("logs/logs.log", "a", encoding="utf-8")
+    playlist = Playlist('https://www.youtube.com/playlist?list=PLjZi4YemnDB6vu8fhQ2gfTb2FuUuGlr-F')
+    playlist._video_regex = re.compile(r"\"url\":\"(/watch\?v=[\w-]*)")
+    with open(r'assets\texts\links.txt', 'w+', encoding='utf-8') as url_file:
+        for url in playlist.video_urls: url_file.write('%s\n' % (url))
+    with open('assets/servers_playlist.json', 'w+') as j: json.dump({}, j, indent=4)
     logs.write(f"{str(datetime.now())} - Bot: Logged as {client.bot.user}\n")
     logs.close()
     print(f'{fg(2)}Logged as {client.bot.user} !{attr(1)}')
@@ -31,7 +36,6 @@ async def on_ready():
         print(f"{fg(255)}Logged in{attr(0)} {fg(190)}{guild}{attr(1)}")
     client.bot.loop.create_task(ChangeActivity(client))
     client.bot.loop.create_task(RandomMusicPlay(client))
-
 
 @client.bot.event
 async def on_guild_join(guild):
@@ -134,7 +138,7 @@ async def join(ctx):
 @client.bot.command()
 async def ping(ctx):
     CommandWriteLogs(ctx, "Ping")
-    if ctx.guild.id == 772461266135416843:
+    if ctx.guild.id == [833998298431881237, 772461266135416843]:
         await client.Ping(ctx)
 
 
@@ -194,6 +198,10 @@ async def say(ctx, *text):
     CommandWriteLogs(ctx, "Say")
     await client.Say(ctx, text)
 
+@client.bot.command()
+async def leave(ctx):
+    CommandWriteLogs(ctx, 'Leave')
+    await client.Leave(ctx)
 
 @client.bot.command()
 async def bank(ctx, *pos):
@@ -207,11 +215,16 @@ async def help(ctx, *arg):
     await client.Help(ctx, arg)
 
 
+'''@client.bot.command()
+async def play(ctx, *music):
+    CommandWriteLogs(ctx, 'Play')
+    await client.Play(ctx, music)'''
+
 @client.bot.command()
 @cmd.cooldown(3, 2.5, cmd.BucketType.user)
 async def music(ctx):
     CommandWriteLogs(ctx, "Music")
-    if ctx.guild.id == 772461266135416843:
+    if ctx.guild.id == [833998298431881237, 772461266135416843]:
         await client.Music(ctx)
 
 
@@ -224,7 +237,7 @@ async def loto(ctx, *m):
 @client.bot.command()
 async def bouliste(ctx):
     CommandWriteLogs(ctx, "Bouliste")
-    if ctx.guild.id == 772461266135416843:
+    if ctx.guild.id == [833998298431881237, 772461266135416843]:
         await client.Bouliste(ctx)
 
 
@@ -309,21 +322,21 @@ async def fight(ctx, *name):
 @client.bot.command()
 async def invite(ctx):
     CommandWriteLogs(ctx, "Invite")
-    if ctx.guild.id == 772461266135416843:
+    if ctx.guild.id in [833998298431881237, 772461266135416843]:
         await client.Invite(ctx)
 
 
 @client.bot.command()
 async def crush(ctx, *add):
     CommandWriteLogs(ctx, "Crush")
-    if ctx.guild.id == 772461266135416843:
+    if ctx.guild.id in [772461266135416843, 833998298431881237]:
         await client.Crush(ctx, add)
 
 
 @client.bot.command()
 async def boule(ctx, *arg):
     CommandWriteLogs(ctx, "Boule")
-    if ctx.guild.id in [772461266135416843, 830088796002975764]:
+    if ctx.guild.id in [772461266135416843, 830088796002975764, 833998298431881237]:
         await client.Boule(ctx, arg)
 
 
@@ -349,7 +362,7 @@ async def vdme(ctx):
 @cmd.cooldown(2, 10, cmd.BucketType.user)
 async def ph(ctx):
     CommandWriteLogs(ctx, "Ph")
-    if ctx.guild.id == 772461266135416843:
+    if ctx.guild.id == [833998298431881237, 772461266135416843]:
         await client.Ph(ctx)
 
 
@@ -357,7 +370,7 @@ async def ph(ctx):
 @cmd.cooldown(1, 5, cmd.BucketType.user)
 async def nude(ctx):
     CommandWriteLogs(ctx, "Nude")
-    if ctx.guild.id == 772461266135416843:
+    if ctx.guild.id == [833998298431881237, 772461266135416843]:
         await client.Nude(ctx)
 
 
@@ -418,7 +431,7 @@ async def phrase(ctx):
 @cmd.cooldown(1, 120, cmd.BucketType.default)
 async def thanos(ctx):
     CommandWriteLogs(ctx, "Thanos")
-    if ctx.guild.id == 772461266135416843:
+    if ctx.guild.id == [833998298431881237, 772461266135416843]:
         await client.Thanos(ctx)
 
 

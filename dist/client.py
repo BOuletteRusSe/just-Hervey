@@ -40,6 +40,8 @@ from client_commands.beatcut import BeatCut
 from client_commands.filter import Filter
 from client_commands.curse import Curse
 from client_commands.issou import Issou
+from client_commands.play import Play
+from client_commands.leave import Leave
 
 import discord, time, os, json
 from colored import fg, attr
@@ -55,11 +57,12 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.4.6'
+            self.client_version = '3.5.2'
             key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
             self.decrypted_data = f.decrypt(encrypted_data)
+            self.voice_connect = False
             print(f"{fg(6)}{discord.__version__} - {discord.version_info}{attr(0)}")
             print('%s%sClient Version : %s' % (fg(57), attr(1), self.client_version))
         
@@ -98,6 +101,8 @@ with open(r"assets\player_data.json") as data:
         @staticmethod
         async def RdMusic(ctx, is_activate): await RdMusic(ctx, is_activate)
 
+        async def Play(self, ctx, music): await Play(ctx, music, self)
+
         @staticmethod
         async def Issou(ctx): await Issou(ctx)
 
@@ -105,7 +110,9 @@ with open(r"assets\player_data.json") as data:
         async def Bouliste(ctx): await Bouliste(ctx)
 
         @staticmethod
-        async def BeatCut(ctx, args): await BeatCut(ctx, args)
+        async def Leave(ctx): await Leave(ctx)
+
+        async def BeatCut(self, ctx, args): await BeatCut(ctx, args, self)
 
         @staticmethod
         async def Music(ctx): await Music(ctx)

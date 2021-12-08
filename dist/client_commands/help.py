@@ -4,6 +4,14 @@ import discord
 async def Help(ctx, arg, cc):
 
     commands_help = { 
+        'Leave • 🔇' : {
+            "Command" : "leave",
+            "Description" : "Le bot quitte le salon vocal dans lequel vous êtes connecté si il l'est.",
+            "Utilisation" : "c!leave",
+            "Cooldown" : "Aucun",
+            "Category": "Images et sons",
+            "Down" : False
+        },
         'Issou • 😆' : {
             "Command" : "issou",
             "Description" : "Envoie une  vidéo aléatoire de IssouTV (https://issoutv.com).",
@@ -31,7 +39,7 @@ async def Help(ctx, arg, cc):
         'BeatCut • 🎹' : {
             "Command" : "beatcut",
             "Description" : "Coupe 1/2 beat d'une musique YouTube à la fréquence voulu pûis rejoint le salon vocal pour jouer la musique. Pour plus d'info vous pouvez fire la commande sans argument.",
-            "Utilisation" : "c!beatcut <**lien de la vidéo youtube**> <**fréquence de cut**>",
+            "Utilisation" : "c!beatcut <**lien our recherche d'une vidéo youtube**> <**fréquence de cut**>",
             "Cooldown" : "30 Secondes par Serveur",
             "Category": "Images et sons",
             "Down" : False
