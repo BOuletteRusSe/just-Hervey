@@ -215,10 +215,10 @@ async def help(ctx, *arg):
     await client.Help(ctx, arg)
 
 
-'''@client.bot.command()
+@client.bot.command()
 async def play(ctx, *music):
     CommandWriteLogs(ctx, 'Play')
-    await client.Play(ctx, music)'''
+    await client.Play(ctx, music)
 
 @client.bot.command()
 @cmd.cooldown(3, 2.5, cmd.BucketType.user)
@@ -242,7 +242,7 @@ async def bouliste(ctx):
 
 
 @client.bot.command()
-@cmd.cooldown(1, 10, cmd.BucketType.user)
+@cmd.cooldown(1, 5, cmd.BucketType.user)
 async def youtube(ctx, *search_):
     CommandWriteLogs(ctx, "Youtube")
     await client.YouTube(ctx, search_)

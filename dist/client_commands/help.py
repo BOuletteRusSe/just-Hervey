@@ -3,7 +3,15 @@ import discord
 
 async def Help(ctx, arg, cc):
 
-    commands_help = { 
+    commands_help = {
+        'Play • 🎶' : {
+            "Command" : "play",
+            "Description" : "Joue une vidéo/musique dans un salon vocal. ***[EN COURS DE DÉVELOPPEMENT]***",
+            "Utilisation" : "c!play <**recherche/URL de vidéo YouTube**>",
+            "Cooldown" : "Aucun",
+            "Category": "Images et sons",
+            "Down" : False
+        },
         'Leave • 🔇' : {
             "Command" : "leave",
             "Description" : "Le bot quitte le salon vocal dans lequel vous êtes connecté si il l'est.",
@@ -184,7 +192,7 @@ async def Help(ctx, arg, cc):
             "Command" : "youtube",
             "Description" : "Envoie une vidéo YouTube aléatoire. Vous pouvez affiner la recherche en ajoutant des arguments après la commande.",
             "Utilisation" : "c!youtube (<*recherche*>)",
-            "Cooldown" : "10 Secondes par Utilisateur",
+            "Cooldown" : "5 Secondes par Utilisateur",
             "Category": "Fun",
             "Down" : False
         },

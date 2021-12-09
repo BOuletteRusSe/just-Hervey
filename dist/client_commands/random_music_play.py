@@ -55,7 +55,7 @@ async def RdMusic(ctx, is_activate):
         
     if not is_activate:
         try:
-            await ctx.reply('Le rdmusic est actuellement sur %s.\n(0 --> Arrêter le rdmusic | 1 --> Réactiver le rdmusic)' % (sdata['RdMusic'][str(ctx.guild.id)]))
+            await ctx.reply('Le rdmusic est actuellement sur **%s**.\n(**0** --> Arrêter le rdmusic | **1** --> Réactiver le rdmusic)' % (sdata['RdMusic'][str(ctx.guild.id)]))
         except:
             sdata['RdMusic'][str(ctx.guild.id)] = False
             with open(r"assets\servers_data.json", 'w') as sd: json.dump(sdata, sd, indent=4)

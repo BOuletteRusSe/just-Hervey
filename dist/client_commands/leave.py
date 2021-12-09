@@ -22,3 +22,4 @@ async def Leave(ctx):
     
     if await CheckVoice(ctx): 
         await ctx.voice_client.disconnect()
+        await ctx.reply('Salon vocal quitté avec succès.')
