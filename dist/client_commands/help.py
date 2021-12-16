@@ -1,12 +1,28 @@
-import discord
+import discord, json
 
 
 async def Help(ctx, arg, cc):
+    
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+        
+    try:
+        tsc = ssccd[str(ctx.guild.id)]
+    except:
+        tsc = False
 
     commands_help = {
+        'TSSC • 📖' : {
+            "Command" : "tssc",
+            "Description" : "Commande pour accepter l'utilisation de commandes spéciales sur le bot.\nPour plus d'info vous pouvez executer la commande sans argument",
+            "Utilisation" : "c!tssc (**consent**/**decline**)",
+            "Cooldown" : "Aucun",
+            "Category": "Autre",
+            "Down" : False
+        },
         'Play • 🎶' : {
             "Command" : "play",
-            "Description" : "Joue une vidéo/musique dans un salon vocal. ***[EN COURS DE DÉVELOPPEMENT]***",
+            "Description" : "Joue une vidéo/musique dans un salon vocal.\n***[EN COURS DE DÉVELOPPEMENT]***",
             "Utilisation" : "c!play <**recherche/URL de vidéo YouTube**>",
             "Cooldown" : "Aucun",
             "Category": "Images et sons",
@@ -30,7 +46,7 @@ async def Help(ctx, arg, cc):
         },      
         'Curse • ☢' : {
         "Command" : "curse",
-        "Description" : "Traduit la phrase voulue dans le nombre langue(s) différente(s) voulue (max 100) avant de la retraduire en Français grâce à google traduction. Donne souvent des résultats amusants.",
+        "Description" : "Traduit la phrase voulue dans le nombre langue(s) différente(s) voulue (max 100) avant de la retraduire en Français grâce à google traduction.\nDonne souvent des résultats amusants.",
         "Utilisation" : "c!curse <**nombre de langues**> <**phrase**>",
         "Cooldown" : "30 Secondes par Utilisateur",
         "Category": "Fun",
@@ -38,7 +54,7 @@ async def Help(ctx, arg, cc):
         },            
         'Filter • 🎨' : {
             "Command" : "filter",
-            "Description" : "Applique un filtre de la couleure voulu sur l'image voulu. Pour plus d'info vous pouvez fire la commande sans argument.",
+            "Description" : "Applique un filtre de la couleure voulu sur l'image voulu.\nPour plus d'info vous pouvez fire la commande sans argument.",
             "Utilisation" : "c!filter <**couleure**> <**image**>",
             "Cooldown" : "5 Secondes par Utilisateur",
             "Category": "Images et sons",
@@ -46,7 +62,7 @@ async def Help(ctx, arg, cc):
         },
         'BeatCut • 🎹' : {
             "Command" : "beatcut",
-            "Description" : "Coupe 1/2 beat d'une musique YouTube à la fréquence voulu pûis rejoint le salon vocal pour jouer la musique. Pour plus d'info vous pouvez fire la commande sans argument.",
+            "Description" : "Coupe 1/2 beat d'une musique YouTube à la fréquence voulu pûis rejoint le salon vocal pour jouer la musique.\nPour plus d'info vous pouvez fire la commande sans argument.",
             "Utilisation" : "c!beatcut <**lien our recherche d'une vidéo youtube**> <**fréquence de cut**>",
             "Cooldown" : "30 Secondes par Serveur",
             "Category": "Images et sons",
@@ -206,7 +222,7 @@ async def Help(ctx, arg, cc):
         },
         "Casino • 🎰" : {
             "Command" : "casino",
-            "Description" : "Tentez votre chance en jouant au casino. L'argument rewards vous permet de voir les récompenses possible. L'argument buy vous permet d'acheter des tickets.",
+            "Description" : "Tentez votre chance en jouant au casino. L'argument rewards vous permet de voir les récompenses possible.\nL'argument buy vous permet d'acheter des tickets.",
             "Utilisation" : "c!casino (**rewards**) / (**buy** <**nombre de tickets**>)",
             "Cooldown" : "5 Secondes par Utilisateur",
             "Category": "Économie",
@@ -214,7 +230,7 @@ async def Help(ctx, arg, cc):
         },
         "Inventory • 🎁" : {
             "Command" : "inventory",
-            "Description" : "Affiche le contenu de votre inventaire. Vous pouvez changer vos objets équipés avec les arguments. Pour voir l'inventaire de quelqu'un vous pouvez le mentionner après la commande.",
+            "Description" : "Affiche le contenu de votre inventaire. Vous pouvez changer vos objets équipés avec les arguments.\nPour voir l'inventaire de quelqu'un vous pouvez le mentionner après la commande.",
             "Utilisation" : "c!inventory (**equip** **item** <**id de l'item**> / **equip** **rank** <**id du rank**> / <@**utilisateur**>",
             "Cooldown" : "Aucun",
             "Category": "Économie",
@@ -278,7 +294,7 @@ async def Help(ctx, arg, cc):
         }
     }
     
-    if ctx.guild.id == 772461266135416843:
+    if tsc:
         commands_help['Boule • 🧶'] = {"Command" : "boule", "Description" : "Envoie une boule.", "Utilisation" : "c!boule (**add** <**boule**>)", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
         commands_help['Bouliste • 🎳'] = {"Command" : "bouliste", "Description" : "Envoie une combinaison de boules.", "Utilisation" : "c!bouliste", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
         commands_help['Crush • 💖'] = {"Command" : "crush", "Description" : "Calcul votre amour.", "Utilisation" : "c!crush (**add** <**nom**> | <**prénom 1**> + <**prénom 2**>)", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
@@ -304,6 +320,8 @@ async def Help(ctx, arg, cc):
             final_chain = final_chain[:-2]
             help_embed.add_field(name=v_, value=final_chain, inline=False)
                 
+        if not tsc:
+            help_embed.add_field(name="**Pour plus de commandes...**", value="Vous pouvez faire la commande __**c!tssc consent**__ pour débloquer toutes les commandes.\n**⚠ • Attention** : Certaines commandes peuvent être choquantes pour certaines personnes.", inline=False)
 
         await ctx.reply(embed=help_embed)
 

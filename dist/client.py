@@ -42,6 +42,7 @@ from client_commands.curse import Curse
 from client_commands.issou import Issou
 from client_commands.play import Play
 from client_commands.leave import Leave
+from client_commands.ban import Ban
 
 import discord, time, os, json
 from colored import fg, attr
@@ -57,7 +58,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.6.0'
+            self.client_version = '3.6.2'
             key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -88,7 +89,40 @@ with open(r"assets\player_data.json") as data:
                         exit()
 
         @staticmethod
+        async def tssc(ctx, v):
+            
+            with open('assets/sscc.json') as sscc:
+                ssccd = json.load(sscc)
+                
+            try:
+                a = ssccd[str(ctx.guild.id)]
+            except:
+                a = False
+                
+            tssc_embed = discord.Embed(title='Les TSSC de ce serveur sont actuellement sur %s.' % (a), description='Pour les activer ou les désactiver vous pouvez faire la commande **c!tssc __consent__/__decline__**.', color=0xDED517)
+            tssc_embed.add_field(name='**⚠ • Attention**', value='Certaines commandes peuvent être choquantes pour certaines personnes, en acceptant les TSSC, vous acceptez tout les messages choquants que le bot pourrait envoyer.')
+                
+            if not v:
+                await ctx.reply(embed=tssc_embed)
+            
+            elif v[0] == 'consent':
+                ssccd[str(ctx.guild.id)] = True
+                with open('assets/sscc.json', 'w+') as sscc:
+                    json.dump(ssccd, sscc, indent=4)
+                await ctx.reply('Les TSSC ont bien été acceptées !')
+            elif v[0] == 'decline':
+                ssccd[str(ctx.guild.id)] = False
+                with open('assets/sscc.json', 'w+') as sscc:
+                    json.dump(ssccd, sscc, indent=4)
+                await ctx.reply('Les TSSC ont bien été refusées !')
+            else:
+                await ctx.reply(embed=tssc_embed)
+
+        @staticmethod
         async def BlackNWhite(ctx): await BlackNWhite(ctx)
+
+        @staticmethod
+        async def Ban(ctx): await Ban(ctx)
 
         @staticmethod
         async def Filter(ctx, color): await Filter(ctx, color)

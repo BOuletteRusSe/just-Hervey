@@ -138,8 +138,12 @@ async def join(ctx):
 @client.bot.command()
 async def ping(ctx):
     CommandWriteLogs(ctx, "Ping")
-    if ctx.guild.id == [833998298431881237, 772461266135416843]:
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
         await client.Ping(ctx)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
 @client.bot.command()
@@ -224,8 +228,12 @@ async def play(ctx, *music):
 @cmd.cooldown(3, 2.5, cmd.BucketType.user)
 async def music(ctx):
     CommandWriteLogs(ctx, "Music")
-    if ctx.guild.id == [833998298431881237, 772461266135416843]:
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
         await client.Music(ctx)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
 @client.bot.command()
@@ -237,8 +245,12 @@ async def loto(ctx, *m):
 @client.bot.command()
 async def bouliste(ctx):
     CommandWriteLogs(ctx, "Bouliste")
-    if ctx.guild.id == [833998298431881237, 772461266135416843]:
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
         await client.Bouliste(ctx)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
 @client.bot.command()
@@ -322,22 +334,34 @@ async def fight(ctx, *name):
 @client.bot.command()
 async def invite(ctx):
     CommandWriteLogs(ctx, "Invite")
-    if ctx.guild.id in [833998298431881237, 772461266135416843]:
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
         await client.Invite(ctx)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
 @client.bot.command()
 async def crush(ctx, *add):
     CommandWriteLogs(ctx, "Crush")
-    if ctx.guild.id in [772461266135416843, 833998298431881237]:
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
         await client.Crush(ctx, add)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
 @client.bot.command()
 async def boule(ctx, *arg):
     CommandWriteLogs(ctx, "Boule")
-    if ctx.guild.id in [772461266135416843, 830088796002975764, 833998298431881237]:
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
         await client.Boule(ctx, arg)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
 @client.bot.command()
@@ -362,16 +386,30 @@ async def vdme(ctx):
 @cmd.cooldown(2, 10, cmd.BucketType.user)
 async def ph(ctx):
     CommandWriteLogs(ctx, "Ph")
-    if ctx.guild.id == [833998298431881237, 772461266135416843]:
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
         await client.Ph(ctx)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
+
+
+@client.bot.command()
+async def tssc(ctx, *v):
+    CommandWriteLogs(ctx, 'TSSC')
+    await client.tssc(ctx, v)
 
 
 @client.bot.command()
 @cmd.cooldown(1, 5, cmd.BucketType.user)
 async def nude(ctx):
     CommandWriteLogs(ctx, "Nude")
-    if ctx.guild.id == [833998298431881237, 772461266135416843]:
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
         await client.Nude(ctx)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
 @client.bot.command()
@@ -415,6 +453,12 @@ async def ki(ctx):
 
 
 @client.bot.command()
+async def ban(ctx):
+    CommandWriteLogs(ctx, 'Ban')
+    await client.Ban(ctx)
+
+
+@client.bot.command()
 @cmd.cooldown(1, 3600, cmd.BucketType.guild)
 async def cki(ctx):
     CommandWriteLogs(ctx, "Cki")
@@ -431,8 +475,12 @@ async def phrase(ctx):
 @cmd.cooldown(1, 120, cmd.BucketType.default)
 async def thanos(ctx):
     CommandWriteLogs(ctx, "Thanos")
-    if ctx.guild.id == [833998298431881237, 772461266135416843]:
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
         await client.Thanos(ctx)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
 @loto.error

@@ -19,7 +19,10 @@ async def CheckVoice(ctx):
                     return False
     return True
 
-def change_connect_stat(e, client):
+def change_connect_stat(e, spd, guild, voicechannel_id, client):
+    spd[str(guild.id)][str(voicechannel_id)] = list(spd[str(guild.id)][str(voicechannel_id)]).pop(0)
+    with open(r"assets\servers_playlist.json", 'w') as sp: 
+        json.dump(spd, sp, indent=4)
     client.voice_connect = False
     
 async def AppendJsonFile(ctx, data, d):
@@ -58,11 +61,8 @@ async def PlayTask(client, voice, guild, voicechannel_id):
                         await voice.disconnect()
                     
                     else:
-                        voice.play(discord.FFmpegPCMAudio('cache/downloaded_sounds/%s' % (__v__[0])), after=lambda e: change_connect_stat(e, client))
+                        voice.play(discord.FFmpegPCMAudio('cache/downloaded_sounds/%s' % (__v__[0])), after=lambda e: change_connect_stat(e, spd, guild, voicechannel_id, client))
                         while client.voice_connect: await sleep(0.1)
-                        spd[str(guild.id)][str(voicechannel_id)] = list(spd[str(guild.id)][str(voicechannel_id)]).pop(0)
-                        with open(r"assets\servers_playlist.json", 'w') as sp: 
-                            json.dump(spd, sp, indent=4)
 
 async def Play(ctx, music, client):
     
