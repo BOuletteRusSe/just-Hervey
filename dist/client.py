@@ -58,7 +58,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.6.2'
+            self.client_version = '3.7.0'
             key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -154,8 +154,7 @@ with open(r"assets\player_data.json") as data:
         @staticmethod
         async def Ping(ctx): await Ping(ctx)
         
-        @staticmethod
-        async def Inventory(ctx, equip): await Inventory(ctx, equip)
+        async def Inventory(self, ctx, equip): await Inventory(ctx, equip, self)
 
         @staticmethod
         async def Choice(ctx): await Choice(ctx)

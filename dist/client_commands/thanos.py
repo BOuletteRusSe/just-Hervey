@@ -36,6 +36,6 @@ async def Thanos(ctx, c):
     await asyncio.sleep(0.25)"""
     await c.YouTube(ctx)
     await asyncio.sleep(0.25)
-    await ctx.reply(random.choice([word.strip() for word in open("assets/texts/words_list.txt.txt")]))
+    await ctx.reply(random.choice([word.strip() for word in open("assets/texts/words_list.txt")]))
     await asyncio.sleep(0.25)
     await ctx.reply(random.choice(["Oui", "Non"]))

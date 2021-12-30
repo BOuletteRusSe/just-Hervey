@@ -20,10 +20,9 @@ async def CheckVoice(ctx):
     return True
 
 def change_connect_stat(e, spd, guild, voicechannel_id, client):
-    spd[str(guild.id)][str(voicechannel_id)] = list(spd[str(guild.id)][str(voicechannel_id)]).pop(0)
+    spd[str(guild.id)][str(voicechannel_id)] = spd[str(guild.id)][str(voicechannel_id)].pop(0)
     with open(r"assets\servers_playlist.json", 'w') as sp: 
         json.dump(spd, sp, indent=4)
-    client.voice_connect = False
     
 async def AppendJsonFile(ctx, data, d):
     for k, v in data.items():
@@ -45,6 +44,8 @@ async def RdMusicIsNotActivate(ctx):
 
 async def PlayTask(client, voice, guild, voicechannel_id):
     
+    global playing
+    
     playing = True
     
     while playing:
@@ -55,16 +56,16 @@ async def PlayTask(client, voice, guild, voicechannel_id):
         for k, v in spd.items():
             if k == str(guild.id):
                 for __k__, __v__ in v.items():
-                    
-                    if len(__v__) == 0: 
+                    if len(__v__) == 0:
                         playing = False
                         await voice.disconnect()
-                    
                     else:
                         voice.play(discord.FFmpegPCMAudio('cache/downloaded_sounds/%s' % (__v__[0])), after=lambda e: change_connect_stat(e, spd, guild, voicechannel_id, client))
                         while client.voice_connect: await sleep(0.1)
 
 async def Play(ctx, music, client):
+    
+    global playing
     
     if not await RdMusicIsNotActivate(ctx):
         d = await ctx.reply('Veuillez **désactiver** le **RdMusic** pour jouer une vidéo avec la commande play.\n(**c!rdmusic 0**)')
@@ -84,13 +85,6 @@ async def Play(ctx, music, client):
             FILE_NAME += '.mp3'
             is_joining = False
             
-            for user in ctx.guild.members: 
-                if user.id == 820344845918797854 and user.voice is None:
-                    voicechannel = ctx.author.voice.channel
-                    voice = await voicechannel.connect()
-                    client.voice_connect = True
-                    is_joining = True
-            
             d = await ctx.reply('Téléchargement...')
             
             __s__ = str()
@@ -105,6 +99,13 @@ async def Play(ctx, music, client):
             else:
                 video_url = 'https://www.youtube.com/watch?v=%s' % (str(s)[int(str(s).find('=')+1):][:-1])
                 pytube.YouTube(video_url).streams.filter(only_audio=True).first().download(output_path=SOUNDS_CACHE, filename=FILE_NAME)
+            
+            for user in ctx.guild.members: 
+                if user.id == 820344845918797854 and user.voice is None:
+                    voicechannel = ctx.author.voice.channel
+                    voice = await voicechannel.connect()
+                    client.voice_connect = True
+                    is_joining = True
                 
                 with open('assets/servers_playlist.json') as j:
                     data = json.load(j)
@@ -123,5 +124,5 @@ async def Play(ctx, music, client):
                 embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                 await d.delete()
                 await ctx.send(embed=embed)
-                if is_joining:
+                if not playing:
                     client.bot.loop.create_task(PlayTask(client, voice, ctx.guild, voicechannel_id))

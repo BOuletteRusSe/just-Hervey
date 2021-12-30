@@ -222,7 +222,9 @@ async def help(ctx, *arg):
 @client.bot.command()
 async def play(ctx, *music):
     CommandWriteLogs(ctx, 'Play')
-    await client.Play(ctx, music)
+    # await client.Play(ctx, music)
+    d = await ctx.reply('Commande down...')
+    await d.delete(delay=10)
 
 @client.bot.command()
 @cmd.cooldown(3, 2.5, cmd.BucketType.user)
@@ -428,7 +430,7 @@ async def issou(ctx):
 @cmd.cooldown(3, 2, cmd.BucketType.user)
 async def mot(ctx, *arg):
     CommandWriteLogs(ctx, "Mot")
-    if not arg: await ctx.reply(random.choice([word.strip() for word in open("assets/texts/words_list.txt.txt")]))
+    if not arg: await ctx.reply(random.choice([word.strip() for word in open("assets/texts/words_list.txt")]))
     else:
         w = ""
         for word in arg:
@@ -472,7 +474,7 @@ async def phrase(ctx):
     await client.Phrase(ctx)
 
 @client.bot.command()
-@cmd.cooldown(1, 120, cmd.BucketType.default)
+@cmd.cooldown(1, 1280, cmd.BucketType.default)
 async def thanos(ctx):
     CommandWriteLogs(ctx, "Thanos")
     with open('assets/sscc.json') as sscc:

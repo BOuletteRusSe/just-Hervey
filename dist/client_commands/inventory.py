@@ -47,7 +47,7 @@ async def Inventory(ctx, equip, c):
     with open("assets/player_data.json") as data:
         data = json.load(data)
 
-    if await CheckIfUserIsInGuild(ctx, equip, c) not in [0, 4]:
+    if await CheckIfUserIsInGuild(ctx, equip) not in [0, 4]:
         id = str(ctx.author.id)
         user = ctx.author
     else:

@@ -26,7 +26,7 @@ async def Help(ctx, arg, cc):
             "Utilisation" : "c!play <**recherche/URL de vidéo YouTube**>",
             "Cooldown" : "Aucun",
             "Category": "Images et sons",
-            "Down" : False
+            "Down" : True
         },
         'Leave • 🔇' : {
             "Command" : "leave",
