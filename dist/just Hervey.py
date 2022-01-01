@@ -437,7 +437,7 @@ async def mot(ctx, *arg):
             w += word
             w += " "
             
-        rm = random.choice([word.strip() for word in open('assets/texts/words_list.txt.txt')])
+        rm = random.choice([word.strip() for word in open('assets/texts/words_list.txt')])
         await ctx.reply(f"{w}{rm}")
 
 @client.bot.command()
