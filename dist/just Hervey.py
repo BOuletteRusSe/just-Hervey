@@ -455,6 +455,13 @@ async def ki(ctx):
 
 
 @client.bot.command()
+@cmd.cooldown(1, 86400, cmd.BucketType.default)
+async def banane(ctx):
+    CommandWriteLogs(ctx, 'Banane')
+    await client.Banane(ctx)
+
+
+@client.bot.command()
 async def ban(ctx):
     CommandWriteLogs(ctx, 'Ban')
     await client.Ban(ctx)
@@ -552,6 +559,12 @@ async def work_error(ctx, error):
         await dele.delete(delay=1)
 
 @mot.error
+async def work_error(ctx, error):
+    if isinstance(error, cmd.CommandOnCooldown):
+        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        await dele.delete(delay=1)
+
+@banane.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')

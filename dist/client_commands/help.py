@@ -12,9 +12,17 @@ async def Help(ctx, arg, cc):
         tsc = False
 
     commands_help = {
+        'Banane • 🍌' : {
+            "Command" : "banane",
+            "Description" : "Ouvre une popup de banane sur le pc du créateur du bot.",
+            "Utilisation" : "c!banane",
+            "Cooldown" : "1 Jour",
+            "Category": "Fun",
+            "Down" : False
+        },
         'TSSC • 📖' : {
             "Command" : "tssc",
-            "Description" : "Commande pour accepter l'utilisation de commandes spéciales sur le bot.\nPour plus d'info vous pouvez executer la commande sans argument",
+            "Description" : "Commande pour accepter l'utilisation de commandes spéciales sur le bot.\nPour plus d'info vous pouvez executer la commande sans argument.",
             "Utilisation" : "c!tssc (**consent**/**decline**)",
             "Cooldown" : "Aucun",
             "Category": "Autre",

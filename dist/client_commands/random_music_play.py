@@ -25,14 +25,14 @@ async def RandomMusicPlay(client):
             sdata = json.load(sd)
         
         for s, v in sdata['RdMusic'].items():
-            if v and await CheckVoice(client.bot.get_guild(int(s))):
+            if v[0] and await CheckVoice(client.bot.get_guild(int(s))):
             
                 sounds_paths = glob(r'assets\sounds\*.mp3')
                 
                 for member in client.bot.get_guild(int(s)).members:
                     if member.voice is not None: members_on_voice.append(member.voice)
                     
-                if randint(0, 50) == 1 and len(members_on_voice) > 0:
+                if randint(0, v[1]) == 0 and len(members_on_voice) > 0:
                     voicechannel = choice(members_on_voice).channel
                     voice = await voicechannel.connect()
                     log_message = f"{str(datetime.now())} - {client.bot.get_guild(int(s))} : RandomJoin : Le bot a rejoin le salon {voicechannel} de manière aléatoire."
@@ -55,17 +55,33 @@ async def RdMusic(ctx, is_activate):
         
     if not is_activate:
         try:
-            await ctx.reply('Le rdmusic est actuellement sur **%s**.\n(**0** --> Arrêter le rdmusic | **1** --> Réactiver le rdmusic)' % (sdata['RdMusic'][str(ctx.guild.id)]))
+            if sdata['RdMusic'][str(ctx.guild.id)][0]:
+                await ctx.reply('Le rdmusic est actuellement sur **%s** avec un ratio de 1 chance sur %s de join toute les 5 secondes.\n(**0** --> Arrêter le rdmusic | **1** --> Réactiver le rdmusic | **ratio <nombre>** --> Changer le ratio de join (1 chance sur le nombre choisit de join toute les 5 secondes))' % (sdata['RdMusic'][str(ctx.guild.id)][0], sdata['RdMusic'][str(ctx.guild.id)][1]))
+            else:
+                await ctx.reply('Le rdmusic est actuellement sur **%s**.\n(**0** --> Arrêter le rdmusic | **1** --> Réactiver le rdmusic | **ratio <nombre>** --> Changer le ratio de join (1 chance sur le nombre choisit de join toute les 5 secondes))' % (sdata['RdMusic'][str(ctx.guild.id)][0]))
         except:
-            sdata['RdMusic'][str(ctx.guild.id)] = False
+            sdata['RdMusic'][str(ctx.guild.id)] = [False]
             with open(r"assets\servers_data.json", 'w') as sd: json.dump(sdata, sd, indent=4)
-            await ctx.reply('Le rdmusic est actuellement sur %s.\n(0 --> Arrêter le rdmusic | 1 --> Réactiver le rdmusic)' % (sdata['RdMusic'][str(ctx.guild.id)]))
+            await ctx.reply('Le rdmusic est actuellement sur **%s**.\n(**0** --> Arrêter le rdmusic | **1** --> Réactiver le rdmusic | **ratio <nombre>** --> Changer le ratio de join (1 chance sur le nombre choisit de join toute les 5 secondes))' % (sdata['RdMusic'][str(ctx.guild.id)][0]))
     elif is_activate[0] == '0':
-        sdata['RdMusic'][str(ctx.guild.id)] = False
+        sdata['RdMusic'][str(ctx.guild.id)] = [False]
         with open(r"assets\servers_data.json", 'w') as sd: json.dump(sdata, sd, indent=4)
         await ctx.reply('Le rdmusic a bien été arrêté !')
     elif is_activate[0] == '1':
-        sdata['RdMusic'][str(ctx.guild.id)] = True
+        if len(sdata['RdMusic'][str(ctx.guild.id)]) == 1:
+            sdata['RdMusic'][str(ctx.guild.id)] = [True, 50]
         with open(r"assets\servers_data.json", 'w') as sd: json.dump(sdata, sd, indent=4)
-        await ctx.reply('Le rdmusic a bien été activé !')     
-    else: await ctx.reply('Veuillez entrer une valeure correcte !\n(0 --> Arrêter le rdmusic | 1 --> Réactiver le rdmusic)')  
+        await ctx.reply('Le rdmusic a bien été activé !') 
+    elif is_activate[0] == 'ratio':
+        if not sdata['RdMusic'][str(ctx.guild.id)][0]:
+            await ctx.reply('Vous devez d\'abord activer le RdMusic pour pouvoir modifier le ratio de join.\n(**c!rdmusic 1** pour activer le RdMusic)')
+        else:
+            try:
+                ratio = int(is_activate[1])
+            except:
+                await ctx.reply('Veuillez entrer un ratio correcte !\n(c!rdmusic ratio **<nombre>** (1 chance sur le nombre choisit de join toute les 5 secondes)')
+            else:
+                sdata['RdMusic'][str(ctx.guild.id)][1] = int(ratio)
+                await ctx.reply('Le RdMusic a bien été modifié a %s' % (ratio))
+                with open(r"assets\servers_data.json", 'w') as sd: json.dump(sdata, sd, indent=4)
+    else: await ctx.reply('Veuillez entrer une valeure correcte !\n(0 --> Arrêter le rdmusic | 1 --> Réactiver le rdmusic | **ratio <nombre>** --> Changer le ratio de join (1 chance sur le nombre choisit de join toute les 5 secondes))')  
