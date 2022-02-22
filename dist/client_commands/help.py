@@ -16,7 +16,7 @@ async def Help(ctx, arg, cc):
             "Command" : "banane",
             "Description" : "Ouvre une popup de banane sur le pc du créateur du bot.",
             "Utilisation" : "c!banane",
-            "Cooldown" : "1 Jour",
+            "Cooldown" : "1 Heure",
             "Category": "Fun",
             "Down" : False
         },

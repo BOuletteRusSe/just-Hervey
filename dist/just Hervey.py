@@ -455,7 +455,7 @@ async def ki(ctx):
 
 
 @client.bot.command()
-@cmd.cooldown(1, 86400, cmd.BucketType.default)
+@cmd.cooldown(1, 3600, cmd.BucketType.default)
 async def banane(ctx):
     CommandWriteLogs(ctx, 'Banane')
     await client.Banane(ctx)
