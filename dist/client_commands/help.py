@@ -16,7 +16,7 @@ async def Help(ctx, arg, cc):
             "Command" : "banane",
             "Description" : "Ouvre une popup de banane sur le pc du créateur du bot.",
             "Utilisation" : "c!banane",
-            "Cooldown" : "1 Heure",
+            "Cooldown" : "5 Minutes",
             "Category": "Fun",
             "Down" : False
         },
@@ -158,9 +158,9 @@ async def Help(ctx, arg, cc):
         },
         "Phrase • 🆎" : {
             "Command" : "phrase",
-            "Description" : "Envoie une phrase (aléatoire) [**EN BETA**].",
+            "Description" : "Envoie une phrase (aléatoire).",
             "Utilisation" : "c!phrase",
-            "Cooldown" : "Aucun",
+            "Cooldown" : "5 Secondes par Salon",
             "Category": "Fun",
             "Down" : False
         },
