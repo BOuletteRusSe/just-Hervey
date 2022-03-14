@@ -59,7 +59,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.7.4'
+            self.client_version = '3.7.5'
             key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()

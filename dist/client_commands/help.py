@@ -306,7 +306,7 @@ async def Help(ctx, arg, cc):
         commands_help['Boule • 🧶'] = {"Command" : "boule", "Description" : "Envoie une boule.", "Utilisation" : "c!boule (**add** <**boule**>)", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
         commands_help['Bouliste • 🎳'] = {"Command" : "bouliste", "Description" : "Envoie une combinaison de boules.", "Utilisation" : "c!bouliste", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
         commands_help['Crush • 💖'] = {"Command" : "crush", "Description" : "Calcul votre amour.", "Utilisation" : "c!crush (**add** <**nom**> | <**prénom 1**> + <**prénom 2**>)", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
-        commands_help['Invite • ✉'] = {"Command" : "invite", "Description" : "Envoie une invitation vers un serveur discord au hasard (donne souvent une inbitation invalide).", "Utilisation" : "c!invite", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
+        commands_help['Invite • ✉'] = {"Command" : "invite", "Description" : "Envoie une invitation vers un serveur discord au hasard (donne souvent une invitation invalide).", "Utilisation" : "c!invite", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
         commands_help['Music • 🎵'] = {"Command" : "music", "Description" : "Envoie une musique aléatoire de la playlist BEAUF.FR.", "Utilisation" : "c!music", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
         commands_help['Nude • 🔞'] = {"Command" : "nude", "Description" : "Envoie une nude.", "Utilisation" : "c!nude", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
         commands_help['Ph • 🟠⚫'] = {"Command" : "ph", "Description" : "Envoie un titre de vidéo provenant de ph.", "Utilisation" : "c!ph", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
@@ -315,7 +315,7 @@ async def Help(ctx, arg, cc):
     if not arg:
 
         categorys = {"Fun": "Fun • 🎉", "Images et sons": "Images et sons • 🎨", "Économie": "Économie • 📊", "Autre": "Autre • 🎲"}
-        help_embed = discord.Embed(title="**just Hervey 💎 || Help <a:catGroove:881951879653892098>**", description="__Liste des Commandes 🎉 :__\n*Pour obtenir plus d'information sur une commande vous pouvez utiliser* **c!help <commande>**.", color=0xb09292)
+        help_embed = discord.Embed(title="**just Hervey 💎 || Help <a:catGroove:881951879653892098>**", description="__Liste des Commandes 🎉 :__\n*Pour obtenir plus d'information sur une commande vous pouvez utiliser* **c!help <commande>**.", color=0xb09292, url="https://github.com/BOuletteRusSe")
         help_embed.set_author(name=cc.bot.user, icon_url=cc.bot.user.avatar_url)
         help_embed.set_thumbnail(url="https://media.tenor.com/images/36dd82e085114a98fe9cfe428d7a4031/tenor.gif")
         help_embed.set_footer(text="Hervey, just Hervey. (v. %s)" % (cc.client_version))
