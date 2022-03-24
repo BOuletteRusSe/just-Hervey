@@ -74,7 +74,7 @@ async def Help(ctx, arg, cc):
             "Utilisation" : "c!beatcut <**lien our recherche d'une vidéo youtube**> <**fréquence de cut**>",
             "Cooldown" : "30 Secondes par Serveur",
             "Category": "Images et sons",
-            "Down" : False
+            "Down" : True
         },
         'BlackNWhite • 🖼' : {
             "Command" : "blacknwhite",
@@ -194,7 +194,7 @@ async def Help(ctx, arg, cc):
             "Utilisation" : "c!vdm",
             "Cooldown" : "Aucun",
             "Category": "Fun",
-            "Down" : True
+            "Down" : False
         },
         "VDME • 🔞" : {
             "Command" : "vdme",
@@ -202,7 +202,7 @@ async def Help(ctx, arg, cc):
             "Utilisation" : "c!vdme",
             "Cooldown" : "Aucun",
             "Category": "Fun",
-            "Down" : True
+            "Down" : False
         },
         "Vote • 📊" : {
             "Command" : "vote",

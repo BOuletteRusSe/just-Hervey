@@ -287,7 +287,9 @@ async def image(ctx, *image_):
 @cmd.cooldown(1, 30, cmd.BucketType.guild)
 async def beatcut(ctx, *args):
     CommandWriteLogs(ctx, 'BeatCut')
-    await client.BeatCut(ctx, args)
+    d = await ctx.reply('Commande temporairement down !')
+    # await client.BeatCut(ctx, args)
+    await d.delete(delay=7)
 
 
 @client.bot.command()
@@ -367,21 +369,17 @@ async def boule(ctx, *arg):
 
 
 @client.bot.command()
-@cmd.cooldown(2, 10, cmd.BucketType.user)
+@cmd.cooldown(5, 3, cmd.BucketType.user)
 async def vdm(ctx):
     CommandWriteLogs(ctx, "Vdm")
-    # await client.Vdm(ctx)
-    d = await ctx.reply('Commande down...')
-    await d.delete(delay=10)
+    await client.Vdm(ctx)
 
 
 @client.bot.command()
-@cmd.cooldown(2, 10, cmd.BucketType.user)
+@cmd.cooldown(5, 3, cmd.BucketType.user)
 async def vdme(ctx):
     CommandWriteLogs(ctx, "Vdme")
-    # await client.Vdme(ctx)
-    d = await ctx.reply('Commande down...')
-    await d.delete(delay=10)
+    await client.Vdme(ctx)
 
 
 @client.bot.command()

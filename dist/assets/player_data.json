@@ -46,15 +46,15 @@
         }
     },
     "598900088768692348": {
-        "Money": 22275.84999999999,
+        "Money": 21599.34999999999,
         "Bank": 733151,
         "Ticket": 0,
         "Level": 47,
-        "Xp": 5524.999999999994,
+        "Xp": 5968.999999999994,
         "Hobby": 0,
         "Inventory": {
             "Debrit": 530,
-            "Stone": 572,
+            "Stone": 576,
             "Iron": 114,
             "Gold": 41,
             "Diamond": 4,
@@ -65,7 +65,7 @@
             "Platinium": 132,
             "Randomite": 52,
             "Magma Stone": 21,
-            "Obsidian": 39,
+            "Obsidian": 41,
             "Joseph": 0,
             "Jade": 6,
             "Coal": 3,
@@ -518,6 +518,54 @@
             "Mercury": 0,
             "Coke": 0,
             "Stone": 1,
+            "Iron": 0,
+            "Gold": 0,
+            "Silver": 0,
+            "Diamond": 0,
+            "Rubis": 0,
+            "Saphir": 0,
+            "Platinium": 0,
+            "Randomite": 0,
+            "Magma Stone": 0,
+            "Joseph": 0,
+            "Sacred Stone": 0,
+            "Cobalt": 0,
+            "Fossil": 0,
+            "Emerald": 0,
+            "Grenat": 0,
+            "Amethist": 0,
+            "Platinium Alliage": false,
+            "Rank": 0,
+            "Item Limit": 1,
+            "MP": [
+                0
+            ],
+            "P Item": [
+                0
+            ],
+            "P Rank": [
+                0
+            ]
+        }
+    },
+    "717649688098111540": {
+        "Money": 101.0,
+        "Bank": 0,
+        "Level": 1,
+        "Xp": 4,
+        "Hobby": 0,
+        "Ticket": 0,
+        "Inventory": {
+            "Jade": 0,
+            "Cooper": 0,
+            "Coal": 0,
+            "Fluorite": 0,
+            "Debrit": 0,
+            "Obsidian": 0,
+            "Turquoise": 0,
+            "Mercury": 0,
+            "Coke": 0,
+            "Stone": 4,
             "Iron": 0,
             "Gold": 0,
             "Silver": 0,
