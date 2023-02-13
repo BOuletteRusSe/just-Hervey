@@ -61,30 +61,33 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
         data[id]['Level'] += 1
         data[id]["Xp"] -= to_next_level
 
+        # Calcul d'xp pour le prochain niveau
+        to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
+
         if data[id]['Level'] < 10:
             if 1 in data[id]["Inventory"]["MP"]:
                 r = random.randint(0, 100)
             else:
                 r = random.randint(0, 90)
-            to_next_level = 10 * (3 * data[id]['Level'])            
+                         
         elif 20 > data[id]['Level'] >= 10:
             if 1 in data[id]['Inventory']["MP"]:
                 r = random.randint(0, 200)
             else:
                 r = random.randint(0, 180)
-            to_next_level = 10 * (5 * data[id]['Level'])
+
         elif 30 > data[id]['Level'] >= 20:
             if 1 in data[id]['Inventory']["MP"]:
                 r = random.randint(0, 260)
             else:
                 r = random.randint(0, 300)
-            to_next_level = 10 * (10 * data[id]['Level'])
+
         else:
             if 1 in data[id]['Inventory']["MP"]:
                 r = random.randint(0, 300)
             else:
                 r = random.randint(0, 350)
-            to_next_level = 10 * (15 * data[id]['Level'])
+
 
         with open("assets/player_data.json", 'w') as d:
             json.dump(data, d, indent=4)
@@ -109,8 +112,9 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
     return True
 
 
-
 async def Work(ctx, xp_, cc):
+
+    # INSCRIPTION
 
     with open("assets/player_data.json") as data:
         data = json.load(data)
@@ -156,16 +160,11 @@ async def Work(ctx, xp_, cc):
                 d = await ctx.reply("Délai dépassé !")
                 await d.delete(delay=15)
 
+        # Commande XP
         elif "xp" in xp_:
 
-            if data[id]["Level"] < 10:
-                    to_next_level = 10 * (3 * data[id]["Level"])            
-            elif 20 > data[id]["Level"] >= 10:
-                to_next_level = 10 * (5 * data[id]["Level"])
-            elif 30 > data[id]["Level"] >= 20:
-                to_next_level = 10 * (10 * data[id]["Level"])
-            else:
-                to_next_level = 10 * (15 * data[id]["Level"])
+            # Calcul d'xp pour le prochain niveau
+            to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
 
             embed=discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], color=0x393838)
             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
@@ -178,36 +177,40 @@ async def Work(ctx, xp_, cc):
 
         elif data[id]['Hobby'] == 0:    
 
+            # A REVOIR POUR LE SHOP
+
+            # Calcul d'xp pour le prochain niveau
+            to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
+
             if data[id]['Level'] < 10:
                 if 1 in data[id]['Inventory']["MP"]:
                     r = random.randint(0, 100)
                 else:
                     r = random.randint(0, 90)
-                to_next_level = 10 * (3 * data[id]['Level'])            
+        
             elif 20 > data[id]['Level'] >= 10:
                 if 1 in data[id]['Inventory']["MP"]:
                     r = random.randint(0, 200)
                 else:
                     r = random.randint(0, 180)
-                to_next_level = 10 * (5 * data[id]['Level'])
+
             elif 30 > data[id]['Level'] >= 20:
                 if 1 in data[id]['Inventory']["MP"]:
                     r = random.randint(0, 260)
                 else:
                     r = random.randint(0, 300)
-                to_next_level = 10 * (10 * data[id]['Level'])
+
             else:
                 if 1 in data[id]['Inventory']["MP"]:
                     r = random.randint(0, 300)
                 else:
                     r = random.randint(0, 350)
-                to_next_level = 10 * (15 * data[id]['Level'])  
 
-
+            # Liste des minéraux
             minerals = {
                 "Iron" : {
                     "Min" : 0,
-                    "Max" : 10,
+                    "Max" : 11,
                     "Name" : "du **Fer** !",
                     "Emoji" : "<:iron:881949148876783646>",
                     "Price" : (20, 75),
@@ -217,8 +220,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/vxNTJTR/iron.png"
                 },
                 "Gold" : {
-                    "Min" : 11,
-                    "Max" : 16,
+                    "Min" : 12,
+                    "Max" : 22,
                     "Name" : "de **l'Or** !",
                     "Emoji" : "<:gold:881954591774736395>",
                     "Price" : (200, 300),
@@ -228,8 +231,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/RNdqgBr/gold.png"
                 },
                 "Diamond" : {
-                    "Min" : 17,
-                    "Max" : 19,
+                    "Min" : 23,
+                    "Max" : 31,
                     "Name" : "du **Diamant** !",
                     "Emoji" : "<:diamond:881949161753309194>",
                     "Price" : (800, 1200),
@@ -239,8 +242,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/grpxfXD/diamond.png"
                 },
                 "Silver" : {
-                    "Min" : 20,
-                    "Max" : 27,
+                    "Min" : 32,
+                    "Max" : 42,
                     "Name" : "de l'**Argent** !",
                     "Emoji" : "<:silver:881958476287459408>",
                     "Price" : (50, 100),
@@ -250,8 +253,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/1K2DxTZ/silver.png"
                 },
                 "Coal" : {
-                    "Min" : 28,
-                    "Max" : 33,
+                    "Min" : 43,
+                    "Max" : 54,
                     "Name" : "du **Charbon** !",
                     "Emoji" : "<:coal:882226330110926908>",
                     "Price" : 50,
@@ -261,8 +264,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/gvS3YL6/coal.png"
                 },
                 "Cooper" : {
-                    "Min" : 34,
-                    "Max" : 39,
+                    "Min" : 55,
+                    "Max" : 63,
                     "Name" : "du **Cuivre** !",
                     "Emoji" : "<:cooper:882228895192076339>",
                     "Price" : 100,
@@ -272,8 +275,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/V901trS/cooper.png"
                 },
                 "Rubis" : {
-                    "Min" : 40,
-                    "Max" : 48,
+                    "Min" : 64,
+                    "Max" : 71,
                     "Name" : "du **Rubis** !",
                     "Emoji" : "<:rubis:881960449938186240>",
                     "Price" : 2000,
@@ -283,8 +286,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/1dWF0rn/ruby.png"
                 },
                 "Grenat" : {
-                    "Min" : 49,
-                    "Max" : 53,
+                    "Min" : 72,
+                    "Max" : 79,
                     "Name" : "du **Grenat** !",
                     "Emoji": "<:grenat:881962367037087785>",
                     "Price" : (200, 600),
@@ -294,8 +297,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/tC4rgLL/grenat.png"
                 },
                 "Saphir" : {
-                    "Min" : 54,
-                    "Max" : 61,
+                    "Min" : 80,
+                    "Max" : 87,
                     "Name" : "du **Saphire** !",
                     "Emoji" : "<:saphir:881963269424824370>",
                     "Price" : 250,
@@ -305,8 +308,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/Gcvm4cy/saphir.png"
                 },
                 "Platinium" : {
-                    "Min" : 62,
-                    "Max" : 77,
+                    "Min" : 88,
+                    "Max" : 98,
                     "Name" : "du **Platine** !",
                     "Emoji" : "<:platinium:881964089667121202>",
                     "Price" : (200, 700),
@@ -316,8 +319,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/GMr1xRg/platinium.png"
                 },
                 "Randomite" : {
-                    "Min" : 78,
-                    "Max" : 84,
+                    "Min" : 99,
+                    "Max" : 106,
                     "Name" : "de la **Randomite** !",
                     "Emoji" : "<:randomite:881964979639709748>",
                     "Price" : (0, 10000),
@@ -327,8 +330,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/XJt7DqR/randomite.png"
                 },
                 "Magma Stone" : {
-                    "Min" : 85,
-                    "Max" : 92,
+                    "Min" : 107,
+                    "Max" : 112,
                     "Name" : "de la **Pierre de Magma** !",
                     "Emoji": "<:magmastone:881968174025801798>",
                     "Price" : (-1000, 0),
@@ -339,8 +342,8 @@ async def Work(ctx, xp_, cc):
                     "Anti-Mine" : True
                 },
                 "Joseph" : {
-                    "Min" : 93,
-                    "Max" : 94,
+                    "Min" : 113,
+                    "Max" : 115,
                     "Name" : "**Joseph** !",
                     "Emoji" : "<:josephEnModeHot:791311502460059708>",
                     "Price" : 10000,
@@ -350,8 +353,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/fdbcdwp/joseph.png"
                 },
                 "Sacred Stone" : {
-                    "Min" : 95,
-                    "Max" : 96,
+                    "Min" : 116,
+                    "Max" : 117,
                     "Name" : "de la **Pierre Sacrée** !",
                     "Emoji" : "<:sacredstone:882234999145922621>",
                     "Price" : 100000,
@@ -361,8 +364,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/hykPsCv/sacred-stone.png"
                 },
                 "Fossil" : {
-                    "Min" : 98,
-                    "Max" : 102,
+                    "Min" : 118,
+                    "Max" : 128,
                     "Name" : "un **Fossile** !",
                     "Emoji" : "<:fossil:881977977087336498>",
                     "Price" : 150,
@@ -372,8 +375,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/KqBKspq/fossil.png"
                 },
                 "Emerald" : {
-                    "Min" : 103,
-                    "Max" : 110,
+                    "Min" : 129,
+                    "Max" : 134,
                     "Name" : "de l**Émeraude** !",
                     "Emoji": "<:emerald:881983813532647434>",
                     "Price" : 2000,
@@ -383,8 +386,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/S03kHNd/emerald.png"
                 },
                 "Amethist" : {
-                    "Min" : 111,
-                    "Max" : 115,
+                    "Min" : 135,
+                    "Max" : 141,
                     "Name" : "de **l'Améthyste** !",
                     "Emoji": "<:amethist:881985189511839744>",
                     "Price" : 400,
@@ -394,8 +397,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/pxNJfPJ/amethist.png"
                 },
                 "Cobalt" : {
-                    "Min" : 116,
-                    "Max" : 124,
+                    "Min" : 142,
+                    "Max" : 149,
                     "Name" : "du **Cobalt** !",
                     "Emoji": "<:cobalt:882231543358165002>",
                     "Price" : (150, 500),
@@ -405,8 +408,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/wN6K1XQ/cobalt.png"
                 },
                 "Coke" : {
-                    "Min" : 125,
-                    "Max" : 130,
+                    "Min" : 150,
+                    "Max" : 157,
                     "Name" : "du **Charbon à Coke** !",
                     "Emoji" : "<:coke:882232188177903626>",
                     "Price" : -500,
@@ -416,8 +419,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/HzQN5cy/coke.png"
                 },
                 "Mercury" : {
-                    "Min" : 131,
-                    "Max" :137,
+                    "Min" : 158,
+                    "Max" :165,
                     "Name" : "du **Mercure** !",
                     "Emoji": "<:mercury:882233112283742218>",
                     "Price" : 200,
@@ -427,8 +430,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/nM0ZVrP/mercury.png"
                 },
                 "Turquoise" : {
-                    "Min" : 138,
-                    "Max" : 142,
+                    "Min" : 166,
+                    "Max" : 170,
                     "Name" : "de la **Turquoise** !",
                     "Emoji" : "<:turquoise:882235863499686028>",
                     "Price" : 100,
@@ -438,8 +441,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/TPvqt3X/turquoise.png"
                 },
                 "Fluorite" : {
-                    "Min" : 143,
-                    "Max" : 149,
+                    "Min" : 171,
+                    "Max" : 176,
                     "Name" : "de la **Fluorite** !",
                     "Emoji" : "<:fluorite:882237334848933918>",
                     "Price" : 150,
@@ -449,8 +452,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/jbpsNYf/fluorite.png"
                 },
                 "Obsidian" : {
-                    "Min" : 150,
-                    "Max" : 158,
+                    "Min" : 177,
+                    "Max" : 184,
                     "Name" : "de l'**Obsidienne** !",
                     "Emoji": "<:obsidian:882238111818612736>",
                     "Price" : 50,
@@ -460,8 +463,8 @@ async def Work(ctx, xp_, cc):
                     "Image" : "https://i.ibb.co/wsMjdYs/obsidian.png"
                 },
                 "Jade" : {
-                    "Min" : 159,
-                    "Max" : 164,
+                    "Min" : 185,
+                    "Max" : 181,
                     "Name" : "du **Jade** !",
                     "Emoji": "<:jade:882239569653792808>",
                     "Price" : 700,
@@ -472,6 +475,7 @@ async def Work(ctx, xp_, cc):
                 }
             }
 
+            # Pioche ticket (pas de modification  nécessaire)
             if 9 in data[id]['Inventory']["MP"]:
                 if random.randint(0, 7) == 7:
                     data[id]["Ticket"] += 1
@@ -483,6 +487,8 @@ async def Work(ctx, xp_, cc):
                     await ctx.reply(embed=embed)
 
             if await Mining(ctx, id, minerals, data, to_next_level, r) == False:
+                
+                # PIOCHE DU MARAUDEUR A REVOIR
                 if 7 not in data[id]['Inventory']["MP"] and data[id]['Level'] >= 10:
                     v = random.randint(1, 3)
                     if not v == 1:
@@ -548,34 +554,38 @@ async def Work(ctx, xp_, cc):
                             data[id]['Inventory']["Stone"] += 1
                     data[id]['Inventory']["Stone"] += 1
 
+                # IF LEVEL UP
                 if data[id]['Xp'] >= to_next_level:
                     data[id]['Level'] += 1
                     data[id]['Xp'] -= to_next_level
+                    
+                    # Calcul d'xp pour le prochain niveau
+                    to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
 
                     if data[id]['Level'] < 10:
                         if 1 in data[id]['Inventory']["MP"]:
                             r = random.randint(0, 100)
                         else:
                             r = random.randint(0, 90)
-                        to_next_level = 10 * (3 * data[id]['Level'])            
+       
                     elif 20 > data[id]['Level'] >= 10:
                         if 1 in data[id]['Inventory']["MP"]:
                             r = random.randint(0, 200)
                         else:
                             r = random.randint(0, 180)
-                        to_next_level = 10 * (5 * data[id]['Level'])
+
                     elif 30 > data[id]['Level'] >= 20:
                         if 1 in data[id]['Inventory']["MP"]:
                             r = random.randint(0, 260)
                         else:
                             r = random.randint(0, 300)
-                        to_next_level = 10 * (10 * data[id]['Level'])
+
                     else:
                         if 1 in data[id]['Inventory']["MP"]:
                             r = random.randint(0, 300)
                         else:
                             r = random.randint(0, 350)
-                        to_next_level = 10 * (15 *data[id]['Level'])
+
 
                     with open("assets/player_data.json", 'w') as d:
                         json.dump(data, d, indent=4)

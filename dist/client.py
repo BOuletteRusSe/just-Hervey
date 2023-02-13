@@ -59,11 +59,12 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.8.1'
-            key = open(".PRIVATE/key.key", "rb").read()
-            f = Fernet(key)
+            self.client_version = '3.9.0'
+            self.key = open(".PRIVATE/key.key", "rb").read()
+            f = Fernet(self.key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
             self.decrypted_data = f.decrypt(encrypted_data)
+            self.decrypted_data = self.decrypted_data.decode("utf-8")
             self.voice_connect = False
             print(f"{fg(6)}{discord.__version__} - {discord.version_info}{attr(0)}")
             print('%s%sClient Version : %s' % (fg(57), attr(1), self.client_version))
@@ -71,7 +72,7 @@ with open(r"assets\player_data.json") as data:
         def Start(self):
             while True:
                 try:
-                    self.bot.run(self.decrypted_data.decode())
+                    self.bot.run(self.decrypted_data)
                     break
                 except:
                     if self.is_stoping:
