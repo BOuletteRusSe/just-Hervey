@@ -95,7 +95,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
             if 1 in data[id]['Inventory']["MP"]:
                 r = random.randint(0, 340)
             else:
-                r = random.randint(0, 400)
+                r = random.randint(0, 425)
 
 
         with open("assets/player_data.json", 'w') as d:
@@ -218,7 +218,7 @@ async def Work(ctx, xp_, cc):
                 if 1 in data[id]['Inventory']["MP"]:
                     r = random.randint(0, 340)
                 else:
-                    r = random.randint(0, 400)
+                    r = random.randint(0, 425)
                     
             # Liste des minéraux
             minerals = {
@@ -615,7 +615,7 @@ async def Work(ctx, xp_, cc):
                         if 1 in data[id]['Inventory']["MP"]:
                             r = random.randint(0, 340)
                         else:
-                            r = random.randint(0, 400)
+                            r = random.randint(0, 425)
 
 
                     with open("assets/player_data.json", 'w') as d:
