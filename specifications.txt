@@ -1,0 +1,28 @@
+Régler bug diamants *
+Ajouter lots casino + cooldown
+Ajouter levels pour minage  et minéraux *
+Système de trade + shops
+Ajouter la forge
+c!mabite (tssc)
+
+Patch Note v. 3.9.1 :
+
+- Réglage du bug lors de l'achat de la multi-pioches
+- Ajout de la "magnétite", qui aura de futurs fonctions
+- Passage du cooldown de la commande "c!casino" de 5s à 3s
+- Augmentation de la progression de la commande "c!cwork" jusqu'au niveau 40
+
+Ajouts à venir :
+
+- Plus de lots pour la commande "c!casino" (dont des lots uniques)
+- De nouveaux minerais et une progression de la commande "c!work" jusqu'au niveau 50
+- Plus de pioches dans le "c!shop" et plus de ranks pouvant être fabriqués à partir des nouveaux minerais
+
+Ajouts futurs potentiels :
+
+- Système de trade et de shops personnalisés
+- Minerais uniques et rares permettant de fabriquer des reliques 
+- Ajout de la forge permettant des combinaisons de minerais et de fabrications d'objets uniques et de reliques
+- Système de fatigue
+- Nouvelle monnaie
+- Commande c!mabite (ref à ruben)

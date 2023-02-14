@@ -6,6 +6,11 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
     f = False
 
     for k, v in minerals.items():
+        
+        print(v["Min"])
+        print(v["Max"])
+        print(r)
+        
         if v["Min"] < r < v["Max"]:
             mineral = k
             mineral_info = v
@@ -66,27 +71,33 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
 
         if data[id]['Level'] < 10:
             if 1 in data[id]["Inventory"]["MP"]:
-                r = random.randint(0, 100)
-            else:
                 r = random.randint(0, 90)
+            else:
+                r = random.randint(0, 100)
                          
         elif 20 > data[id]['Level'] >= 10:
             if 1 in data[id]['Inventory']["MP"]:
-                r = random.randint(0, 200)
-            else:
                 r = random.randint(0, 180)
+            else:
+                r = random.randint(0, 200)
 
         elif 30 > data[id]['Level'] >= 20:
             if 1 in data[id]['Inventory']["MP"]:
                 r = random.randint(0, 260)
             else:
                 r = random.randint(0, 300)
-
+                
+        elif 40 > data[id]['level'] >= 30:
+                if 1 in data[id]['Inventory']["MP"]:
+                    r = random.randint(0, 350)
+                else:
+                    r = random.randint(0, 400)
+                    
         else:
             if 1 in data[id]['Inventory']["MP"]:
-                r = random.randint(0, 300)
+                r = random.randint(0, 340)
             else:
-                r = random.randint(0, 350)
+                r = random.randint(0, 425)
 
 
         with open("assets/player_data.json", 'w') as d:
@@ -101,7 +112,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
     embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}", color=mineral_info["Color"])
     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
     embed.set_image(url=mineral_info["Image"])
-    embed.add_field(name="Bénéfice :", value=f"**{mm}€**", inline=True)
+    embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)
     embed.add_field(name=f"{mineral_info['Emoji']} • {str(mineral_info['Name'])[int(str(mineral_info['Name']).find('*'))-1:]} :", value=data[id]['Inventory'][mineral], inline=True)
     embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
     embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
@@ -184,27 +195,33 @@ async def Work(ctx, xp_, cc):
 
             if data[id]['Level'] < 10:
                 if 1 in data[id]['Inventory']["MP"]:
-                    r = random.randint(0, 100)
-                else:
                     r = random.randint(0, 90)
+                else:
+                    r = random.randint(0, 100)
         
             elif 20 > data[id]['Level'] >= 10:
                 if 1 in data[id]['Inventory']["MP"]:
-                    r = random.randint(0, 200)
-                else:
                     r = random.randint(0, 180)
+                else:
+                    r = random.randint(0, 200)
 
             elif 30 > data[id]['Level'] >= 20:
                 if 1 in data[id]['Inventory']["MP"]:
                     r = random.randint(0, 260)
                 else:
                     r = random.randint(0, 300)
-
+                    
+            elif 40 > data[id]['level'] >= 30:
+                if 1 in data[id]['Inventory']["MP"]:
+                    r = random.randint(0, 350)
+                else:
+                    r = random.randint(0, 400)
+                    
             else:
                 if 1 in data[id]['Inventory']["MP"]:
-                    r = random.randint(0, 300)
+                    r = random.randint(0, 340)
                 else:
-                    r = random.randint(0, 350)
+                    r = random.randint(0, 425)
 
             # Liste des minéraux
             minerals = {
@@ -315,7 +332,7 @@ async def Work(ctx, xp_, cc):
                     "Price" : (200, 700),
                     "Xp" : (50, 100),
                     "Color" : 0xFAF0C5,
-                    "Level Requierd" : 10,
+                    "Level Requierd" : 5,
                     "Image" : "https://i.ibb.co/GMr1xRg/platinium.png"
                 },
                 "Randomite" : {
@@ -464,7 +481,7 @@ async def Work(ctx, xp_, cc):
                 },
                 "Jade" : {
                     "Min" : 185,
-                    "Max" : 181,
+                    "Max" : 191,
                     "Name" : "du **Jade** !",
                     "Emoji": "<:jade:882239569653792808>",
                     "Price" : 700,
@@ -472,6 +489,17 @@ async def Work(ctx, xp_, cc):
                     "Color" : 0x799d91,
                     "Level Requierd" : 30,
                     "Image" : "https://i.ibb.co/KLDjPjr/jade.png"
+                },
+                "Magnetite" : {
+                    "Min" : 192,
+                    "Max" : 181,
+                    "Name" : "de la **Magnétite** !",
+                    "Emoji": "<:magnetite:1075060513593110689>",
+                    "Price" : 150,
+                    "Xp" : (250, 1500),
+                    "Color" : 0xfef590,
+                    "Level Requierd" : 40,
+                    "Image" : "https://i.ibb.co/C7mbYjR/magnetite.png"
                 }
             }
 
@@ -509,7 +537,7 @@ async def Work(ctx, xp_, cc):
                             embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debrit:882240995717156874>", color=0x3a3c3d)
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                             embed.set_image(url="https://i.ibb.co/r3zYVN8/debrit.png")
-                            embed.add_field(name="Bénéfice :", value=f"**{mm}€**", inline=True)
+                            embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)
                             embed.add_field(name="<:debrit:882240995717156874> • Débrits :", value=data[id]['Inventory']["Debrit"], inline=True)
                             embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
                             embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
@@ -564,15 +592,15 @@ async def Work(ctx, xp_, cc):
 
                     if data[id]['Level'] < 10:
                         if 1 in data[id]['Inventory']["MP"]:
-                            r = random.randint(0, 100)
-                        else:
                             r = random.randint(0, 90)
+                        else:
+                            r = random.randint(0, 100)
        
                     elif 20 > data[id]['Level'] >= 10:
                         if 1 in data[id]['Inventory']["MP"]:
-                            r = random.randint(0, 200)
-                        else:
                             r = random.randint(0, 180)
+                        else:
+                            r = random.randint(0, 200)
 
                     elif 30 > data[id]['Level'] >= 20:
                         if 1 in data[id]['Inventory']["MP"]:
@@ -580,11 +608,17 @@ async def Work(ctx, xp_, cc):
                         else:
                             r = random.randint(0, 300)
 
+                    elif 40 > data[id]['level'] >= 30:
+                        if 1 in data[id]['Inventory']["MP"]:
+                            r = random.randint(0, 350)
+                        else:
+                            r = random.randint(0, 400)
+                    
                     else:
                         if 1 in data[id]['Inventory']["MP"]:
-                            r = random.randint(0, 300)
+                            r = random.randint(0, 340)
                         else:
-                            r = random.randint(0, 350)
+                            r = random.randint(0, 425)
 
 
                     with open("assets/player_data.json", 'w') as d:
@@ -601,7 +635,7 @@ async def Work(ctx, xp_, cc):
                     embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:882241850965118978>", color=0x9f9c9a)
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                     embed.set_image(url="https://i.ibb.co/23Wbsbp/stone.png")
-                    embed.add_field(name="Bénéfice :", value=f"**{mm}€**", inline=True)
+                    embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)
                     embed.add_field(name="<:stone:882241850965118978> • Pierre :", value=data[id]['Inventory']["Stone"], inline=True)
                     embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
                     embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)

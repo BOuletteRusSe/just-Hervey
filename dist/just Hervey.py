@@ -147,7 +147,7 @@ async def ping(ctx):
 
 
 @client.bot.command()
-@cmd.cooldown(1, 5, cmd.BucketType.user)
+@cmd.cooldown(1, 3, cmd.BucketType.user)
 async def casino(ctx, *arg):
     CommandWriteLogs(ctx, "Casino")
     await client.Casino(ctx, arg)

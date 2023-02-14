@@ -121,8 +121,8 @@ item_shop_price_2 = {
 
     8: {
         "Name": "👾|Multi-Pioche",
-        "Price": ["Diamond", 5],
-        "Money": 100000
+        "Price": ["Diamond", 10],
+        "Money": 50000
     },
 
     9 : {

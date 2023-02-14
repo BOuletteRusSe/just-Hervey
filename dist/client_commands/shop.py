@@ -88,10 +88,6 @@ async def Shop(ctx, buy):
 
         elif buy[0] == "item":
 
-            for_changes_prices = item_shop_price_2
-            for_changes_prices[8]["Price"] = ["Diamond", data[id]['Inventory']["Item Limit"] * 5]
-            for_changes_prices[8]["Money"] = data[id]['Inventory']["Item Limit"] * 100000
-
             item_embed=discord.Embed(title="⚔ **BOUTIQUE D'OBJET** ⚔", description="Ici, vous pouvez acheter les objets qui vous plaisent.", color=0x540788)
             item_embed.add_field(name="**1** - 🧲|Pioche en Fer : **10**Fer, **2,000**€", value="Vous avez **10%** de chance supplémentaire de miner des minerais.", inline=False)
             item_embed.add_field(name="**2** - 🥇|Pioche en Or : **10**Or, **7,500**€", value="Augmente la revente de vos minerais de **10%**.", inline=True)
@@ -100,7 +96,7 @@ async def Shop(ctx, buy):
             item_embed.add_field(name="**5** - 👨‍🔬|PIOCHE DU CHINOIS : **10**Joseph, **100,000**€.", value="GG, vous avez la meilleure pioche du jeu (ne sert à rien).", inline=True)
             item_embed.add_field(name="**6** - ✖|Pioche de multiplication : **30**Cobaltes, **50,000**€.", value="Duplique les minerais que vous minez.", inline=True)
             item_embed.add_field(name="**7** - 🕵️‍♂️|Pioche du maraudeur : **1000**Pierres, **25,000**€.", value="Vous ne minerez plus de débrits (ouf).", inline=True)
-            item_embed.add_field(name=f"**8** - 👾|Multi-Pioche : **{data[id]['Inventory']['Item Limit'] * 5}**Diamant, **{data[id]['Inventory']['Item Limit']}00,000**€.", value="Vous permet d'équiper 2 pioches à la fois.", inline=True)
+            item_embed.add_field(name=f"**8** - 👾|Multi-Pioche : **{data[id]['Inventory']['Item Limit'] * 10}**Diamant, **{(data[id]['Inventory']['Item Limit'])*5}0,000**€.", value="Vous permet d'équiper 2 pioches à la fois.", inline=True)
             item_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop item buy NUMÉRO DE L'ITEM.")
 
             try:
@@ -108,17 +104,24 @@ async def Shop(ctx, buy):
                     try:
                         if int(buy[2]) in [1, 2, 3, 4, 5, 6, 7, 8]:
                             buy_item = item_shop_price_2[int(buy[2])]
+                            
+                            if int(buy[2]) == 8:
+                                price = buy_item["Price"][1] * data[id]['Inventory']['Item Limit']
+                                money = buy_item["Money"] * data[id]['Inventory']['Item Limit']
+                            else:
+                                price = buy_item["Price"][1]
+                                money = buy_item["Money"]
 
-                            if data[id]['Inventory'][buy_item["Price"][0]] >= buy_item["Price"][1]:
+                            if data[id]['Inventory'][buy_item["Price"][0]] >= price:
 
-                                if data[id]['Money'] >= buy_item["Money"]:
+                                if data[id]['Money'] >= money:
 
                                     if int(buy[2]) not in data[id]['Inventory']["P Item"]:
 
                                         if not (int(buy[2]) == 4 and data[id]['Inventory']["Platinium Alliage"]):
 
-                                            data[id]['Money'] -= buy_item["Money"]
-                                            data[id]['Inventory'][buy_item["Price"][0]] -= buy_item["Price"][1]
+                                            data[id]['Money'] -= money
+                                            data[id]['Inventory'][buy_item["Price"][0]] -= price
 
                                             with open("assets/player_data.json", 'w') as d:
 
