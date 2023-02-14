@@ -129,7 +129,7 @@ async def Shop(ctx, buy):
                                                     data[id]['Inventory']["Platinium Alliage"] = True
                                                     data[id]['Money'] = round(data[id]['Money'], 2)
                                                     json.dump(data, d, indent=4)
-                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'alliage n°{buy[2]} avec succès !", description=f"-**{buy_item['Money']}**€", color=0x5455b0)
+                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'alliage n°{buy[2]} avec succès !", description=f"-**{money}**€", color=0x5455b0)
                                                     money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                     money_embed.add_field(name="Argent :", value=data[id]['Money'], inline=False)
                                                     money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
@@ -140,7 +140,7 @@ async def Shop(ctx, buy):
                                                     data[id]['Inventory']["Item Limit"] += 1
                                                     data[id]['Money'] = round(data[id]['Money'], 2)
                                                     json.dump(data, d, indent=4)
-                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'amélioration n°{buy[2]} avec succès !", description=f"-**{buy_item['Money']}**€", color=0x5455b0)
+                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'amélioration n°{buy[2]} avec succès !", description=f"-**{money}**€", color=0x5455b0)
                                                     money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                     money_embed.add_field(name="Argent :", value=data[id]['Money'], inline=False)
                                                     money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
@@ -150,7 +150,7 @@ async def Shop(ctx, buy):
                                                     data[id]['Inventory']["P Item"].append(int(buy[2]))
                                                     data[id]['Money'] = round(data[id]['Money'], 2)
                                                     json.dump(data, d, indent=4)
-                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'item n°{buy[2]} avec succès (c!inventory equip item {buy[2]} pour équiper votre item) !", description=f"-**{buy_item['Money']}**€", color=0x5455b0)
+                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'item n°{buy[2]} avec succès (c!inventory equip item {buy[2]} pour équiper votre item) !", description=f"-**{money}**€", color=0x5455b0)
                                                     money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                     money_embed.add_field(name="Argent :", value=data[id]['Money'], inline=False)
                                                     money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
