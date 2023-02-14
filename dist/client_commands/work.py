@@ -4,6 +4,8 @@ from assets.items_price import item_shop_price, item_shop_price_2
 async def Mining(ctx, id, minerals, data, to_next_level, r):
 
     f = False
+    
+    print(r)
 
     for k, v in minerals.items():
         
@@ -93,7 +95,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
             if 1 in data[id]['Inventory']["MP"]:
                 r = random.randint(0, 340)
             else:
-                r = random.randint(0, 425)
+                r = random.randint(0, 400)
 
 
         with open("assets/player_data.json", 'w') as d:
@@ -216,7 +218,7 @@ async def Work(ctx, xp_, cc):
                 if 1 in data[id]['Inventory']["MP"]:
                     r = random.randint(0, 340)
                 else:
-                    r = random.randint(0, 425)
+                    r = random.randint(0, 400)
                     
             # Liste des minéraux
             minerals = {
@@ -613,7 +615,7 @@ async def Work(ctx, xp_, cc):
                         if 1 in data[id]['Inventory']["MP"]:
                             r = random.randint(0, 340)
                         else:
-                            r = random.randint(0, 425)
+                            r = random.randint(0, 400)
 
 
                     with open("assets/player_data.json", 'w') as d:
