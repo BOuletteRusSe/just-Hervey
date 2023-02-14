@@ -7,10 +7,6 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
 
     for k, v in minerals.items():
         
-        print(v["Min"])
-        print(v["Max"])
-        print(r)
-        
         if v["Min"] < r < v["Max"]:
             mineral = k
             mineral_info = v
@@ -87,7 +83,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
             else:
                 r = random.randint(0, 300)
                 
-        elif 40 > data[id]['level'] >= 30:
+        elif 40 > data[id]['Level'] >= 30:
                 if 1 in data[id]['Inventory']["MP"]:
                     r = random.randint(0, 350)
                 else:
@@ -211,18 +207,17 @@ async def Work(ctx, xp_, cc):
                 else:
                     r = random.randint(0, 300)
                     
-            elif 40 > data[id]['level'] >= 30:
+            elif 40 > data[id]['Level'] >= 30:
                 if 1 in data[id]['Inventory']["MP"]:
                     r = random.randint(0, 350)
                 else:
-                    r = random.randint(0, 400)
-                    
+                    r = random.randint(0, 400)             
             else:
                 if 1 in data[id]['Inventory']["MP"]:
                     r = random.randint(0, 340)
                 else:
                     r = random.randint(0, 425)
-
+                    
             # Liste des minéraux
             minerals = {
                 "Iron" : {
@@ -608,7 +603,7 @@ async def Work(ctx, xp_, cc):
                         else:
                             r = random.randint(0, 300)
 
-                    elif 40 > data[id]['level'] >= 30:
+                    elif 40 > data[id]['Level'] >= 30:
                         if 1 in data[id]['Inventory']["MP"]:
                             r = random.randint(0, 350)
                         else:
