@@ -489,7 +489,7 @@ async def Work(ctx, xp_, cc):
                 },
                 "Magnetite" : {
                     "Min" : 192,
-                    "Max" : 181,
+                    "Max" : 197,
                     "Name" : "de la **Magnétite** !",
                     "Emoji": "<:magnetite:1075060513593110689>",
                     "Price" : 150,
