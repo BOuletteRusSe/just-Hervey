@@ -76,7 +76,8 @@ async def Inventory(ctx, equip, c):
     inventory_embed.add_field(name="Liste des Objets :", value=items, inline=True)
     inventory_embed.add_field(name="Liste des Grades :", value=ranks, inline=True)
     inventory_embed.add_field(name="🎟 • Tickets :", value=data[id]["Ticket"], inline=True)
-
+    inventory_embed.add_field(name=":pick: • Nombre de Pioches Max :", value=data[id]['Inventory']['Item Limit'], inline=True)
+    
     InventoryCheckNone("<:debrit:882240995717156874> • Debrit :", "Debrit", id, data, inventory_embed)
     InventoryCheckNone("<:stone:882241850965118978> • Pierre :", "Stone", id, data, inventory_embed)
     InventoryCheckNone("<:iron:881949148876783646> • Fer :", "Iron", id, data, inventory_embed)
