@@ -141,7 +141,6 @@ async def Inventory(ctx, equip, c):
                             page += 1
                             
                     await mess.edit(embed=DefaultEmbed(page))
-                            
             
         else:
             await ctx.reply("Veuillez vous inscrire avec la commande **c!sign** !")
@@ -212,7 +211,25 @@ async def Inventory(ctx, equip, c):
             
     else:
         if not data[id]["Inventory"] is None:
-            await ctx.reply(embed=inventory_embed)
+            w = True
+            while w:
+                
+                def CheckEmoji(reaction, user):
+                    return ctx.message.author == user and mess.id == reaction.message.id and (str(reaction.emoji) in ["⬅", "➡"])
+
+                try:
+                    reaction, user = await c.bot.wait_for("reaction_add", timeout=60, check=CheckEmoji)
+                except asyncio.TimeoutError:
+                    w = False
+                else:
+                    if str(reaction.emoji) == "⬅":
+                        if page != min_page:
+                            page -= 1               
+                    elif str(reaction.emoji) == "➡":
+                        if page != max_page:
+                            page += 1
+                            
+                    await mess.edit(embed=DefaultEmbed(page))
         else:
             await ctx.reply("Veuillez vous inscrire avec la commande **c!sign** !")
 
