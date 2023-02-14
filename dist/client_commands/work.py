@@ -9,7 +9,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
 
     for k, v in minerals.items():
         
-        if v["Min"] < r < v["Max"]:
+        if v["Min"] <= r <= v["Max"]:
             mineral = k
             mineral_info = v
             f = True
