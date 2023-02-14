@@ -103,6 +103,7 @@ async def Inventory(ctx, equip, c):
     InventoryCheckNone("<:jade:882239569653792808> • Jade", "Jade", id, data, inventory_embed)
     InventoryCheckNone("<:coal:882226330110926908> • Charbon :", "Coal",id, data, inventory_embed)
     InventoryCheckNone("<:cooper:882228895192076339> • Cuivre :", "Cooper", id, data, inventory_embed)
+    InventoryCheckNone("<:magnetite:1075060513593110689> • Magnétite :", "Magnetite", id, data, inventory_embed)
     inventory_embed.set_footer(text=f"c!inventory equip item/rank 'nombre' pour équiper une objet ou un grade. (Vous pouvez équiper jusqu'à {data[id]['Inventory']['Item Limit']} item(s) à la fois.)")
 
     if not equip:
