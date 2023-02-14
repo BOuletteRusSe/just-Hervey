@@ -70,7 +70,7 @@ async def Inventory(ctx, equip, c):
         ranks += f"{str(item_shop_price[rank]['Name'])} ({rank}) | "
     
     def DefaultEmbed(page):
-        inventory_embed = discord.Embed(title="⚔ INVENTAIRE ⚔", description="Ici, vous pouvez voir tout ce que vous avez a disposition dans votre inventaire.", color=0x1e4843)
+        inventory_embed = discord.Embed(title="⚔ INVENTAIRE ⚔ | Page %s" % (page), description="Ici, vous pouvez voir tout ce que vous avez a disposition dans votre inventaire.", color=0x1e4843)
         inventory_embed.set_author(name=user, icon_url=user.avatar_url)
         inventory_embed.add_field(name="🛠 • Objet(s) Équipé(s) :", value=e_items)
         inventory_embed.add_field(name="🎭 • Grade :", value=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], inline=True)
