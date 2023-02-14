@@ -96,7 +96,7 @@ async def Shop(ctx, buy):
             item_embed.add_field(name="**5** - 👨‍🔬|PIOCHE DU CHINOIS : **10**Joseph, **100,000**€.", value="GG, vous avez la meilleure pioche du jeu (ne sert à rien).", inline=True)
             item_embed.add_field(name="**6** - ✖|Pioche de multiplication : **30**Cobaltes, **50,000**€.", value="Duplique les minerais que vous minez.", inline=True)
             item_embed.add_field(name="**7** - 🕵️‍♂️|Pioche du maraudeur : **1000**Pierres, **25,000**€.", value="Vous ne minerez plus de débrits (ouf).", inline=True)
-            item_embed.add_field(name=f"**8** - 👾|Multi-Pioche : **{data[id]['Inventory']['Item Limit'] * 10}**Diamant, **{(data[id]['Inventory']['Item Limit'])*5}0,000**€.", value=f"Vous permet d'équiper {data[id]['Inventory']['Item Limit']} pioches à la fois.", inline=True)
+            item_embed.add_field(name=f"**8** - 👾|Multi-Pioche : **{data[id]['Inventory']['Item Limit'] * 10}**Diamant, **{(data[id]['Inventory']['Item Limit'])*5}0,000**€.", value=f"Vous permet d'équiper {data[id]['Inventory']['Item Limit'] + 1} pioches à la fois.", inline=True)
             item_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop item buy NUMÉRO DE L'ITEM.")
 
             try:
