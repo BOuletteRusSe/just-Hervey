@@ -44,6 +44,7 @@ from client_commands.play import Play
 from client_commands.leave import Leave
 from client_commands.ban import Ban
 from client_commands.banane import Banane
+from client_commands.forge import Forge
 
 import discord, time, os, json
 from colored import fg, attr
@@ -59,7 +60,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.9.2'
+            self.client_version = '3.9.3'
             self.key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(self.key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -193,6 +194,9 @@ with open(r"assets\player_data.json") as data:
 
         @staticmethod
         async def Loto(ctx, m): await Loto(ctx, m)
+        
+        @staticmethod
+        async def Forge(ctx, arg): await Forge(ctx, arg)
 
         @staticmethod
         async def Leaderboard(ctx): await Leaderboard(ctx)

@@ -86,6 +86,12 @@ async def on_message(message):
 async def poker(ctx, *arg):
     CommandWriteLogs(ctx, "Poker")
     await client.Poker(ctx, arg)
+    
+@client.bot.command()
+@cmd.cooldown(2, 3, cmd.BucketType.user)
+async def forge(ctx, *arg):
+    CommandWriteLogs(ctx, "Forge")
+    await client.Forge(ctx, arg)
 
 
 @client.bot.command()
@@ -533,6 +539,12 @@ async def work_error(ctx, error):
         await dele.delete(delay=1)
 
 @ki.error
+async def work_error(ctx, error):
+    if isinstance(error, cmd.CommandOnCooldown):
+        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        await dele.delete(delay=1)
+        
+@forge.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')

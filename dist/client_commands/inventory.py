@@ -70,13 +70,14 @@ async def Inventory(ctx, equip, c):
         ranks += f"{str(item_shop_price[rank]['Name'])} ({rank}) | "
     
     def DefaultEmbed(page):
-        inventory_embed = discord.Embed(title="⚔ INVENTAIRE ⚔ | Page %s" % (page), description="Ici, vous pouvez voir tout ce que vous avez a disposition dans votre inventaire.", color=0x1e4843)
+        inventory_embed = discord.Embed(title="⚔ INVENTAIRE ⚔ | Page %s" % (page + 1), description="Ici, vous pouvez voir tout ce que vous avez a disposition dans votre inventaire.", color=0x1e4843)
         inventory_embed.set_author(name=user, icon_url=user.avatar_url)
         inventory_embed.add_field(name="🛠 • Objet(s) Équipé(s) :", value=e_items)
         inventory_embed.add_field(name="🎭 • Grade :", value=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], inline=True)
         inventory_embed.add_field(name="Liste des Objets :", value=items, inline=True)
         inventory_embed.add_field(name="Liste des Grades :", value=ranks, inline=True)
         inventory_embed.add_field(name="🎟 • Tickets :", value=data[id]["Ticket"], inline=True)
+        inventory_embed.add_field(name=":nut_and_bolt: • Points de Forge :", value=data[id]["Forge Points"], inline=True)
         inventory_embed.add_field(name=":pick: • Nombre de Pioches Max :", value=data[id]['Inventory']['Item Limit'], inline=True)
         inventory_embed.set_footer(text=f"c!inventory equip item/rank 'nombre' pour équiper une objet ou un grade. (Vous pouvez équiper jusqu'à {data[id]['Inventory']['Item Limit']} item(s) à la fois.)")
         
@@ -96,12 +97,12 @@ async def Inventory(ctx, equip, c):
             InventoryCheckNone("<:grenat:881962367037087785> • Grenat :", "Grenat", id, data, inventory_embed)
             InventoryCheckNone("<:turquoise:882235863499686028> • Turquoise :", "Turquoise", id, data, inventory_embed)
             InventoryCheckNone("<:obsidian:882238111818612736> • Obsidienne :", "Obsidian", id, data, inventory_embed)
+            
+        elif page == 1:
             InventoryCheckNone("<:randomite:881964979639709748> • Randomite :", "Randomite", id, data, inventory_embed)
             InventoryCheckNone("<:mercury:882233112283742218> • Mercure :", "Mercury", id, data, inventory_embed)
             InventoryCheckNone("<:magmastone:881968174025801798> • Pierre Magmatique :", "Magma Stone", id, data, inventory_embed)
             InventoryCheckNone("<:fossil:881977977087336498> • Fossille :", "Fossil", id, data, inventory_embed)
-            
-        elif page == 1:
             InventoryCheckNone("<:sacredstone:882234999145922621> • Pierre Sacrée :", "Sacred Stone", id, data, inventory_embed)
             InventoryCheckNone("<:coke:882232188177903626> • Coke :", "Coke", id, data, inventory_embed)
             InventoryCheckNone("<:fluorite:882237334848933918> • Fluorite", "Fluorite", id, data, inventory_embed)

@@ -11,8 +11,7 @@ async def Boule(ctx, arg):
                 content += word
                 content += " "
         if content == "":
-            deleteMessage = await ctx.reply(
-                "Veuillez choisir un contenue à ajouter à la commande !\nc!boule add **contenue** <-- ICI")
+            deleteMessage = await ctx.reply("Veuillez choisir un contenue à ajouter à la commande !\nc!boule add **contenue** <-- ICI")
             await deleteMessage.delete(delay=15)
 
         else:

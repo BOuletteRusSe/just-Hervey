@@ -16,6 +16,7 @@ async def Sign(ctx):
     if c:
         data[id] = {
             "Money": 100,
+            "Forge Points" : 0,
             "Bank": 0,
             "Level": 0,
             "Xp": 0,

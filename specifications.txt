@@ -27,3 +27,18 @@ Ajouts futurs potentiels :
 - Système de fatigue
 - Nouvelle monnaie
 - Commande c!mabite (ref à ruben)
+
+
+
+FORGE:
+
+    Sans argument : Explications embed + image
+
+    mix: combine deux éléments entre eux pour potentiellement donner un nouvelle élement
+        vérification de la possibilité de la combianaison 
+            si oui alors procéder
+            sinon message d'imposibilité
+
+    recipes: avoir les recetttes 
+
+    Ajout des forge points à chaque recette + de forge points, permettera d'acheter des articles spéciaux dans la boutique du forgeron (nouvelle boutique)
