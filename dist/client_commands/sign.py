@@ -17,6 +17,7 @@ async def Sign(ctx):
         data[id] = {
             "Money": 100,
             "Forge Points" : 0,
+            "Forge Cooldown" : {"": 0},
             "Bank": 0,
             "Level": 0,
             "Xp": 0,

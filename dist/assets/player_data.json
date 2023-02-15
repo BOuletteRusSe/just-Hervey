@@ -2,6 +2,7 @@
     "341635888184295446": {
         "Money": 0.06999999989856062,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 400,
         "Ticket": 0,
         "Level": 9,
@@ -53,6 +54,7 @@
     "809412081358733332": {
         "Money": 857,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 35000,
         "Ticket": 0,
         "Level": 56,
@@ -116,6 +118,7 @@
     "358634555546009604": {
         "Money": 500677.7999999996,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 0,
         "Ticket": 0,
         "Level": 32,
@@ -165,6 +168,7 @@
     "617293677626392636": {
         "Money": 4057.25,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 0,
         "Ticket": 0,
         "Level": 1,
@@ -213,6 +217,7 @@
     "802945354579968071": {
         "Money": 274.0,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 0,
         "Ticket": 7,
         "Level": 4,
@@ -264,6 +269,7 @@
     "793223268118036481": {
         "Money": 23303.75,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 89010,
         "Level": 20,
         "Ticket": 0,
@@ -314,6 +320,7 @@
     "700262847279661107": {
         "Money": 100,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 0,
         "Level": 0,
         "Ticket": 0,
@@ -364,6 +371,7 @@
     "781946621473849365": {
         "Money": 21693,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 2100000,
         "Ticket": 0,
         "Level": 109,
@@ -427,6 +435,7 @@
     "612378210235318282": {
         "Money": 69.99999979493901,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 0,
         "Level": 16,
         "Ticket": 0,
@@ -479,6 +488,7 @@
     "210124607833899008": {
         "Money": 1058.1999999999998,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 17705,
         "Level": 12,
         "Xp": 357.79999999999984,
@@ -530,6 +540,7 @@
     "778570551602053153": {
         "Money": 18875.25,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 0,
         "Level": 15,
         "Xp": 183.39999999999964,
@@ -580,6 +591,7 @@
     "717649688098111540": {
         "Money": 135.0,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 0,
         "Level": 2,
         "Xp": 20,
@@ -630,6 +642,7 @@
     "749256962234908723": {
         "Money": 0,
         "Forge Points" : 0,
+        "Forge Cooldown" : {"": 0},
         "Bank": 324031,
         "Level": 30,
         "Xp": 1868.4000000000005,

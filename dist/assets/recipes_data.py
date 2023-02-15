@@ -4,7 +4,7 @@ recipes = {
         "input": {"Iron": 2, "Gold": 2},
         "output": {"Magnetite": 1},
         "points": 100,
-        "cooldown": 60
+        "cooldown": 60,
+        "command": ["('iron', '+', 'gold')", "('iron+gold',)", "('iron', '+gold')", "('iron+', 'gold')"]
     }
-    
 }
