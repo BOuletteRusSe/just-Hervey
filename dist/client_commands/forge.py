@@ -50,27 +50,39 @@ async def Forge(ctx, arg):
             else:
                 
                 def IfCommandIsCorrect(arg):
+                    global num
                     for i in range(len(res)):
                         if arg in res[i][6]:
+                            num = i
                             return True
                     return False
                 
                 arg = arg[1:]
                 arg = str(arg).lower()
                 res = EnumerateRecipes()
-                print(arg)
                 
                 if not IfCommandIsCorrect(arg):
                     deleteMessage = await ctx.reply("La commande est incorrecte ou la recette n'existe pas. Pour réaliser une des recettes, utilisez la commande **c!forge mix** suivit de la recette (en anglais).\nEx pour la magnétite : **c!forge mix** *iron* + *gold*")
                     await deleteMessage.delete(delay=15)
                 else:
-                    deleteMessage = await ctx.reply('Malheureusement, la commande n\'est pas encore finis pour le moment ! 😿\nCette partie de la commande sera disponible dans de futures mises à jour donc restez actif !')
-                    await deleteMessage.delete(delay=10)
+                    ressources = str()
+                    p = True
+                    for k, v in res[num][2].items():
+                        if data[id]["Inventory"][k] < v:
+                            p = False
+                            ressources += f"{k} nécessaire : {v} | {k} dans l'inventaire : {data[id]['Inventory'][k]}\n"
+                    
+                    if not p:
+                        deleteMessage = await ctx.reply('Vous n\'avez malheureusement pas assez de ressources pour pouvoir fabriquer **%s** ! 😿\n%s' % (res[num][1], ressources))
+                        await deleteMessage.delete(delay=15)
+                    else:
+                        # COOLDOWN
+                        deleteMessage = await ctx.reply('Malheureusement, la commande n\'est pas encore finis pour le moment ! 😿\nCette partie de la commande sera disponible dans de futures mises à jour donc restez actif !')
+                        await deleteMessage.delete(delay=10)
                 
         elif "recipes" in arg:
             recipe_embed = discord.Embed(title=":nut_and_bolt: | Forge Recipes", description="Pour réaliser une des recettes ci-dessus utilisez la commande **c!forge mix** suivit de la recette (en anglais).\nEx pour la magnétite: **c!forge mix** *iron* + *gold*", color=0x556b2f)
             res = EnumerateRecipes()
-            print(res)
             for i in range(len(res)):
                 inputs = str()
                 outputs = str()
