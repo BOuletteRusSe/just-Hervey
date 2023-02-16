@@ -91,7 +91,7 @@ async def Forge(ctx, arg):
                             
                             coo = ReturnCooldownTimes()
                             if (coo[1] - coo[0]) > 0 and coo[3]:
-                                deleteMessage = await ctx.reply("Vous êtes fatigué après votre dernière session de forge. Vous devriez vous reposer.\nTemps avant de pourvoir réutiliser la forge : **%s**" % (round(coo[1] - coo[0])))     
+                                deleteMessage = await ctx.reply("Vous êtes fatigué après votre dernière session de forge. Vous devriez vous reposer.\nTemps avant de pourvoir réutiliser la forge : **%ss**" % (round(coo[1] - coo[0])))     
                                 await deleteMessage.delete(delay=15)
                             else:
                                 
@@ -111,7 +111,7 @@ async def Forge(ctx, arg):
                                 buy_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                 buy_embed.add_field(name="", value="")
                                 buy_embed.add_field(name=":nut_and_bolt: • Points de Forge :", value=data[id]["Forge Points"])
-                                buy_embed.add_field(name="💸 • Argent :", value=data[id]["Money"])
+                                buy_embed.add_field(name="💸 • Argent :", value=round(data[id]["Money"], 2))
                                 for k, v in res[num][2].items():
                                     buy_embed.add_field(name=f"{k} : ", value=data[id]["Inventory"][k])
                                 for k, v in res[num][3].items():
