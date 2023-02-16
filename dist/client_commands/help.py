@@ -299,6 +299,14 @@ async def Help(ctx, arg, cc):
             "Cooldown" : "5 Seconde par Utilisateur",
             "Category": "Économie",
             "Down" : False
+        },
+        "Forge • 🔨" : {
+            "Command" : "forge",
+            "Description" : "Permet de faire des combinaisons. Pour plus d'info vous pouvez faire c!forge !",
+            "Utilisation" : "c!forge (**recipes**/**mix**)",
+            "Cooldown" : "Aucun",
+            "Category": "Économie",
+            "Down" : False
         }
     }
     

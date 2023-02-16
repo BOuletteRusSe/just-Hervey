@@ -54,12 +54,12 @@
         }
     },
     "809412081358733332": {
-        "Money": 4671.6,
+        "Money": 1001,
         "Forge Points": 0,
         "Forge Cooldown": {
             "": 0
         },
-        "Bank": 50000,
+        "Bank": 53671,
         "Ticket": 0,
         "Level": 57,
         "Xp": 2625.999999999991,
@@ -383,7 +383,7 @@
         }
     },
     "781946621473849365": {
-        "Money": 66607.82000000007,
+        "Money": 66637.80000000006,
         "Forge Points": 0,
         "Forge Cooldown": {
             "": 0
@@ -391,11 +391,11 @@
         "Bank": 2200000,
         "Ticket": 0,
         "Level": 109,
-        "Xp": 39513.0,
+        "Xp": 39622.0,
         "Hobby": 0,
         "Inventory": {
             "Debrit": 2224,
-            "Stone": 7008,
+            "Stone": 7010,
             "Iron": 653,
             "Gold": 253,
             "Cobalt": 288,
@@ -664,29 +664,29 @@
         }
     },
     "749256962234908723": {
-        "Money": 2243.5,
+        "Money": 3254.5,
         "Forge Points": 0,
         "Forge Cooldown": {
             "": 0
         },
         "Bank": 334238,
         "Level": 30,
-        "Xp": 2576.4000000000005,
+        "Xp": 4489.400000000001,
         "Hobby": 0,
         "Ticket": 0,
         "Inventory": {
             "Jade": 0,
             "Cooper": 22,
-            "Coal": 24,
+            "Coal": 25,
             "Fluorite": 0,
-            "Debrit": 191,
+            "Debrit": 193,
             "Obsidian": 1,
-            "Turquoise": 0,
+            "Turquoise": 1,
             "Mercury": 2,
             "Coke": 14,
-            "Stone": 239,
+            "Stone": 241,
             "Iron": 16,
-            "Gold": 30,
+            "Gold": 31,
             "Silver": 31,
             "Diamond": 3,
             "Rubis": 21,
@@ -697,10 +697,10 @@
             "Joseph": 5,
             "Sacred Stone": 0,
             "Cobalt": 14,
-            "Fossil": 14,
+            "Fossil": 15,
             "Emerald": 9,
             "Grenat": 11,
-            "Amethist": 6,
+            "Amethist": 7,
             "Magnetite": 0,
             "Platinium Alliage": true,
             "Rank": 12,
