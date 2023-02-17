@@ -85,11 +85,11 @@ async def Casino(ctx, arg):
             "Description" : {
                 ":pick: :pick: :pick: **:**" : "Vous gagnez la pioche du casino (chaque fois que vous minez vous avez **1/10** de chance d'obtenir un ticket pour le casino)."
             },
-            "Item" : 9
+            "Item" : 10
         },
         (":seven:", ":seven:", ":seven:") : {
             "Description" : {
-                ":seven: :seven: :seven: **:**" : "Vous gagnez un grade \"Gagnant du Loto\"."
+                ":seven: :seven: :seven: **:**" : "Vous gagnez un grade \"Gagnant du Casino\"."
             },
             "Rank" : 12
         }

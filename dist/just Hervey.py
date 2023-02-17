@@ -244,11 +244,11 @@ async def music(ctx):
         await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
-@client.bot.command()
+"""@client.bot.command()
 @cmd.cooldown(1, 2, cmd.BucketType.user)
 async def loto(ctx, *m):
     CommandWriteLogs(ctx, "Loto")
-    await client.Loto(ctx, m)
+    await client.Loto(ctx, m)"""
 
 @client.bot.command()
 async def bouliste(ctx):
@@ -496,11 +496,11 @@ async def thanos(ctx):
         await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
-@loto.error
+"""@loto.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
-        await dele.delete(delay=1)
+        await dele.delete(delay=1)"""
 
 @say.error
 async def work_error(ctx, error):

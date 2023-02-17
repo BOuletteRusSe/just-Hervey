@@ -11,25 +11,25 @@ item_shop_price = {
     },
     2: {
         "Level": 10,
-        "Money": 2000,
+        "Money": 5000,
         "Price": False,
         "Name": "😋-Mineur Amateur"
     },
     3: {
         "Level": 20,
-        "Money": 5000,
+        "Money": 10000,
         "Price": False,
         "Name": "⛏-Mineur Affirmé"
     },
     4: {
         "Level": 30,
-        "Money": 10000,
+        "Money": 50000,
         "Price": False,
         "Name": "😎-Mineur Professionel"
     },
     5: {
         "Level": 50,
-        "Money": 50000,
+        "Money": 100000,
         "Price": False,
         "Name": "🐱‍🏍-Mineur Légendaire"
     },
@@ -67,7 +67,7 @@ item_shop_price = {
         "Name": "<a:catGroove:881951879653892098>-Créateur"
     },
     12 : {
-        "Name": "<a:toucanhype:882315781277376542>-Gagnant du Loto"
+        "Name": "<a:toucanhype:882315781277376542>-Gagnant du Casino"
     }
 }
 item_shop_price_2 = {
@@ -118,14 +118,20 @@ item_shop_price_2 = {
         "Price": ["Stone", 1000],
         "Money": 25000
     },
-
+    
     8: {
+        "Name": "🧲|Pioche Magnétique",
+        "Price": ["Magnetite", 100],
+        "Money": 100000
+    },
+
+    9: {
         "Name": "👾|Multi-Pioche",
         "Price": ["Diamond", 10],
         "Money": 50000
     },
 
-    9 : {
-        "Name" : "<a:toucanhype:882315781277376542>|Pioche du Loto"
+    10 : {
+        "Name" : "<a:toucanhype:882315781277376542>|Pioche du Casino"
     }
 }

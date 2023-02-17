@@ -21,7 +21,7 @@ async def Shop(ctx, buy):
         s=discord.Embed(title="CHOIX DE LA BOUTIQUE", description="Ici, vous pouvez choisir la boutique dans laquelle vous voulez aller.", color=0x116792)
         s.add_field(name="**🎭 Boutique de Grade 🎭**", value="c!shop **rank** pour accéder à la boutique.", inline=False)
         s.add_field(name="**⚔ Boutique d'Objet ⚔**", value="c!shop **item** pour accéder à la boutiuqe.", inline=True)
-        s.add_field(name="**😴 Créer ta Boutique 😴**", value="Bientôt disponible !", inline=False)
+        s.add_field(name="**🔨 Boutique du Forgeron 🔨**", value="Bientôt disponible !", inline=False)
         s.set_footer(text="Chaque boutique vend des articles différents.")
 
         if not buy:
@@ -96,7 +96,8 @@ async def Shop(ctx, buy):
             item_embed.add_field(name="**5** - 👨‍🔬|PIOCHE DU CHINOIS : **10**Joseph, **100,000**€.", value="GG, vous avez la meilleure pioche du jeu (ne sert à rien).", inline=True)
             item_embed.add_field(name="**6** - ✖|Pioche de multiplication : **25**Cobaltes, **50,000**€.", value="Duplique les minerais que vous minez.", inline=True)
             item_embed.add_field(name="**7** - 🕵️‍♂️|Pioche du maraudeur : **250**Pierres, **25,000**€.", value="Vous ne minerez plus de débrits (ouf).", inline=True)
-            item_embed.add_field(name=f"**8** - 👾|Multi-Pioche : **{data[id]['Inventory']['Item Limit'] * 10}**Diamant, **{(data[id]['Inventory']['Item Limit'])*5}0,000**€.", value=f"Vous permet d'équiper {data[id]['Inventory']['Item Limit'] + 1} pioches à la fois.", inline=True)
+            item_embed.add_field(name="**8** - 🧲|Pioche Magnétique : **100**Magnétite, **100,000**€.", value="Lorsque cette pioche est équipée, le cooldown de la forge est réduis de 40%.", inline=True)
+            item_embed.add_field(name=f"**9** - 👾|Multi-Pioche : **{data[id]['Inventory']['Item Limit'] * 10}**Diamant, **{(data[id]['Inventory']['Item Limit'])*5}0,000**€.", value=f"Vous permet d'équiper {data[id]['Inventory']['Item Limit'] + 1} pioches à la fois.", inline=True)
             item_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop item buy NUMÉRO DE L'ITEM.")
 
             try:

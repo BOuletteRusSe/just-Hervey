@@ -44,8 +44,15 @@ FORGE:
     Ajout des forge points à chaque recette + de forge points, permettera d'acheter des articles spéciaux dans la boutique du forgeron (nouvelle boutique)
 
 
-pioche magnetite speciale
+pioche magnetite speciale *
 charbons grande quantité --> diamant forge
 combienr relique forge
 Plans de forge pour débloquer de nouvelles recettes --> boutique de forgeron/minage pour pouvoir avoir le plan et fabriquer la chose
 grade forgeron à débloquer avec des points de forge dans la boutique de forgeron
+tickets c!loto
+- Plus de lots pour la commande "c!casino" (dont des lots uniques)
+- De nouveaux minerais et une progression de la commande "c!work" jusqu'au niveau 50
+- Plus de pioches dans le "c!shop" et plus de ranks pouvant être fabriqués à partir des nouveaux minerais + modification du prix de la multi-pioche en remplaçant les diamants par d'autres ressources au fur et à mesure
+- Système de trade et de shops personnalisés
+- Minerais uniques et rares permettant de fabriquer des reliques 
+- Commande c!mabite (ref à ruben)
