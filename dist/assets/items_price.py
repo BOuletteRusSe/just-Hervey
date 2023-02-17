@@ -110,13 +110,13 @@ item_shop_price_2 = {
     6 : {
         "Name": "✖|Pioche de Multiplication",
         "Price": ["Cobalt", 30],
-        "Money": 50000
+        "Money": 200000
     },
 
     7: {
         "Name": "🕵️‍♂️|Pioche du Maraudeur",
         "Price": ["Stone", 1000],
-        "Money": 25000
+        "Money": 150000
     },
     
     8: {

@@ -56,3 +56,4 @@ tickets c!loto
 - Système de trade et de shops personnalisés
 - Minerais uniques et rares permettant de fabriquer des reliques 
 - Commande c!mabite (ref à ruben)
+forge lvl 15

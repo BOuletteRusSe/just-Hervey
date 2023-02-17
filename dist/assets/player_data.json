@@ -54,12 +54,12 @@
         }
     },
     "809412081358733332": {
-        "Money": 44,
-        "Forge Points": 3100,
+        "Money": 4044,
+        "Forge Points": 3200,
         "Forge Cooldown": {
-            "1676628736.035753": 24
+            "1676629136.6944153": 60
         },
-        "Bank": 421031,
+        "Bank": 416031,
         "Ticket": 0,
         "Level": 59,
         "Xp": 13068.999999999993,
@@ -67,8 +67,8 @@
         "Inventory": {
             "Debrit": 559,
             "Stone": 1893,
-            "Iron": 171,
-            "Gold": 70,
+            "Iron": 169,
+            "Gold": 68,
             "Diamond": 22,
             "Rubis": 100,
             "Silver": 118,
@@ -92,7 +92,7 @@
             "Mercury": 91,
             "Item Limit": 4,
             "Amethist": 49,
-            "Magnetite": 38,
+            "Magnetite": 39,
             "Rank": 11,
             "P Item": [
                 0,
@@ -100,8 +100,7 @@
                 2,
                 3,
                 6,
-                7,
-                8
+                7
             ],
             "P Rank": [
                 0,
@@ -113,10 +112,10 @@
             ],
             "Platinium Alliage": true,
             "MP": [
-                8,
-                0,
-                0,
-                0
+                1,
+                2,
+                6,
+                7
             ]
         }
     },

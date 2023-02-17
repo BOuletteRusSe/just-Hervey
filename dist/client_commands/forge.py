@@ -119,8 +119,11 @@ async def Forge(ctx, arg):
                                     buy_embed.add_field(name=f"{k} : ", value=data[id]["Inventory"][k])
                                 for k, v in res[num][3].items():
                                     buy_embed.add_field(name=f"{k} : ", value=data[id]["Inventory"][k])
-                                buy_embed.set_footer(text="Vous devez maintenant vous reposer pendant %ss afin de pouvoir réutiliser la commande c!forge !" % (int(round(res[num][4]) / 100 * 40)))
-                                
+                                if 8 in data[id]["Inventory"]["MP"]:
+                                    buy_embed.set_footer(text="Vous devez maintenant vous reposer pendant %ss afin de pouvoir réutiliser la commande c!forge !" % (int(round(res[num][4]) / 100 * 40)))
+                                else:
+                                    buy_embed.set_footer(text="Vous devez maintenant vous reposer pendant %ss afin de pouvoir réutiliser la commande c!forge !" % (res[num][4]))
+                                    
                                 await ctx.send(embed=buy_embed)
                             
                             """deleteMessage = await ctx.reply('Malheureusement, la commande n\'est pas encore finis pour le moment ! 😿\nCette partie de la commande sera disponible dans de futures mises à jour donc restez actif !')
