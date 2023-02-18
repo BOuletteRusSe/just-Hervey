@@ -118,12 +118,6 @@ item_shop_price_2 = {
         "Price": ["Stone", 1000],
         "Money": 150000
     },
-    
-    8: {
-        "Name": "🧲|Pioche Magnétique",
-        "Price": ["Magnetite", 100],
-        "Money": 100000
-    },
 
     9: {
         "Name": "👾|Multi-Pioche",
@@ -133,5 +127,26 @@ item_shop_price_2 = {
 
     10 : {
         "Name" : "<a:toucanhype:882315781277376542>|Pioche du Casino"
+    },
+    
+    11 : {
+        "Name": "🧲|Forgeron de renommée",
+    }
+}
+
+item_shop_price_3 = {
+    1: {
+        "Name": "🧲|Marteau Magnétique",
+        "Price": {"Magnetite": 100},
+        "Forge Points": 5000,
+        "Money": 100000,
+        "Rank": False
+    },
+    11: {
+        "Name": "🧲|Forgeron de renommée",
+        "Price": {},
+        "Forge Points": 10000,
+        "Money": 0,
+        "Rank": True
     }
 }

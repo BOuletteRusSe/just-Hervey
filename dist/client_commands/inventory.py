@@ -1,5 +1,5 @@
 import discord, json, re, asyncio
-from assets.items_price import item_shop_price, item_shop_price_2
+from assets.items_price import item_shop_price, item_shop_price_2, item_shop_price_3
 
 
 def InventoryCheckNone(name, value, id, data, inventory_embed):
@@ -57,6 +57,10 @@ async def Inventory(ctx, equip, c):
     items = ""
     for item in data[id]["Inventory"]["P Item"]:
         items += f"{str(item_shop_price_2[item]['Name'])} ({item}) | "
+        
+    etabli = ""
+    for item in data[id]["Inventory"]["P Forge"]:
+        etabli += f"{str(item_shop_price_3[item]['Name'])} ({item}) | "
 
     e_items = ""
     for item in data[id]["Inventory"]["MP"]:
@@ -74,10 +78,11 @@ async def Inventory(ctx, equip, c):
         inventory_embed.set_author(name=user, icon_url=user.avatar_url)
         inventory_embed.add_field(name="🛠 • Objet(s) Équipé(s) :", value=e_items)
         inventory_embed.add_field(name="🎭 • Grade :", value=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], inline=True)
+        inventory_embed.add_field(name=":nut_and_bolt: • Points de Forge :", value=data[id]["Forge Points"], inline=True)
         inventory_embed.add_field(name="Liste des Objets :", value=items, inline=True)
         inventory_embed.add_field(name="Liste des Grades :", value=ranks, inline=True)
+        inventory_embed.add_field(name="🔧 • Établi", value=etabli, inline=True)
         inventory_embed.add_field(name="🎟 • Tickets :", value=data[id]["Ticket"], inline=True)
-        inventory_embed.add_field(name=":nut_and_bolt: • Points de Forge :", value=data[id]["Forge Points"], inline=True)
         inventory_embed.add_field(name=":pick: • Nombre de Pioches Max :", value=data[id]['Inventory']['Item Limit'], inline=True)
         inventory_embed.set_footer(text=f"c!inventory equip item/rank 'nombre' pour équiper une objet ou un grade. (Vous pouvez équiper jusqu'à {data[id]['Inventory']['Item Limit']} item(s) à la fois.)")
         
@@ -110,6 +115,7 @@ async def Inventory(ctx, equip, c):
             InventoryCheckNone("<:coal:882226330110926908> • Charbon :", "Coal",id, data, inventory_embed)
             InventoryCheckNone("<:cooper:882228895192076339> • Cuivre :", "Cooper", id, data, inventory_embed)
             InventoryCheckNone("<:magnetite:1075060513593110689> • Magnétite :", "Magnetite", id, data, inventory_embed)
+            InventoryCheckNone("<:josephEnModeHot:791311502460059708> • Joseph :", "Joseph", id, data, inventory_embed)
         
         return inventory_embed
         

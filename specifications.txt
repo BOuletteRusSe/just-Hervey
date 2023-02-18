@@ -45,7 +45,7 @@ FORGE:
 
 
 pioche magnetite speciale *
-charbons grande quantité --> diamant forge
+charbons grande quantité --> diamant forge *
 combienr relique forge
 Plans de forge pour débloquer de nouvelles recettes --> boutique de forgeron/minage pour pouvoir avoir le plan et fabriquer la chose
 grade forgeron à débloquer avec des points de forge dans la boutique de forgeron
@@ -57,3 +57,5 @@ tickets c!loto
 - Minerais uniques et rares permettant de fabriquer des reliques 
 - Commande c!mabite (ref à ruben)
 forge lvl 15
+en gros tu peux parier plusieurs tickets en même temps et plus tu paries de tickets plus tu gagnes de chance d'avoir un meilleur lot
+jetons loto + shop jetons, ranks, objets, thune (pas rentable)

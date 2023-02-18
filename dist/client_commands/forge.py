@@ -97,7 +97,7 @@ async def Forge(ctx, arg):
                                 
                                 for k, v in res[num][2].items():
                                     data[id]["Inventory"][k] -= v
-                                if 8 in data[id]["Inventory"]["MP"]:             
+                                if 1 in data[id]["Inventory"]["P Forge"]:             
                                     data[id]["Forge Cooldown"] = {str(time.time()): int(round(res[num][4]) / 100 * 40)}
                                 else:
                                     data[id]["Forge Cooldown"] = {str(time.time()): res[num][4]}
@@ -119,7 +119,7 @@ async def Forge(ctx, arg):
                                     buy_embed.add_field(name=f"{k} : ", value=data[id]["Inventory"][k])
                                 for k, v in res[num][3].items():
                                     buy_embed.add_field(name=f"{k} : ", value=data[id]["Inventory"][k])
-                                if 8 in data[id]["Inventory"]["MP"]:
+                                if 1 in data[id]["Inventory"]["P Forge"]:
                                     buy_embed.set_footer(text="Vous devez maintenant vous reposer pendant %ss afin de pouvoir réutiliser la commande c!forge !" % (int(round(res[num][4]) / 100 * 40)))
                                 else:
                                     buy_embed.set_footer(text="Vous devez maintenant vous reposer pendant %ss afin de pouvoir réutiliser la commande c!forge !" % (res[num][4]))

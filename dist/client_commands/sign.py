@@ -58,10 +58,12 @@ async def Sign(ctx):
                     0
                 ],
                 "P Item": [
-                0
+                    0
                 ],
                 "P Rank": [
                     0
+                ],
+                "P Forge" : [
                 ]
             }
         }
