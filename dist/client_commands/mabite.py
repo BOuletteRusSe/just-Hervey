@@ -23,7 +23,9 @@ async def MaBite(ctx, arg):
     else:
         enigmes = [word.strip() for word in open("assets/texts/cmabite.txt", encoding="utf-8")]
         enigme = random.choice(enigmes)
-        embed = discord.Embed(title=f"[A lire avec la voix du père fouras] **{enigme} ?**", description=f"Réponse : ||C'EST MA BITE !||", color=0x960F9B)
+        pere_fouras = random.choice([word.strip() for word in open("assets/texts/pere_fouras.txt", encoding="utf-8")])
+        embed = discord.Embed(title=f"[A lire avec la voix du père fouras] **{enigme}. Qui suis-je ?**", description=f"Réponse : ||C'EST MA BITE !||", color=0x960F9B)
+        embed.set_image(url=pere_fouras)
         embed.set_footer(text="Le père fouras t'as bien eu lol!")
         await ctx.reply(embed=embed)
 
