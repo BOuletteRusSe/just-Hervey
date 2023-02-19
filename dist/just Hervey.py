@@ -96,8 +96,13 @@ async def forge(ctx, *arg):
 @client.bot.command()
 @cmd.cooldown(3, 3, cmd.BucketType.user)
 async def mabite(ctx, *arg):
-    CommandWriteLogs(ctx, "MaBite")
-    await client.MaBite(ctx, arg)
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
+        CommandWriteLogs(ctx, "MaBite")
+        await client.MaBite(ctx, arg)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 @client.bot.command()
 async def money(ctx, *res):
@@ -573,11 +578,11 @@ async def work_error(ctx, error):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
         await dele.delete(delay=1)
 
-"""@mabite.error
+@mabite.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
-        await dele.delete(delay=1)"""
+        await dele.delete(delay=1)
 
 @mot.error
 async def work_error(ctx, error):

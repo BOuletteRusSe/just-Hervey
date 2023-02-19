@@ -55,7 +55,8 @@ tickets c!loto
 - Plus de pioches dans le "c!shop" et plus de ranks pouvant être fabriqués à partir des nouveaux minerais + modification du prix de la multi-pioche en remplaçant les diamants par d'autres ressources au fur et à mesure
 - Système de trade et de shops personnalisés
 - Minerais uniques et rares permettant de fabriquer des reliques 
-- Commande c!mabite (ref à ruben)
+- Commande c!mabite (ref à ruben) *
 forge lvl 15
 en gros tu peux parier plusieurs tickets en même temps et plus tu paries de tickets plus tu gagnes de chance d'avoir un meilleur lot
 jetons loto + shop jetons, ranks, objets, thune (pas rentable)
+régler pb tssc + logs
