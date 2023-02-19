@@ -210,8 +210,18 @@ async def leaderboard(ctx):
 async def work(ctx, *xp):
     CommandWriteLogs(ctx, "Work")
     await client.Work(ctx, xp)
-
-
+    
+@client.bot.command()
+@cmd.cooldown(3, 3, cmd.BucketType.user)
+async def bronjames(ctx, *arg):
+    CommandWriteLogs(ctx, "bronJames")
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
+        await client.bronJames(ctx, arg)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
+        
 @client.bot.command()
 @cmd.cooldown(1, 5, BucketType.user)
 async def say(ctx, *text):
@@ -543,6 +553,12 @@ async def work_error(ctx, error):
         await dele.delete(delay=1)
 
 @blacknwhite.error
+async def work_error(ctx, error):
+    if isinstance(error, cmd.CommandOnCooldown):
+        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        await dele.delete(delay=1)
+
+@bronjames.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')

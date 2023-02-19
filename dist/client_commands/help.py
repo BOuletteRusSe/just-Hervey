@@ -319,7 +319,8 @@ async def Help(ctx, arg, cc):
         commands_help['Nude • 🔞'] = {"Command" : "nude", "Description" : "Envoie une nude.", "Utilisation" : "c!nude", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
         commands_help['Ph • 🟠⚫'] = {"Command" : "ph", "Description" : "Envoie un titre de vidéo provenant de ph.", "Utilisation" : "c!ph", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
         commands_help['Ping • 🔗'] = {"Command" : "ping", "Description" : "Ping un utilisateur discord aléatoire (l'utilisateur est souvent invalide).", "Utilisation" : "c!ping (nombre d'itérations)", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
-        commands_help['MaBite • 🍆'] = {"Command" : "mabite", "Description" : "Pose une énigme du père fouras.", "Utilisation" : "c!mabite (add **énigme**)", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
+        commands_help['CMaBite • 🍆'] = {"Command" : "mabite", "Description" : "Pose une énigme du père fouras.", "Utilisation" : "c!mabite (add **énigme**)", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
+        commands_help['CbronJames • 🦾'] = {"Command" : "bronjames", "Description" : "Fait part d'une analogie à la pignouf.", "Utilisation" : "c!bronjames (add **texte**)", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
 
     if not arg:
 

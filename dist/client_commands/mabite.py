@@ -15,7 +15,7 @@ async def MaBite(ctx, arg):
 
         else:
             with open("assets/texts/cmabite.txt", "a", encoding="utf-8") as b: b.write(f"\n{content}")
-            embed = discord.Embed(title="**just Hervey 💎 || Énigmes du Père Fouras**", description=f"Une nouvelle énigme a été ajoutée ! {content} ? C'EST MA BITE !", color=0xE17CBB)
+            embed = discord.Embed(title="**just Hervey 💎 || Énigmes du Père Fouras**", description=f"Une nouvelle énigme a été ajoutée ! {content}. Qui suis-je ? C'EST MA BITE !", color=0xE17CBB)
             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             embed.set_footer(text="Ajoutes des trucs drôles zebi.")
             await ctx.send(embed=embed)
