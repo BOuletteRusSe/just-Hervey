@@ -1,5 +1,4 @@
 import discord, random
-from colored import fg, attr
 
 
 async def Boule(ctx, arg):
@@ -21,6 +20,7 @@ async def Boule(ctx, arg):
             embed = discord.Embed(title="**just Hervey 💎 || Boule Add**",
                                 description=f"__{content} a été ajouté entre les boules de {ctx.author.mention}__.",
                                 color=0x461b30)
+            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             embed.set_footer(text="La commande c!boule n'est pas modérée lol.")
             await ctx.send(embed=embed)
 

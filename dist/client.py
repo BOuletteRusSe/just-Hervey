@@ -45,6 +45,7 @@ from client_commands.leave import Leave
 from client_commands.ban import Ban
 from client_commands.banane import Banane
 from client_commands.forge import Forge
+from client_commands.mabite import MaBite
 
 import discord, time, os, json
 from colored import fg, attr
@@ -60,7 +61,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.9.4.2'
+            self.client_version = '3.10.2'
             self.key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(self.key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -151,6 +152,9 @@ with open(r"assets\player_data.json") as data:
 
         @staticmethod
         async def Leave(ctx): await Leave(ctx)
+        
+        @staticmethod
+        async def MaBite(ctx, arg): await MaBite(ctx, arg)
 
         async def BeatCut(self, ctx, args): await BeatCut(ctx, args, self)
 

@@ -55,7 +55,7 @@
         }
     },
     "809412081358733332": {
-        "Money": 20706,
+        "Money": 20776,
         "Forge Points": 3750,
         "Forge Cooldown": {
             "1676824994.336961": 24
@@ -462,7 +462,7 @@
         }
     },
     "612378210235318282": {
-        "Money": 69.99999979493901,
+        "Money": 55.0,
         "Forge Points": 0,
         "Forge Cooldown": {
             "": 0
@@ -470,7 +470,7 @@
         "Bank": 0,
         "Level": 16,
         "Ticket": 0,
-        "Xp": 748.1999999999998,
+        "Xp": 761.1999999999998,
         "Hobby": 0,
         "Inventory": {
             "Fluorite": 0,
@@ -486,7 +486,7 @@
             "Mercury": 0,
             "Coke": 0,
             "Stone": 129,
-            "Iron": 12,
+            "Iron": 13,
             "Gold": 13,
             "Silver": 17,
             "Diamond": 3,

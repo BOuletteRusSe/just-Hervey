@@ -1,4 +1,4 @@
-
+import discord
 from deep_translator import GoogleTranslator
 from deep_translator.exceptions import LanguageNotSupportedException
 from random import choice
@@ -31,16 +31,22 @@ async def Curse(ctx, translat):
                         from_lang = list()
                         for i in range(ln): from_lang.append(choice(from_langs))
                         
-                        mess = await ctx.reply('**0/%s** : %s' % (ln, translated))
+                        embed = discord.Embed(title=f"Commande c!curse en cours | **0/%s**" % (ln), description=translated, color=0x912CC0)
+                        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                        mess = await ctx.reply(embed=embed)
                         
                         for lang in range(len(from_lang)):
+                            embed = discord.Embed(title=f"Commande c!curse en cours | **%s/%s**" % (lang, ln), description=translated, color=0x912CC0)
+                            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                             try: translated = GoogleTranslator(source='auto', target=from_lang[lang]).translate(translated)
                             except LanguageNotSupportedException: pass
-                            else: await mess.edit(content='**%s/%s** : %s' % (lang, ln, translated))
+                            else: await mess.edit(embed=embed)
                             
                         translated = GoogleTranslator(source='auto', target='fr').translate(translated)
                         await mess.delete()
-                        await ctx.reply(translated)
+                        embed = discord.Embed(title=f"Résultats de la commande c!curse | **%s/%s**" % (ln, ln), description=translated, color=0xDC1FC6)
+                        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                        mess = await ctx.reply(embed=embed)
                     else: 
                         d = await ctx.reply('Veuillez entrer du texte !')
                         await d.delete(delay=20)
