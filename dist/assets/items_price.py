@@ -130,7 +130,7 @@ item_shop_price_2 = {
     },
     
     11 : {
-        "Name": "🧲|Forgeron de renommée",
+        "Name": "🧔|Forgeron de renommée",
     }
 }
 
@@ -143,7 +143,7 @@ item_shop_price_3 = {
         "Rank": False
     },
     11: {
-        "Name": "🧲|Forgeron de renommée",
+        "Name": "🧔|Forgeron de renommée",
         "Price": {},
         "Forge Points": 10000,
         "Money": 0,

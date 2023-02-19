@@ -279,7 +279,7 @@ async def Help(ctx, arg, cc):
         "Shop • 💱" : {
             "Command" : "shop",
             "Description" : "Affiche la boutique.",
-            "Utilisation" : "c!shop (**item** (**buy** <**id de l'item**>)) / (**rank** (**buy** <**id du rank**>))",
+            "Utilisation" : "c!shop (**item** (**buy** <**id de l'item**>)) / (**rank** (**buy** <**id du rank**>) / (**forge** (**buy** <**id de l'objet**>))",
             "Cooldown" : "Aucun",
             "Category": "Économie",
             "Down" : False
@@ -318,7 +318,7 @@ async def Help(ctx, arg, cc):
         commands_help['Music • 🎵'] = {"Command" : "music", "Description" : "Envoie une musique aléatoire de la playlist BEAUF.FR.", "Utilisation" : "c!music", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
         commands_help['Nude • 🔞'] = {"Command" : "nude", "Description" : "Envoie une nude.", "Utilisation" : "c!nude", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
         commands_help['Ph • 🟠⚫'] = {"Command" : "ph", "Description" : "Envoie un titre de vidéo provenant de ph.", "Utilisation" : "c!ph", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
-        commands_help['Ping • 🔗'] = {"Command" : "ping", "Description" : "Ping un utilisateur discord aléatoire (l'utilisateur est souvent invalide).", "Utilisation" : "c!ping", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
+        commands_help['Ping • 🔗'] = {"Command" : "ping", "Description" : "Ping un utilisateur discord aléatoire (l'utilisateur est souvent invalide).", "Utilisation" : "c!ping (nombre d'itérations)", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
 
     if not arg:
 

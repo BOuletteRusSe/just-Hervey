@@ -105,7 +105,7 @@ async def Shop(ctx, buy):
                         if int(buy[2]) in [1, 2, 3, 4, 5, 6, 7, 9]:
                             buy_item = item_shop_price_2[int(buy[2])]
                             
-                            if int(buy[2]) == 8:
+                            if int(buy[2]) == 9:
                                 price = buy_item["Price"][1] * data[id]['Inventory']['Item Limit']
                                 money = buy_item["Money"] * data[id]['Inventory']['Item Limit']
                             else:
@@ -136,7 +136,7 @@ async def Shop(ctx, buy):
                                                     await ctx.reply(embed=money_embed)
                                                     
                                                 
-                                                elif int(buy[2]) == 8:
+                                                elif int(buy[2]) == 9:
                                                     data[id]['Inventory']["Item Limit"] += 1
                                                     data[id]['Money'] = round(data[id]['Money'], 2)
                                                     json.dump(data, d, indent=4)
@@ -219,7 +219,7 @@ async def Shop(ctx, buy):
                                             money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                             money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
                                             money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
-                                            money_embed.add_field(name="Points de Forge restant:", value=data[id]['Bank'], inline=False)
+                                            money_embed.add_field(name="Points de Forge restant:", value=data[id]['Forge Points'], inline=False)
                                             money_embed.set_footer(text="L'objet a été ajouté à votre établi. Pour voir tout les objets de votre établi, faites la commande c!inventory.")
                                             await ctx.reply(embed=money_embed)
                                             

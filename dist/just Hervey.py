@@ -142,12 +142,12 @@ async def join(ctx):
 
 
 @client.bot.command()
-async def ping(ctx):
+async def ping(ctx, *arg):
     CommandWriteLogs(ctx, "Ping")
     with open('assets/sscc.json') as sscc:
         ssccd = json.load(sscc)
     if ssccd[str(ctx.guild.id)]:
-        await client.Ping(ctx)
+        await client.Ping(ctx, arg)
     else:
         await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
