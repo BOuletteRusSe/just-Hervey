@@ -51,6 +51,7 @@ async def Sign(ctx):
                 "Grenat": 0, 
                 "Amethist": 0,
                 "Magnetite": 0,
+                "Lucky Stone": 0,
                 "Platinium Alliage": False,
                 "Rank": 0,
                 "Item Limit": 1,

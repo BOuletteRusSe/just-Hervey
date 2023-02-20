@@ -68,6 +68,10 @@ item_shop_price = {
     },
     12 : {
         "Name": "<a:toucanhype:882315781277376542>-Gagnant du Casino"
+    },
+    
+    13 : {
+        "Name": "🧔|Forgeron de renommée",
     }
 }
 item_shop_price_2 = {
@@ -127,10 +131,6 @@ item_shop_price_2 = {
 
     10 : {
         "Name" : "<a:toucanhype:882315781277376542>|Pioche du Casino"
-    },
-    
-    11 : {
-        "Name": "🧔|Forgeron de renommée",
     }
 }
 
@@ -148,5 +148,13 @@ item_shop_price_3 = {
         "Forge Points": 10000,
         "Money": 0,
         "Rank": True
-    }
+    },
+    
+    2: {
+        "Name": "🍀|Lucky-Hammer",
+        "Price": {"Lucky Stone": 25},
+        "Forge Points": 1500,
+        "Money": 150000,
+        "Rank": False
+    }    
 }

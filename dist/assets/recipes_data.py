@@ -6,7 +6,8 @@ recipes = {
         "points": 100,
         "cooldown": 60,
         "command": ["('iron', '+', 'gold')", "('iron+gold',)", "('iron', '+gold')", "('iron+', 'gold')"],
-        "price": 1000
+        "price": 1000,
+        "level": 20
     },
     "Diamant/Mercure": {
         "emoji": "<:diamond:881949161753309194>",
@@ -15,6 +16,17 @@ recipes = {
         "points": 250,
         "cooldown": 360,
         "command": ["('coal', '+', 'fluorite')", "('coal+fluorite',)", "('coal', '+fluorite')", "('coal+', 'fluorite')"],
-        "price": 5000
+        "price": 5000,
+        "level": 15
+    },
+    "Lucky Stone": {
+        "emoji": "🍀",
+        "input": {"Randomite": 2, "Rubis": 1},
+        "output": {"Lucky Stone": 2},
+        "points": 400,
+        "cooldown": 500,
+        "command": ["('randomite', '+', 'rubis')", "('randomite+rubis',)", "('randomite', '+rubis')", "('randomite+', 'rubis')"],
+        "price": 3500,
+        "level": 25
     }
 }

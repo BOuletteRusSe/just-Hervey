@@ -39,6 +39,7 @@
             "Grenat": 0,
             "Amethist": 0,
             "Magnetite": 0,
+            "Lucky Stone": 0,
             "Rank": 0,
             "P Item": [
                 0,
@@ -55,13 +56,13 @@
         }
     },
     "809412081358733332": {
-        "Money": 20776,
+        "Money": 20626,
         "Forge Points": 3750,
         "Forge Cooldown": {
             "1676824994.336961": 24
         },
         "Bank": 565000,
-        "Ticket": 9,
+        "Ticket": 5,
         "Level": 63,
         "Xp": 4068.9999999999927,
         "Hobby": 0,
@@ -94,6 +95,7 @@
             "Item Limit": 5,
             "Amethist": 61,
             "Magnetite": 1,
+            "Lucky Stone": 0,
             "Rank": 11,
             "P Item": [
                 0,
@@ -164,6 +166,7 @@
             "Grenat": 10,
             "Amethist": 5,
             "Magnetite": 0,
+            "Lucky Stone": 0,
             "Rank": 0,
             "P Item": [
                 0,
@@ -217,6 +220,7 @@
             "Grenat": 0,
             "Amethist": 0,
             "Magnetite": 0,
+            "Lucky Stone": 0,
             "Rank": 0,
             "P Item": [
                 0
@@ -269,6 +273,7 @@
             "Grenat": 0,
             "Amethist": 0,
             "Magnetite": 0,
+            "Lucky Stone": 0,
             "Platinium Alliage": false,
             "Rank": 0,
             "Item Limit": 1,
@@ -324,6 +329,7 @@
             "Grenat": 5,
             "Amethist": 0,
             "Magnetite": 0,
+            "Lucky Stone": 0,
             "Rank": 0,
             "P Item": [
                 0,
@@ -377,6 +383,7 @@
             "Grenat": 0,
             "Amethist": 0,
             "Magnetite": 0,
+            "Lucky Stone": 0,
             "Platinium Alliage": false,
             "Rank": 0,
             "Item Limit": 1,
@@ -432,6 +439,7 @@
             "Grenat": 309,
             "Amethist": 303,
             "Magnetite": 123,
+            "Lucky Stone": 0,
             "Rank": 9,
             "P Item": [
                 0,
@@ -504,6 +512,7 @@
             "Grenat": 6,
             "Amethist": 0,
             "Magnetite": 0,
+            "Lucky Stone": 0,
             "Rank": 0,
             "P Item": [
                 0,
@@ -556,6 +565,7 @@
             "Grenat": 2,
             "Amethist": 0,
             "Magnetite": 0,
+            "Lucky Stone": 0,
             "Platinium Alliage": false,
             "Rank": 0,
             "Item Limit": 1,
@@ -611,6 +621,7 @@
             "Grenat": 2,
             "Amethist": 0,
             "Magnetite": 0,
+            "Lucky Stone": 0,
             "Platinium Alliage": true,
             "Rank": 0,
             "Item Limit": 1,
@@ -665,6 +676,7 @@
             "Grenat": 0,
             "Amethist": 0,
             "Magnetite": 0,
+            "Lucky Stone": 0,
             "Platinium Alliage": false,
             "Rank": 0,
             "Item Limit": 1,
@@ -719,6 +731,7 @@
             "Grenat": 31,
             "Amethist": 27,
             "Magnetite": 11,
+            "Lucky Stone": 0,
             "Platinium Alliage": true,
             "Rank": 12,
             "Item Limit": 2,
@@ -777,6 +790,7 @@
             "Grenat": 11,
             "Amethist": 3,
             "Magnetite": 0,
+            "Lucky Stone": 0,
             "Platinium Alliage": true,
             "Rank": 0,
             "Item Limit": 1,
