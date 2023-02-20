@@ -70,7 +70,7 @@ async def Forge(ctx, arg):
                         await deleteMessage.delete(delay=15)
                     else:
                         
-                        if data[id]["Level"] >= res[num][6]:
+                        if data[id]["Level"] >= res[num][8]:
                         
                             ressources = str()
                             p = True
@@ -134,7 +134,7 @@ async def Forge(ctx, arg):
                                         await ctx.send(embed=buy_embed)
                                         
                         else: 
-                            await ctx.reply(f"Vous n'avez pas le niveau requis pour pouvoir utiliser cette recette !\nNiveau requis : {res[num][6]}\nNiveau actuel : {data[id]['Level']}")      
+                            await ctx.reply(f"Vous n'avez pas le niveau requis pour pouvoir utiliser cette recette !\nNiveau requis : {res[num][8]}\nNiveau actuel : {data[id]['Level']}")      
                     
             else:
                 await ctx.reply(f"Vous n'avez pas le niveau requis pour accéder à la forge !\nNiveau requis : 10\nNiveau actuel : {data[id]['Level']}")
@@ -152,7 +152,7 @@ async def Forge(ctx, arg):
                     outputs += f"**{_v_} {_k_}** + "
                 outputs = outputs[:-3]
                 
-                recipe_embed.add_field(name=f"{res[i][0]} • {res[i][1]} Recipe :", value=f"Recette : {inputs} --> {outputs}\nCooldown : **{res[i][4]}s**\nPoints de Forge : **{res[i][5]}**\nNiveau requis : **{res[i][6]}**\nArgent : **{res[i][7]}**", inline=False)
+                recipe_embed.add_field(name=f"{res[i][0]} • {res[i][1]} Recipe :", value=f"Recette : {inputs} --> {outputs}\nCooldown : **{res[i][4]}s**\nPoints de Forge : **{res[i][5]}**\nNiveau requis : **{res[i][8]}**\nArgent : **{res[i][7]}**", inline=False)
             
             await ctx.reply(embed=recipe_embed)
                         

@@ -56,10 +56,10 @@
         }
     },
     "809412081358733332": {
-        "Money": 20626,
-        "Forge Points": 3750,
+        "Money": 17126,
+        "Forge Points": 4150,
         "Forge Cooldown": {
-            "1676824994.336961": 24
+            "1676918619.4126172": 200
         },
         "Bank": 565000,
         "Ticket": 5,
@@ -72,12 +72,12 @@
             "Iron": 105,
             "Gold": 0,
             "Diamond": 7,
-            "Rubis": 128,
+            "Rubis": 127,
             "Silver": 144,
             "Fluorite": 47,
             "Saphir": 84,
             "Platinium": 250,
-            "Randomite": 118,
+            "Randomite": 116,
             "Magma Stone": 60,
             "Obsidian": 107,
             "Joseph": 16,
@@ -95,7 +95,7 @@
             "Item Limit": 5,
             "Amethist": 61,
             "Magnetite": 1,
-            "Lucky Stone": 0,
+            "Lucky Stone": 2,
             "Rank": 11,
             "P Item": [
                 0,

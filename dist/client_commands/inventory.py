@@ -116,6 +116,7 @@ async def Inventory(ctx, equip, c):
             InventoryCheckNone("<:cooper:882228895192076339> • Cuivre :", "Cooper", id, data, inventory_embed)
             InventoryCheckNone("<:magnetite:1075060513593110689> • Magnétite :", "Magnetite", id, data, inventory_embed)
             InventoryCheckNone("<:josephEnModeHot:791311502460059708> • Joseph :", "Joseph", id, data, inventory_embed)
+            InventoryCheckNone("🍀 • Lucky Stone :", "Lucky Stone", id, data, inventory_embed)
         
         return inventory_embed
         

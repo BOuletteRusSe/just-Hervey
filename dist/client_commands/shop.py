@@ -19,9 +19,9 @@ async def Shop(ctx, buy):
     else:
 
         s=discord.Embed(title="CHOIX DE LA BOUTIQUE", description="Ici, vous pouvez choisir la boutique dans laquelle vous voulez aller.", color=0x116792)
-        s.add_field(name="**🎭 Boutique de Grade 🎭**", value="c!shop **rank** pour accéder à la boutique.", inline=True)
-        s.add_field(name="**⚔ Boutique d'Objet ⚔**", value="c!shop **item** pour accéder à la boutiuqe.", inline=True)
-        s.add_field(name="**🔨 Boutique du Forgeron 🔨**", value="Boutique accesible à partir du niveau ```15```. c!shop **forge** pour accéder à la boutique.", inline=True)
+        s.add_field(name="**🎭 Boutique de Grade 🎭**", value="c!shop **rank** pour accéder à la boutique.", inline=False)
+        s.add_field(name="**⚔ Boutique d'Objet ⚔**", value="c!shop **item** pour accéder à la boutiuqe.", inline=False)
+        s.add_field(name="**🔨 Boutique du Forgeron 🔨**", value="Boutique accesible à partir du niveau `15`. c!shop **forge** pour accéder à la boutique.", inline=False)
         s.set_footer(text="Chaque boutique vend des articles différents.")
 
         if not buy:
@@ -182,12 +182,12 @@ async def Shop(ctx, buy):
                 forge_embed.add_field(name="**1** - 🧲|Marteau Magnétique : **100**Magnétite, **5,000** Points de Forge et 100,000€.", value="Lorsque cette pioche est équipée, le cooldown de la forge est réduis de 40%.", inline=True)
                 forge_embed.add_field(name="**13** - RANK | 🧔|Forgeron de renommée : **10,000** Points de Forge.", value="Un grade spécial pour les utilisateurs affirmés de la forge.", inline=True)
                 forge_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop forge buy NUMÉRO DE L'OBJET.")
-                forge_embed.add_field(name=f"**11** - 🍀|Lucky-Pioche : **25**Lucky Stones, **1,500** Points de Forge, **150,000**€.", value=f"Vous permet de lancer la commande c!casino jusqu'à 5 fois en même temps afin de gagner du temps.", inline=True)
+                forge_embed.add_field(name=f"**2** - 🍀|Lucky-Pioche : **25**Lucky Stones, **1,500** Points de Forge, **150,000**€.", value=f"Vous permet de lancer la commande c!casino jusqu'à 5 fois en même temps afin de gagner du temps.", inline=True)
 
                 try:
                     if buy[1] == "buy":
                         try:
-                            if int(buy[2]) in [1, 11]:
+                            if int(buy[2]) in [1, 11, 2]:
                                 buy_item = item_shop_price_3[int(buy[2])]
 
                                 if data[id]['Money'] >= buy_item["Money"]:
