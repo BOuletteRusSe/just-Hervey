@@ -34,6 +34,8 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
         mineral_xp = mineral_info["Xp"]
     except:
         mineral_xp = random.randint(mineral_info["Xp"][0], mineral_info["Xp"][1])
+    if 11 in data[id]["Inventory"]["MP"]:
+        mineral_xp = mineral_xp + (mineral_xp / 100 * 10)
     try:
         mineral_info["Price"] + 1
         mineral_price = mineral_info["Price"]
@@ -54,7 +56,8 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
     data[id]["Xp"] += mineral_xp
     data[id]['Money'] += mm
     if 6 in data[id]['Inventory']["MP"]:
-        data[id]["Inventory"][mineral] += 1
+        if random.choice[True, False]:
+            data[id]["Inventory"][mineral] += 1
     data[id]["Inventory"][mineral] += 1
 
     if data[id]["Xp"]< 0:
@@ -248,7 +251,8 @@ async def Work(ctx, xp_, cc):
                             data[id]['Money'] += mm
                             data[id]['Xp'] += xx
                             if 6 in data[id]['Inventory']["MP"]:
-                                data[id]['Inventory']["Debrit"] += 1
+                                if random.choice[True, False]:
+                                    data[id]['Inventory']["Debrit"] += 1
                             data[id]['Inventory']["Debrit"] += 1
                             with open("assets/player_data.json", 'w') as d:
                                 json.dump(data, d, indent=4)
@@ -273,7 +277,8 @@ async def Work(ctx, xp_, cc):
                             data[id]['Money'] += mm
                             v = 1
                             if 6 in data[id]['Inventory']["MP"]:
-                                data[id]['Inventory']["Stone"] += 1
+                                if random.choice[True, False]:
+                                    data[id]['Inventory']["Stone"] += 1
                             data[id]['Inventory']["Stone"] += 1
                     else:
                         if 2 in data[id]['Inventory']["MP"]:
@@ -284,7 +289,8 @@ async def Work(ctx, xp_, cc):
                         data[id]['Xp'] += xx
                         data[id]['Money'] += mm
                         if 6 in data[id]['Inventory']["MP"]:
-                            data[id]['Inventory']["Stone"] += 1
+                            if random.choice[True, False]:
+                                data[id]['Inventory']["Stone"] += 1
                         data[id]['Inventory']["Stone"] += 1
 
                 else:
@@ -297,6 +303,7 @@ async def Work(ctx, xp_, cc):
                     data[id]['Money'] += mm
                     v = 1
                     if 6 in data[id]['Inventory']["MP"]:
+                        if random.choice[True, False]:
                             data[id]['Inventory']["Stone"] += 1
                     data[id]['Inventory']["Stone"] += 1
 

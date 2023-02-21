@@ -1,7 +1,7 @@
 
 item_shop_price = {
     0: {
-        "Name": "Aucun"
+        "Name": "Mineur"
     },
     1: {
         "Level": 0,
@@ -83,26 +83,32 @@ item_shop_price_2 = {
     
     1: {
         "Name": "🧲|Pioche en Fer",
-        "Price": ["Iron", 10],
-        "Money": 2000
+        "Price": ["Iron", 5],
+        "Money": 10000
     },
 
     2: {
         "Name": "🥇|Pioche en Or",
         "Price": ["Gold", 10],
-        "Money": 7500
+        "Money": 20000
     },
 
     3: {
         "Name": "🔥|Pioche de Magma",
-        "Price": ["Magma Stone", 10],
-        "Money": 1000
+        "Price": ["Magma Stone", 5],
+        "Money": 15000
+    },
+    
+    11 : {
+        "Name": "🧪|Pioche Expérimentale",
+        "Price": ["Copper", 20],
+        "Money": 50000
     },
 
     4: {
         "Name": "⛏|Alliage en Platine",
-        "Price": ["Platinium", 10],
-        "Money": 2000
+        "Price": ["Platinium", 5],
+        "Money": 15000
     },
 
     5: {
@@ -113,13 +119,13 @@ item_shop_price_2 = {
 
     6 : {
         "Name": "✖|Pioche de Multiplication",
-        "Price": ["Cobalt", 30],
+        "Price": ["Cobalt", 25],
         "Money": 200000
     },
 
     7: {
         "Name": "🕵️‍♂️|Pioche du Maraudeur",
-        "Price": ["Stone", 1000],
+        "Price": ["Stone", 250],
         "Money": 150000
     },
 

@@ -185,7 +185,7 @@ async def Inventory(ctx, equip, c):
 
                     
                     if not False in check_error:
-                        await ctx.reply("Le(s) objet(s) ont bien été ajouté(s) à la liste !")
+                        await ctx.reply("Le(s) objet(s) ont bien été équipé(s) !")
                         with open("assets/player_data.json", "w") as d:
                             json.dump(data, d ,indent=4)
 

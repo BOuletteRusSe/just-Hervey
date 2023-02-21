@@ -11,11 +11,11 @@ recipes = {
     },
     "Diamant/Mercure": {
         "emoji": "<:diamond:881949161753309194>",
-        "input": {"Coal": 15, "Fluorite": 1},
+        "input": {"Coal": 15, "Grenat": 1},
         "output": {"Diamond": 1, "Mercury": 2},
         "points": 250,
         "cooldown": 360,
-        "command": ["('coal', '+', 'fluorite')", "('coal+fluorite',)", "('coal', '+fluorite')", "('coal+', 'fluorite')"],
+        "command": ["('coal', '+', 'grenat')", "('coal+grenat',)", "('coal', '+grenat')", "('coal+', 'grenat')"],
         "price": 5000,
         "level": 15
     },

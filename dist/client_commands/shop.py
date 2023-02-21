@@ -93,8 +93,9 @@ async def Shop(ctx, buy):
             item_embed.add_field(name="**2** - 🥇|Pioche en Or : **5**Or, **10,000**€", value="Augmente la revente de vos minerais de **10%**.", inline=True)
             item_embed.add_field(name="**3** - 🔥|Pioche de Magma : **5**Pierre de Magma, **15,000**€", value="Vous ne perdez plus d'**argent** ni d'**xp** à cause de la Roche Magmatique.", inline=True)
             item_embed.add_field(name="**4** - ⛏|Alliage en Platine : **5**Platine, **15,000**€", value="Vous permet d'améliorer votre pioche pour qu'elle puisse miner le **rubis**, le **saphir** et l'**émeraude**.", inline=True)
+            item_embed.add_field(name="**11** - 🧪|Pioche Expérimentale : **20**Cuivre, **50,000**€.", value=f"Vous gagnez 10{'%'} d'xp supplémentaire en minant.", inline=True)
             item_embed.add_field(name="**5** - 👨‍🔬|PIOCHE DU CHINOIS : **10**Joseph, **100,000**€.", value="GG, vous avez la meilleure pioche du jeu (ne sert à rien).", inline=True)
-            item_embed.add_field(name="**6** - ✖|Pioche de multiplication : **25**Cobaltes, **200,000**€.", value="Duplique les minerais que vous minez.", inline=True)
+            item_embed.add_field(name="**6** - ✖|Pioche de multiplication : **25**Cobaltes, **200,000**€.", value=f"A 50{'%'} de dupliquer les minerais que vous minez.", inline=True)
             item_embed.add_field(name="**7** - 🕵️‍♂️|Pioche du maraudeur : **250**Pierres, **150,000**€.", value="Vous ne minerez plus de débrits (ouf).", inline=True)
             item_embed.add_field(name=f"**9** - 👾|Multi-Pioche : **{data[id]['Inventory']['Item Limit'] * 10}**Diamant, **{(data[id]['Inventory']['Item Limit'])*5}0,000**€.", value=f"Vous permet d'équiper {data[id]['Inventory']['Item Limit'] + 1} pioches à la fois.", inline=True)
             item_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop item buy NUMÉRO DE L'ITEM.")
@@ -182,7 +183,7 @@ async def Shop(ctx, buy):
                 forge_embed.add_field(name="**1** - 🧲|Marteau Magnétique : **100**Magnétite, **5,000** Points de Forge et 100,000€.", value="Lorsque cette pioche est équipée, le cooldown de la forge est réduis de 40%.", inline=True)
                 forge_embed.add_field(name="**13** - RANK | 🧔|Forgeron de renommée : **10,000** Points de Forge.", value="Un grade spécial pour les utilisateurs affirmés de la forge.", inline=True)
                 forge_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop forge buy NUMÉRO DE L'OBJET.")
-                forge_embed.add_field(name=f"**2** - 🍀|Lucky-Pioche : **25**Lucky Stones, **1,500** Points de Forge, **150,000**€.", value=f"Vous permet de lancer la commande c!casino jusqu'à 5 fois en même temps afin de gagner du temps.", inline=True)
+                forge_embed.add_field(name=f"**2** - 🍀|Lucky-Hammer : **25**Lucky Stones, **1,500** Points de Forge, **150,000**€.", value=f"Vous permet de lancer la commande c!casino jusqu'à 5 fois en même temps afin de gagner du temps.", inline=True)
 
                 try:
                     if buy[1] == "buy":
