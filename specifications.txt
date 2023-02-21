@@ -56,3 +56,4 @@ jetons loto + shop jetons, ranks, objets, thune (pas rentable)
 Dans de futures mises à jour, plusieurs raretés de tickets à des prix différents seront disponibles !
 revoir visuel c!casino avec iterations
 modifier loot randomite selon niveau
+ajouter embed minerais

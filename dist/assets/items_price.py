@@ -101,7 +101,7 @@ item_shop_price_2 = {
     
     11 : {
         "Name": "🧪|Pioche Expérimentale",
-        "Price": ["Copper", 20],
+        "Price": ["Cooper", 20],
         "Money": 50000
     },
 

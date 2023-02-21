@@ -179,7 +179,7 @@ async def Inventory(ctx, equip, c):
                                 check_error.append(False)
                                 break
                         except:
-                            await ctx.reply(f"Veuillez remplacer les espaces vides par des 0 (Vous pouvez équiper jusqu'à {data[id]['Inventory']['Item Limit']} objets).")
+                            await ctx.reply(f"Veuillez remplacer les espaces vides par des 0 (Vous pouvez équiper jusqu'à {data[id]['Inventory']['Item Limit']} objets).\nEx: **c!inventory equip item 1 3** équipera les items 1 et 3 alors que **c!inventory equip item 1 0** équipera seulement l'item 1.")
                             check_error.append(False)
                             break
 

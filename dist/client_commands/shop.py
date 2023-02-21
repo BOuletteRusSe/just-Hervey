@@ -92,18 +92,18 @@ async def Shop(ctx, buy):
             item_embed.add_field(name="**1** - 🧲|Pioche en Fer : **5**Fer, **10,000**€", value="Vous avez **10%** de chance supplémentaire de miner des minerais.", inline=True)
             item_embed.add_field(name="**2** - 🥇|Pioche en Or : **5**Or, **10,000**€", value="Augmente la revente de vos minerais de **10%**.", inline=True)
             item_embed.add_field(name="**3** - 🔥|Pioche de Magma : **5**Pierre de Magma, **15,000**€", value="Vous ne perdez plus d'**argent** ni d'**xp** à cause de la Roche Magmatique.", inline=True)
-            item_embed.add_field(name="**4** - ⛏|Alliage en Platine : **5**Platine, **15,000**€", value="Vous permet d'améliorer votre pioche pour qu'elle puisse miner le **rubis**, le **saphir** et l'**émeraude**.", inline=True)
+            item_embed.add_field(name="**4** - ⛏|Alliage en Platine : **5**Platine, **15,000**€", value="Vous permet d'améliorer votre pioche pour qu'elle puisse miner le **rubis**, le **saphir** et l'**émeraude**. (n'a pas besoin d'être équipé dans l'inventaire)", inline=True)
             item_embed.add_field(name="**11** - 🧪|Pioche Expérimentale : **20**Cuivre, **50,000**€.", value=f"Vous gagnez 10{'%'} d'xp supplémentaire en minant.", inline=True)
             item_embed.add_field(name="**5** - 👨‍🔬|PIOCHE DU CHINOIS : **10**Joseph, **100,000**€.", value="GG, vous avez la meilleure pioche du jeu (ne sert à rien).", inline=True)
             item_embed.add_field(name="**6** - ✖|Pioche de multiplication : **25**Cobaltes, **200,000**€.", value=f"A 50{'%'} de dupliquer les minerais que vous minez.", inline=True)
             item_embed.add_field(name="**7** - 🕵️‍♂️|Pioche du maraudeur : **250**Pierres, **150,000**€.", value="Vous ne minerez plus de débrits (ouf).", inline=True)
-            item_embed.add_field(name=f"**9** - 👾|Multi-Pioche : **{data[id]['Inventory']['Item Limit'] * 10}**Diamant, **{(data[id]['Inventory']['Item Limit'])*5}0,000**€.", value=f"Vous permet d'équiper {data[id]['Inventory']['Item Limit'] + 1} pioches à la fois.", inline=True)
+            item_embed.add_field(name=f"**9** - 👾|Multi-Pioche : **{data[id]['Inventory']['Item Limit'] * 10}**Diamant, **{(data[id]['Inventory']['Item Limit'])*5}0,000**€.", value=f"Vous permet d'équiper {data[id]['Inventory']['Item Limit'] + 1} pioches à la fois. (pour équiper plusieurs pioches, faites __c!inventory equip item__ suivi du numéro des objets séparés d'espaces)", inline=True)
             item_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop item buy NUMÉRO DE L'ITEM.")
 
             try:
                 if buy[1] == "buy":
                     try:
-                        if int(buy[2]) in [1, 2, 3, 4, 5, 6, 7, 9]:
+                        if int(buy[2]) in [1, 2, 3, 4, 5, 6, 7, 9, 11]:
                             buy_item = item_shop_price_2[int(buy[2])]
                             
                             if int(buy[2]) == 9:
@@ -130,7 +130,7 @@ async def Shop(ctx, buy):
                                                     data[id]['Inventory']["Platinium Alliage"] = True
                                                     data[id]['Money'] = round(data[id]['Money'], 2)
                                                     json.dump(data, d, indent=4)
-                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'alliage n°{buy[2]} avec succès !", description=f"-**{money}**€", color=0x5455b0)
+                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'alliage n°{buy[2]} avec succès ! (vous n'avez pas besoin d'équiper cet alliage)", description=f"-**{money}**€", color=0x5455b0)
                                                     money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                     money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
                                                     money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
@@ -141,7 +141,7 @@ async def Shop(ctx, buy):
                                                     data[id]['Inventory']["Item Limit"] += 1
                                                     data[id]['Money'] = round(data[id]['Money'], 2)
                                                     json.dump(data, d, indent=4)
-                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'amélioration n°{buy[2]} avec succès !", description=f"-**{money}**€", color=0x5455b0)
+                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'amélioration n°{buy[2]} avec succès ! (pour équiper plusieurs pioches, faites __c!inventory equip item__ suivi du numéro des objets séparés d'espaces)", description=f"-**{money}**€", color=0x5455b0)
                                                     money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                     money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
                                                     money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
