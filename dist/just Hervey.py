@@ -211,7 +211,7 @@ async def work(ctx, *xp):
     CommandWriteLogs(ctx, "Work")
     await client.Work(ctx, xp)
     
-@client.bot.command()
+@client.bot.command(aliases=['bj'])
 @cmd.cooldown(3, 3, cmd.BucketType.user)
 async def bronjames(ctx, *arg):
     CommandWriteLogs(ctx, "bronJames")
@@ -266,9 +266,9 @@ async def music(ctx):
 
 @client.bot.command()
 @cmd.cooldown(1, 2, cmd.BucketType.user)
-async def loto(ctx, *m):
-    CommandWriteLogs(ctx, "Loto")
-    # await client.Loto(ctx, m)
+async def fountain(ctx, *m):
+    CommandWriteLogs(ctx, "Foutain")
+    await client.Fountain(ctx, m)
 
 @client.bot.command()
 async def bouliste(ctx):
@@ -334,7 +334,7 @@ async def site(ctx):
 @client.bot.command()
 async def restart(ctx):
     CommandWriteLogs(ctx, "Restart")
-    if ctx.author.id == 598900088768692348:
+    if ctx.author.id == 809412081358733332:
         await ctx.reply("Redémarrage du bot en cours...")
         client.is_restarting = True
         sys.exit()
@@ -346,7 +346,7 @@ async def restart(ctx):
 @client.bot.command()
 async def stop(ctx):
     CommandWriteLogs(ctx, "Stop")
-    if ctx.author.id == 598900088768692348:
+    if ctx.author.id == 809412081358733332:
         await ctx.reply("Le bot a bien été arrêté !")
         client.is_stoping = True
         sys.exit()
@@ -516,7 +516,7 @@ async def thanos(ctx):
         await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
-@loto.error
+@fountain.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')

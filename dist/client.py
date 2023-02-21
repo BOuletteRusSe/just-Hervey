@@ -26,7 +26,7 @@ from client_commands.bank import Bank
 from client_commands.inventory import Inventory
 from client_commands.ki import Ki
 from client_commands.leaderboard import Leaderboard
-from client_commands.loto import Loto
+from client_commands.fountain import Fountain
 from client_commands.money import Money
 from client_commands.philo import Philo
 from client_commands.phrase import Phrase
@@ -62,7 +62,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.10.3.1'
+            self.client_version = '3.10.4'
             self.key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(self.key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -201,7 +201,7 @@ with open(r"assets\player_data.json") as data:
         async def ServerList(self, ctx): await ServerList(ctx, self)
 
         @staticmethod
-        async def Loto(ctx, m): await Loto(ctx, m)
+        async def Fountain(ctx, m): await Fountain(ctx, m)
         
         @staticmethod
         async def Forge(ctx, arg): await Forge(ctx, arg)

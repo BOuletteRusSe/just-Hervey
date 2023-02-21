@@ -3,7 +3,7 @@ import discord
 
 async def Logs(ctx):
 
-    if ctx.author.id == 598900088768692348:
+    if ctx.author.id == 809412081358733332:
 
         logs_embed = discord.Embed(title="Logs", color=0xa20b0b)
         logs_embed.set_footer(text="Admin Command")

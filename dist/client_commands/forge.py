@@ -66,7 +66,7 @@ async def Forge(ctx, arg):
                     res = EnumerateRecipes()
                     
                     if not IfCommandIsCorrect(arg):
-                        deleteMessage = await ctx.reply("La commande est incorrecte ou la recette n'existe pas. Pour réaliser une des recettes, utilisez la commande **c!forge mix** suivit de la recette (en anglais).\nEx pour la magnétite : **c!forge mix** *iron* + *gold*")
+                        deleteMessage = await ctx.reply("La commande est incorrecte ou la recette n'existe pas. Pour avoir la liste des recettes faites la commande **c!forge recipes**. Pour réaliser une des recettes, utilisez la commande **c!forge mix** suivit de la recette (en anglais).\nEx pour la magnétite : **c!forge mix** *iron* + *gold*")
                         await deleteMessage.delete(delay=15)
                     else:
                         
@@ -159,9 +159,10 @@ async def Forge(ctx, arg):
         else: 
             exembed = discord.Embed(title="just Hervey 💎 | 🛠 FORGE 🛠", description="Ici, vous pouvez combiner différent matériaux/objets afin d'en fabriquer de nouveaux !\n\n```c!forge recipes```  Avoir la liste des différentes recettes\n```c!forge mix```  Combiner deux matériaux ensemble pour réaliser une des recettes et gagner des Points de Forge (Niveau minimal requis : 10)", color=0x59514A)
             exembed.set_image(url="https://i.ibb.co/DgDTy5J/forge-icon.png")
+            exembed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             exembed.add_field(name="", value="", inline=False)
             exembed.add_field(name=":nut_and_bolt: • Points de Forge :", value=data[id]["Forge Points"], inline=False)
             exembed.set_footer(text="Les Points de Forge servent à acheter des objets uniques dans la boutique du forgeron !")
             
-            await ctx.reply(embed=exembed)
+            await ctx.send(embed=exembed)
         

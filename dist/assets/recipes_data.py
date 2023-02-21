@@ -11,8 +11,8 @@ recipes = {
     },
     "Diamant/Mercure": {
         "emoji": "<:diamond:881949161753309194>",
-        "input": {"Coal": 15, "Grenat": 1},
-        "output": {"Diamond": 1, "Mercury": 2},
+        "input": {"Coal": 10, "Grenat": 1},
+        "output": {"Diamond": 1, "Mercury": 1},
         "points": 250,
         "cooldown": 360,
         "command": ["('coal', '+', 'grenat')", "('coal+grenat',)", "('coal', '+grenat')", "('coal+', 'grenat')"],
@@ -28,5 +28,15 @@ recipes = {
         "command": ["('randomite', '+', 'rubis')", "('randomite+rubis',)", "('randomite', '+rubis')", "('randomite+', 'rubis')"],
         "price": 3500,
         "level": 25
+    },
+    "Cobalt": {
+        "emoji": "<:cobalt:882231543358165002>",
+        "input": {"Silver": 3, "Diamond": 1},
+        "output": {"Cobalt": 2},
+        "points": 350,
+        "cooldown": 300,
+        "command": ["('silver', '+', 'diamond')", "('silver+diamond',)", "('silver', '+diamond')", "('silver+', 'diamond')"],
+        "price": 2000,
+        "level": 10
     }
 }

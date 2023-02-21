@@ -252,10 +252,10 @@ async def Help(ctx, arg, cc):
             "Category": "Économie",
             "Down" : False
         },
-        "Loto • 🎟" : {
-            "Command" : "loto",
-            "Description" : "Vous permet de parier de l'argent (soit doublé, soit perdu).",
-            "Utilisation" : "c!loto <**montant**>",
+        "Fountain • ⛲" : {
+            "Command" : "fountain",
+            "Description" : "Vous permet de tenter votre chance de recevoir la bénédiction des dieux en pariant de l'argent.",
+            "Utilisation" : "c!fountain <**montant**>",
             "Cooldown" : "Aucun",
             "Category": "Économie",
             "Down" : False

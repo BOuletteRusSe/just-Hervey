@@ -55,7 +55,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
 
     data[id]["Xp"] += mineral_xp
     data[id]['Money'] += mm
-    if 6 in data[id]['Inventory']["MP"] and random.choice[True, False]:
+    if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
         data[id]["Inventory"][mineral] += 1
     data[id]["Inventory"][mineral] += 1
 
@@ -252,7 +252,7 @@ async def Work(ctx, xp_, cc):
                                 xx = round(xx + (xx / 100 * 10), 2)
                             data[id]['Money'] += mm
                             data[id]['Xp'] += xx
-                            if 6 in data[id]['Inventory']["MP"] and random.choice[True, False]:
+                            if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
                                 data[id]['Inventory']["Debrit"] += 1
                             data[id]['Inventory']["Debrit"] += 1
                             with open("assets/player_data.json", 'w') as d:
@@ -293,7 +293,7 @@ async def Work(ctx, xp_, cc):
                             xx = round(xx + (xx / 100 * 10), 2)
                         data[id]['Xp'] += xx
                         data[id]['Money'] += mm
-                        if 6 in data[id]['Inventory']["MP"] and random.choice[True, False]:
+                        if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
                             data[id]['Inventory']["Stone"] += 1
                         data[id]['Inventory']["Stone"] += 1
 
