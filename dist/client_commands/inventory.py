@@ -61,6 +61,10 @@ async def Inventory(ctx, equip, c):
     etabli = ""
     for item in data[id]["Inventory"]["P Forge"]:
         etabli += f"{str(item_shop_price_3[item]['Name'])} ({item}) | "
+        
+    alliages = ""
+    for item in data[id]["Inventory"]["Alliages"]:
+        alliages += f"{str(item_shop_price_2[item]['Name'])} ({item}) | "
 
     e_items = ""
     for item in data[id]["Inventory"]["MP"]:
@@ -74,13 +78,14 @@ async def Inventory(ctx, equip, c):
         ranks += f"{str(item_shop_price[rank]['Name'])} ({rank}) | "
     
     def DefaultEmbed(page):
-        inventory_embed = discord.Embed(title="⚔ INVENTAIRE ⚔ | Page %s" % (page + 1), description="Ici, vous pouvez voir tout ce que vous avez a disposition dans votre inventaire.", color=0x1e4843)
+        inventory_embed = discord.Embed(title="⚔ INVENTAIRE ⚔ | Page %s" % (page + 1), description="Ici, vous pouvez voir tout ce que vous avez a disposition dans votre inventaire. Vous pouvez faire défiler les pages avec les flèches en bas du message.", color=0x1e4843)
         inventory_embed.set_author(name=user, icon_url=user.avatar_url)
         inventory_embed.add_field(name="🛠 • Objet(s) Équipé(s) :", value=e_items)
         inventory_embed.add_field(name="🎭 • Grade :", value=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], inline=True)
         inventory_embed.add_field(name=":nut_and_bolt: • Points de Forge :", value=data[id]["Forge Points"], inline=True)
         inventory_embed.add_field(name="Liste des Objets :", value=items, inline=True)
         inventory_embed.add_field(name="Liste des Grades :", value=ranks, inline=True)
+        inventory_embed.add_field(name="Liste des Aliages :", value=alliages, inline=True)
         inventory_embed.add_field(name="🔧 • Établi", value=etabli, inline=True)
         inventory_embed.add_field(name="🎟 • Tickets :", value=data[id]["Ticket"], inline=True)
         inventory_embed.add_field(name=":pick: • Nombre de Pioches Max :", value=data[id]['Inventory']['Item Limit'], inline=True)
@@ -118,6 +123,8 @@ async def Inventory(ctx, equip, c):
             InventoryCheckNone("<:josephEnModeHot:791311502460059708> • Joseph :", "Joseph", id, data, inventory_embed)
             InventoryCheckNone("🍀 • Lucky Stone :", "Lucky Stone", id, data, inventory_embed)
             InventoryCheckNone("🔱 • Aigue Marine :", "Aigue Marine", id, data, inventory_embed)
+            InventoryCheckNone("🌑 • Plutonium :", "Plutonium", id, data, inventory_embed)
+            InventoryCheckNone("☢ • Uranium :", "Uranium", id, data, inventory_embed)
         
         return inventory_embed
         

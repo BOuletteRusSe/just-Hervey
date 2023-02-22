@@ -18,7 +18,6 @@ async def Sign(ctx):
             "Money": 100,
             "Forge Points" : 0,
             "Forge Cooldown" : {"": 0},
-            "Foutain Cooldown" : {"": 0},
             "Bank": 0,
             "Level": 0,
             "Xp": 0,
@@ -54,7 +53,9 @@ async def Sign(ctx):
                 "Magnetite": 0,
                 "Lucky Stone": 0,
                 "Aigue Marine": 0,
-                "Platinium Alliage": False,
+                "Uranium": 0,
+                "Plutonium": 0,
+                "Alliages": [],
                 "Rank": 0,
                 "Item Limit": 1,
                 "MP": [

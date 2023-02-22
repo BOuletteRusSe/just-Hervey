@@ -72,6 +72,13 @@ item_shop_price = {
     
     13 : {
         "Name": "🧔|Forgeron de renommée",
+    },
+    
+    14 : {
+        "Level": 0,
+        "Money": 0,
+        "Price": ["Debrit", 1000],
+        "Name" : "🚮|Éboueur"
     }
 }
 item_shop_price_2 = {
@@ -109,6 +116,12 @@ item_shop_price_2 = {
         "Name": "⛏|Alliage en Platine",
         "Price": ["Platinium", 5],
         "Money": 15000
+    },
+    
+    12: {
+        "Name": "⛏|Alliage en Obsidienne",
+        "Price": ["Obsidian", 15],
+        "Money": 150000
     },
 
     5: {

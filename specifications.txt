@@ -48,21 +48,13 @@ FORGE:
 combienr relique forge
 Plans de forge pour débloquer de nouvelles recettes --> boutique de forgeron/minage pour pouvoir avoir le plan et fabriquer la chose (niveau faible)
 - Plus de lots pour la commande "c!casino" (dont des lots uniques)
-- De nouveaux minerais et une progression de la commande "c!work" jusqu'au niveau 50
-- Plus de pioches dans le "c!shop" et plus de ranks pouvant être fabriqués à partir des nouveaux minerais + modification du prix de la multi-pioche en remplaçant les diamants par d'autres ressources au fur et à mesure
 - Système de trade et de shops personnalisés
-- Minerais uniques et rares permettant de fabriquer des reliques 
 Dans de futures mises à jour, plusieurs raretés de tickets à des prix différents seront disponibles !
 revoir visuel c!casino avec iterations
-modifier loot randomite selon niveau
-ajouter embed minerais
 
 ajouter pioche jesus finir update casino, augmenter levels jusquà 50 modifier randomite et ajouter les plans
-reset 1/3 thune
 parchemin pioche
-cassageitems
 interagire entre joueur
-taxes 10% poker
 systeme quotidien
 plusieurs monaies
 métier combattant + choix de métier sup lvl 100

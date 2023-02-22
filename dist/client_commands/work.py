@@ -2,25 +2,40 @@ import discord, json, random
 from assets.items_price import item_shop_price, item_shop_price_2
 from assets.minerals_data import minerals
 
-async def Mining(ctx, id, minerals, data, to_next_level, r):
-
-    f = False
+async def Mining(ctx, id, minerals, data, to_next_level):
     
-    print(r)
+    if 1 not in data[id]["Inventory"]["MP"]:
+        dic = {"Stone": 50, "Other": 50}
+    else:
+        dic = {"Stone": 40, "Other": 60}
+        
+    if list(random.choices(*zip(*dic.items())))[0] == "Stone":
+        return False
+    
+    keys = []
+    values = []
+    for k, v in minerals.items():
+        for k_, v_ in v.items():
+            if k_ == "Proba":
+                keys += [k]
+                values += [v_]
+            
+    r = random.choices(keys, values)
 
     for k, v in minerals.items():
-        
-        if v["Min"] <= r <= v["Max"]:
+        if k == r[0]:
             mineral = k
             mineral_info = v
-            f = True
 
-    if not f:
-        return False
-
-
-    if mineral in ["Rubis", "Saphir", "Emerald"] and not data[id]["Inventory"]["Platinium Alliage"]:
+    if mineral in ["Rubis", "Saphir", "Emerald"] and not (4 in data[id]["Inventory"]["Alliages"]):
         embed = discord.Embed(title=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\nVous avez besoin d'un aliage en platine pour pouvoir le miner ! (c!shop item pour en acheter)", color=0x393838)
+        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+        embed.set_image(url=mineral_info["Image"])
+        await ctx.reply(embed=embed)
+        return True
+    
+    elif mineral in ["Uranium", "Plutonium"] and not (12 in data[id]["Inventory"]["Alliages"]):
+        embed = discord.Embed(title=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\nVous avez besoin d'un aliage en obsidienne pour pouvoir le miner ! (c!shop item pour en acheter)", color=0x393838)
         embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
         embed.set_image(url=mineral_info["Image"])
         await ctx.reply(embed=embed)
@@ -69,37 +84,6 @@ async def Mining(ctx, id, minerals, data, to_next_level, r):
 
         # Calcul d'xp pour le prochain niveau
         to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
-
-        if data[id]['Level'] < 10:
-            if 1 in data[id]["Inventory"]["MP"]:
-                r = random.randint(0, 90)
-            else:
-                r = random.randint(0, 100)
-                         
-        elif 20 > data[id]['Level'] >= 10:
-            if 1 in data[id]['Inventory']["MP"]:
-                r = random.randint(0, 180)
-            else:
-                r = random.randint(0, 200)
-
-        elif 30 > data[id]['Level'] >= 20:
-            if 1 in data[id]['Inventory']["MP"]:
-                r = random.randint(0, 260)
-            else:
-                r = random.randint(0, 300)
-                
-        elif 40 > data[id]['Level'] >= 30:
-                if 1 in data[id]['Inventory']["MP"]:
-                    r = random.randint(0, 350)
-                else:
-                    r = random.randint(0, 400)
-                    
-        else:
-            if 1 in data[id]['Inventory']["MP"]:
-                r = random.randint(0, 340)
-            else:
-                r = random.randint(0, 425)
-
 
         with open("assets/player_data.json", 'w') as d:
             json.dump(data, d, indent=4)
@@ -194,35 +178,6 @@ async def Work(ctx, xp_, cc):
             # Calcul d'xp pour le prochain niveau
             to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
 
-            if data[id]['Level'] < 10:
-                if 1 in data[id]['Inventory']["MP"]:
-                    r = random.randint(0, 90)
-                else:
-                    r = random.randint(0, 100)
-        
-            elif 20 > data[id]['Level'] >= 10:
-                if 1 in data[id]['Inventory']["MP"]:
-                    r = random.randint(0, 180)
-                else:
-                    r = random.randint(0, 200)
-
-            elif 30 > data[id]['Level'] >= 20:
-                if 1 in data[id]['Inventory']["MP"]:
-                    r = random.randint(0, 260)
-                else:
-                    r = random.randint(0, 300)
-                    
-            elif 40 > data[id]['Level'] >= 30:
-                if 1 in data[id]['Inventory']["MP"]:
-                    r = random.randint(0, 350)
-                else:
-                    r = random.randint(0, 400)             
-            else:
-                if 1 in data[id]['Inventory']["MP"]:
-                    r = random.randint(0, 340)
-                else:
-                    r = random.randint(0, 425)
-
             # Pioche ticket (pas de modification  nécessaire)
             if 9 in data[id]['Inventory']["MP"]:
                 if random.randint(0, 7) == 7:
@@ -234,7 +189,7 @@ async def Work(ctx, xp_, cc):
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                     await ctx.reply(embed=embed)
 
-            if await Mining(ctx, id, minerals, data, to_next_level, r) == False:
+            if await Mining(ctx, id, minerals, data, to_next_level) == False:
                 
                 # PIOCHE DU MARAUDEUR A REVOIR
                 if 7 not in data[id]['Inventory']["MP"] and data[id]['Level'] >= 10:
@@ -319,37 +274,6 @@ async def Work(ctx, xp_, cc):
                     
                     # Calcul d'xp pour le prochain niveau
                     to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
-
-                    if data[id]['Level'] < 10:
-                        if 1 in data[id]['Inventory']["MP"]:
-                            r = random.randint(0, 90)
-                        else:
-                            r = random.randint(0, 100)
-       
-                    elif 20 > data[id]['Level'] >= 10:
-                        if 1 in data[id]['Inventory']["MP"]:
-                            r = random.randint(0, 180)
-                        else:
-                            r = random.randint(0, 200)
-
-                    elif 30 > data[id]['Level'] >= 20:
-                        if 1 in data[id]['Inventory']["MP"]:
-                            r = random.randint(0, 260)
-                        else:
-                            r = random.randint(0, 300)
-
-                    elif 40 > data[id]['Level'] >= 30:
-                        if 1 in data[id]['Inventory']["MP"]:
-                            r = random.randint(0, 350)
-                        else:
-                            r = random.randint(0, 400)
-                    
-                    else:
-                        if 1 in data[id]['Inventory']["MP"]:
-                            r = random.randint(0, 340)
-                        else:
-                            r = random.randint(0, 425)
-
 
                     with open("assets/player_data.json", 'w') as d:
                         json.dump(data, d, indent=4)

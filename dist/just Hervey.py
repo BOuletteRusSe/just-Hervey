@@ -132,7 +132,7 @@ async def filter(ctx, *color):
     CommandWriteLogs(ctx, "Filter")
     await client.Filter(ctx, color)
     
-@client.bot.command()
+@client.bot.command(aliases=["s"])
 async def shop(ctx, *buy):
     CommandWriteLogs(ctx, "Shop")
     await client.Shop(ctx, buy)
@@ -187,7 +187,7 @@ async def sign(ctx):
     await client.Sign(ctx)
 
 
-@client.bot.command()
+@client.bot.command(aliases=["ivt"])
 async def inventory(ctx, *equip):
     CommandWriteLogs(ctx, "Inventory")
     await client.Inventory(ctx, equip)
@@ -265,7 +265,7 @@ async def music(ctx):
 
 
 @client.bot.command()
-@cmd.cooldown(1, 2, cmd.BucketType.user)
+@cmd.cooldown(1, 300, cmd.BucketType.user)
 async def fountain(ctx, *m):
     CommandWriteLogs(ctx, "Foutain")
     await client.Fountain(ctx, m)
