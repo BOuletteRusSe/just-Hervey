@@ -59,9 +59,7 @@ systeme quotidien
 plusieurs monaies
 métier combattant + choix de métier sup lvl 100
 
-métoer pécheur
 combattant
 buvheron
 loots c!fontaine parchemins avec verification thune
 pioche aigue marine c!fontaine
-ajouter description minéraux

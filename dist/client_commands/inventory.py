@@ -82,12 +82,10 @@ async def Inventory(ctx, equip, c):
         inventory_embed.set_author(name=user, icon_url=user.avatar_url)
         inventory_embed.add_field(name="🛠 • Objet(s) Équipé(s) :", value=e_items)
         inventory_embed.add_field(name="🎭 • Grade :", value=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], inline=True)
-        inventory_embed.add_field(name=":nut_and_bolt: • Points de Forge :", value=data[id]["Forge Points"], inline=True)
         inventory_embed.add_field(name="Liste des Objets :", value=items, inline=True)
         inventory_embed.add_field(name="Liste des Grades :", value=ranks, inline=True)
         inventory_embed.add_field(name="Liste des Aliages :", value=alliages, inline=True)
         inventory_embed.add_field(name="🔧 • Établi", value=etabli, inline=True)
-        inventory_embed.add_field(name="🎟 • Tickets :", value=data[id]["Ticket"], inline=True)
         inventory_embed.add_field(name=":pick: • Nombre de Pioches Max :", value=data[id]['Inventory']['Item Limit'], inline=True)
         inventory_embed.set_footer(text=f"c!inventory equip item/rank 'nombre' pour équiper une objet ou un grade. (Vous pouvez équiper jusqu'à {data[id]['Inventory']['Item Limit']} item(s) à la fois.)")
         

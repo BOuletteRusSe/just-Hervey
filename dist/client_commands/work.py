@@ -4,108 +4,148 @@ from assets.minerals_data import minerals
 
 async def Mining(ctx, id, minerals, data, to_next_level):
     
-    if 1 not in data[id]["Inventory"]["MP"]:
-        dic = {"Stone": 50, "Other": 50}
-    else:
-        dic = {"Stone": 40, "Other": 60}
+    if random.randint(0, 1000) == 0:
         
-    if list(random.choices(*zip(*dic.items())))[0] == "Stone":
-        return False
-    
-    keys = []
-    values = []
-    for k, v in minerals.items():
-        for k_, v_ in v.items():
-            if k_ == "Proba":
-                keys += [k]
-                values += [v_]
+        plans = {
+            "4": 25,
+            "5": 100,
+            "2": 50,
+            "0": 75
+        }
+        
+        while True:
+        
+            keys = []
+            values = []
+            t = False
+            for k, v in plans.items():
+                keys.append(int(k))
+                values.append(v)
+                if not int(k) in data[id]["Inventory"]["Plans"]:
+                    t = True
             
-    r = random.choices(keys, values)
-
-    for k, v in minerals.items():
-        if k == r[0]:
-            mineral = k
-            mineral_info = v
-
-    if mineral in ["Rubis", "Saphir", "Emerald"] and not (4 in data[id]["Inventory"]["Alliages"]):
-        embed = discord.Embed(title=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\nVous avez besoin d'un aliage en platine pour pouvoir le miner ! (c!shop item pour en acheter)", color=0x393838)
-        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-        embed.set_image(url=mineral_info["Image"])
-        await ctx.reply(embed=embed)
-        return True
+            if not t:
+                await ctx.reply("Vous avez déjà débloqué tout les plans disponibles en minant !")
+                return True
+            else:
+                r = list(random.choices(keys, values))[0]
+                if r not in data[id]["Inventory"]["Plans"]:
+                    embed = discord.Embed(title=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé le plan n°`{r}` !\nPour voir la recette faites la commande `c!forge recipes`.", color=0xACC2C6)
+                    embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                    embed.set_image(url="https://i.ibb.co/Y7mdkZm/plan.png")
+                    await ctx.reply(embed=embed)
+                    
+                    data[id]["Inventory"]["Plans"].append(r)
+                    
+                    with open("assets/player_data.json", 'w') as d:
+                        json.dump(data, d, indent=4)
+                    return True
     
-    elif mineral in ["Uranium", "Plutonium"] and not (12 in data[id]["Inventory"]["Alliages"]):
-        embed = discord.Embed(title=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\nVous avez besoin d'un aliage en obsidienne pour pouvoir le miner ! (c!shop item pour en acheter)", color=0x393838)
-        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-        embed.set_image(url=mineral_info["Image"])
-        await ctx.reply(embed=embed)
-        return True
-
-    if not data[id]["Level"] >= mineral_info["Level Requierd"]:
-        return False
-
-    try:
-        mineral_info["Xp"] + 1
-        mineral_xp = mineral_info["Xp"]
-    except:
-        mineral_xp = random.randint(mineral_info["Xp"][0], mineral_info["Xp"][1])
-    if 11 in data[id]["Inventory"]["MP"]:
-        mineral_xp = mineral_xp + (mineral_xp / 100 * 10)
-    try:
-        mineral_info["Price"] + 1
-        mineral_price = mineral_info["Price"]
-    except:
-        mineral_price = random.randint(mineral_info["Price"][0], mineral_info["Price"][1])
-    try:
-        mineral_info["Anti-Mine"]
-        if 3 in data[id]['Inventory']["MP"]:
-            return False
-    except:
-        1 + 1
-
-    if 2 in data[id]["Inventory"]["MP"]:
-        mm = mineral_price * 1.1
     else:
-        mm = mineral_price
+        if 1 not in data[id]["Inventory"]["MP"]:
+            dic = {"Stone": 45, "Other": 55}
+        else:
+            dic = {"Stone": 35, "Other": 65}
+            
+        if list(random.choices(*zip(*dic.items())))[0] == "Stone":
+            return False
+        
+        while True:
+        
+            keys = []
+            values = []
+            for k, v in minerals.items():
+                for k_, v_ in v.items():
+                    if k_ == "Proba":
+                        keys += [k]
+                        values += [v_]
+                    
+            r = random.choices(keys, values)
 
-    data[id]["Xp"] += mineral_xp
-    data[id]['Money'] += mm
-    if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
+            for k, v in minerals.items():
+                if k == r[0]:
+                    mineral = k
+                    mineral_info = v
+                
+            if data[id]["Level"] >= mineral_info["Level Requierd"]:
+                break
+
+        if mineral in ["Rubis", "Saphir", "Emerald"] and not (4 in data[id]["Inventory"]["Alliages"]):
+            embed = discord.Embed(title=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\nVous avez besoin d'un aliage en platine pour pouvoir le miner ! (c!shop item pour en acheter)", color=0x393838)
+            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+            embed.set_image(url=mineral_info["Image"])
+            await ctx.reply(embed=embed)
+            return True
+        
+        elif mineral in ["Uranium", "Plutonium"] and not (12 in data[id]["Inventory"]["Alliages"]):
+            embed = discord.Embed(title=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\nVous avez besoin d'un aliage en obsidienne pour pouvoir le miner ! (c!shop item pour en acheter)", color=0x393838)
+            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+            embed.set_image(url=mineral_info["Image"])
+            await ctx.reply(embed=embed)
+            return True
+
+        try:
+            mineral_info["Xp"] + 1
+            mineral_xp = mineral_info["Xp"]
+        except:
+            mineral_xp = random.randint(mineral_info["Xp"][0], mineral_info["Xp"][1])
+        if 11 in data[id]["Inventory"]["MP"]:
+            mineral_xp = mineral_xp + (mineral_xp / 100 * 10)
+        try:
+            mineral_info["Price"] + 1
+            mineral_price = mineral_info["Price"]
+        except:
+            mineral_price = random.randint(mineral_info["Price"][0], mineral_info["Price"][1])
+        try:
+            mineral_info["Anti-Mine"]
+            if 3 in data[id]['Inventory']["MP"]:
+                return False
+        except:
+            1 + 1
+
+        if 2 in data[id]["Inventory"]["MP"]:
+            mm = mineral_price * 1.1
+        else:
+            mm = mineral_price
+
+        data[id]["Xp"] += mineral_xp
+        data[id]['Money'] += mm
+        if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
+            data[id]["Inventory"][mineral] += 1
         data[id]["Inventory"][mineral] += 1
-    data[id]["Inventory"][mineral] += 1
 
-    if data[id]["Xp"]< 0:
-        data[id]["Xp"] = 0
-    if data[id]['Money']< 0:
-        data[id]['Money'] = 0
-    if data[id]["Xp"] >= to_next_level:
-        data[id]['Level'] += 1
-        data[id]["Xp"] -= to_next_level
+        if data[id]["Xp"]< 0:
+            data[id]["Xp"] = 0
+        if data[id]['Money']< 0:
+            data[id]['Money'] = 0
+        if data[id]["Xp"] >= to_next_level:
+            data[id]['Level'] += 1
+            data[id]["Xp"] -= to_next_level
 
-        # Calcul d'xp pour le prochain niveau
-        to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
+            # Calcul d'xp pour le prochain niveau
+            to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
 
+            with open("assets/player_data.json", 'w') as d:
+                json.dump(data, d, indent=4)
+            embed = discord.Embed(title=f"**GG**, vous avez atteint le niveau **{data[id]['Level']}** !", description=f"XP nécessaire pour passer au prochain niveau : **{to_next_level}xp**", color=0x56860e)
+            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+            embed.set_image(url="https://i.ibb.co/wyYCHVR/level-up.png")
+            await ctx.send(embed=embed)
         with open("assets/player_data.json", 'w') as d:
             json.dump(data, d, indent=4)
-        embed = discord.Embed(title=f"**GG**, vous avez atteint le niveau **{data[id]['Level']}** !", description=f"XP nécessaire pour passer au prochain niveau : **{to_next_level}xp**", color=0x56860e)
-        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-        embed.set_image(url="https://i.ibb.co/wyYCHVR/level-up.png")
-        await ctx.send(embed=embed)
-    with open("assets/player_data.json", 'w') as d:
-        json.dump(data, d, indent=4)
 
-    embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}", color=mineral_info["Color"])
-    embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-    embed.set_image(url=mineral_info["Image"])
-    embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)
-    embed.add_field(name=f"{mineral_info['Emoji']} • {str(mineral_info['Name'])[int(str(mineral_info['Name']).find('*'))-1:]} :", value=data[id]['Inventory'][mineral], inline=True)
-    embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
-    embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
-    embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
-    embed.set_footer(text=f"+{round(mineral_xp, 2)}xp")
-    await ctx.send(embed=embed)
-    await ctx.message.delete()
-    return True
+        embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\n{mineral_info['Description']}", color=mineral_info["Color"])
+        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+        embed.set_image(url=mineral_info["Image"])
+        embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)
+        embed.add_field(name=f"{mineral_info['Emoji']} • {str(mineral_info['Name'])[int(str(mineral_info['Name']).find('*'))-1:]} :", value=data[id]['Inventory'][mineral], inline=True)
+        embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
+        embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
+        embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
+        embed.set_footer(text=f"+{round(mineral_xp, 2)}xp")
+        await ctx.send(embed=embed)
+        await ctx.message.delete()
+        return True
 
 
 async def Work(ctx, xp_, cc):
@@ -212,7 +252,7 @@ async def Work(ctx, xp_, cc):
                             data[id]['Inventory']["Debrit"] += 1
                             with open("assets/player_data.json", 'w') as d:
                                 json.dump(data, d, indent=4)
-                            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debrit:882240995717156874>", color=0x3a3c3d)
+                            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debrit:882240995717156874>\nDeux boulons et trois vis, de quoi fabriquer, rien du tout...", color=0x3a3c3d)
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                             embed.set_image(url="https://i.ibb.co/r3zYVN8/debrit.png")
                             embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)
@@ -286,7 +326,7 @@ async def Work(ctx, xp_, cc):
                 if v == 1:
                     with open("assets/player_data.json", 'w') as d:
                         json.dump(data, d, indent=4)
-                    embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:882241850965118978>", color=0x9f9c9a)
+                    embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:882241850965118978>\nUn des matériaux d'artisanat les plus communs.\nIl peut servir à fabriquer des pioches.", color=0x9f9c9a)
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                     embed.set_image(url="https://i.ibb.co/23Wbsbp/stone.png")
                     embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)

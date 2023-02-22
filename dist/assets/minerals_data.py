@@ -8,6 +8,7 @@ minerals = {
         "Xp" : (5, 20),
         "Color" : 0x7f7f7f,
         "Level Requierd" : 0,
+        "Description": "D'un gris nuageux, c'est un élément d'artisanat primordial pour tout bon mineur.",
         "Image" : "https://i.ibb.co/vxNTJTR/iron.png"
     },
     "Gold" : {
@@ -18,6 +19,7 @@ minerals = {
         "Xp" : (20, 80),
         "Color" : 0xffd700,
         "Level Requierd" : 2,
+        "Description": "Ca brille, vous en bavez...",
         "Image" : "https://i.ibb.co/RNdqgBr/gold.png"
     },
     "Diamond" : {
@@ -28,6 +30,7 @@ minerals = {
         "Xp" : (80, 120),
         "Color" : 0xddeeed,
         "Level Requierd" : 5,
+        "Description": "De son bleu ciel, le diamant est une pierre précieuse qui vous sera très utile.",
         "Image" : "https://i.ibb.co/grpxfXD/diamond.png"
     },
     "Silver" : {
@@ -38,6 +41,7 @@ minerals = {
         "Xp" : (50, 100),
         "Color" : 0xC0C0C0,
         "Level Requierd" : 5,
+        "Description": "L'argent ne donne pas tant d'argent que ça en fait...",
         "Image" : "https://i.ibb.co/1K2DxTZ/silver.png"
     },
     "Coal" : {
@@ -49,6 +53,7 @@ minerals = {
         "Xp" : 75,
         "Color" : 0x463b34,
         "Level Requierd" : 2,
+        "Description": "Peut servir comme combustible.",
         "Image" : "https://i.ibb.co/gvS3YL6/coal.png"
     },
     "Cooper" : {
@@ -59,6 +64,7 @@ minerals = {
         "Xp" : 20,
         "Color" : 0xb36700,
         "Level Requierd" : 5,
+        "Description": "Ca semble briller, mais, çe ne brille pas...",
         "Image" : "https://i.ibb.co/V901trS/cooper.png"
     },
     "Rubis" : {
@@ -69,6 +75,7 @@ minerals = {
         "Xp" : 20,
         "Color" : 0xe0115f,
         "Level Requierd" : 15,
+        "Description": "D'un rouge éclatant vous récupérez cette pierre précieuse.\nCa a l'air de valoir cher !",
         "Image" : "https://i.ibb.co/1dWF0rn/ruby.png"
     },
     "Grenat" : {
@@ -79,6 +86,7 @@ minerals = {
         "Xp" : (50, 70),
         "Color" : 0x6E0B14,
         "Level Requierd" : 10,
+        "Description": "D'un rouge sombre, vous sentez le côté obscur de cette pierre entrer en vous.",
         "Image" : "https://i.ibb.co/tC4rgLL/grenat.png"
     },
     "Saphir" : {
@@ -89,6 +97,7 @@ minerals = {
         "Xp" : 400,
         "Color" : 0x6977a1,
         "Level Requierd" : 15,
+        "Description": "D'un bleu éclatant vous récupérez cette pierre précieuse.\nVous sentez que votre attrait pour le minage ne fait qu'augmenter !",
         "Image" : "https://i.ibb.co/Gcvm4cy/saphir.png"
     },
     "Platinium" : {
@@ -99,6 +108,7 @@ minerals = {
         "Xp" : (50, 100),
         "Color" : 0xFAF0C5,
         "Level Requierd" : 5,
+        "Description": "Ca a l'air d'être du solide !\nCa ferait un aliage parfait...",
         "Image" : "https://i.ibb.co/GMr1xRg/platinium.png"
     },
     "Randomite" : {
@@ -109,6 +119,7 @@ minerals = {
         "Xp" : (0, 250),
         "Color" : 0xe3d3d1,
         "Level Requierd" : 15,
+        "Description": "Le prix de la randomite varie en fonction de son éclat, c'est bon à savoir.",
         "Image" : "https://i.ibb.co/XJt7DqR/randomite.png"
     },
     "Magma Stone" : {
@@ -119,6 +130,7 @@ minerals = {
         "Xp" : (-300, 0),
         "Color" : 0xec8058,
         "Level Requierd" : 15,
+        "Description": "Une pierre projetant des cendres et générant une chaleur importante en son centre.",
         "Image" : "https://i.ibb.co/9tpHG3P/magma-stone.png",
         "Anti-Mine" : True
     },
@@ -130,6 +142,7 @@ minerals = {
         "Xp" : 0,
         "Color" : 0xF0E68C,
         "Level Requierd" : 20,
+        "Description": "CHING CHANG CHONG",
         "Image" : "https://i.ibb.co/fdbcdwp/joseph.png"
     },
     "Sacred Stone" : {
@@ -139,7 +152,8 @@ minerals = {
         "Price" : 100000,
         "Xp" : 1000,
         "Color" : 0xc5c3c2,
-        "Level Requierd" : 20,
+        "Level Requierd" : 30,
+        "Description": "Ce filon est tout simplement magnifique, vous en récupérez un petit bout et sentez une aura autour de la pierre, c'est bon signe...",
         "Image" : "https://i.ibb.co/hykPsCv/sacred-stone.png"
     },
     "Fossil" : {
@@ -149,7 +163,8 @@ minerals = {
         "Price" : 150,
         "Xp" : 200,
         "Color" : 0xcdc6bb,
-        "Level Requierd" : 20,
+        "Level Requierd" : 15,
+        "Description": "Pas un fossile de dinosaure mais un fossile quand même !",
         "Image" : "https://i.ibb.co/KqBKspq/fossil.png"
     },
     "Emerald" : {
@@ -160,6 +175,7 @@ minerals = {
         "Xp" : 400,
         "Color" : 0x01d758,
         "Level Requierd" : 20,
+        "Description": "De sa couleure verte éclatante, l'émeraude vous assure la richesse et la paix éternellle.",
         "Image" : "https://i.ibb.co/S03kHNd/emerald.png"
     },
     "Randomite" : {
@@ -170,6 +186,7 @@ minerals = {
         "Xp" : (0, 400),
         "Color" : 0xe3d3d1,
         "Level Requierd" : 20,
+        "Description": "Le prix de la randomite varie en fonction de son éclat, c'est bon à savoir.",
         "Image" : "https://i.ibb.co/MDTZLyp/plutonium.png"
     },
     "Amethist" : {
@@ -180,6 +197,7 @@ minerals = {
         "Xp" : 500,
         "Color" : 0x884da7,
         "Level Requierd" : 20,
+        "Description": "Sa couleur violette ne passe pas innapercue.",
         "Image" : "https://i.ibb.co/pxNJfPJ/amethist.png"
     },
     "Cobalt" : {
@@ -190,6 +208,7 @@ minerals = {
         "Xp" : (200, 750),
         "Color" : 0x22427c,
         "Level Requierd" : 20,
+        "Description": "C'est moche le cobalt, pourquoi j'ai ajouté ça déjà ?",
         "Image" : "https://i.ibb.co/wN6K1XQ/cobalt.png"
     },
     "Coke" : {
@@ -200,6 +219,7 @@ minerals = {
         "Xp" : 0,
         "Color" : 0xF5FFFA,
         "Level Requierd" : 20,
+        "Description": "\"Et ouais mamen, viens sniffer une trace tu vas te mettre bien\"",
         "Image" : "https://i.ibb.co/HzQN5cy/coke.png"
     },
     "Mercury" : {
@@ -210,6 +230,7 @@ minerals = {
         "Xp" : 100,
         "Color" : 0xc5473b,
         "Level Requierd" : 30,
+        "Description": "Thermomètre simulator.",
         "Image" : "https://i.ibb.co/nM0ZVrP/mercury.png"
     },
     "Turquoise" : {
@@ -220,6 +241,7 @@ minerals = {
         "Xp" : 1000,
         "Color" : 0x25fde9,
         "Level Requierd" : 30,
+        "Description": "Comme son nom l'indique...",
         "Image" : "https://i.ibb.co/TPvqt3X/turquoise.png"
     },
     "Fluorite" : {
@@ -230,6 +252,7 @@ minerals = {
         "Xp" : 800,
         "Color" : 0x25fde9,
         "Level Requierd" : 30,
+        "Description": "Cette pierre brille dans le noir, étrange.",
         "Image" : "https://i.ibb.co/jbpsNYf/fluorite.png"
     },
     "Obsidian" : {
@@ -240,6 +263,7 @@ minerals = {
         "Xp" : 350,
         "Color" : 0xd0eea4,
         "Level Requierd" : 30,
+        "Description": "Contrairement à ce qu'on peut croire, l'obsidienne est fragile et se casse tel du verre.",
         "Image" : "https://i.ibb.co/wsMjdYs/obsidian.png"
     },
     "Jade" : {
@@ -250,6 +274,7 @@ minerals = {
         "Xp" : 300,
         "Color" : 0x799d91,
         "Level Requierd" : 30,
+        "Description": "Heureusement que jade n'est pas mineur...",
         "Image" : "https://i.ibb.co/KLDjPjr/jade.png"
     },
     "Magnetite" : {
@@ -260,6 +285,7 @@ minerals = {
         "Xp" : (250, 1000),
         "Color" : 0xfef590,
         "Level Requierd" : 40,
+        "Description": "Un champ de force magnétique vous attire vers cette pierre.",
         "Image" : "https://i.ibb.co/C7mbYjR/magnetite.png"
     },
     "Uranium" : {
@@ -270,6 +296,7 @@ minerals = {
         "Xp" : 300,
         "Color" : 0x14C124,
         "Level Requierd" : 40,
+        "Description": "A manipuler avec précautions !",
         "Image" : "https://i.ibb.co/SBx1wKL/free-vector-chlorastrolite-green-star-stone-clip-art-115491-Chlorastrolite-Green-Star-Stone-clip-art.png"
     },
     "Plutonium" : {
@@ -280,6 +307,7 @@ minerals = {
         "Xp" : 400,
         "Color" : 0xACC6AE,
         "Level Requierd" : 40,
+        "Description": "A ne pas manipuler !",
         "Image" : "https://i.ibb.co/MDTZLyp/plutonium.png"
     },
     "Randomite" : {
@@ -290,6 +318,18 @@ minerals = {
         "Xp" : (0, 500),
         "Color" : 0xe3d3d1,
         "Level Requierd" : 40,
+        "Description": "Le prix de la randomite varie en fonction de son éclat, c'est bon à savoir.",
         "Image" : "https://i.ibb.co/MDTZLyp/plutonium.png"
+    },
+    "Fossil" : {
+        "Proba": 1,
+        "Name" : "un **Fossile de Dinosaure** !",
+        "Emoji": "<:fossil:881977977087336498>",
+        "Price" : 5000,
+        "Xp" : (300, 500),
+        "Color" : 0xcdc6bb,
+        "Level Requierd" : 40,
+        "Description": "Cette fois ci c'est le jackpot !",
+        "Image" : "https://i.ibb.co/Ns2Bj1G/fossil-2.png"
     }
 }

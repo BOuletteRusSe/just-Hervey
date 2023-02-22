@@ -30,13 +30,13 @@ async def Leaderboard(ctx):
 
     for k, v in sorted(t.items(), key=lambda x: x[1], reverse=True):
         if k in (ll.keys() and r.keys()):
-            tb.append(f"{ll[k]} | <@{k}> [{r[k]}] : {v}\n")
+            tb.append(f"**{ll[k]}** | <@{k}> [{r[k]}] : `{v}`\n")
         else:
-            tb.append(f"<@{k}> : {v}\n")
+            tb.append(f"**<@{k}>** : `{v}`\n")
 
     d = ""
     for e in tb:
         d += f"{e}\n"
 
-    embed=discord.Embed(title="Money Leaderboard", description=d, color=0x9c9abc)
+    embed=discord.Embed(title="just Hervey 💎 | Money Leaderboard", description=d, color=0x9c9abc)
     await ctx.reply(embed=embed)

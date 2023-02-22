@@ -1,4 +1,5 @@
 
+# Ranks
 item_shop_price = {
     0: {
         "Name": "Mineur"
@@ -81,6 +82,8 @@ item_shop_price = {
         "Name" : "🚮|Éboueur"
     }
 }
+
+# Items
 item_shop_price_2 = {
 
     0: {
@@ -153,6 +156,7 @@ item_shop_price_2 = {
     }
 }
 
+# Forge
 item_shop_price_3 = {
     1: {
         "Name": "🧲|Marteau Magnétique",
@@ -175,5 +179,32 @@ item_shop_price_3 = {
         "Forge Points": 1500,
         "Money": 150000,
         "Rank": False
-    }    
+    },
+    
+    3: {
+        "Name": "☢|Hammer Radioactif",
+        "Price": {"Uranium": 25, "Plutonium": 25, "Fluorite": 25},
+        "Forge Points": 7500,
+        "Money": 0,
+        "Rank": False
+    },
+    
+    4: {
+        "Name": "🔱|Trident de Poséidon",
+        "Price": {"Aigue Marine": 3},
+        "Forge Points": 6000,
+        "Money": 300000,
+        "Rank": False
+    },
+}
+
+# Armes
+item_shop_price_4 = {
+    1: {
+        "Name": "☠|Faux Sacrée",
+        "Price": {"Sacred Stone": 5},
+        "Forge Points": 6000,
+        "Money": 1000000,
+        "Rank": False
+    }
 }

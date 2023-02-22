@@ -200,7 +200,7 @@ async def clear(ctx):
     await client.Clear(ctx)
 
 
-@client.bot.command()
+@client.bot.command(aliases=["lb"])
 async def leaderboard(ctx):
     CommandWriteLogs(ctx, "Leaderboard")
     await client.Leaderboard(ctx)

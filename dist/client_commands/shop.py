@@ -46,7 +46,7 @@ async def Shop(ctx, buy):
             try:
                 if buy[1] == "buy":
                     try:
-                        if int(buy[2]) in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
+                        if int(buy[2]) in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14]:
                             buy_item = item_shop_price[int(buy[2])]
 
                             if data[id]['Level'] >= buy_item["Level"]:
@@ -94,7 +94,7 @@ async def Shop(ctx, buy):
             item_embed.add_field(name="**2** - 🥇|Pioche en Or : **5**Or, **10,000**€", value="Augmente la revente de vos minerais de **10%**.", inline=True)
             item_embed.add_field(name="**3** - 🔥|Pioche de Magma : **5**Pierre de Magma, **15,000**€", value="Vous ne perdez plus d'**argent** ni d'**xp** à cause de la Roche Magmatique.", inline=True)
             item_embed.add_field(name="**4** - ⛏|Alliage en Platine : **5**Platine, **15,000**€", value="Vous permet d'améliorer votre pioche pour qu'elle puisse miner le **rubis**, le **saphir** et l'**émeraude**. (n'a pas besoin d'être équipé dans l'inventaire)", inline=True)
-            item_embed.add_field(name="**4** - ⛏|Alliage en Platine : **5**Platine, **15,000**€", value="Vous permet d'améliorer votre pioche pour qu'elle puisse miner le **rubis**, le **saphir** et l'**émeraude**. (n'a pas besoin d'être équipé dans l'inventaire)", inline=True)
+            item_embed.add_field(name="**12** - ⛏|Alliage en Obsidienne : **15**Obsidienne, **150,000**€", value="Vous permet d'améliorer votre pioche pour qu'elle puisse miner l'**uranium** et le **plutonium**. (n'a pas besoin d'être équipé dans l'inventaire)", inline=True)
             item_embed.add_field(name="**11** - 🧪|Pioche Expérimentale : **20**Cuivre, **50,000**€.", value=f"Vous gagnez 10{'%'} d'xp supplémentaire en minant.", inline=True)
             item_embed.add_field(name="**5** - 👨‍🔬|PIOCHE DU CHINOIS : **10**Joseph, **100,000**€.", value="GG, vous avez la meilleure pioche du jeu (ne sert à rien).", inline=True)
             item_embed.add_field(name="**6** - ✖|Pioche de multiplication : **25**Cobaltes, **200,000**€.", value=f"A 50{'%'} de dupliquer les minerais que vous minez.", inline=True)
@@ -105,7 +105,7 @@ async def Shop(ctx, buy):
             try:
                 if buy[1] == "buy":
                     try:
-                        if int(buy[2]) in [1, 2, 3, 4, 5, 6, 7, 9, 11]:
+                        if int(buy[2]) in [1, 2, 3, 4, 5, 6, 7, 9, 11, 12]:
                             buy_item = item_shop_price_2[int(buy[2])]
                             
                             if int(buy[2]) == 9:
@@ -121,7 +121,7 @@ async def Shop(ctx, buy):
 
                                     if int(buy[2]) not in data[id]['Inventory']["P Item"]:
 
-                                        if not (int(buy[2]) == 4 and data[id]['Inventory']["Platinium Alliage"]):
+                                        if int(buy[2]) not in data[id]['Inventory']["Alliages"]:
 
                                             data[id]['Money'] -= money
                                             data[id]['Inventory'][buy_item["Price"][0]] -= price
@@ -129,7 +129,7 @@ async def Shop(ctx, buy):
                                             with open("assets/player_data.json", 'w') as d:
 
                                                 if int(buy[2]) in [4, 12]:
-                                                    data[id]['Inventory']["Alliages"].append(buy[2])
+                                                    data[id]['Inventory']["Alliages"].append(int(buy[2]))
                                                     data[id]['Money'] = round(data[id]['Money'], 2)
                                                     json.dump(data, d, indent=4)
                                                     money_embed = discord.Embed(title=f"Vous avez acheter l'alliage n°{buy[2]} avec succès ! (vous n'avez pas besoin d'équiper cet alliage)", description=f"-**{money}**€", color=0x5455b0)
@@ -160,7 +160,7 @@ async def Shop(ctx, buy):
                                                     await ctx.reply(embed=money_embed)
 
                                         else:
-                                            await ctx.reply("Vous possédez déjà cet item !")
+                                            await ctx.reply("Vous possédez déjà cet alliage !")
                                     else:
                                         await ctx.reply("Vous possédez déjà cet item !")
                                 else:
@@ -186,11 +186,13 @@ async def Shop(ctx, buy):
                 forge_embed.add_field(name="**13** - RANK | 🧔|Forgeron de renommée : **10,000** Points de Forge.", value="Un grade spécial pour les utilisateurs affirmés de la forge.", inline=True)
                 forge_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop forge buy NUMÉRO DE L'OBJET.")
                 forge_embed.add_field(name=f"**2** - 🍀|Lucky-Hammer : **25**Lucky Stones, **1,500** Points de Forge, **150,000**€.", value=f"Vous permet de lancer la commande c!casino jusqu'à 5 fois en même temps afin de gagner du temps.", inline=True)
+                forge_embed.add_field(name=f"**3** - ☢|Hammer Radioactif : **25**Uranium, Plutonium, Fluorite, et **7,500** Points de Forge.", value=f"Les plans que vous découvrez demandent 5 niveaux en moins afin d'être fabriqués.", inline=True)
+                forge_embed.add_field(name=f"**4** - 🔱|Trident de Poséidon : **3**Aigue Marine, **6,000** Points de Forge, **300,000**€.", value=f"Les dieux vous guident, votre chance d'obtenir un plan augmentent de 15%.", inline=True)
 
                 try:
                     if buy[1] == "buy":
                         try:
-                            if int(buy[2]) in [1, 11, 2]:
+                            if int(buy[2]) in [1, 11, 2, 3, 4]:
                                 buy_item = item_shop_price_3[int(buy[2])]
 
                                 if data[id]['Money'] >= buy_item["Money"]:

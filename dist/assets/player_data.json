@@ -2,7 +2,6 @@
     "341635888184295446": {
         "Money": 5347.0,
         "Forge Points": 0,
-        
         "Forge Cooldown": {
             "": 0
         },
@@ -56,51 +55,51 @@
             "MP": [
                 1
             ],
+            "Plans": [],
             "P Forge": []
         }
     },
     "809412081358733332": {
-        "Money": 9190.2,
-        "Forge Points": 8250,
-        
+        "Money": 4750,
+        "Forge Points": 9450,
         "Forge Cooldown": {
-            "1677004138.5498312": 300
+            "1677093616.1894188": 300
         },
-        "Bank": 385000,
+        "Bank": 230000,
         "Ticket": 3,
         "Level": 64,
-        "Xp": 17771.999999999993,
+        "Xp": 18738.999999999993,
         "Hobby": 0,
         "Inventory": {
             "Debrit": 559,
-            "Stone": 2388,
+            "Stone": 2396,
             "Iron": 108,
             "Gold": 8,
-            "Diamond": 14,
-            "Rubis": 114,
-            "Silver": 156,
+            "Diamond": 15,
+            "Rubis": 111,
+            "Silver": 161,
             "Fluorite": 48,
             "Saphir": 95,
-            "Platinium": 257,
-            "Randomite": 91,
+            "Platinium": 260,
+            "Randomite": 85,
             "Magma Stone": 63,
-            "Obsidian": 117,
+            "Obsidian": 102,
             "Joseph": 20,
             "Jade": 57,
             "Coal": 7,
             "Cooper": 50,
-            "Coke": 106,
+            "Coke": 107,
             "Sacred Stone": 12,
             "Fossil": 129,
             "Emerald": 80,
             "Grenat": 76,
             "Cobalt": 78,
             "Turquoise": 54,
-            "Mercury": 116,
+            "Mercury": 118,
             "Item Limit": 5,
             "Amethist": 70,
             "Magnetite": 3,
-            "Lucky Stone": 5,
+            "Lucky Stone": 11,
             "Aigue Marine": 0,
             "Uranium": 0,
             "Plutonium": 0,
@@ -123,7 +122,8 @@
                 12
             ],
             "Alliages": [
-                4
+                4,
+                12
             ],
             "MP": [
                 1,
@@ -132,6 +132,7 @@
                 6,
                 11
             ],
+            "Plans": [],
             "P Forge": [
                 1,
                 2
@@ -141,7 +142,6 @@
     "358634555546009604": {
         "Money": 500677.7999999996,
         "Forge Points": 0,
-        
         "Forge Cooldown": {
             "": 0
         },
@@ -195,13 +195,13 @@
                 4
             ],
             "MP": [],
+            "Plans": [],
             "P Forge": []
         }
     },
     "793223268118036481": {
         "Money": 23303.75,
         "Forge Points": 0,
-        
         "Forge Cooldown": {
             "": 0
         },
@@ -256,54 +256,54 @@
                 4
             ],
             "MP": [],
+            "Plans": [],
             "P Forge": []
         }
     },
     "781946621473849365": {
-        "Money": 620826,
-        "Forge Points": 1250,
-        
+        "Money": 1159422.4700000098,
+        "Forge Points": 2450,
         "Forge Cooldown": {
-            "1677002711.6221075": 300
+            "1677083595.5454621": 300
         },
-        "Bank": 1500000,
-        "Ticket": 0,
-        "Level": 118,
-        "Xp": 11927.0,
+        "Bank": 1271055,
+        "Ticket": 47,
+        "Level": 124,
+        "Xp": 28152.0,
         "Hobby": 0,
         "Inventory": {
             "Debrit": 2224,
-            "Stone": 9714,
-            "Iron": 865,
-            "Gold": 417,
-            "Cobalt": 426,
-            "Diamond": 228,
-            "Mercury": 468,
-            "Coal": 129,
-            "Cooper": 312,
-            "Rubis": 531,
-            "Saphir": 459,
-            "Silver": 569,
-            "Item Limit": 5,
-            "Jade": 216,
-            "Coke": 377,
-            "Fluorite": 345,
-            "Platinium": 987,
-            "Turquoise": 207,
-            "Randomite": 454,
-            "Obsidian": 420,
+            "Stone": 11029,
+            "Iron": 994,
+            "Gold": 541,
+            "Cobalt": 540,
+            "Diamond": 191,
+            "Mercury": 552,
+            "Coal": 288,
+            "Cooper": 412,
+            "Rubis": 622,
+            "Saphir": 569,
+            "Silver": 733,
+            "Item Limit": 7,
+            "Jade": 276,
+            "Coke": 455,
+            "Fluorite": 429,
+            "Platinium": 1104,
+            "Turquoise": 274,
+            "Randomite": 467,
+            "Obsidian": 488,
             "Magma Stone": 318,
-            "Joseph": 82,
-            "Sacred Stone": 42,
-            "Fossil": 484,
-            "Emerald": 408,
-            "Grenat": 309,
-            "Amethist": 303,
-            "Magnetite": 23,
-            "Lucky Stone": 12,
+            "Joseph": 88,
+            "Sacred Stone": 48,
+            "Fossil": 627,
+            "Emerald": 475,
+            "Grenat": 443,
+            "Amethist": 391,
+            "Magnetite": 76,
+            "Lucky Stone": 18,
             "Aigue Marine": 0,
-            "Uranium": 0,
-            "Plutonium": 0,
+            "Uranium": 47,
+            "Plutonium": 20,
             "Rank": 9,
             "P Item": [
                 0,
@@ -323,15 +323,19 @@
                 9
             ],
             "Alliages": [
-                4
+                4,
+                12
             ],
             "MP": [
                 1,
                 2,
                 3,
                 6,
-                7
+                7,
+                10,
+                5
             ],
+            "Plans": [],
             "P Forge": [
                 1
             ]
@@ -340,7 +344,6 @@
     "210124607833899008": {
         "Money": 1058.1999999999998,
         "Forge Points": 0,
-        
         "Forge Cooldown": {
             "": 0
         },
@@ -394,13 +397,13 @@
             "P Rank": [
                 0
             ],
+            "Plans": [],
             "P Forge": []
         }
     },
     "778570551602053153": {
         "Money": 18875.25,
         "Forge Points": 0,
-        
         "Forge Cooldown": {
             "": 0
         },
@@ -455,72 +458,13 @@
             "P Rank": [
                 0
             ],
-            "P Forge": []
-        }
-    },
-    "717649688098111540": {
-        "Money": 135.0,
-        "Forge Points": 0,
-        
-        "Forge Cooldown": {
-            "": 0
-        },
-        "Bank": 0,
-        "Level": 2,
-        "Xp": 20,
-        "Hobby": 0,
-        "Ticket": 0,
-        "Inventory": {
-            "Jade": 0,
-            "Cooper": 0,
-            "Coal": 0,
-            "Fluorite": 0,
-            "Debrit": 0,
-            "Obsidian": 0,
-            "Turquoise": 0,
-            "Mercury": 0,
-            "Coke": 0,
-            "Stone": 4,
-            "Iron": 1,
-            "Gold": 0,
-            "Silver": 0,
-            "Diamond": 0,
-            "Rubis": 0,
-            "Saphir": 0,
-            "Platinium": 0,
-            "Randomite": 0,
-            "Magma Stone": 0,
-            "Joseph": 0,
-            "Sacred Stone": 0,
-            "Cobalt": 0,
-            "Fossil": 0,
-            "Emerald": 0,
-            "Grenat": 0,
-            "Amethist": 0,
-            "Magnetite": 0,
-            "Lucky Stone": 0,
-            "Aigue Marine": 0,
-            "Uranium": 0,
-            "Plutonium": 0,
-            "Alliages": [],
-            "Rank": 0,
-            "Item Limit": 1,
-            "MP": [
-                0
-            ],
-            "P Item": [
-                0
-            ],
-            "P Rank": [
-                0
-            ],
+            "Plans": [],
             "P Forge": []
         }
     },
     "749256962234908723": {
         "Money": 2950.2000000000003,
         "Forge Points": 1400,
-        
         "Forge Cooldown": {
             "1676635760.5535934": 60
         },
@@ -579,13 +523,13 @@
                 0,
                 12
             ],
+            "Plans": [],
             "P Forge": []
         }
     },
     "728504535949246484": {
         "Money": 283018.4,
         "Forge Points": 0,
-        
         "Forge Cooldown": {
             "": 0
         },
@@ -640,113 +584,116 @@
             "P Rank": [
                 0
             ],
+            "Plans": [],
             "P Forge": []
         }
     },
     "617293677626392636": {
-        "Money": 300000,
-        "Forge Points": 250,
-        
+        "Money": 102468.4100000001,
+        "Forge Points": 1000,
         "Forge Cooldown": {
-            "1677002928.5419233": 360
+            "1677081953.5187144": 360
         },
         "Bank": 0,
-        "Level": 33,
-        "Xp": 1784.5999999999992,
+        "Level": 43,
+        "Xp": 8973.799999999996,
         "Hobby": 0,
         "Ticket": 0,
         "Inventory": {
-            "Jade": 2,
-            "Cooper": 28,
-            "Coal": 18,
-            "Fluorite": 1,
-            "Debrit": 118,
-            "Obsidian": 2,
-            "Turquoise": 1,
-            "Mercury": 8,
-            "Coke": 7,
-            "Stone": 177,
-            "Iron": 27,
-            "Gold": 27,
-            "Silver": 50,
-            "Diamond": 16,
-            "Rubis": 23,
-            "Saphir": 21,
-            "Platinium": 29,
-            "Randomite": 17,
-            "Magma Stone": 17,
-            "Joseph": 6,
-            "Sacred Stone": 5,
-            "Cobalt": 20,
-            "Fossil": 22,
-            "Emerald": 12,
-            "Grenat": 16,
-            "Amethist": 5,
-            "Magnetite": 0,
+            "Jade": 18,
+            "Cooper": 53,
+            "Coal": 15,
+            "Fluorite": 14,
+            "Debrit": 158,
+            "Obsidian": 1,
+            "Turquoise": 12,
+            "Mercury": 26,
+            "Coke": 20,
+            "Stone": 120,
+            "Iron": 65,
+            "Gold": 40,
+            "Silver": 68,
+            "Diamond": 14,
+            "Rubis": 35,
+            "Saphir": 38,
+            "Platinium": 47,
+            "Randomite": 18,
+            "Magma Stone": 25,
+            "Joseph": 8,
+            "Sacred Stone": 6,
+            "Cobalt": 32,
+            "Fossil": 42,
+            "Emerald": 21,
+            "Grenat": 28,
+            "Amethist": 15,
+            "Magnetite": 4,
             "Lucky Stone": 0,
             "Aigue Marine": 0,
-            "Uranium": 0,
+            "Uranium": 2,
             "Plutonium": 0,
             "Alliages": [
-                4
+                4,
+                12
             ],
             "Rank": 0,
-            "Item Limit": 2,
+            "Item Limit": 3,
             "MP": [
                 1,
-                2
+                2,
+                7
             ],
             "P Item": [
                 0,
                 1,
                 2,
-                3
+                3,
+                7
             ],
             "P Rank": [
                 0
             ],
+            "Plans": [],
             "P Forge": []
         }
     },
     "953167347621986335": {
-        "Money": 279687.89,
+        "Money": 307682.48000000033,
         "Forge Points": 250,
-        
         "Forge Cooldown": {
             "1677004024.31272": 360
         },
         "Bank": 0,
-        "Level": 30,
-        "Xp": 1811.6000000000004,
+        "Level": 33,
+        "Xp": 3727.799999999998,
         "Hobby": 0,
         "Ticket": 0,
         "Inventory": {
-            "Jade": 0,
-            "Cooper": 18,
-            "Coal": 29,
-            "Fluorite": 0,
-            "Debrit": 116,
-            "Obsidian": 1,
+            "Jade": 5,
+            "Cooper": 21,
+            "Coal": 32,
+            "Fluorite": 5,
+            "Debrit": 142,
+            "Obsidian": 2,
             "Turquoise": 1,
-            "Mercury": 3,
-            "Coke": 13,
-            "Stone": 144,
-            "Iron": 32,
-            "Gold": 16,
-            "Silver": 30,
-            "Diamond": 10,
-            "Rubis": 15,
-            "Saphir": 18,
-            "Platinium": 25,
+            "Mercury": 7,
+            "Coke": 18,
+            "Stone": 161,
+            "Iron": 38,
+            "Gold": 20,
+            "Silver": 36,
+            "Diamond": 14,
+            "Rubis": 21,
+            "Saphir": 20,
+            "Platinium": 32,
             "Randomite": 24,
-            "Magma Stone": 15,
+            "Magma Stone": 18,
             "Joseph": 3,
             "Sacred Stone": 1,
-            "Cobalt": 8,
-            "Fossil": 13,
-            "Emerald": 11,
-            "Grenat": 24,
-            "Amethist": 12,
+            "Cobalt": 12,
+            "Fossil": 17,
+            "Emerald": 16,
+            "Grenat": 30,
+            "Amethist": 15,
             "Magnetite": 0,
             "Lucky Stone": 0,
             "Aigue Marine": 0,
@@ -769,72 +716,13 @@
             "P Rank": [
                 0
             ],
-            "P Forge": []
-        }
-    },
-    "1002474334134218762": {
-        "Money": 166,
-        "Forge Points": 0,
-        
-        "Forge Cooldown": {
-            "": 0
-        },
-        "Bank": 0,
-        "Level": 2,
-        "Xp": 16,
-        "Hobby": 0,
-        "Ticket": 0,
-        "Inventory": {
-            "Jade": 0,
-            "Cooper": 0,
-            "Coal": 0,
-            "Fluorite": 0,
-            "Debrit": 0,
-            "Obsidian": 0,
-            "Turquoise": 0,
-            "Mercury": 0,
-            "Coke": 0,
-            "Stone": 0,
-            "Iron": 1,
-            "Gold": 0,
-            "Silver": 0,
-            "Diamond": 0,
-            "Rubis": 0,
-            "Saphir": 0,
-            "Platinium": 0,
-            "Randomite": 0,
-            "Magma Stone": 0,
-            "Joseph": 0,
-            "Sacred Stone": 0,
-            "Cobalt": 0,
-            "Fossil": 0,
-            "Emerald": 0,
-            "Grenat": 0,
-            "Amethist": 0,
-            "Magnetite": 0,
-            "Lucky Stone": 0,
-            "Aigue Marine": 0,
-            "Uranium": 0,
-            "Plutonium": 0,
-            "Alliages": [],
-            "Rank": 0,
-            "Item Limit": 1,
-            "MP": [
-                0
-            ],
-            "P Item": [
-                0
-            ],
-            "P Rank": [
-                0
-            ],
+            "Plans": [],
             "P Forge": []
         }
     },
     "807692157901078549": {
         "Money": 1824.0,
         "Forge Points": 0,
-        
         "Forge Cooldown": {
             "Foutain Cooldown": {
                 "": 0
@@ -890,65 +778,7 @@
             "P Rank": [
                 0
             ],
-            "P Forge": []
-        }
-    },
-    "590508453722718209": {
-        "Money": 100,
-        "Forge Points": 0,
-        
-        "Forge Cooldown": {
-            "": 0
-        },
-        "Bank": 0,
-        "Level": 1,
-        "Xp": 0,
-        "Hobby": 0,
-        "Ticket": 0,
-        "Inventory": {
-            "Jade": 0,
-            "Cooper": 0,
-            "Coal": 0,
-            "Fluorite": 0,
-            "Debrit": 0,
-            "Obsidian": 0,
-            "Turquoise": 0,
-            "Mercury": 0,
-            "Coke": 0,
-            "Stone": 0,
-            "Iron": 0,
-            "Gold": 0,
-            "Silver": 0,
-            "Diamond": 0,
-            "Rubis": 0,
-            "Saphir": 0,
-            "Platinium": 0,
-            "Randomite": 0,
-            "Magma Stone": 0,
-            "Joseph": 0,
-            "Sacred Stone": 0,
-            "Cobalt": 0,
-            "Fossil": 0,
-            "Emerald": 0,
-            "Grenat": 0,
-            "Amethist": 0,
-            "Magnetite": 0,
-            "Lucky Stone": 0,
-            "Aigue Marine": 0,
-            "Uranium": 0,
-            "Plutonium": 0,
-            "Alliages": [],
-            "Rank": 0,
-            "Item Limit": 1,
-            "MP": [
-                0
-            ],
-            "P Item": [
-                0
-            ],
-            "P Rank": [
-                0
-            ],
+            "Plans": [],
             "P Forge": []
         }
     }

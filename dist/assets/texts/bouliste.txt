@@ -7269,3 +7269,11 @@ c!curse
 la
 bible
 mdrr
+
+la
+capitale
+de
+Andorre
+c'est
+Andorre-la-Vieille
+😴
