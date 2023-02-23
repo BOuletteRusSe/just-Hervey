@@ -1,5 +1,6 @@
 import discord, json, re, asyncio
 from assets.items_price import item_shop_price, item_shop_price_2, item_shop_price_3
+from assets.minerals_data import *
 
 
 def InventoryCheckNone(name, value, id, data, inventory_embed):
@@ -90,39 +91,39 @@ async def Inventory(ctx, equip, c):
         inventory_embed.set_footer(text=f"c!inventory equip item/rank 'nombre' pour équiper une objet ou un grade. (Vous pouvez équiper jusqu'à {data[id]['Inventory']['Item Limit']} item(s) à la fois.)")
         
         if page == 0:
-            InventoryCheckNone("<:debrit:882240995717156874> • Debrit :", "Debrit", id, data, inventory_embed)
-            InventoryCheckNone("<:stone:882241850965118978> • Pierre :", "Stone", id, data, inventory_embed)
-            InventoryCheckNone("<:iron:881949148876783646> • Fer :", "Iron", id, data, inventory_embed)
-            InventoryCheckNone("<:silver:881958476287459408> • Argent :", "Silver", id, data, inventory_embed)
-            InventoryCheckNone("<:gold:881954591774736395> • Or :", "Gold", id, data, inventory_embed)
-            InventoryCheckNone("<:diamond:881949161753309194> • Diamant :", "Diamond", id, data, inventory_embed)
-            InventoryCheckNone("<:platinium:881964089667121202> • Platine :", "Platinium", id, data, inventory_embed)
-            InventoryCheckNone("<:rubis:881960449938186240> • Rubis :", "Rubis", id, data, inventory_embed)
-            InventoryCheckNone("<:saphir:881963269424824370> • Saphir :", "Saphir", id, data, inventory_embed)
-            InventoryCheckNone("<:emerald:881983813532647434> • Emeraude :", "Emerald", id, data, inventory_embed)
-            InventoryCheckNone("<:cobalt:882231543358165002> • Cobalt :", "Cobalt", id, data, inventory_embed)
-            InventoryCheckNone("<:amethist:881985189511839744> • Améthyste :", "Amethist", id, data, inventory_embed)
-            InventoryCheckNone("<:grenat:881962367037087785> • Grenat :", "Grenat", id, data, inventory_embed)
-            InventoryCheckNone("<:turquoise:882235863499686028> • Turquoise :", "Turquoise", id, data, inventory_embed)
-            InventoryCheckNone("<:obsidian:882238111818612736> • Obsidienne :", "Obsidian", id, data, inventory_embed)
+            InventoryCheckNone(f"<:debris:1078401153953435759> • Debrit :", "Debrit", id, data, inventory_embed)
+            InventoryCheckNone(f"<:stone:1078401377555976232> • Pierre :", "Stone", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Iron']['Emoji']} • Fer :", "Iron", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Silver']['Emoji']} • Argent :", "Silver", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Gold']['Emoji']} • Or :", "Gold", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Diamond']['Emoji']} • Diamant :", "Diamond", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Platinium']['Emoji']} • Platine :", "Platinium", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Rubis']['Emoji']} • Rubis :", "Rubis", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Saphir']['Emoji']} • Saphir :", "Saphir", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Emerald']['Emoji']} • Emeraude :", "Emerald", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Cobalt']['Emoji']}• Cobalt :", "Cobalt", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Amethist']['Emoji']} • Améthyste :", "Amethist", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Grenat']['Emoji']} • Grenat :", "Grenat", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Turquoise']['Emoji']} • Turquoise :", "Turquoise", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Obsidian']['Emoji']} • Obsidienne :", "Obsidian", id, data, inventory_embed)
             
         elif page == 1:
-            InventoryCheckNone("<:randomite:881964979639709748> • Randomite :", "Randomite", id, data, inventory_embed)
-            InventoryCheckNone("<:mercury:882233112283742218> • Mercure :", "Mercury", id, data, inventory_embed)
-            InventoryCheckNone("<:magmastone:881968174025801798> • Pierre Magmatique :", "Magma Stone", id, data, inventory_embed)
-            InventoryCheckNone("<:fossil:881977977087336498> • Fossille :", "Fossil", id, data, inventory_embed)
-            InventoryCheckNone("<:sacredstone:882234999145922621> • Pierre Sacrée :", "Sacred Stone", id, data, inventory_embed)
-            InventoryCheckNone("<:coke:882232188177903626> • Coke :", "Coke", id, data, inventory_embed)
-            InventoryCheckNone("<:fluorite:882237334848933918> • Fluorite", "Fluorite", id, data, inventory_embed)
-            InventoryCheckNone("<:jade:882239569653792808> • Jade", "Jade", id, data, inventory_embed)
-            InventoryCheckNone("<:coal:882226330110926908> • Charbon :", "Coal",id, data, inventory_embed)
-            InventoryCheckNone("<:cooper:882228895192076339> • Cuivre :", "Cooper", id, data, inventory_embed)
-            InventoryCheckNone("<:magnetite:1075060513593110689> • Magnétite :", "Magnetite", id, data, inventory_embed)
-            InventoryCheckNone("<:josephEnModeHot:791311502460059708> • Joseph :", "Joseph", id, data, inventory_embed)
-            InventoryCheckNone("🍀 • Lucky Stone :", "Lucky Stone", id, data, inventory_embed)
-            InventoryCheckNone("🔱 • Aigue Marine :", "Aigue Marine", id, data, inventory_embed)
-            InventoryCheckNone("🌑 • Plutonium :", "Plutonium", id, data, inventory_embed)
-            InventoryCheckNone("☢ • Uranium :", "Uranium", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Randomite']['Emoji']} • Randomite :", "Randomite", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Mercury']['Emoji']} • Mercure :", "Mercury", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Magma Stone']['Emoji']} • Pierre Magmatique :", "Magma Stone", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Fossil']['Emoji']} • Fossille :", "Fossil", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Sacred Stone']['Emoji']} • Pierre Sacrée :", "Sacred Stone", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Coke']['Emoji']} • Coke :", "Coke", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Fluorite']['Emoji']} • Fluorite", "Fluorite", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Jade']['Emoji']}• Jade", "Jade", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Coal']['Emoji']} • Charbon :", "Coal",id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Cooper']['Emoji']} • Cuivre :", "Cooper", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Magnetite']['Emoji']} • Magnétite :", "Magnetite", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Joseph']['Emoji']} • Joseph :", "Joseph", id, data, inventory_embed)
+            InventoryCheckNone(f"{not_minable['Lucky Stone']['Emoji']} • Lucky Stone :", "Lucky Stone", id, data, inventory_embed)
+            InventoryCheckNone(f"🔱 • Aigue Marine :", "Aigue Marine", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Plutonium']['Emoji']} • Plutonium :", "Plutonium", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Uranium']['Emoji']} • Uranium :", "Uranium", id, data, inventory_embed)
         
         return inventory_embed
         

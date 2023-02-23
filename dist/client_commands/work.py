@@ -4,7 +4,12 @@ from assets.minerals_data import minerals
 
 async def Mining(ctx, id, minerals, data, to_next_level):
     
-    if random.randint(0, 1000) == 0:
+    if 4 in data[id]["Inventory"]["P Forge"]:
+        n = random.randint(0, 850)
+    else:
+        n = random.randint(0, 1000)
+        
+    if n == 0:
         
         plans = {
             "4": 25,
@@ -30,9 +35,9 @@ async def Mining(ctx, id, minerals, data, to_next_level):
             else:
                 r = list(random.choices(keys, values))[0]
                 if r not in data[id]["Inventory"]["Plans"]:
-                    embed = discord.Embed(title=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé le plan n°`{r}` !\nPour voir la recette faites la commande `c!forge recipes`.", color=0xACC2C6)
+                    embed = discord.Embed(title=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé le plan n°`{r}` ! <:plans:1078401293590204508>\nPour voir la recette faites la commande `c!forge recipes`.", color=0xACC2C6)
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                    embed.set_image(url="https://i.ibb.co/Y7mdkZm/plan.png")
+                    embed.set_image(url="https://i.ibb.co/Npj53zP/plans.png")
                     await ctx.reply(embed=embed)
                     
                     data[id]["Inventory"]["Plans"].append(r)
@@ -252,11 +257,11 @@ async def Work(ctx, xp_, cc):
                             data[id]['Inventory']["Debrit"] += 1
                             with open("assets/player_data.json", 'w') as d:
                                 json.dump(data, d, indent=4)
-                            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debrit:882240995717156874>\nDeux boulons et trois vis, de quoi fabriquer, rien du tout...", color=0x3a3c3d)
+                            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debris:1078401153953435759>\nDeux boulons et trois vis, de quoi fabriquer, rien du tout...", color=0x3a3c3d)
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                            embed.set_image(url="https://i.ibb.co/r3zYVN8/debrit.png")
+                            embed.set_image(url="https://i.ibb.co/Lrt60yr/debris.png")
                             embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)
-                            embed.add_field(name="<:debrit:882240995717156874> • Débrits :", value=data[id]['Inventory']["Debrit"], inline=True)
+                            embed.add_field(name="<:debris:1078401153953435759> • Débrits :", value=data[id]['Inventory']["Debrit"], inline=True)
                             embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
                             embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
                             embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
@@ -326,11 +331,11 @@ async def Work(ctx, xp_, cc):
                 if v == 1:
                     with open("assets/player_data.json", 'w') as d:
                         json.dump(data, d, indent=4)
-                    embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:882241850965118978>\nUn des matériaux d'artisanat les plus communs.\nIl peut servir à fabriquer des pioches.", color=0x9f9c9a)
+                    embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:1078401377555976232>\nUn des matériaux d'artisanat les plus communs.\nIl peut servir à fabriquer des pioches.", color=0x9f9c9a)
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                    embed.set_image(url="https://i.ibb.co/23Wbsbp/stone.png")
+                    embed.set_image(url="https://i.ibb.co/DQNdPY1/stone.png")
                     embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)
-                    embed.add_field(name="<:stone:882241850965118978> • Pierre :", value=data[id]['Inventory']["Stone"], inline=True)
+                    embed.add_field(name="<:stone:1078401377555976232> • Pierre :", value=data[id]['Inventory']["Stone"], inline=True)
                     embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
                     embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
                     embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)

@@ -182,12 +182,12 @@ async def Shop(ctx, buy):
             if data[id]["Level"] >= 15:
             
                 forge_embed=discord.Embed(title="**🔨 BOUTIQUE DU FORGERON 🔨**", description="Ici, vous pouvez acheter des objets liés à l'utilisation de la commande c!forge.", color=0xC0712C)
-                forge_embed.add_field(name="**1** - 🧲|Marteau Magnétique : **100**Magnétite, **5,000** Points de Forge et 100,000€.", value="Lorsque cette pioche est équipée, le cooldown de la forge est réduis de 40%.", inline=True)
+                forge_embed.add_field(name="**1** - 🧲|Marteau Magnétique : **100**Magnétite, **5,000** Points de Forge et 100,000€.", value="Une fois équipé, le cooldown de la forge est réduis de 40%.", inline=True)
                 forge_embed.add_field(name="**13** - RANK | 🧔|Forgeron de renommée : **10,000** Points de Forge.", value="Un grade spécial pour les utilisateurs affirmés de la forge.", inline=True)
                 forge_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop forge buy NUMÉRO DE L'OBJET.")
                 forge_embed.add_field(name=f"**2** - 🍀|Lucky-Hammer : **25**Lucky Stones, **1,500** Points de Forge, **150,000**€.", value=f"Vous permet de lancer la commande c!casino jusqu'à 5 fois en même temps afin de gagner du temps.", inline=True)
                 forge_embed.add_field(name=f"**3** - ☢|Hammer Radioactif : **25**Uranium, Plutonium, Fluorite, et **7,500** Points de Forge.", value=f"Les plans que vous découvrez demandent 5 niveaux en moins afin d'être fabriqués.", inline=True)
-                forge_embed.add_field(name=f"**4** - 🔱|Trident de Poséidon : **3**Aigue Marine, **6,000** Points de Forge, **300,000**€.", value=f"Les dieux vous guident, votre chance d'obtenir un plan augmentent de 15%.", inline=True)
+                forge_embed.add_field(name=f"**4** - 🔱|Trident de Poséidon : **3**Aigue Marine, **6,000** Points de Forge, **300,000**€.", value=f"Les dieux vous guident, vos chances d'obtenir un plan augmentent de 15%.", inline=True)
 
                 try:
                     if buy[1] == "buy":

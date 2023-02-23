@@ -43,7 +43,7 @@ async def on_guild_join(guild):
     logs = open("logs/logs.log", "a", encoding="utf-8")
     logs.write(f"Joined {guild}.\n")
     logs.close()
-    embed = discord.Embed(title=f"just Hervey 💎 • {guild}", description=f"**Salut**, merci de m'avoir ajouter à {guild} ! <a:wavydance:882574990380265472>\n<a:arrow:882574892636200990> Pour consulter la **liste des commandes** vous pouvez faire la commande **c!help** !\nPour toute **demande** ou **report de bug** vous pouvez vous adresser à <@598900088768692348> (mes mp sont ouverts tant que c'est pas pour n'importe quoi).", color=0x3f12e2)
+    embed = discord.Embed(title=f"just Hervey 💎 • {guild}", description=f"**Salut**, merci de m'avoir ajouter à {guild} ! <a:wavydance:882574990380265472>\n<a:arrow:882574892636200990> Pour consulter la **liste des commandes** vous pouvez faire la commande **c!help** !\nPour toute **demande** ou **report de bug** vous pouvez vous adresser à <@809412081358733332> (mes mp sont ouverts tant que c'est pas pour n'importe quoi).", color=0x3f12e2)
     embed.set_footer(text=f"Objectif serveurs : {len(client.bot.guilds)} / 100.")
     no_general = True
     for channel in guild.text_channels:

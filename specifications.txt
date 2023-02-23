@@ -45,21 +45,13 @@ FORGE:
 
 
 
-combienr relique forge
-Plans de forge pour débloquer de nouvelles recettes --> boutique de forgeron/minage pour pouvoir avoir le plan et fabriquer la chose (niveau faible)
-- Plus de lots pour la commande "c!casino" (dont des lots uniques)
-- Système de trade et de shops personnalisés
-Dans de futures mises à jour, plusieurs raretés de tickets à des prix différents seront disponibles !
-revoir visuel c!casino avec iterations
-
-ajouter pioche jesus finir update casino, augmenter levels jusquà 50 modifier randomite et ajouter les plans
+Système de trade et de shops personnalisés
+finir update casino
+augmenter levels jusquà 50
 parchemin pioche
 interagire entre joueur
 systeme quotidien
 plusieurs monaies
 métier combattant + choix de métier sup lvl 100
-
 combattant
 buvheron
-loots c!fontaine parchemins avec verification thune
-pioche aigue marine c!fontaine
