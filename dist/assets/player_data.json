@@ -1,7 +1,9 @@
 {
     "341635888184295446": {
-        "Money": 5347.0,
-        "Forge Points": 0,
+        "Money": 100,
+        "Black-Smith Points": 0,
+        "Miner Points": 535,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "": 0
         },
@@ -60,48 +62,50 @@
         }
     },
     "809412081358733332": {
-        "Money": 8552.760000000002,
-        "Forge Points": 10450,
+        "Money": 15216.0,
+        "Black-Smith Points": 11450,
+        "Miner Points": 21598.38,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
-            "1677135091.6092985": 390
+            "1677186429.9448981": 390
         },
-        "Bank": 215000,
-        "Ticket": 3,
+        "Bank": 0,
+        "Ticket": 13,
         "Level": 65,
-        "Xp": 2313.4999999999905,
+        "Xp": 8841.999999999989,
         "Hobby": 0,
         "Inventory": {
             "Debrit": 559,
-            "Stone": 2416,
+            "Stone": 2431,
             "Iron": 109,
-            "Gold": 9,
-            "Diamond": 15,
+            "Gold": 12,
+            "Diamond": 17,
             "Rubis": 112,
-            "Silver": 161,
+            "Silver": 164,
             "Fluorite": 48,
-            "Saphir": 83,
-            "Platinium": 260,
-            "Randomite": 85,
+            "Saphir": 69,
+            "Platinium": 261,
+            "Randomite": 83,
             "Magma Stone": 63,
             "Obsidian": 103,
             "Joseph": 20,
             "Jade": 57,
-            "Coal": 9,
-            "Cooper": 50,
-            "Coke": 107,
+            "Coal": 10,
+            "Cooper": 52,
+            "Coke": 108,
             "Sacred Stone": 12,
             "Fossil": 129,
-            "Emerald": 80,
-            "Grenat": 78,
-            "Cobalt": 79,
-            "Turquoise": 39,
-            "Mercury": 118,
+            "Emerald": 82,
+            "Grenat": 79,
+            "Cobalt": 80,
+            "Turquoise": 26,
+            "Mercury": 120,
             "Item Limit": 5,
-            "Amethist": 70,
-            "Magnetite": 5,
+            "Amethist": 72,
+            "Magnetite": 8,
             "Lucky Stone": 11,
-            "Aigue Marine": 1,
-            "Uranium": 0,
+            "Aigue Marine": 2,
+            "Uranium": 1,
             "Plutonium": 0,
             "Rank": 11,
             "P Item": [
@@ -142,8 +146,10 @@
         }
     },
     "358634555546009604": {
-        "Money": 500677.7999999996,
-        "Forge Points": 0,
+        "Money": 100,
+        "Black-Smith Points": 0,
+        "Miner Points": 50068,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "": 0
         },
@@ -202,12 +208,14 @@
         }
     },
     "793223268118036481": {
-        "Money": 23303.75,
-        "Forge Points": 0,
+        "Money": 100,
+        "Black-Smith Points": 0,
+        "Miner Points": 11231,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "": 0
         },
-        "Bank": 89010,
+        "Bank": 0,
         "Level": 20,
         "Ticket": 0,
         "Xp": 929.8,
@@ -263,12 +271,14 @@
         }
     },
     "781946621473849365": {
-        "Money": 58007.0,
-        "Forge Points": 2800,
+        "Money": 100,
+        "Black-Smith Points": 2800,
+        "Miner Points": 242905,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "1677179988.1962216": 180
         },
-        "Bank": 2371055,
+        "Bank": 0,
         "Ticket": 47,
         "Level": 124,
         "Xp": 29201.0,
@@ -344,12 +354,14 @@
         }
     },
     "210124607833899008": {
-        "Money": 1058.1999999999998,
-        "Forge Points": 0,
+        "Money": 100,
+        "Black-Smith Points": 0,
+        "Miner Points": 1875,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "": 0
         },
-        "Bank": 17705,
+        "Bank": 0,
         "Level": 12,
         "Xp": 357.79999999999984,
         "Hobby": 0,
@@ -404,8 +416,10 @@
         }
     },
     "778570551602053153": {
-        "Money": 18875.25,
-        "Forge Points": 0,
+        "Money": 100,
+        "Black-Smith Points": 0,
+        "Miner Points": 1887,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "": 0
         },
@@ -465,12 +479,14 @@
         }
     },
     "749256962234908723": {
-        "Money": 2950.2000000000003,
-        "Forge Points": 1400,
+        "Money": 100,
+        "Black-Smith Points": 1400,
+        "Miner Points": 75295,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "1676635760.5535934": 60
         },
-        "Bank": 750000,
+        "Bank": 0,
         "Level": 45,
         "Xp": 180.1999999999989,
         "Hobby": 0,
@@ -530,8 +546,10 @@
         }
     },
     "728504535949246484": {
-        "Money": 283019.60000000003,
-        "Forge Points": 0,
+        "Money": 100,
+        "Black-Smith Points": 0,
+        "Miner Points": 28301,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "": 0
         },
@@ -591,8 +609,10 @@
         }
     },
     "617293677626392636": {
-        "Money": 119199.14000000025,
-        "Forge Points": 1000,
+        "Money": 100,
+        "Black-Smith Points": 1000,
+        "Miner Points": 11919,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "1677081953.5187144": 360
         },
@@ -659,8 +679,10 @@
         }
     },
     "953167347621986335": {
-        "Money": 309846.07000000036,
-        "Forge Points": 250,
+        "Money": 100,
+        "Black-Smith Points": 250,
+        "Miner Points": 30984,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "1677004024.31272": 360
         },
@@ -723,8 +745,10 @@
         }
     },
     "807692157901078549": {
-        "Money": 1824.0,
-        "Forge Points": 0,
+        "Money": 100,
+        "Black-Smith Points": 0,
+        "Miner Points": 182,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "Foutain Cooldown": {
                 "": 0
@@ -786,7 +810,9 @@
     },
     "612378210235318282": {
         "Money": 100,
-        "Forge Points": 0,
+        "Black-Smith Points": 0,
+        "Miner Points": 0,
+        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "": 0
         },

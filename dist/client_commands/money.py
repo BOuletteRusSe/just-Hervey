@@ -42,6 +42,9 @@ async def Money(ctx, res, c):
             money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             money_embed.add_field(name="Argent :", value=data[id]['Money'], inline=False)
             money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
+            money_embed.add_field(name="💎 • Points de Mineur :", value=data[id]["Miner Points"])
+            money_embed.add_field(name="🔩 • Points de Forge :", value=data[id]["Black-Smith Points"])
+            money_embed.add_field(name="🪓 • Points de Bûcheron :", value=data[id]["Lumberjack Points"])
             await ctx.reply(embed=money_embed)
 
     elif await CheckIfUserIsInGuild(ctx, res) == 0:

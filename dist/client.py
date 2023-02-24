@@ -47,6 +47,8 @@ from client_commands.banane import Banane
 from client_commands.forge import Forge
 from client_commands.mabite import MaBite
 from client_commands.bronjames import bronJames
+from client_commands.sell import Sell
+from client_commands.minerals import Minerals
 
 import discord, time, os, json
 from colored import fg, attr
@@ -62,7 +64,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.11.1'
+            self.client_version = '3.12.0'
             self.key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(self.key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -130,6 +132,9 @@ with open(r"assets\player_data.json") as data:
         async def BlackNWhite(ctx): await BlackNWhite(ctx)
 
         @staticmethod
+        async def Sell(ctx, arg): await Sell(ctx, arg)
+
+        @staticmethod
         async def Ban(ctx): await Ban(ctx)
 
         @staticmethod
@@ -150,6 +155,8 @@ with open(r"assets\player_data.json") as data:
 
         @staticmethod
         async def Bouliste(ctx): await Bouliste(ctx)
+        
+        async def Minerals(self, ctx, arg): await Minerals(ctx, arg, self)
 
         @staticmethod
         async def Leave(ctx): await Leave(ctx)

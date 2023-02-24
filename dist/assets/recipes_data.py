@@ -1,6 +1,6 @@
 recipes = {
     "Magnétite": {
-        "emoji": "<:magnetite:1075060513593110689>",
+        "emoji": "<:magnetite:1078418436566294548>",
         "input": {"Iron": 2, "Gold": 2},
         "output": {"Magnetite": 1},
         "points": 200,
@@ -10,7 +10,7 @@ recipes = {
         "id": 0
     },
     "Diamant": {
-        "emoji": "<:diamond:881949161753309194>",
+        "emoji": "<:diamond:1078401167425536071>",
         "input": {"Coal": 10, "Grenat": 1},
         "output": {"Diamond": 1},
         "points": 250,
@@ -20,7 +20,7 @@ recipes = {
         "id": 1
     },
     "Lucky Stone": {
-        "emoji": "🍀",
+        "emoji": "<:lucky_stone:1078401253505249290>",
         "input": {"Randomite": 2, "Rubis": 1},
         "output": {"Lucky Stone": 2},
         "points": 400,
@@ -30,7 +30,7 @@ recipes = {
         "id": 2
     },
     "Cobalt": {
-        "emoji": "<:cobalt:882231543358165002>",
+        "emoji": "<:cobalt:1078401123070791830>",
         "input": {"Silver": 3, "Diamond": 1},
         "output": {"Cobalt": 2},
         "points": 350,
@@ -50,7 +50,7 @@ recipes = {
         "id": 4
     },
     "Magma Stone": {
-        "emoji": "<:magmastone:881968174025801798>",
+        "emoji": "<:magma_stone:1078401266025254933>",
         "input": {"Stone": 10, "Debrit": 10},
         "output": {"Magma Stone": 2},
         "points": 100,

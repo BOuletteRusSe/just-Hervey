@@ -122,7 +122,7 @@ async def Forge(ctx, arg):
                                                 data[id]["Forge Cooldown"] = {str(time.time()): int(round(res[num][4]) / 100 * 60)}
                                             else:
                                                 data[id]["Forge Cooldown"] = {str(time.time()): res[num][4]}
-                                            data[id]["Forge Points"] += res[num][5]
+                                            data[id]["Black-Smith Points"] += res[num][5]
                                             data[id]["Money"] -= res[num][6]
                                             for k, v in res[num][3].items():
                                                 data[id]["Inventory"][k] += v
@@ -133,7 +133,7 @@ async def Forge(ctx, arg):
                                             buy_embed = discord.Embed(title="🛠 FORGE 🛠", description="Forge de **%s**" % (res[num][1]), color=0xC0712C)
                                             buy_embed.set_image(url="https://i.ibb.co/DgDTy5J/forge-icon.png")
                                             buy_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                                            buy_embed.add_field(name=":nut_and_bolt: • Points de Forge :", value=data[id]["Forge Points"])
+                                            buy_embed.add_field(name=":nut_and_bolt: • Points de Forgeron :", value=data[id]["Black-Smith Points"])
                                             buy_embed.add_field(name="💸 • Argent :", value=round(data[id]["Money"], 2))
                                             for k, v in res[num][2].items():
                                                 buy_embed.add_field(name=f"{k} : ", value=data[id]["Inventory"][k])
@@ -169,7 +169,7 @@ async def Forge(ctx, arg):
                     for _k_, _v_ in res[i][3].items():
                         outputs += f"**{_v_} {_k_}** + "
                     outputs = outputs[:-3]
-                    recipe_embed.add_field(name=f"{res[i][0]} • {res[i][1]} (id:{res[i][8]}) :", value=f"Recette : {inputs} --> {outputs}\nCooldown : **{res[i][4]}s**\nPoints de Forge : **{res[i][5]}**\nNiveau requis : **{res[i][7]}**\nArgent : **{res[i][6]}**", inline=False)
+                    recipe_embed.add_field(name=f"{res[i][0]} • {res[i][1]} (id:{res[i][8]}) :", value=f"Recette : {inputs} --> {outputs}\nCooldown : **{res[i][4]}s**\nPoints de Forgeron : **{res[i][5]}**\nNiveau requis : **{res[i][7]}**\nArgent : **{res[i][6]}**", inline=False)
                 else:
                     locked += 1
                             
@@ -177,12 +177,12 @@ async def Forge(ctx, arg):
             await ctx.reply(embed=recipe_embed)
                         
         else: 
-            exembed = discord.Embed(title="just Hervey 💎 | 🛠 FORGE 🛠", description="Ici, vous pouvez combiner différent matériaux/objets afin d'en fabriquer de nouveaux grâce à des recettes que vous pouvez débloquer !\n\n```c!forge recipes```  Avoir la liste des différentes recettes\n```c!forge mix```  Combiner deux matériaux ensemble pour réaliser une des recettes et gagner des Points de Forge (Niveau minimal requis : 10)", color=0x59514A)
+            exembed = discord.Embed(title="just Hervey 💎 | 🛠 FORGE 🛠", description="Ici, vous pouvez combiner différent matériaux/objets afin d'en fabriquer de nouveaux grâce à des recettes que vous pouvez débloquer !\n\n```c!forge recipes```  Avoir la liste des différentes recettes\n```c!forge mix```  Combiner deux matériaux ensemble pour réaliser une des recettes et gagner des Points de Forgeron (Niveau minimal requis : 10)", color=0x59514A)
             exembed.set_image(url="https://i.ibb.co/DgDTy5J/forge-icon.png")
             exembed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             exembed.add_field(name="", value="", inline=False)
-            exembed.add_field(name=":nut_and_bolt: • Points de Forge :", value=data[id]["Forge Points"], inline=False)
-            exembed.set_footer(text="Les Points de Forge servent à acheter des objets uniques dans la boutique du forgeron !")
+            exembed.add_field(name=":nut_and_bolt: • Points de Forgeron :", value=data[id]["Black-Smith Points"], inline=False)
+            exembed.set_footer(text="Les Points de Forgeron servent à acheter des objets uniques dans la boutique du forgeron !")
             
             await ctx.send(embed=exembed)
         

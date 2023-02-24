@@ -81,6 +81,7 @@ async def Inventory(ctx, equip, c):
     def DefaultEmbed(page):
         inventory_embed = discord.Embed(title="⚔ INVENTAIRE ⚔ | Page %s" % (page + 1), description="Ici, vous pouvez voir tout ce que vous avez a disposition dans votre inventaire. Vous pouvez faire défiler les pages avec les flèches en bas du message.", color=0x1e4843)
         inventory_embed.set_author(name=user, icon_url=user.avatar_url)
+        inventory_embed.add_field(name="💎 • Points de Minage :", value=data[id]["Miner Points"])
         inventory_embed.add_field(name="🛠 • Objet(s) Équipé(s) :", value=e_items)
         inventory_embed.add_field(name="🎭 • Grade :", value=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], inline=True)
         inventory_embed.add_field(name="Liste des Objets :", value=items, inline=True)
@@ -120,7 +121,7 @@ async def Inventory(ctx, equip, c):
             InventoryCheckNone(f"{minerals['Cooper']['Emoji']} • Cuivre :", "Cooper", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Magnetite']['Emoji']} • Magnétite :", "Magnetite", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Joseph']['Emoji']} • Joseph :", "Joseph", id, data, inventory_embed)
-            InventoryCheckNone(f"{not_minable['Lucky Stone']['Emoji']} • Lucky Stone :", "Lucky Stone", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Lucky Stone']['Emoji']} • Lucky Stone :", "Lucky Stone", id, data, inventory_embed)
             InventoryCheckNone(f"🔱 • Aigue Marine :", "Aigue Marine", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Plutonium']['Emoji']} • Plutonium :", "Plutonium", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Uranium']['Emoji']} • Uranium :", "Uranium", id, data, inventory_embed)

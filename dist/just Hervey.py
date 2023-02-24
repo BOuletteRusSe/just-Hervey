@@ -168,6 +168,17 @@ async def casino(ctx, *arg):
     CommandWriteLogs(ctx, "Casino")
     await client.Casino(ctx, arg)
 
+@client.bot.command()
+@cmd.cooldown(1, 3, cmd.BucketType.user)
+async def sell(ctx, *arg):
+    CommandWriteLogs(ctx, "Sell")
+    await client.Sell(ctx, arg)
+
+@client.bot.command(aliases=["m"])
+@cmd.cooldown(1, 5, cmd.BucketType.channel)
+async def minerals(ctx, *arg):
+    CommandWriteLogs(ctx, "Minerals")
+    await client.Minerals(ctx, arg)
 
 @client.bot.command()
 async def logs(ctx):
@@ -519,7 +530,7 @@ async def thanos(ctx):
 @fountain.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
-        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        dele = await ctx.reply(f'Les dieux sont occupés, veuillez réssayer dans {int(error.retry_after)} secondes !')
         await dele.delete(delay=1)
 
 @say.error
@@ -575,6 +586,12 @@ async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
         await dele.delete(delay=1)
+        
+"""@sell.error
+async def work_error(ctx, error):
+    if isinstance(error, cmd.CommandOnCooldown):
+        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        await dele.delete(delay=1)"""
 
 @clear.error
 async def work_error(ctx, error):
@@ -595,6 +612,12 @@ async def work_error(ctx, error):
         await dele.delete(delay=1)
 
 @mabite.error
+async def work_error(ctx, error):
+    if isinstance(error, cmd.CommandOnCooldown):
+        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        await dele.delete(delay=1)
+        
+@minerals.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')

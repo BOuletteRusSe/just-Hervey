@@ -97,10 +97,15 @@ async def Mining(ctx, id, minerals, data, to_next_level):
         if 11 in data[id]["Inventory"]["MP"]:
             mineral_xp = mineral_xp + (mineral_xp / 100 * 10)
         try:
-            mineral_info["Price"] + 1
-            mineral_price = mineral_info["Price"]
+            mineral_info["Miner Points"] + 1
+            mineral_price = mineral_info["Miner Points"]
         except:
-            mineral_price = random.randint(mineral_info["Price"][0], mineral_info["Price"][1])
+            mineral_price = random.randint(mineral_info["Miner Points"][0], mineral_info["Miner Points"][1])
+        try:
+            mineral_info["Price"] + 1
+            revente = mineral_info["Price"]
+        except:
+            revente = random.randint(mineral_info["Price"][0], mineral_info["Price"][1])
         try:
             mineral_info["Anti-Mine"]
             if 3 in data[id]['Inventory']["MP"]:
@@ -114,15 +119,15 @@ async def Mining(ctx, id, minerals, data, to_next_level):
             mm = mineral_price
 
         data[id]["Xp"] += mineral_xp
-        data[id]['Money'] += mm
+        data[id]['Miner Points'] += mm
         if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
             data[id]["Inventory"][mineral] += 1
         data[id]["Inventory"][mineral] += 1
 
-        if data[id]["Xp"]< 0:
+        if data[id]["Xp"] < 0:
             data[id]["Xp"] = 0
-        if data[id]['Money']< 0:
-            data[id]['Money'] = 0
+        if data[id]['Miner Points'] < 0:
+            data[id]['Miner Points'] = 0
         if data[id]["Xp"] >= to_next_level:
             data[id]['Level'] += 1
             data[id]["Xp"] -= to_next_level
@@ -142,10 +147,11 @@ async def Mining(ctx, id, minerals, data, to_next_level):
         embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\n{mineral_info['Description']}", color=mineral_info["Color"])
         embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
         embed.set_image(url=mineral_info["Image"])
-        embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)
+        embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
+        embed.add_field(name="Prix de Revente :", value=f"**{revente}€**", inline=True)
         embed.add_field(name=f"{mineral_info['Emoji']} • {str(mineral_info['Name'])[int(str(mineral_info['Name']).find('*'))-1:]} :", value=data[id]['Inventory'][mineral], inline=True)
         embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
-        embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
+        embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=True)
         embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
         embed.set_footer(text=f"+{round(mineral_xp, 2)}xp")
         await ctx.send(embed=embed)
@@ -212,7 +218,7 @@ async def Work(ctx, xp_, cc):
             embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=False)
             embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=False)
             embed.add_field(name="XP jusqu'au prochain niveau :", value=to_next_level, inline=False)
-            embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=False)
+            embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=False)
             await ctx.send(embed=embed)
 
 
@@ -250,7 +256,7 @@ async def Work(ctx, xp_, cc):
                             xx = round(data[id]['Level'] / 5, 2)
                             if 11 in data[id]["Inventory"]["MP"]:
                                 xx = round(xx + (xx / 100 * 10), 2)
-                            data[id]['Money'] += mm
+                            data[id]['Miner Points'] += mm
                             data[id]['Xp'] += xx
                             if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
                                 data[id]['Inventory']["Debrit"] += 1
@@ -260,10 +266,10 @@ async def Work(ctx, xp_, cc):
                             embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debris:1078401153953435759>\nDeux boulons et trois vis, de quoi fabriquer, rien du tout...", color=0x3a3c3d)
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                             embed.set_image(url="https://i.ibb.co/Lrt60yr/debris.png")
-                            embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)
+                            embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
                             embed.add_field(name="<:debris:1078401153953435759> • Débrits :", value=data[id]['Inventory']["Debrit"], inline=True)
                             embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
-                            embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
+                            embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=True)
                             embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
                             embed.set_footer(text=f"+{xx}xp")
                             await ctx.send(embed=embed)
@@ -277,7 +283,7 @@ async def Work(ctx, xp_, cc):
                             if 11 in data[id]["Inventory"]["MP"]:
                                 xx = round(xx + (xx / 100 * 10), 2)
                             data[id]['Xp']+= xx
-                            data[id]['Money'] += mm
+                            data[id]['Miner Points'] += mm
                             v = 1
                             if 6 in data[id]['Inventory']["MP"]:
                                 if random.choice[True, False]:
@@ -292,7 +298,7 @@ async def Work(ctx, xp_, cc):
                         if 11 in data[id]["Inventory"]["MP"]:
                             xx = round(xx + (xx / 100 * 10), 2)
                         data[id]['Xp'] += xx
-                        data[id]['Money'] += mm
+                        data[id]['Miner Points'] += mm
                         if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
                             data[id]['Inventory']["Stone"] += 1
                         data[id]['Inventory']["Stone"] += 1
@@ -306,7 +312,7 @@ async def Work(ctx, xp_, cc):
                     data[id]['Xp'] += xx
                     if 11 in data[id]["Inventory"]["MP"]:
                         xx = round(xx + (xx / 100 * 10), 2)
-                    data[id]['Money'] += mm
+                    data[id]['Miner Points'] += mm
                     v = 1
                     if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
                         data[id]['Inventory']["Stone"] += 1
@@ -334,10 +340,10 @@ async def Work(ctx, xp_, cc):
                     embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:1078401377555976232>\nUn des matériaux d'artisanat les plus communs.\nIl peut servir à fabriquer des pioches.", color=0x9f9c9a)
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                     embed.set_image(url="https://i.ibb.co/DQNdPY1/stone.png")
-                    embed.add_field(name="Bénéfice :", value=f"**{round(mm, 2)}€**", inline=True)
+                    embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
                     embed.add_field(name="<:stone:1078401377555976232> • Pierre :", value=data[id]['Inventory']["Stone"], inline=True)
                     embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
-                    embed.add_field(name="Argent :", value=f"**{round(data[id]['Money'], 2)}€**", inline=True)
+                    embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=True)
                     embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
                     embed.set_footer(text=f"+{xx}xp")
                     await ctx.send(embed=embed)
