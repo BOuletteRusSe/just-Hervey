@@ -38,8 +38,17 @@ async def Fountain(ctx, m):
                 elif data[id]['Money'] - m < 0:
                     await ctx.reply(f"Vous n'avez pas assez d'argent !\nArgent : **{data[id]['Money']}**")
                 else:
-                    r = random.randint(0, 3)
-                    if r == 0:
+                    
+                    prob = {
+                        "Nothing": 75,
+                        "Ticket": 25,
+                        "Double": 10,
+                        "Aigue Marine": 5,
+                        "Aigue Marine Plan": 1
+                    }
+                    
+                    r = list(random.choices(*zip(*prob.items())))[0]
+                    if r == "Double":
                         data[id]['Money'] += m
                         fountain_embed = discord.Embed(title="⚡ LES DIEUX VOUS SONT RECONNAISSANTS ⚡", description=f"Vous avez gagné la confiance des dieux et ils vous remercient donc par un don de leur part.\nVous attendez attentivement et une pluie de billet d'une somme de `{m*2}`€ vous tombe dessus.", color=0x0EF180)
                         fountain_embed.set_image(url="https://i.ibb.co/r7bZpfp/fountain.png")
@@ -48,7 +57,7 @@ async def Fountain(ctx, m):
                         fountain_embed.add_field(name="💵 • Argent actuel :", value=data[id]["Money"], inline=False)
                         fountain_embed.set_footer(text="On raconte que jadis, d'anciennes populations ont batti cette fontaine afin de prier les dieux.")
                     
-                    elif r in [1, 2, 3]:
+                    elif r == "Ticket":
                         u = random.randint(1, 5)
                         data[id]['Ticket'] += u
                         fountain_embed = discord.Embed(title="✨ LES DIEUX VOUS REMERCIENT ✨", description=f"Les dieux ont fait gage de patience et vous accordent leur attention.\nIls vous donnent `{u}` tickets de casino trouvés dans leurs poches.", color=0xA9F10E)
@@ -60,7 +69,7 @@ async def Fountain(ctx, m):
                         fountain_embed.add_field(name="💵 • Argent actuel :", value=data[id]["Money"], inline=False)
                         fountain_embed.set_footer(text="On raconte que jadis, d'anciennes populations ont batti cette fontaine afin de prier les dieux.")
                         
-                    elif r in [4, 5] and m >= 1000:
+                    elif r == "Aigue Marine" and m >= 1000:
                         fountain_embed = discord.Embed(title="🔱 LES DIEUX VOUS RÉCOMPENSENT 🔱", description=f"Vous avez gagné la confiance des dieux et ils vous remercient donc par un don de leur part.\nSous un éclat d'étincelles une pierre bleue ciel apparait. Vous la prenez et sentez une vibration à l'intérieur de celle-ci. Ca semble rare, vous le gardez au chaud dans votre inventaire.", color=0xF3FF00)
                         fountain_embed.set_image(url="https://i.ibb.co/r7bZpfp/fountain.png")
                         fountain_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
@@ -69,7 +78,7 @@ async def Fountain(ctx, m):
                         fountain_embed.add_field(name="💵 • Argent actuel :", value=data[id]["Money"], inline=False)
                         fountain_embed.set_footer(text="On raconte que jadis, d'anciennes populations ont batti cette fontaine afin de prier les dieux.")
                         
-                    elif r == 6 and m >= 1000 and random.choice([False, True]) and 4 not in data[id]["Inventory"]["Plans"]:
+                    elif r == "Aigue Marine Plan" and m >= 1000 and 4 not in data[id]["Inventory"]["Plans"]:
                         fountain_embed = discord.Embed(title="💖 PAIX AVEC LES DIEUX 💖", description=f"Les dieux vous accordent une faveur de leur part.\nUn parchemin runique apparaît sous un nuage de fûmée, vous sentez une bonne impression.", color=0xACC2C6)
                         fountain_embed.set_image(url="https://i.ibb.co/r7bZpfp/fountain.png")
                         fountain_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
@@ -81,7 +90,7 @@ async def Fountain(ctx, m):
                         data[id]["Inventory"]["Plans"].append(4)
                         
                         
-                    else:
+                    elif r == "Nothing":
                         data[id]['Money'] -= m
                         fountain_embed = discord.Embed(title="👀 LES DIEUX DÉTOURNENT LE REGARD 👀", description=f"Les dieux n'ont pas l'air d'avoir prêté attention à votre don.\nVous repartez donc les mains vides en ayant perdu `{m}`€.", color=0xE72B0E)
                         fountain_embed.set_image(url="https://i.ibb.co/MD1WRRw/fountain-2.png")

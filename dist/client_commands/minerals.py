@@ -39,11 +39,11 @@ async def Minerals(ctx, arg, cc):
                             if not proba:
                                 proba = f"Probabilité d'obtention : Non définie"
                             if page == 0 and __id__ <= 15:
-                                minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m}", value=f"Prix de revente : **{price}€**\n{proba}", inline=True)
-                            elif page == 1 and 10 < __id__ <= 30:
-                                minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m}", value=f"Prix de revente : **{price}€**\n{proba}", inline=True)
+                                minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m} ({data[id]['Inventory'][m]})", value=f"Prix de revente : **{price}€**\n{proba}", inline=True)
+                            elif page == 1 and 15 < __id__ <= 30:
+                                minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m} ({data[id]['Inventory'][m]})", value=f"Prix de revente : **{price}€**\n{proba}", inline=True)
                             elif page == 2 and 30 < __id__ <= 45:
-                                minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m}", value=f"Prix de revente : **{price}€**\n{proba}", inline=True)
+                                minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m} ({data[id]['Inventory'][m]})", value=f"Prix de revente : **{price}€**\n{proba}", inline=True)
                         else:
                             locked += 1
                                 
@@ -77,5 +77,9 @@ async def Minerals(ctx, arg, cc):
                                 page += 1
                                 
                         await mess.edit(embed=InitEmbed(page))
+                        
+    else:
+        d = await ctx.reply("Veuillez éxécuter la commande de cette façon : **c!minerals stats**")
+        await d.delete(delay=15)
 
                 

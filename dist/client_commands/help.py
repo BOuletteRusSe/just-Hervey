@@ -307,6 +307,22 @@ async def Help(ctx, arg, cc):
             "Cooldown" : "Aucun",
             "Category": "Économie",
             "Down" : False
+        },
+        "Minerals • 💎" : {
+            "Command" : "minerals",
+            "Description" : "Permet de voir les stats des matériaux.",
+            "Utilisation" : "c!minerals stats",
+            "Cooldown" : "Aucun",
+            "Category": "Économie",
+            "Down" : False
+        },
+        "Sell • 💰" : {
+            "Command" : "sell",
+            "Description" : "Permet de vendre des matériaux.",
+            "Utilisation" : "c!sell (**<montant> <id>**)",
+            "Cooldown" : "5s par salon",
+            "Category": "Économie",
+            "Down" : False
         }
     }
     

@@ -45,17 +45,29 @@ FORGE:
 
 
 
-Système de trade et de shops personnalisés
+Système de trade
 finir update casino
 augmenter levels jusquà 50
-parchemin pioche
 interagire entre joueur
 systeme quotidien
-plusieurs monaies
-métier combattant + choix de métier sup lvl 100
 combattant
 buvheron
 dark net shop
 quartz
 cagnote fontaine
 ajouter pioche augmenter revente
+rework fountain
+type + passif  atacks 1 speacial 1 en plus
+special armure passif 
+1 combat + 1 potion
+armure ultime pvp
+dongeons boss
+lore avec les deux
+guerre des dieux trahisons test sens de la vie
+non trade inter serveurs
+comencer jeu avec combat final
+bouts parchemin lore
+vestiges de la guerre
+fin dongeon lettres dieux
+tablettes demeraude commande a debloquer
+guerre dieu humain
