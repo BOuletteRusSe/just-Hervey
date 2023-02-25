@@ -43,8 +43,8 @@ async def Fountain(ctx, m):
                         "Nothing": 75,
                         "Ticket": 25,
                         "Double": 10,
-                        "Aigue Marine": 5,
-                        "Aigue Marine Plan": 1
+                        "Aigue Marine": 10,
+                        "Aigue Marine Plan": 5
                     }
                     
                     r = list(random.choices(*zip(*prob.items())))[0]
@@ -90,7 +90,7 @@ async def Fountain(ctx, m):
                         data[id]["Inventory"]["Plans"].append(4)
                         
                         
-                    elif r == "Nothing":
+                    else:
                         data[id]['Money'] -= m
                         fountain_embed = discord.Embed(title="👀 LES DIEUX DÉTOURNENT LE REGARD 👀", description=f"Les dieux n'ont pas l'air d'avoir prêté attention à votre don.\nVous repartez donc les mains vides en ayant perdu `{m}`€.", color=0xE72B0E)
                         fountain_embed.set_image(url="https://i.ibb.co/MD1WRRw/fountain-2.png")

@@ -105,7 +105,7 @@ async def Shop(ctx, buy):
             item_embed.add_field(name="**5** - 👨‍🔬|PIOCHE DU CHINOIS : **10**Joseph, **10,000** Points de Mineur, 50,000€.", value="GG, vous avez la meilleure pioche du jeu (ne sert à rien).", inline=True)
             item_embed.add_field(name="**13** - GRADE | 💎 - Géologue :", value="Requiert : Métier de Mineur Niv. 50\nPrix : 15,000 Points de Mineur, 75,000€", inline=True)
             item_embed.add_field(name="**14** - GRADE | <:sacredstone:1078401347780608040> - Récolteur de cristaux :", value="Requiert : Métier de Mineur Niv. 75\nPrix : 25,000 Points de Mineur, 100,000€", inline=True)
-            item_embed.add_field(name="**6** - ✖|Pioche de multiplication : **25**Cobaltes, **20,000** Points de Mineur, 25,000€.", value=f"A 50{'%'} de dupliquer les minerais que vous minez.", inline=True)
+            item_embed.add_field(name="**6** - ✖|Pioche de multiplication : **100**Cobaltes, **20,000** Points de Mineur, 50,000€.", value=f"A 33.33{'%'} de dupliquer les minerais que vous minez.", inline=True)
             item_embed.add_field(name="**7** - 🕵️‍♂️|Pioche du maraudeur : **250**Pierres, **15,000** Points de Mineur, 20,000€.", value="Vous ne minerez plus de débrits (ouf).", inline=True)
             item_embed.add_field(name=f"**9** - 👾|Multi-Pioche : **{data[id]['Inventory']['Item Limit'] * 10}**Diamant, **{(data[id]['Inventory']['Item Limit'])*5}0,000**€.", value=f"Vous permet d'équiper {data[id]['Inventory']['Item Limit'] + 1} pioches à la fois. Requier : Métier de Mineur Niv. {data[id]['Inventory']['Item Limit'] * 10} (pour équiper plusieurs pioches, faites __c!inventory equip item__ suivi du numéro des objets séparés d'espaces)", inline=True)
             item_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop mine buy NUMÉRO DE L'ITEM.")
@@ -215,12 +215,12 @@ async def Shop(ctx, buy):
                 try:
                     if buy[1] == "buy":
                         try:
-                            if int(buy[2]) in [1, 11, 2, 3, 4]:
+                            if int(buy[2]) in [1, 13, 2, 3, 4]:
                                 buy_item = item_shop_price_3[int(buy[2])]
 
                                 if data[id]['Money'] >= buy_item["Money"]:
                                     
-                                    if data[id]["Forge Points"] >= buy_item["Forge Points"]:
+                                    if data[id]["Black-Smith Points"] >= buy_item["Black-Smith Points"]:
 
                                         if int(buy[2]) not in data[id]['Inventory']["P Forge"]:
                                             
@@ -233,7 +233,7 @@ async def Shop(ctx, buy):
                                                 data[id]['Money'] -= buy_item["Money"]
                                                 for k, v in buy_item["Price"].items():        
                                                     data[id]['Inventory'][k] -= v
-                                                data[id]["Forge Points"] -= buy_item["Forge Points"]
+                                                data[id]["Black-Smith Points"] -= buy_item["Black-Smith Points"]
                                                 if not buy_item["Rank"]:
                                                     data[id]['Inventory']["P Forge"].append(int(buy[2]))
                                                 else:
@@ -244,13 +244,13 @@ async def Shop(ctx, buy):
                                                     json.dump(data, d, indent=4)
                                                     
                                                 if buy_item["Money"] > 0:
-                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'objet n°{buy[2]} avec succès", description=f"-**{buy_item['Money']}**€\n-**{buy_item['Forge Points']}** Points de Forge", color=0x5455b0)
+                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'objet n°{buy[2]} avec succès", description=f"-**{buy_item['Money']}**€\n-**{buy_item['Black-Smith Points']}** Points de Forge", color=0x5455b0)
                                                 else:
-                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'objet n°{buy[2]} avec succès", description=f"-**{buy_item['Forge Points']}** Points de Forge", color=0x5455b0)
+                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'objet n°{buy[2]} avec succès", description=f"-**{buy_item['Black-Smith Points']}** Points de Forge", color=0x5455b0)
                                                 money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                 money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
                                                 money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
-                                                money_embed.add_field(name="Points de Forge restant:", value=data[id]['Forge Points'], inline=False)
+                                                money_embed.add_field(name="Points de Forge restant:", value=data[id]['Black-Smith Points'], inline=False)
                                                 money_embed.set_footer(text="L'objet a été ajouté à votre établi. Pour voir tout les objets de votre établi, faites la commande c!inventory.")
                                                 await ctx.reply(embed=money_embed)
                                                 
@@ -259,7 +259,7 @@ async def Shop(ctx, buy):
                                         else:
                                             await ctx.reply("Vous possédez déjà ce grade !")                         
                                     else:
-                                        await ctx.reply("Vous n'avez pas les Points de Forge requis !\nPoints de Forge : **%s**\nPoints de Forge requis : **%s**" % (data[id]["Forge Points"], buy_item["Forge Points"]))
+                                        await ctx.reply("Vous n'avez pas les Points de Forge requis !\nPoints de Forge : **%s**\nPoints de Forge requis : **%s**" % (data[id]["Black-Smith Points"], buy_item["Black-Smith Points"]))
                                 else:
                                     await ctx.reply("Vous n'avez pas l'argent requis !\nArgent : **%s**\nArgent Requis : **%s**" % (data[id]["Money"], buy_item["Money"]))
                             else:

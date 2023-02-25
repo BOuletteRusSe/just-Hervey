@@ -49,7 +49,6 @@ Système de trade
 finir update casino
 augmenter levels jusquà 50
 interagire entre joueur
-systeme quotidien
 combattant
 buvheron
 dark net shop
@@ -71,3 +70,4 @@ vestiges de la guerre
 fin dongeon lettres dieux
 tablettes demeraude commande a debloquer
 guerre dieu humain
+taux et revente journalière

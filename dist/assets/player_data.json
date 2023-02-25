@@ -4,6 +4,7 @@
         "Black-Smith Points": 0,
         "Miner Points": 535,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
@@ -62,49 +63,50 @@
         }
     },
     "809412081358733332": {
-        "Money": 10716,
-        "Black-Smith Points": 12450,
-        "Miner Points": 21598.38,
+        "Money": 268716,
+        "Black-Smith Points": 6450,
+        "Miner Points": 21991.64,
         "Lumberjack Points": 0,
+        "Last Daily": 1677345572.3540323,
         "Forge Cooldown": {
             "1677255354.708274": 390
         },
-        "Bank": 90000,
-        "Ticket": 16,
+        "Bank": 100000,
+        "Ticket": 25,
         "Level": 65,
-        "Xp": 8841.999999999989,
+        "Xp": 9620.999999999989,
         "Hobby": 0,
         "Inventory": {
             "Debrit": 559,
-            "Stone": 1931,
-            "Iron": 109,
+            "Stone": 1934,
+            "Iron": 110,
             "Gold": 12,
             "Diamond": 17,
-            "Rubis": 92,
-            "Silver": 164,
+            "Rubis": 93,
+            "Silver": 166,
             "Fluorite": 48,
             "Saphir": 43,
-            "Platinium": 111,
+            "Platinium": 31,
             "Randomite": 83,
             "Magma Stone": 63,
-            "Obsidian": 103,
+            "Obsidian": 105,
             "Joseph": 20,
             "Jade": 57,
-            "Coal": 10,
+            "Coal": 19,
             "Cooper": 52,
             "Coke": 108,
-            "Sacred Stone": 12,
-            "Fossil": 129,
+            "Sacred Stone": 7,
+            "Fossil": 29,
             "Emerald": 82,
-            "Grenat": 79,
+            "Grenat": 82,
             "Cobalt": 80,
             "Turquoise": 11,
             "Mercury": 120,
             "Item Limit": 5,
-            "Amethist": 72,
+            "Amethist": 22,
             "Magnetite": 8,
             "Lucky Stone": 11,
-            "Aigue Marine": 3,
+            "Aigue Marine": 0,
             "Uranium": 1,
             "Plutonium": 0,
             "Rank": 11,
@@ -141,7 +143,8 @@
             ],
             "P Forge": [
                 1,
-                2
+                2,
+                4
             ]
         }
     },
@@ -150,6 +153,7 @@
         "Black-Smith Points": 0,
         "Miner Points": 50068,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
@@ -212,6 +216,7 @@
         "Black-Smith Points": 0,
         "Miner Points": 11231,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
@@ -271,15 +276,16 @@
         }
     },
     "781946621473849365": {
-        "Money": 800000,
+        "Money": 799900,
         "Black-Smith Points": 2800,
         "Miner Points": 244032.50000000006,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
             "1677179988.1962216": 180
         },
         "Bank": 0,
-        "Ticket": 47,
+        "Ticket": 52,
         "Level": 124,
         "Xp": 31790.5,
         "Hobby": 0,
@@ -359,6 +365,7 @@
         "Black-Smith Points": 0,
         "Miner Points": 1875,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
@@ -421,6 +428,7 @@
         "Black-Smith Points": 0,
         "Miner Points": 1887,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
@@ -482,20 +490,21 @@
     "749256962234908723": {
         "Money": 100,
         "Black-Smith Points": 1400,
-        "Miner Points": 75295,
+        "Miner Points": 74867.1,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
             "1676635760.5535934": 60
         },
         "Bank": 0,
         "Level": 45,
-        "Xp": 180.1999999999989,
+        "Xp": 446.1999999999989,
         "Hobby": 0,
         "Ticket": 0,
         "Inventory": {
-            "Jade": 13,
+            "Jade": 14,
             "Cooper": 46,
-            "Coal": 17,
+            "Coal": 18,
             "Fluorite": 14,
             "Debrit": 322,
             "Obsidian": 16,
@@ -511,7 +520,7 @@
             "Saphir": 39,
             "Platinium": 54,
             "Randomite": 34,
-            "Magma Stone": 33,
+            "Magma Stone": 34,
             "Joseph": 9,
             "Sacred Stone": 6,
             "Cobalt": 33,
@@ -551,6 +560,7 @@
         "Black-Smith Points": 0,
         "Miner Points": 28301,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
@@ -610,73 +620,79 @@
         }
     },
     "617293677626392636": {
-        "Money": 504870,
-        "Black-Smith Points": 1500,
-        "Miner Points": 25752.940000000017,
+        "Money": 326870,
+        "Black-Smith Points": 1900,
+        "Miner Points": 43119.330000000155,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
-            "1677266215.3593385": 360
+            "1677329049.6705143": 120
         },
         "Bank": 0,
-        "Level": 46,
-        "Xp": 7793.799999999996,
+        "Level": 54,
+        "Xp": 7046.799999999996,
         "Hobby": 0,
-        "Ticket": 0,
+        "Ticket": 10,
         "Inventory": {
-            "Jade": 24,
-            "Cooper": 58,
-            "Coal": 3,
-            "Fluorite": 17,
+            "Jade": 39,
+            "Cooper": 86,
+            "Coal": 22,
+            "Fluorite": 37,
             "Debrit": 158,
-            "Obsidian": 5,
-            "Turquoise": 15,
-            "Mercury": 31,
-            "Coke": 25,
-            "Stone": 27,
-            "Iron": 4,
-            "Gold": 9,
-            "Silver": 75,
-            "Diamond": 21,
-            "Rubis": 37,
-            "Saphir": 39,
-            "Platinium": 53,
-            "Randomite": 20,
-            "Magma Stone": 29,
-            "Joseph": 8,
+            "Obsidian": 24,
+            "Turquoise": 34,
+            "Mercury": 46,
+            "Coke": 34,
+            "Stone": 233,
+            "Iron": 51,
+            "Gold": 24,
+            "Silver": 101,
+            "Diamond": 10,
+            "Rubis": 49,
+            "Saphir": 64,
+            "Platinium": 74,
+            "Randomite": 23,
+            "Magma Stone": 40,
+            "Joseph": 11,
             "Sacred Stone": 2,
-            "Cobalt": 39,
-            "Fossil": 43,
-            "Emerald": 26,
-            "Grenat": 35,
-            "Amethist": 19,
-            "Magnetite": 6,
+            "Cobalt": 28,
+            "Fossil": 51,
+            "Emerald": 40,
+            "Grenat": 54,
+            "Amethist": 48,
+            "Magnetite": 26,
             "Lucky Stone": 0,
             "Aigue Marine": 0,
-            "Uranium": 7,
-            "Plutonium": 1,
+            "Uranium": 12,
+            "Plutonium": 10,
             "Alliages": [
                 4,
                 12
             ],
             "Rank": 0,
-            "Item Limit": 3,
+            "Item Limit": 4,
             "MP": [
                 1,
                 2,
-                7
+                7,
+                6
             ],
             "P Item": [
                 0,
                 1,
                 2,
                 3,
-                7
+                7,
+                6
             ],
             "P Rank": [
                 0
             ],
             "Plans": [
-                2
+                2,
+                0,
+                5,
+                4
             ],
             "P Forge": []
         }
@@ -686,6 +702,7 @@
         "Black-Smith Points": 250,
         "Miner Points": 30984,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
             "1677004024.31272": 360
         },
@@ -752,6 +769,7 @@
         "Black-Smith Points": 0,
         "Miner Points": 182,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
             "Foutain Cooldown": {
                 "": 0
@@ -816,6 +834,7 @@
         "Black-Smith Points": 0,
         "Miner Points": 0,
         "Lumberjack Points": 0,
+        "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },

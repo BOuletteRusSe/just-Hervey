@@ -20,6 +20,7 @@ async def Sign(ctx):
             "Miner Points": 0,
             "Lumberjack Points": 0,
             "Forge Cooldown" : {"": 0},
+            "Last Daily": 1677343207.8307042,
             "Bank": 0,
             "Level": 0,
             "Xp": 0,

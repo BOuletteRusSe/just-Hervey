@@ -5,9 +5,9 @@ from assets.minerals_data import minerals
 async def Mining(ctx, id, minerals, data, to_next_level):
     
     if 4 in data[id]["Inventory"]["P Forge"]:
-        n = random.randint(0, 850)
+        n = random.randint(0, 2125)
     else:
-        n = random.randint(0, 1000)
+        n = random.randint(0, 2500)
         
     if n == 0:
         
@@ -120,9 +120,12 @@ async def Mining(ctx, id, minerals, data, to_next_level):
 
         data[id]["Xp"] += mineral_xp
         data[id]['Miner Points'] += mm
-        if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
+        if 6 in data[id]['Inventory']["MP"] and random.choice([True, False, False]):
+            txt = "\nVotre pioche de multiplication vous a permis de récolter un minerai en plus !"
+            data[id]["Inventory"][mineral] += 2
+        else:
+            txt = ""
             data[id]["Inventory"][mineral] += 1
-        data[id]["Inventory"][mineral] += 1
 
         if data[id]["Xp"] < 0:
             data[id]["Xp"] = 0
@@ -144,7 +147,7 @@ async def Mining(ctx, id, minerals, data, to_next_level):
         with open("assets/player_data.json", 'w') as d:
             json.dump(data, d, indent=4)
 
-        embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\n{mineral_info['Description']}", color=mineral_info["Color"])
+        embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\n{mineral_info['Description']}{txt}", color=mineral_info["Color"])
         embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
         embed.set_image(url=mineral_info["Image"])
         embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
@@ -258,16 +261,19 @@ async def Work(ctx, xp_, cc):
                                 xx = round(xx + (xx / 100 * 10), 2)
                             data[id]['Miner Points'] += mm
                             data[id]['Xp'] += xx
-                            if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
-                                data[id]['Inventory']["Debrit"] += 1
-                            data[id]['Inventory']["Debrit"] += 1
+                            if 6 in data[id]['Inventory']["MP"] and random.choice([True, False, False]):
+                                txt = "\nVotre pioche de multiplication vous a permis de récolter un débris en plus !"
+                                data[id]["Inventory"]["Debrit"] += 2
+                            else:
+                                txt = ""
+                                data[id]["Inventory"]["Debrit"] += 1
                             with open("assets/player_data.json", 'w') as d:
                                 json.dump(data, d, indent=4)
-                            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debris:1078401153953435759>\nDeux boulons et trois vis, de quoi fabriquer, rien du tout...", color=0x3a3c3d)
+                            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé un **débrit** ! <:debris:1078401153953435759>\nDeux boulons et trois vis, de quoi fabriquer, rien du tout...{txt}", color=0x3a3c3d)
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                             embed.set_image(url="https://i.ibb.co/Lrt60yr/debris.png")
                             embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
-                            embed.add_field(name="<:debris:1078401153953435759> • Débrits :", value=data[id]['Inventory']["Debrit"], inline=True)
+                            embed.add_field(name="<:debris:1078401153953435759> • Débris :", value=data[id]['Inventory']["Debrit"], inline=True)
                             embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
                             embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=True)
                             embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
@@ -285,10 +291,12 @@ async def Work(ctx, xp_, cc):
                             data[id]['Xp']+= xx
                             data[id]['Miner Points'] += mm
                             v = 1
-                            if 6 in data[id]['Inventory']["MP"]:
-                                if random.choice[True, False]:
-                                    data[id]['Inventory']["Stone"] += 1
-                            data[id]['Inventory']["Stone"] += 1
+                            if 6 in data[id]['Inventory']["MP"] and random.choice([True, False, False]):
+                                txt = "\nVotre pioche de multiplication vous a permis de récolter une pierre en plus !"
+                                data[id]["Inventory"]["Stone"] += 2
+                            else:
+                                txt = ""
+                                data[id]["Inventory"]["Stone"] += 1
                     else:
                         if 2 in data[id]['Inventory']["MP"]:
                                 mm = round((0.25 * data[id]['Level']) * 1.1, 2)
@@ -314,9 +322,12 @@ async def Work(ctx, xp_, cc):
                         xx = round(xx + (xx / 100 * 10), 2)
                     data[id]['Miner Points'] += mm
                     v = 1
-                    if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
-                        data[id]['Inventory']["Stone"] += 1
-                    data[id]['Inventory']["Stone"] += 1
+                    if 6 in data[id]['Inventory']["MP"] and random.choice([True, False, False]):
+                        txt = "\nVotre pioche de multiplication vous a permis de récolter une pierre en plus !"
+                        data[id]["Inventory"]["Stone"] += 2
+                    else:
+                        txt = ""
+                        data[id]["Inventory"]["Stone"] += 1
 
                 # IF LEVEL UP
                 if data[id]['Xp'] >= to_next_level:
@@ -337,7 +348,7 @@ async def Work(ctx, xp_, cc):
                 if v == 1:
                     with open("assets/player_data.json", 'w') as d:
                         json.dump(data, d, indent=4)
-                    embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:1078401377555976232>\nUn des matériaux d'artisanat les plus communs.\nIl peut servir à fabriquer des pioches.", color=0x9f9c9a)
+                    embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description="Vous avez trouvé de la **pierre** ! <:stone:1078401377555976232>\nUn des matériaux d'artisanat les plus communs.\nIl peut servir à fabriquer des pioches.{txt}", color=0x9f9c9a)
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                     embed.set_image(url="https://i.ibb.co/DQNdPY1/stone.png")
                     embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)

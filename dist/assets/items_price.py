@@ -152,8 +152,8 @@ item_shop_price_2 = {
 
     6 : {
         "Name": "✖|Pioche de Multiplication",
-        "Price": ["Cobalt", 25],
-        "Money": 25000,
+        "Price": ["Cobalt", 100],
+        "Money": 50000,
         "Miner Points": 20000,
         "Level": 0,
         "Rank": False
@@ -203,14 +203,14 @@ item_shop_price_3 = {
     1: {
         "Name": "🧲|Marteau Magnétique",
         "Price": {"Magnetite": 100},
-        "Forge Points": 5000,
+        "Black-Smith Points": 5000,
         "Money": 100000,
         "Rank": False
     },
     11: {
         "Name": "🧔-Forgeron de renommée",
         "Price": {},
-        "Forge Points": 10000,
+        "Black-Smith Points": 10000,
         "Money": 0,
         "Rank": True
     },
@@ -218,7 +218,7 @@ item_shop_price_3 = {
     2: {
         "Name": "🍀|Lucky-Hammer",
         "Price": {"Lucky Stone": 25},
-        "Forge Points": 1500,
+        "Black-Smith Points": 1500,
         "Money": 150000,
         "Rank": False
     },
@@ -226,7 +226,7 @@ item_shop_price_3 = {
     3: {
         "Name": "☢|Hammer Radioactif",
         "Price": {"Uranium": 25, "Plutonium": 25, "Fluorite": 25},
-        "Forge Points": 7500,
+        "Black-Smith Points": 7500,
         "Money": 0,
         "Rank": False
     },
@@ -234,7 +234,7 @@ item_shop_price_3 = {
     4: {
         "Name": "🔱|Trident de Poséidon",
         "Price": {"Aigue Marine": 3},
-        "Forge Points": 6000,
+        "Black-Smith Points": 6000,
         "Money": 300000,
         "Rank": False
     },
@@ -245,7 +245,7 @@ item_shop_price_4 = {
     1: {
         "Name": "☠|Faux Sacrée",
         "Price": {"Sacred Stone": 5},
-        "Forge Points": 6000,
+        "Black-Smith Points": 6000,
         "Money": 1000000,
         "Rank": False
     }

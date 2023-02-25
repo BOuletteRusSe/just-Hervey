@@ -194,7 +194,7 @@ async def Help(ctx, arg, cc):
             "Utilisation" : "c!vdm",
             "Cooldown" : "Aucun",
             "Category": "Fun",
-            "Down" : False
+            "Down" : True
         },
         "VDME • 🔞" : {
             "Command" : "vdme",
@@ -202,7 +202,7 @@ async def Help(ctx, arg, cc):
             "Utilisation" : "c!vdme",
             "Cooldown" : "Aucun",
             "Category": "Fun",
-            "Down" : False
+            "Down" : True
         },
         "Vote • 📊" : {
             "Command" : "vote",
@@ -321,6 +321,14 @@ async def Help(ctx, arg, cc):
             "Description" : "Permet de vendre des matériaux.",
             "Utilisation" : "c!sell (**<montant> <id>**)",
             "Cooldown" : "5s par salon",
+            "Category": "Économie",
+            "Down" : False
+        },
+        "Daily • 🏆" : {
+            "Command" : "daily",
+            "Description" : "Récompense quotidienne aléatoire.",
+            "Utilisation" : "c!daily",
+            "Cooldown" : "12h par utilisateur",
             "Category": "Économie",
             "Down" : False
         }

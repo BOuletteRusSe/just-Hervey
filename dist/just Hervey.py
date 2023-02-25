@@ -113,6 +113,12 @@ async def money(ctx, *res):
 async def rdmusic(ctx, *is_activate):
     CommandWriteLogs(ctx, 'RdMusic')
     await client.RdMusic(ctx, is_activate)
+    
+@client.bot.command(aliases=["dly"])
+@cmd.cooldown(1, 10, cmd.BucketType.user)
+async def daily(ctx):
+    CommandWriteLogs(ctx, 'Daily')
+    await client.Daily(ctx)
 
 @client.bot.command()
 @cmd.cooldown(1, 5, cmd.BucketType.user)
@@ -562,6 +568,12 @@ async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
         await dele.delete(delay=1)
+        
+@daily.error
+async def work_error(ctx, error):
+    if isinstance(error, cmd.CommandOnCooldown):
+        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        await dele.delete(delay=1)
 
 @blacknwhite.error
 async def work_error(ctx, error):
@@ -587,11 +599,11 @@ async def work_error(ctx, error):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
         await dele.delete(delay=1)
         
-"""@sell.error
+@sell.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
-        await dele.delete(delay=1)"""
+        await dele.delete(delay=1)
 
 @clear.error
 async def work_error(ctx, error):
