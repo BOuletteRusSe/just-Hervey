@@ -391,6 +391,19 @@ minerals = {
         "Miner Points": 500,
         "Id": 31
     },
+    "Quartz" : {
+        "Proba": 3,
+        "Name" : "du **Quartz** !",
+        "Emoji": "<:quartz:1079093713386602607>",
+        "Price" : 400,
+        "Xp" : 750,
+        "Color" : 0xC8D9E6,
+        "Level Requierd" : 50,
+        "Description": "Un des crystaux les plus communs sur Terre !",
+        "Image" : "https://i.ibb.co/nwtpZgG/quartz.png",
+        "Miner Points": 50,
+        "Id": 34
+    },
     "Lucky Stone": {
         "Image": "https://i.ibb.co/dpvrYfF/lucky-stone.png",
         "Emoji": "<:lucky_stone:1078401253505249290>",

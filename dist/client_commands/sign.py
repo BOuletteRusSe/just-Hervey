@@ -58,6 +58,7 @@ async def Sign(ctx):
                 "Aigue Marine": 0,
                 "Uranium": 0,
                 "Plutonium": 0,
+                "Quartz": 0,
                 "Alliages": [],
                 "Rank": 0,
                 "Item Limit": 1,

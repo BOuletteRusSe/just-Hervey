@@ -125,6 +125,7 @@ async def Inventory(ctx, equip, c):
             InventoryCheckNone(f"🔱 • Aigue Marine :", "Aigue Marine", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Plutonium']['Emoji']} • Plutonium :", "Plutonium", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Uranium']['Emoji']} • Uranium :", "Uranium", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Quartz']['Emoji']} • Quartz :", "Quartz", id, data, inventory_embed)
         
         return inventory_embed
         

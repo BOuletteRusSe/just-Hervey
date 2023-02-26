@@ -38,7 +38,12 @@ async def Sell(ctx, arg):
                     if g == "Emoji": emoji = v
                     if g == 'Color': __color__ = v
                     
-                if __m__ == __id__:
+                if n <= 0:
+                    await ctx.reply("Veuillez entrer une valeure correcte !")
+                    err = False
+                    break
+                    
+                elif __m__ == __id__:
                     if data[id]["Inventory"][m] < n:
                         await ctx.reply(f"Vous n'avez pas assez de {m} pour pouvoir en vendre {n} !")
                     else:
@@ -62,7 +67,7 @@ async def Sell(ctx, arg):
                         err = False
             
             if err:         
-                await ctx.reply('Un problème est survenu, vérifier si vous avez bien ortographée la commande !')
+                await ctx.reply('Un problème est survenu, vérifier si vous avez bien ortographée la commande ou que l\'id existe !')
 
             
 
