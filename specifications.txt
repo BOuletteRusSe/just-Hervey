@@ -68,10 +68,9 @@ level crafter
 enchentemant armes
 maitrise chakra micocuiler
 metier farmer herboriste et bucheron
-ad --> forge ap --> astrologie
+ad --> forge ap --> astrologie potions --> alchimiste
 haricot magique dongeon
 marteau thanos
 
-c!levels
 gobelin shop
 finir update casino

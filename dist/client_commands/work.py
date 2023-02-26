@@ -225,70 +225,139 @@ async def Work(ctx, xp_, cc):
             await ctx.send(embed=embed)
 
 
-        elif data[id]['Hobby'] == 0:    
-
-            # A REVOIR POUR LE SHOP
-
-            # Calcul d'xp pour le prochain niveau
-            to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
-
-            # Pioche ticket (pas de modification  nécessaire)
-            if 9 in data[id]['Inventory']["MP"]:
-                if random.randint(0, 7) == 7:
-                    data[id]["Ticket"] += 1
-                    with open("assets/player_data.json", 'w') as d:
-                        json.dump(data, d, indent=4)
-                    embed = discord.Embed(title="🎟 • Vous avez trouvé un ticket en minant !", color=0x157c0e)
-                    embed.add_field(name="🎟 • Tickets :", value=data[id]["Ticket"])
+        elif data[id]['Hobby'] == 0: 
+            
+            def CheckIfIsBanned():
+                for v in [word.strip() for word in open("assets/texts/autofarm_ids.txt", encoding="utf-8")]:
+                    if str(id) == v:
+                        return False
+                return True
+            
+            if CheckIfIsBanned():
+            
+                # Test Anti AFK
+                if random.randint(0, 100) == 0:
+                    embed = discord.Embed(title="Test Anti-AFK", description="Êtes vous toujours là ?", color=0x777777)
                     embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                    await ctx.reply(embed=embed)
+                    embed.set_footer(text="Veuillez réagir avec la réaction \"✅\" si dessous dans les 30 prochaines secondes afin de prouver que vous n'utilisez pas un système de farming automatique.")
+                    message = await ctx.reply(embed=embed)
+                    
+                    await message.add_reaction("✅")
 
-            if await Mining(ctx, id, minerals, data, to_next_level) == False:
-                
-                # PIOCHE DU MARAUDEUR A REVOIR
-                if 7 not in data[id]['Inventory']["MP"] and data[id]['Level'] >= 10:
-                    v = random.randint(1, 3)
-                    if not v == 1:
-                        a = random.choice([True, False, True])
-                        if a:
-                            if 2 in data[id]['Inventory']["MP"]:
-                                mm = round((0.25 * (data[id]['Level'] / 5)) * 1.1, 2)
-                            else:
-                                mm = round(0.25 * (data[id]['Level'] / 5), 2)
-    
-                            xx = round(data[id]['Level'] / 5, 2)
-                            if 11 in data[id]["Inventory"]["MP"]:
-                                xx = round(xx + (xx / 100 * 10), 2)
-                            data[id]['Miner Points'] += mm
-                            data[id]['Xp'] += xx
-                            if 6 in data[id]['Inventory']["MP"] and random.choice([True, False, False]):
-                                txt = "\nVotre pioche de multiplication vous a permis de récolter un débris en plus !"
-                                data[id]["Inventory"]["Debrit"] += 2
-                            else:
-                                txt = ""
-                                data[id]["Inventory"]["Debrit"] += 1
+                    try:
+                    
+                        def CheckEmoji(reaction, user):
+                            return id == str(user.id) and message.id == reaction.message.id and str(reaction.emoji) == "✅"
+
+
+                        reaction, user = await cc.bot.wait_for("reaction_add", timeout=30, check=CheckEmoji)
+
+                        if reaction.emoji == "✅":
+                            embed = discord.Embed(title="Test Anti-AFK", description="Merci de votre réponse.", color=0x54CD23)
+                            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                            embed.set_footer(text="Vous gagnez 1€ en gage d'honnêteté.")
+                            data[id]["Money"] += 1
+                            await message.edit(embed=embed) 
+                    except:
+                        embed = discord.Embed(title="Test Anti-AFK", description="Délai dépassé !", color=0xCD2323)
+                        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                        embed.set_footer(text="Votre id a été enregistré dans la liste des potentiels personnes utilisant un système de farming automatique. Votre cas sera traité et passible d'une pénalisation.")
+                        with open("assets/texts/autofarm_ids.txt", "a", encoding="utf-8") as b: b.write(f"{id}\n")
+                        await message.edit(embed=embed)
+                        
+                else:
+
+                    # Calcul d'xp pour le prochain niveau
+                    to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
+
+                    # Pioche ticket (pas de modification  nécessaire)
+                    if 9 in data[id]['Inventory']["MP"]:
+                        if random.randint(0, 7) == 7:
+                            data[id]["Ticket"] += 1
                             with open("assets/player_data.json", 'w') as d:
                                 json.dump(data, d, indent=4)
-                            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé un **débrit** ! <:debris:1078401153953435759>\nDeux boulons et trois vis, de quoi fabriquer, rien du tout...{txt}", color=0x3a3c3d)
+                            embed = discord.Embed(title="🎟 • Vous avez trouvé un ticket en minant !", description="", color=0x157c0e)
+                            embed.add_field(name="🎟 • Tickets :", value=data[id]["Ticket"])
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                            embed.set_image(url="https://i.ibb.co/Lrt60yr/debris.png")
-                            embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
-                            embed.add_field(name="<:debris:1078401153953435759> • Débris :", value=data[id]['Inventory']["Debrit"], inline=True)
-                            embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
-                            embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=True)
-                            embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
-                            embed.set_footer(text=f"+{xx}xp")
-                            await ctx.send(embed=embed)
-                            await ctx.message.delete()
+                            await ctx.reply(embed=embed)
+
+                    if await Mining(ctx, id, minerals, data, to_next_level) == False:
+                        
+                        # PIOCHE DU MARAUDEUR A REVOIR
+                        if 7 not in data[id]['Inventory']["MP"] and data[id]['Level'] >= 10:
+                            v = random.randint(1, 3)
+                            if not v == 1:
+                                a = random.choice([True, False, True])
+                                if a:
+                                    if 2 in data[id]['Inventory']["MP"]:
+                                        mm = round((0.25 * (data[id]['Level'] / 5)) * 1.1, 2)
+                                    else:
+                                        mm = round(0.25 * (data[id]['Level'] / 5), 2)
+            
+                                    xx = round(data[id]['Level'] / 5, 2)
+                                    if 11 in data[id]["Inventory"]["MP"]:
+                                        xx = round(xx + (xx / 100 * 10), 2)
+                                    data[id]['Miner Points'] += mm
+                                    data[id]['Xp'] += xx
+                                    if 6 in data[id]['Inventory']["MP"] and random.choice([True, False, False]):
+                                        txt = "\nVotre pioche de multiplication vous a permis de récolter un débris en plus !"
+                                        data[id]["Inventory"]["Debrit"] += 2
+                                    else:
+                                        txt = ""
+                                        data[id]["Inventory"]["Debrit"] += 1
+                                    with open("assets/player_data.json", 'w') as d:
+                                        json.dump(data, d, indent=4)
+                                    embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé un **débrit** ! <:debris:1078401153953435759>\nDeux boulons et trois vis, de quoi fabriquer, rien du tout...{txt}", color=0x3a3c3d)
+                                    embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                                    embed.set_image(url="https://i.ibb.co/Lrt60yr/debris.png")
+                                    embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
+                                    embed.add_field(name="<:debris:1078401153953435759> • Débris :", value=data[id]['Inventory']["Debrit"], inline=True)
+                                    embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
+                                    embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=True)
+                                    embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
+                                    embed.set_footer(text=f"+{xx}xp")
+                                    await ctx.send(embed=embed)
+                                    await ctx.message.delete()
+                                else:
+                                    if 2 in data[id]['Inventory']["MP"]:
+                                        mm = round((0.25 * data[id]['Level']) * 1.1, 2)
+                                    else:
+                                        mm = round(0.25 * data[id]['Level'], 2)
+                                    xx = round(data[id]['Level'], 2)
+                                    if 11 in data[id]["Inventory"]["MP"]:
+                                        xx = round(xx + (xx / 100 * 10), 2)
+                                    data[id]['Xp']+= xx
+                                    data[id]['Miner Points'] += mm
+                                    v = 1
+                                    if 6 in data[id]['Inventory']["MP"] and random.choice([True, False, False]):
+                                        txt = "\nVotre pioche de multiplication vous a permis de récolter une pierre en plus !"
+                                        data[id]["Inventory"]["Stone"] += 2
+                                    else:
+                                        txt = ""
+                                        data[id]["Inventory"]["Stone"] += 1
+                            else:
+                                if 2 in data[id]['Inventory']["MP"]:
+                                        mm = round((0.25 * data[id]['Level']) * 1.1, 2)
+                                else:
+                                    mm = round(0.25 * data[id]['Level'], 2)
+                                xx = round(data[id]['Level'], 2)
+                                if 11 in data[id]["Inventory"]["MP"]:
+                                    xx = round(xx + (xx / 100 * 10), 2)
+                                data[id]['Xp'] += xx
+                                data[id]['Miner Points'] += mm
+                                if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
+                                    data[id]['Inventory']["Stone"] += 1
+                                data[id]['Inventory']["Stone"] += 1
+
                         else:
                             if 2 in data[id]['Inventory']["MP"]:
-                                mm = round((0.25 * data[id]['Level']) * 1.1, 2)
+                                        mm = round((0.25 * data[id]['Level']) * 1.1, 2)
                             else:
                                 mm = round(0.25 * data[id]['Level'], 2)
                             xx = round(data[id]['Level'], 2)
+                            data[id]['Xp'] += xx
                             if 11 in data[id]["Inventory"]["MP"]:
                                 xx = round(xx + (xx / 100 * 10), 2)
-                            data[id]['Xp']+= xx
                             data[id]['Miner Points'] += mm
                             v = 1
                             if 6 in data[id]['Inventory']["MP"] and random.choice([True, False, False]):
@@ -297,65 +366,41 @@ async def Work(ctx, xp_, cc):
                             else:
                                 txt = ""
                                 data[id]["Inventory"]["Stone"] += 1
-                    else:
-                        if 2 in data[id]['Inventory']["MP"]:
-                                mm = round((0.25 * data[id]['Level']) * 1.1, 2)
-                        else:
-                            mm = round(0.25 * data[id]['Level'], 2)
-                        xx = round(data[id]['Level'], 2)
-                        if 11 in data[id]["Inventory"]["MP"]:
-                            xx = round(xx + (xx / 100 * 10), 2)
-                        data[id]['Xp'] += xx
-                        data[id]['Miner Points'] += mm
-                        if 6 in data[id]['Inventory']["MP"] and random.choice([True, False]):
-                            data[id]['Inventory']["Stone"] += 1
-                        data[id]['Inventory']["Stone"] += 1
 
-                else:
-                    if 2 in data[id]['Inventory']["MP"]:
-                                mm = round((0.25 * data[id]['Level']) * 1.1, 2)
-                    else:
-                        mm = round(0.25 * data[id]['Level'], 2)
-                    xx = round(data[id]['Level'], 2)
-                    data[id]['Xp'] += xx
-                    if 11 in data[id]["Inventory"]["MP"]:
-                        xx = round(xx + (xx / 100 * 10), 2)
-                    data[id]['Miner Points'] += mm
-                    v = 1
-                    if 6 in data[id]['Inventory']["MP"] and random.choice([True, False, False]):
-                        txt = "\nVotre pioche de multiplication vous a permis de récolter une pierre en plus !"
-                        data[id]["Inventory"]["Stone"] += 2
-                    else:
-                        txt = ""
-                        data[id]["Inventory"]["Stone"] += 1
+                        # IF LEVEL UP
+                        if data[id]['Xp'] >= to_next_level:
+                            data[id]['Level'] += 1
+                            data[id]['Xp'] -= to_next_level
+                            
+                            # Calcul d'xp pour le prochain niveau
+                            to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
 
-                # IF LEVEL UP
-                if data[id]['Xp'] >= to_next_level:
-                    data[id]['Level'] += 1
-                    data[id]['Xp'] -= to_next_level
-                    
-                    # Calcul d'xp pour le prochain niveau
-                    to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
+                            with open("assets/player_data.json", 'w') as d:
+                                json.dump(data, d, indent=4)
 
-                    with open("assets/player_data.json", 'w') as d:
-                        json.dump(data, d, indent=4)
-
-                    embed = discord.Embed(title=f"**GG**, vous avez atteint le niveau **{data[id]['Level']}** !", description=f"XP nécessaire pour passer au prochain niveau : **{to_next_level}xp**", color=0x56860e)
-                    embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                    embed.set_image(url="https://i.ibb.co/wyYCHVR/level-up.png")
-                    await ctx.send(embed=embed)
+                            embed = discord.Embed(title=f"**GG**, vous avez atteint le niveau **{data[id]['Level']}** !", description=f"XP nécessaire pour passer au prochain niveau : **{to_next_level}xp**", color=0x56860e)
+                            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                            embed.set_image(url="https://i.ibb.co/wyYCHVR/level-up.png")
+                            await ctx.send(embed=embed)
+                        
+                        if v == 1:
+                            with open("assets/player_data.json", 'w') as d:
+                                json.dump(data, d, indent=4)
+                            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé de la **pierre** ! <:stone:1078401377555976232>\nUn des matériaux d'artisanat les plus communs.\nIl peut servir à fabriquer des pioches.{txt}", color=0x9f9c9a)
+                            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                            embed.set_image(url="https://i.ibb.co/DQNdPY1/stone.png")
+                            embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
+                            embed.add_field(name="<:stone:1078401377555976232> • Pierre :", value=data[id]['Inventory']["Stone"], inline=True)
+                            embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
+                            embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=True)
+                            embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
+                            embed.set_footer(text=f"+{xx}xp")
+                            await ctx.send(embed=embed)
+                            await ctx.message.delete()
+                            
+            else:
                 
-                if v == 1:
-                    with open("assets/player_data.json", 'w') as d:
-                        json.dump(data, d, indent=4)
-                    embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé de la **pierre** ! <:stone:1078401377555976232>\nUn des matériaux d'artisanat les plus communs.\nIl peut servir à fabriquer des pioches.{txt}", color=0x9f9c9a)
-                    embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                    embed.set_image(url="https://i.ibb.co/DQNdPY1/stone.png")
-                    embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
-                    embed.add_field(name="<:stone:1078401377555976232> • Pierre :", value=data[id]['Inventory']["Stone"], inline=True)
-                    embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
-                    embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=True)
-                    embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
-                    embed.set_footer(text=f"+{xx}xp")
-                    await ctx.send(embed=embed)
-                    await ctx.message.delete()
+                embed = discord.Embed(title="Test Anti-AFK", description="Vous avez été temporairement banni du c!work.\nPour faire une demande de débannissement, veuillez envoyer un message à <@809412081358733332>", color=0xCD2323)
+                embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                embed.set_footer(text="Votre id a été enregistré dans la liste des potentiels personnes utilisant un système de farming automatique. Votre cas sera traité et passible d'une pénalisation.")
+                await ctx.reply(embed=embed)

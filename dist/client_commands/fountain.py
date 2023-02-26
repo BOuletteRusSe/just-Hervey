@@ -73,6 +73,7 @@ async def Fountain(ctx, m):
                         fountain_embed.set_footer(text="On raconte que jadis, d'anciennes populations ont batti cette fontaine afin de prier les dieux.")
                         
                     elif r == "Aigue Marine" and m >= 1000:
+                        data[id]["Inventory"]["Aigue Marine"] += 1
                         fountain_embed = discord.Embed(title="🔱 LES DIEUX VOUS RÉCOMPENSENT 🔱", description=f"Vous avez gagné la confiance des dieux et ils vous remercient donc par un don de leur part.\nSous un éclat d'étincelles une pierre bleue ciel apparait. Vous la prenez et sentez une vibration à l'intérieur de celle-ci. Ca semble rare, vous le gardez au chaud dans votre inventaire.", color=0xF3FF00)
                         fountain_embed.set_image(url="https://i.ibb.co/r7bZpfp/fountain.png")
                         fountain_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
@@ -85,7 +86,7 @@ async def Fountain(ctx, m):
                         fountain_embed = discord.Embed(title="💖 PAIX AVEC LES DIEUX 💖", description=f"Les dieux vous accordent une faveur de leur part.\nUn parchemin runique apparaît sous un nuage de fûmée, vous sentez une bonne impression.", color=0xACC2C6)
                         fountain_embed.set_image(url="https://i.ibb.co/r7bZpfp/fountain.png")
                         fountain_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                        fountain_embed.add_field(name="🔱 • Aigue Marine :", value="Vous avez débloqué un plan de forge pour pouvoir fabriquer de l'Aigue Marine !\nFaites `c!forge recipes` pour consulter la recette !", inline=False)
+                        fountain_embed.add_field(name="🔱 • Plan de l'Aigue Marine :", value="Vous avez débloqué un plan de forge pour pouvoir fabriquer de l'Aigue Marine !\nFaites `c!forge recipes` pour consulter la recette !", inline=False)
                         fountain_embed.add_field(name="💵 • Argent perdu :", value=m, inline=False)
                         fountain_embed.add_field(name="💵 • Argent actuel :", value=data[id]["Money"], inline=False)
                         fountain_embed.set_footer(text="On raconte que jadis, d'anciennes populations ont batti cette fontaine afin de prier les dieux.")

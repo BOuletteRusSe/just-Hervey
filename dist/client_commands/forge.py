@@ -171,6 +171,8 @@ async def Forge(ctx, arg):
                                             buy_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                             buy_embed.add_field(name=":nut_and_bolt: • Points de Forgeron :", value=data[id]["Black-Smith Points"])
                                             buy_embed.add_field(name="💸 • Argent :", value=round(data[id]["Money"], 2))
+                                            buy_embed.add_field(name="🧔 • Niveau de Forgeron :", value=data[id]["Forge Level"], inline=False)
+                                            buy_embed.add_field(name="🧪 • Xp actuel :", value=data[id]['Forge Xp'], inline=False)
                                             for k, v in res[num][2].items():
                                                 buy_embed.add_field(name=f"{k} : ", value=data[id]["Inventory"][k])
                                             for k, v in res[num][3].items():

@@ -56,7 +56,7 @@ async def Shop(ctx, buy):
 
                                         if buy_item["Price"]:
                                             if not data[id]['Inventory'][buy_item["Price"][0]] >= buy_item["Price"][1]:
-                                                await ctx.reply(f"Vous n'avez pas assez de ressources !\n{buy_item['Price'][0]} nécéssaires : {buy_item['Price'][1]}\nDans l'inventaire : {data[id]['Inventory'][buy_item['Price'][0]]}")
+                                                await ctx.reply(f"Vous n'avez pas assez de ressources !\n{buy_item['Price'][0]} nécessaires : {buy_item['Price'][1]}\nDans l'inventaire : {data[id]['Inventory'][buy_item['Price'][0]]}")
                                                 f = False
                                             else:
                                                 data[id]['Inventory'][buy_item["Price"][0]] -= buy_item["Price"][1]
@@ -186,7 +186,7 @@ async def Shop(ctx, buy):
                                         else:
                                             await ctx.reply("Vous n'avez pas l'argent requis !\nArgent : **%s**\nArgent Requis : **%s**" % (data[id]["Money"], buy_item["Money"]))
                                     else:
-                                        await ctx.reply(f"Vous n'avez pas assez de ressources !\n**{buy_item['Price'][0]}** nécéssaires : **{price}**\n**{buy_item['Price'][0]}** dans l'inventaire : **{data[id]['Inventory'][buy_item['Price'][0]]}**")
+                                        await ctx.reply(f"Vous n'avez pas assez de ressources !\n**{buy_item['Price'][0]}** nécessaires : **{price}**\n**{buy_item['Price'][0]}** dans l'inventaire : **{data[id]['Inventory'][buy_item['Price'][0]]}**")
                                 else:
                                     await ctx.reply(f"Vous n'avez pas assez de Points de Mineur !\nPoints requis : **{buy_item['Miner Points']}**\nPoints actuels : **{data[id]['Miner Points']}**")
                             else:
@@ -258,7 +258,11 @@ async def Shop(ctx, buy):
                                                 await ctx.reply(embed=money_embed)
                                                 
                                             else:
-                                                await ctx.reply(f"Vous n'avez pas assez de ressources !\n**{buy_item['Price'][0]}** nécéssaires : **{buy_item['Price'][1]}**\n**{buy_item['Price'][0]}** dans l'inventaire : **{data[id]['Inventory'][buy_item['Price'][0]]}**")
+                                                t = ""
+                                                for k, v in buy_item["Price"].items():
+                                                    if data[id]["Inventory"][k] < v:
+                                                        t += f"\n**{k}** nécessaires : `{v}`\n**{k}** dans l'inventaire : `{data[id]['Inventory'][k]}`" 
+                                                await ctx.reply(f"Vous n'avez pas assez de ressources !{t}")
                                         else:
                                             await ctx.reply("Vous possédez déjà ce grade !")                         
                                     else:
