@@ -40,14 +40,17 @@ async def Fountain(ctx, m):
                 else:
                     
                     prob = {
-                        "Nothing": 75,
                         "Ticket": 25,
                         "Double": 10,
                         "Aigue Marine": 10,
                         "Aigue Marine Plan": 5
                     }
                     
-                    r = list(random.choices(*zip(*prob.items())))[0]
+                    if random.randint(0, 6) == 0:
+                        r = list(random.choices(*zip(*prob.items())))[0]
+                    else:
+                        r = None
+                        
                     if r == "Double":
                         data[id]['Money'] += m
                         fountain_embed = discord.Embed(title="⚡ LES DIEUX VOUS SONT RECONNAISSANTS ⚡", description=f"Vous avez gagné la confiance des dieux et ils vous remercient donc par un don de leur part.\nVous attendez attentivement et une pluie de billet d'une somme de `{m*2}`€ vous tombe dessus.", color=0x0EF180)

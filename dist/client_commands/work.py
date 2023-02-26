@@ -12,10 +12,10 @@ async def Mining(ctx, id, minerals, data, to_next_level):
     if n == 0:
         
         plans = {
-            "4": 25,
-            "5": 100,
-            "2": 50,
-            "0": 75
+            "5": 50,
+            "2": 25,
+            "0": 75,
+            "7": 50
         }
         
         while True:

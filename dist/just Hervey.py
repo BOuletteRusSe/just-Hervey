@@ -155,7 +155,11 @@ async def choice(ctx):
 async def join(ctx):
     CommandWriteLogs(ctx, 'Join')
     await client.Join(ctx)
-
+    
+@client.bot.command()
+async def levels(ctx):
+    CommandWriteLogs(ctx, 'Levels')
+    await client.Levels(ctx)
 
 @client.bot.command()
 async def ping(ctx, *arg):

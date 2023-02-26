@@ -331,6 +331,14 @@ async def Help(ctx, arg, cc):
             "Cooldown" : "12h par utilisateur",
             "Category": "Économie",
             "Down" : False
+        },
+        "Levels • 🧪" : {
+            "Command" : "levels",
+            "Description" : "Affiche votre progression dans différents métiers",
+            "Utilisation" : "c!levels",
+            "Cooldown" : "Aucun",
+            "Category": "Économie",
+            "Down" : False
         }
     }
     

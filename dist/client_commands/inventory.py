@@ -107,6 +107,7 @@ async def Inventory(ctx, equip, c):
             InventoryCheckNone(f"{minerals['Grenat']['Emoji']} • Grenat :", "Grenat", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Turquoise']['Emoji']} • Turquoise :", "Turquoise", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Obsidian']['Emoji']} • Obsidienne :", "Obsidian", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Dragonite']['Emoji']} • Dragonite :", "Dragonite", id, data, inventory_embed)
             
         elif page == 1:
             InventoryCheckNone(f"{minerals['Randomite']['Emoji']} • Randomite :", "Randomite", id, data, inventory_embed)

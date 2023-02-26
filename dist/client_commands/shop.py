@@ -204,18 +204,21 @@ async def Shop(ctx, buy):
             
             if data[id]["Level"] >= 15:
             
-                forge_embed=discord.Embed(title="**🔨 BOUTIQUE DU FORGERON 🔨**", description="Ici, vous pouvez acheter des objets liés à l'utilisation de la commande c!forge.", color=0xC0712C)
-                forge_embed.add_field(name="**1** - 🧲|Marteau Magnétique : **100**Magnétite, **5,000** Points de Forge et 100,000€.", value="Une fois équipé, le cooldown de la forge est réduis de 40%.", inline=True)
-                forge_embed.add_field(name="**13** - RANK | 🧔 - Forgeron de renommée : **10,000** Points de Forge.", value="Un grade spécial pour les utilisateurs affirmés de la forge.", inline=True)
+                forge_embed = discord.Embed(title="**🔨 BOUTIQUE DU FORGERON 🔨**", description="Ici, vous pouvez acheter des objets liés à l'utilisation de la commande c!forge.", color=0xC0712C)
+                forge_embed.add_field(name="**1** - 🧲|Marteau Magnétique : **100**Magnétite, **5,000** Points de Forgeron et 100,000€.", value="Une fois équipé, le cooldown de la forge est réduis de 40%.", inline=True)
+                forge_embed.add_field(name="**13** - RANK | 🧔 - Forgeron de renommée : **10,000** Points de Forgeron.", value="Un grade spécial pour les utilisateurs affirmés de la forge.", inline=True)
                 forge_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop forge buy NUMÉRO DE L'OBJET.")
-                forge_embed.add_field(name=f"**2** - 🍀|Lucky-Hammer : **25**Lucky Stones, **1,500** Points de Forge, **150,000**€.", value=f"Vous permet de lancer la commande c!casino jusqu'à 5 fois en même temps afin de gagner du temps.", inline=True)
-                forge_embed.add_field(name=f"**3** - ☢|Hammer Radioactif : **25**Uranium, Plutonium, Fluorite, et **7,500** Points de Forge.", value=f"Les plans que vous découvrez demandent 5 niveaux en moins afin d'être fabriqués.", inline=True)
-                forge_embed.add_field(name=f"**4** - 🔱|Trident de Poséidon : **3**Aigue Marine, **6,000** Points de Forge, **300,000**€.", value=f"Les dieux vous guident, vos chances d'obtenir un plan augmentent de 15%.", inline=True)
+                forge_embed.add_field(name="**1** - ⛑|Casque de Forgeron : **25**Iron, Platine et Silver, **5,000** Points de Forgeron et 75,000€.", value=f"Un casque que tout bon forgeron se doit d'avoir. Une fois équipé vous gagnez 15{'%'} d'xp supplémentaire.", inline=True)
+                forge_embed.add_field(name=f"**2** - 🍀|Lucky-Hammer : **25**Lucky Stones, **1,500** Points de Forgeron, **150,000**€.", value=f"Vous permet de lancer la commande c!casino jusqu'à 5 fois en même temps afin de gagner du temps.", inline=True)
+                forge_embed.add_field(name=f"**3** - ☢|Marteau Radioactif : **25**Uranium, Plutonium, Fluorite, et **7,500** Points de Forgeron.", value=f"Les plans que vous découvrez demandent 5 niveaux en moins afin d'être fabriqués.", inline=True)
+                forge_embed.add_field(name=f"**4** - ⚓|Trident de Poséidon : **3**Aigue Marine, **10,000** Points de Forgeron, **500,000**€.", value=f"Les dieux vous guident, vos chances d'obtenir un plan augmentent de 15%.", inline=True)
+                forge_embed.add_field(name=f"**5** - 🔮|Marteau de Crystale : **25**Améthiste, **10**Jades, **7,500** Points de Forgeron, **150,000**€.", value=f"Une combinaison de crystaux permettant d'avoir 25{'%'} de chance de multiplier un minerai en le forgeant.", inline=True)
+                forge_embed.add_field(name=f"**6** - 🐉|Marteau en Plaques de Dragon : **5**Dragonite, **50**Platine, **10,000** Points de Forgeron, **500,000**€.", value=f"La puissance des dragons vous envahie, vous gagnez 25{'%'} de Points de Forgeron lors de la fabrication d'une recette !", inline=True)
 
                 try:
                     if buy[1] == "buy":
                         try:
-                            if int(buy[2]) in [1, 13, 2, 3, 4]:
+                            if int(buy[2]) in [1, 13, 2, 3, 4, 5, 6]:
                                 buy_item = item_shop_price_3[int(buy[2])]
 
                                 if data[id]['Money'] >= buy_item["Money"]:
@@ -244,13 +247,13 @@ async def Shop(ctx, buy):
                                                     json.dump(data, d, indent=4)
                                                     
                                                 if buy_item["Money"] > 0:
-                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'objet n°{buy[2]} avec succès", description=f"-**{buy_item['Money']}**€\n-**{buy_item['Black-Smith Points']}** Points de Forge", color=0x5455b0)
+                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'objet n°{buy[2]} avec succès", description=f"-**{buy_item['Money']}**€\n-**{buy_item['Black-Smith Points']}** Points de Forgeron", color=0x5455b0)
                                                 else:
-                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'objet n°{buy[2]} avec succès", description=f"-**{buy_item['Black-Smith Points']}** Points de Forge", color=0x5455b0)
+                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'objet n°{buy[2]} avec succès", description=f"-**{buy_item['Black-Smith Points']}** Points de Forgeron", color=0x5455b0)
                                                 money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                 money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
                                                 money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
-                                                money_embed.add_field(name="Points de Forge restant:", value=data[id]['Black-Smith Points'], inline=False)
+                                                money_embed.add_field(name="Points de Forgeron restant:", value=data[id]['Black-Smith Points'], inline=False)
                                                 money_embed.set_footer(text="L'objet a été ajouté à votre établi. Pour voir tout les objets de votre établi, faites la commande c!inventory.")
                                                 await ctx.reply(embed=money_embed)
                                                 
@@ -259,7 +262,7 @@ async def Shop(ctx, buy):
                                         else:
                                             await ctx.reply("Vous possédez déjà ce grade !")                         
                                     else:
-                                        await ctx.reply("Vous n'avez pas les Points de Forge requis !\nPoints de Forge : **%s**\nPoints de Forge requis : **%s**" % (data[id]["Black-Smith Points"], buy_item["Black-Smith Points"]))
+                                        await ctx.reply("Vous n'avez pas les Points de Forgeron requis !\nPoints de Forgeron : **%s**\nPoints de Forgeron requis : **%s**" % (data[id]["Black-Smith Points"], buy_item["Black-Smith Points"]))
                                 else:
                                     await ctx.reply("Vous n'avez pas l'argent requis !\nArgent : **%s**\nArgent Requis : **%s**" % (data[id]["Money"], buy_item["Money"]))
                             else:

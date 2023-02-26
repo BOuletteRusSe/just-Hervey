@@ -404,6 +404,19 @@ minerals = {
         "Miner Points": 50,
         "Id": 34
     },
+    "Dragonite" : {
+        "Proba": 0.1,
+        "Name" : "de la **Dragonite** !",
+        "Emoji": "🐲",
+        "Price" : 15000,
+        "Xp" : 1500,
+        "Color" : 0x0A9928,
+        "Level Requierd" : 50,
+        "Description": "Très prisée pour ses différentes propriétés indispensables dans certains domaines de l'artisanat, la dragonite se fait de plus en plus rare.\nA l'époque, la dragonite était obtenue en tuant des dragons, de nos jours des restes de dragonites fossilisées peuvent se trouver sous terre.",
+        "Image" : "https://i.ibb.co/sJCKqcJ/dragonite.png",
+        "Miner Points": 10000,
+        "Id": 35
+    },
     "Lucky Stone": {
         "Image": "https://i.ibb.co/dpvrYfF/lucky-stone.png",
         "Emoji": "<:lucky_stone:1078401253505249290>",

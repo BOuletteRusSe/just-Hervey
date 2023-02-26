@@ -46,38 +46,32 @@ FORGE:
 
 
 Système de trade
-finir update casino
-augmenter levels jusquà 50
-interagire entre joueur
-combattant
-buvheron
 dark net shop
-quartz
-cagnote fontaine
-ajouter pioche augmenter revente
-rework fountain
 type + passif  atacks 1 speacial 1 en plus
 special armure passif 
 1 combat + 1 potion
-armure ultime pvp
 dongeons boss
-lore avec les deux
-guerre des dieux trahisons test sens de la vie
 non trade inter serveurs
+
 comencer jeu avec combat final
 bouts parchemin lore
 vestiges de la guerre
 fin dongeon lettres dieux
 tablettes demeraude commande a debloquer
 guerre dieu humain
+
 taux et revente journalière
 métier bûcheron cliquer reaction casse dura selon arbre
 kit réparation rareté
 disponibilité limite shop
 level crafter
-gobelin shop
 enchentemant armes
-herboriste
 maitrise chakra micocuiler
-metier farmer plantes et arbres
+metier farmer herboriste et bucheron
+ad --> forge ap --> astrologie
 haricot magique dongeon
+marteau thanos
+
+c!levels
+gobelin shop
+finir update casino

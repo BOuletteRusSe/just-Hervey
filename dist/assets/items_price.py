@@ -232,12 +232,33 @@ item_shop_price_3 = {
     },
     
     4: {
-        "Name": "🔱|Trident de Poséidon",
+        "Name": "⚓|Trident de Poséidon",
         "Price": {"Aigue Marine": 3},
-        "Black-Smith Points": 6000,
-        "Money": 300000,
+        "Black-Smith Points": 10000,
+        "Money": 500000,
         "Rank": False
     },
+    5: {
+        "Name": "🔮|Crystal Hammer",
+        "Price": {"Amethist": 25, "Jade": 10},
+        "Black-Smith Points": 7500,
+        "Money": 150000,
+        "Rank": False
+    },
+    6: {
+        "Name": "🐉|Marteau en Plaques de Dragon",
+        "Price": {"Dragonite": 5, "Platinium": 50},
+        "Black-Smith Points": 10000,
+        "Money": 500000,
+        "Rank": False 
+    },
+    7: {
+        "Name": "⛑|Casque de Forgeron",
+        "Price": {"Iron": 25, "Platinium": 25, "Silver": 25},
+        "Black-Smith Points": 5000,
+        "Money": 75000,
+        "Rank": False 
+    }
 }
 
 # Armes

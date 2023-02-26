@@ -50,6 +50,7 @@ from client_commands.bronjames import bronJames
 from client_commands.sell import Sell
 from client_commands.minerals import Minerals
 from client_commands.daily import Daily
+from client_commands.levels import Levels
 
 import discord, time, os, json
 from colored import fg, attr
@@ -65,7 +66,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.12.2'
+            self.client_version = '3.13.0'
             self.key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(self.key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -153,6 +154,9 @@ with open(r"assets\player_data.json") as data:
 
         @staticmethod
         async def Issou(ctx): await Issou(ctx)
+        
+        @staticmethod
+        async def Levels(ctx): await Levels(ctx)
 
         @staticmethod
         async def Bouliste(ctx): await Bouliste(ctx)

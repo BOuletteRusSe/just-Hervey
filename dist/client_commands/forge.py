@@ -4,7 +4,7 @@ from assets.recipes_data import recipes
 def EnumerateRecipes():
     global unlocked_plans
     result = list()
-    unlocked_plans = [1, 3]
+    unlocked_plans = [1, 3, 6]
     for k, v in recipes.items():
         __input__ = dict()
         __output__ = dict()
@@ -15,12 +15,13 @@ def EnumerateRecipes():
             elif _k == "price": __price__ = _v
             elif _k == "level": __level__ = _v
             elif _k == "id": __id__ = _v
+            elif _k == "xp": __xp__ = _v
             elif _k  in ["input", "output"]:
                 for __k, __v in _v.items():
                     if _k == "input": __input__[__k] = __v
                     else: __output__[__k] = __v
             
-        result += [[__emoji__, k, __input__, __output__, __cooldown__, __points__, __price__, __level__, __id__]]
+        result += [[__emoji__, k, __input__, __output__, __cooldown__, __points__, __price__, __level__, __id__, __xp__]]
         
     return result
 
@@ -84,7 +85,7 @@ async def Forge(ctx, arg):
                             else:
                                 n = 0
                                 
-                            if data[id]["Level"] >= (res[num][7] - n):
+                            if data[id]["Forge Level"] >= (res[num][7] - n):
                             
                                 ressources = str()
                                 p = True
@@ -118,19 +119,54 @@ async def Forge(ctx, arg):
                                             
                                             for k, v in res[num][2].items():
                                                 data[id]["Inventory"][k] -= v
-                                            if 1 in data[id]["Inventory"]["P Forge"]:             
+                                            if 1 in data[id]["Inventory"]["P Forge"]:          
                                                 data[id]["Forge Cooldown"] = {str(time.time()): int(round(res[num][4]) / 100 * 60)}
                                             else:
                                                 data[id]["Forge Cooldown"] = {str(time.time()): res[num][4]}
-                                            data[id]["Black-Smith Points"] += res[num][5]
+                                            if 6 in data[id]["Inventory"]["P Forge"]:
+                                                data[id]["Black-Smith Points"] += res[num][5] + (res[num][5] / 100 * 25)
+                                            else:
+                                                data[id]["Black-Smith Points"] += res[num][5]
                                             data[id]["Money"] -= res[num][6]
                                             for k, v in res[num][3].items():
-                                                data[id]["Inventory"][k] += v
+                                                if 5 in data[id]["Inventory"]["P Forge"]:
+                                                    data[id]["Inventory"][k] += v + 1
+                                                    mess = f"\nVotre Marteau de Crystal vous a permis de gagner `1` {k} supplémentaire !"
+                                                else:
+                                                    data[id]["Inventory"][k] += v
+                                                    mess = ""
+                                            if 7 in data[id]["Inventory"]["P Forge"]:
+                                                data[id]["Forge Xp"] += res[num][9] + (res[num][9] / 100 * 15)
+                                            else:
+                                                data[id]["Forge Xp"] += res[num][9]
+                                            
+                                            while True:
+                                            
+                                                to_next_level = int(100 * ((data[id]["Forge Level"] / 2) * (data[id]["Forge Level"] / 2)))
                                                 
+                                                if data[id]["Forge Xp"] < 0:
+                                                    data[id]["Forge Xp"] = 0
+                                                if data[id]['Black-Smith Points'] < 0:
+                                                    data[id]['Black-Smith Points'] = 0
+                                                if data[id]["Forge Xp"] >= to_next_level:
+                                                    data[id]['Forge Level'] += 1
+                                                    data[id]["Forge Xp"] -= to_next_level
+                                                    
+                                                    to_next_level = int(100 * ((data[id]["Forge Level"] / 2) * (data[id]["Forge Level"] / 2)))
+
+                                                    with open("assets/player_data.json", 'w') as d:
+                                                        json.dump(data, d, indent=4)
+                                                    embed = discord.Embed(title=f"**GG**, vous avez atteint le niveau **{data[id]['Forge Level']}** !", description=f"XP nécessaire pour passer au prochain niveau : **{to_next_level}xp**", color=0x56860e)
+                                                    embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                                                    await ctx.send(embed=embed)
+                                                
+                                                else:
+                                                    break
+                                                    
                                             with open("assets/player_data.json", 'w') as d:
                                                 json.dump(data, d, indent=4)
                                                 
-                                            buy_embed = discord.Embed(title="🛠 FORGE 🛠", description="Forge de **%s**" % (res[num][1]), color=0xC0712C)
+                                            buy_embed = discord.Embed(title="🛠 FORGE 🛠", description=f"Forge de **{res[num][1]}**{mess}", color=0xC0712C)
                                             buy_embed.set_image(url="https://i.ibb.co/DgDTy5J/forge-icon.png")
                                             buy_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                             buy_embed.add_field(name=":nut_and_bolt: • Points de Forgeron :", value=data[id]["Black-Smith Points"])
@@ -147,13 +183,13 @@ async def Forge(ctx, arg):
                                             await ctx.send(embed=buy_embed)
                                         
                             else: 
-                                await ctx.reply(f"Vous n'avez pas le niveau requis pour pouvoir utiliser cette recette !\nNiveau requis : {res[num][7]}\nNiveau actuel : {data[id]['Level']}") 
+                                await ctx.reply(f"Vous n'avez pas le niveau de forgeron pour pouvoir utiliser cette recette !\nNiveau requis : {res[num][7]}\nNiveau actuel : {data[id]['Forge Level']}") 
                                 
                         else:
                             await ctx.reply("Vous n'avez pas débloqué ce plan.")     
                     
             else:
-                await ctx.reply(f"Vous n'avez pas le niveau requis pour accéder à la forge !\nNiveau requis : 10\nNiveau actuel : {data[id]['Level']}")
+                await ctx.reply(f"Vous n'avez pas le niveau de mineur requis pour accéder à la forge !\nNiveau requis : 10\nNiveau actuel : {data[id]['Level']}")
                 
         elif "recipes" in arg:
             recipe_embed = discord.Embed(title=":nut_and_bolt: | Forge Recipes", description="Pour réaliser une des recettes ci-dessus utilisez la commande **c!forge mix** suivit de l'id de la recette.\n", color=0x556b2f)
@@ -169,19 +205,23 @@ async def Forge(ctx, arg):
                     for _k_, _v_ in res[i][3].items():
                         outputs += f"**{_v_} {_k_}** + "
                     outputs = outputs[:-3]
-                    recipe_embed.add_field(name=f"{res[i][0]} • {res[i][1]} (id:{res[i][8]}) :", value=f"Recette : {inputs} --> {outputs}\nCooldown : **{res[i][4]}s**\nPoints de Forgeron : **{res[i][5]}**\nNiveau requis : **{res[i][7]}**\nArgent : **{res[i][6]}**", inline=False)
+                    recipe_embed.add_field(name=f"{res[i][0]} • {res[i][1]} (id:{res[i][8]}) :", value=f"Recette : {inputs} --> {outputs}\nCooldown : **{res[i][4]}s**\nPoints de Forgeron : **{res[i][5]}**\nNiveau de Forgeron : **{res[i][7]}**\nArgent : **{res[i][6]}**\nXp : **{res[i][9]}**", inline=False)
                 else:
                     locked += 1
                             
             recipe_embed.set_footer(text=f"Recettes cachées non débloquées : {locked}")
             await ctx.reply(embed=recipe_embed)
                         
-        else: 
-            exembed = discord.Embed(title="just Hervey 💎 | 🛠 FORGE 🛠", description="Ici, vous pouvez combiner différent matériaux/objets afin d'en fabriquer de nouveaux grâce à des recettes que vous pouvez débloquer !\n\n```c!forge recipes```  Avoir la liste des différentes recettes\n```c!forge mix```  Combiner deux matériaux ensemble pour réaliser une des recettes et gagner des Points de Forgeron (Niveau minimal requis : 10)", color=0x59514A)
+        else:
+            to_next_level = int(100 * ((data[id]["Forge Level"] / 2) * (data[id]["Forge Level"] / 2)))
+            exembed = discord.Embed(title="just Hervey 💎 | 🛠 FORGE 🛠", description="Ici, vous pouvez combiner différent matériaux/objets afin d'en fabriquer de nouveaux grâce à des recettes que vous pouvez débloquer !\n\n```c!forge recipes```  Avoir la liste des différentes recettes\n```c!forge mix```  Combiner deux matériaux ensemble pour réaliser une des recettes et gagner des Points de Forgeron (Niveau de mineur minimal requis : 10)", color=0x59514A)
             exembed.set_image(url="https://i.ibb.co/DgDTy5J/forge-icon.png")
             exembed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             exembed.add_field(name="", value="", inline=False)
             exembed.add_field(name=":nut_and_bolt: • Points de Forgeron :", value=data[id]["Black-Smith Points"], inline=False)
+            exembed.add_field(name="🧔 • Niveau de Forgeron :", value=data[id]["Forge Level"], inline=False)
+            exembed.add_field(name="🧪 • Xp actuel :", value=data[id]['Forge Xp'], inline=False)
+            exembed.add_field(name="⚗ • Xp jusqu'au prochain niveau :", value=to_next_level, inline=False)
             exembed.set_footer(text="Les Points de Forgeron servent à acheter des objets uniques dans la boutique du forgeron !")
             
             await ctx.send(embed=exembed)

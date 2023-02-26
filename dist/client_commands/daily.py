@@ -22,7 +22,7 @@ async def Daily(ctx):
         delta_t = time.time()
         last_daily = data[id]["Last Daily"]
         
-        if delta_t - 86400 <= last_daily:
+        if delta_t - 43200 <= last_daily:
             waiting = int(last_daily - (delta_t - 43200))
             waiting_embed = discord.Embed(title="just Hervey 💎 | 🏆 RÉCOMPENSES QUOTIDIENNES 🏆", description=f"Vous avez déjà réclamé votre récompense quotidienne !\nTemps avant la prochaine récompense **{round(waiting/3600, 1)}h**.", color=0x2C8BD6)
             waiting_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)

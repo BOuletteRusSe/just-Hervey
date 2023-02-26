@@ -23,7 +23,9 @@ async def Sign(ctx):
             "Last Daily": 1677343207.8307042,
             "Bank": 0,
             "Level": 0,
+            "Forge Level": 1,
             "Xp": 0,
+            "Forge Xp": 0,
             "Hobby": None,
             "Ticket": 0,
             "Inventory": {
@@ -59,6 +61,7 @@ async def Sign(ctx):
                 "Uranium": 0,
                 "Plutonium": 0,
                 "Quartz": 0,
+                "Dragonite": 0,
                 "Alliages": [],
                 "Rank": 0,
                 "Item Limit": 1,
