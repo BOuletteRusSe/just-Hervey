@@ -1,4 +1,4 @@
-import json, random, re
+import json, random, re, discord
 
 
 async def CheckIfUserIsInGuild(ctx, arg):
@@ -67,7 +67,9 @@ async def IfUserHasEnoughMoney(ctx, arg, player_1_id):
                         c = False
 
                 if c:
-                    await ctx.reply("Veuillez vous inscrire avec la commande **c!sign** !")
+                    embed=discord.Embed(title="Vous n'êtes pas encore inscrit", description="Pour vous inscrire, utilisez la commande `c!sign`", color=0x393838)
+                    embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                    await ctx.reply(embed=embed)
                     return 4
                 else:
 

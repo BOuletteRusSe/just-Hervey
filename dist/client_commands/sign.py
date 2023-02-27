@@ -26,7 +26,6 @@ async def Sign(ctx):
             "Forge Level": 1,
             "Xp": 0,
             "Forge Xp": 0,
-            "Hobby": None,
             "Ticket": 0,
             "Inventory": {
                 "Jade": 0, 
@@ -62,6 +61,10 @@ async def Sign(ctx):
                 "Plutonium": 0,
                 "Quartz": 0,
                 "Dragonite": 0,
+                "Mithril": 0,
+                "Dark Stone": 0,
+                "Cursed Stone": 0,
+                "Black Mithril": 0,
                 "Alliages": [],
                 "Rank": 0,
                 "Item Limit": 1,
@@ -83,11 +86,13 @@ async def Sign(ctx):
         with open("assets/player_data.json", 'w') as d:
             json.dump(data, d, indent=4)
 
-        sign_embed = discord.Embed(description="Vous vous êtes inscrit avec succès !", color=0xc3b828)
+        sign_embed = discord.Embed(title="Vous vous êtes inscrit avec succès !", description="Dans un monde fantastique, les **dieux** avaient toujours été neutres et n'avaient jamais pris parti dans les conflits des **mortels**.\n\nCependant, un jour, une **guerre** éclata entre les **dieux** eux-mêmes. Personne ne sait comment ni pourquoi cette **guerre** a commencé, mais elle a été si destructrice que les **dieux** ont finalement convenu de faire une **trêve**.\n\nDes **milliers d'années** se sont écoulées depuis la fin de la **guerre**, et la plupart des **mortels** ont oublié l'existence de ces **divinités**.\n\nCependant, les traces de cette **guerre** sont toujours présentes dans le monde. Les **ruines des cités divines**, les **vestiges des champs de bataille** et les **artefacts magiques** sont éparpillés à travers le monde, attendant d'être découverts par un **aventurier curieux**.", color=0xc3b828)
         sign_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
         sign_embed.set_image(url="https://cdn.discordapp.com/attachments/772467241014919179/881885893638631464/819043164534079539.gif")
         await ctx.reply(embed=sign_embed)
     
     else:
-        d = await ctx.reply("Vous êtes déjà inscrit !")
-        await d.delete(delay=15)
+        sign_embed = discord.Embed(title="Vous êtes déjà inscrit avec succès !", description="Dans un monde fantastique, les **dieux** avaient toujours été neutres et n'avaient jamais pris parti dans les conflits des **mortels**.\n\nCependant, un jour, une **guerre** éclata entre les **dieux** eux-mêmes. Personne ne sait comment ni pourquoi cette **guerre** a commencé, mais elle a été si destructrice que les **dieux** ont finalement convenu de faire une **trêve**.\n\nDes **milliers d'années** se sont écoulées depuis la fin de la **guerre**, et la plupart des **mortels** ont oublié l'existence de ces **divinités**.\n\nCependant, les traces de cette **guerre** sont toujours présentes dans le monde. Les **ruines des cités divines**, les **vestiges des champs de bataille** et les **artefacts magiques** sont éparpillés à travers le monde, attendant d'être découverts par un **aventurier curieux**.", color=0xc3b828)
+        sign_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+        sign_embed.set_image(url="https://cdn.discordapp.com/attachments/772467241014919179/881885893638631464/819043164534079539.gif")
+        await ctx.reply(embed=sign_embed)

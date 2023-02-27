@@ -35,7 +35,9 @@ async def Money(ctx, res, c):
                 c = False
 
         if c:
-            await ctx.reply("Veuillez vous inscrire avec la commande **c!sign** !")
+            embed=discord.Embed(title="Vous n'êtes pas encore inscrit", description="Pour vous inscrire, utilisez la commande `c!sign`", color=0x393838)
+            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+            await ctx.reply(embed=embed)
 
         else:
             money_embed = discord.Embed(color=0x5455b0)

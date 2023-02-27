@@ -74,3 +74,42 @@ marteau thanos
 
 gobelin shop
 finir update casino
+inventaire mine/bucheron/combattant
+
+events
+carte dongeons
+barre d'amitié dieux
+barre xp
+retour dans le passé avec les évents et des tickets
+resultat event --> aliance --> bonus selon l'aliance
+
+Les divinités avaient des factions qui se disputaient le contrôle du monde des mortels. Certaines divinités croyaient que les mortels devaient être laissés à eux-mêmes, tandis que d'autres croyaient qu'ils devaient être guidés et protégés par les dieux.
+
+Les mortels vénéraient les divinités et leur offraient des sacrifices en échange de leur protection et de leur bénédiction. Cependant, certains mortels étaient mécontents de cette situation et se rebellaient contre les divinités, refusant de leur offrir des sacrifices.
+
+La guerre divine a été déclenchée par un événement majeur, qui a causé la rupture entre les factions des divinités. Les rumeurs courent que cet événement impliquait une trahison entre les dieux, mais personne ne sait exactement ce qui s'est passé.
+
+Les cités divines étaient des lieux de grande beauté et de puissance, construites pour refléter la gloire des divinités. Cependant, ces cités sont maintenant en ruines, ravagées par la guerre et laissées à l'abandon.
+
+Certains artefacts magiques ont été créés pour aider les divinités dans la guerre, mais ont depuis été perdus ou cachés. Ces artefacts sont très convoités, car ils contiennent une grande puissance magique.
+
+Les mortels ont été touchés de différentes manières par la guerre divine. Certains ont été directement impliqués dans la guerre, tandis que d'autres ont été affectés par les conséquences de la guerre, telles que des catastrophes naturelles ou des épidémies.
+
+Les dieux avaient des noms et des personnalités distinctes, mais ces informations ont été perdues avec le temps. Certains mortels croient que les dieux sont encore présents dans le monde, agissant de manière subtile pour aider les mortels dans les moments de besoin.
+
+Il y avait des prophéties concernant la guerre divine, mais leur signification exacte est encore inconnue. Certains croient que ces prophéties pourraient aider à comprendre les raisons de la guerre et les motivations des divinités impliquées.
+
+La guerre divine a eu un impact sur le temps et l'espace, et certains endroits du monde sont maintenant instables ou dangereux. Les mortels doivent être prudents lorsqu'ils explorent ces zones, car ils pourraient rencontrer des phénomènes étranges et potentiellement mortels.
+
+quetes
+cursed stone --> armes glitch
+dark stone
+map avec biomes combattant
+clairière foret toundra volcan oecan + casque * jungle marecageu montagnes sacrées 
+dilemme
+amitié clans
+hybride ultra rare alliance dieux 
+kit de repa hybride
+stats baguettes type
+rareté minerais
+émoji couleur rareté

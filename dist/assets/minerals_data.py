@@ -1,30 +1,43 @@
 # Liste des minéraux
+
+
+c = "⚫ • Commun"
+p = "🟢 • Peu Commun"
+r = "🟡 • Rare"
+e = "🟣 • Épique"
+l = "🟠 • Légendaire"
+m = "🔴 • Mythique"
+re = "🟤 • Reliques"
+d = "⚪ • Divin"
+
 minerals = {
     "Iron" : {
         "Proba": 7,
         "Name" : "du **Fer** !",
         "Emoji" : "<:iron:1078401230537248778>",
-        "Price" : 100,
-        "Xp" : (5, 20),
+        "Price" : 250,
+        "Xp" : (50, 75),
         "Color" : 0x7f7f7f,
         "Level Requierd" : 0,
-        "Description": "D'un gris nuageux, c'est un élément d'artisanat primordial pour tout bon mineur.",
+        "Description": "Ce métal ancien, extrait des entrailles de la terre, est d'un gris nuageux et renferme une force mystérieuse. Les mineurs avertis savent que sa valeur va bien au-delà de son utilisation artisanale.",
         "Image" : "https://i.ibb.co/RY39Wqz/iron.png",
-        "Miner Points": (2, 7),
-        "Id": 2
+        "Miner Points": (10, 50),
+        "Id": 2,
+        "Rareté": c
     },
     "Gold" : {
         "Proba": 5,
         "Name" : "de **l'Or** !",
         "Emoji" : "<:gold:1078401211700625419>",
-        "Price" : 250,
-        "Xp" : (20, 80),
-        "Color" : 0xffd700,
-        "Level Requierd" : 2,
-        "Description": "Ca brille, vous en bavez...",
+        "Price" : 500,
+        "Xp" : (50, 100),
+        "Color" : 0xf0c929,
+        "Level Requierd" : 5,
+        "Description": "Ce métal doré étincelant, symbole de richesse et de pouvoir, est si rare qu'on le croirait forgé par les dieux eux-mêmes. Sa découverte suscite la convoitise et la jalousie, mais aussi la crainte, car on raconte qu'il est maudit et que son éclat attire les prédateurs les plus dangereux.",
         "Image" : "https://i.ibb.co/ThfXBkp/gold.png",
         "Miner Points": (20, 30),
-        "Id": 3
+        "Id": 3,
+        "Rareté": p
     },
     "Diamond" : {
         "Proba": 4,
@@ -32,103 +45,111 @@ minerals = {
         "Emoji" : "<:diamond:1078401167425536071>",
         "Price" : 1000,
         "Xp" : (80, 120),
-        "Color" : 0xddeeed,
+        "Color" : 0x6C8EBF,
         "Level Requierd" : 5,
-        "Description": "De son bleu ciel, le diamant est une pierre précieuse qui vous sera très utile.",
+        "Description": "Ce cristal étincelant, d'une pureté inégalée, est le joyau des mineurs les plus téméraires. Il brille d'une lumière surnaturelle, fascinant les aventuriers en quête de richesse et de pouvoir. On dit que sa rareté cache un pouvoir mystique capable de réaliser les souhaits les plus fous.",
         "Image" : "https://i.ibb.co/hFWz1B4/diamond.png",
         "Miner Points": (80, 120),
-        "Id": 4
+        "Id": 4,
+        "Rareté": r
     },
     "Silver" : {
         "Proba": 6,
         "Name" : "de l'**Argent** !",
         "Emoji" : "<:silver:1078401367649026089>",
-        "Price" : 150,
+        "Price" : 500,
         "Xp" : (50, 100),
         "Color" : 0xC0C0C0,
         "Level Requierd" : 5,
-        "Description": "L'argent ne donne pas tant d'argent que ça en fait...",
+        "Description": "Ce métal argenté, rare et précieux, est connu pour sa beauté légendaire et sa capacité à repousser les forces du mal. Les mineurs les plus courageux cherchent à percer le secret de son éclat énigmatique, soupçonnant qu'il renferme une puissance magique insoupçonnée.",
         "Image" : "https://i.ibb.co/mFjfwzq/silver.png",
-        "Miner Points": (5, 10),
-        "Id": 5
+        "Miner Points": (10, 25),
+        "Id": 5,
+        "Rareté": p
     },
     "Coal" : {
         "Proba": 7,
         "Name" : "du **Charbon** !",
         "Emoji" : "<:coal:1078401112807317615>",
-        "Price" : 100,
+        "Price" : 50,
         "Xp" : 75,
-        "Color" : 0x463b34,
+        "Color" : 0x242424,
         "Level Requierd" : 2,
-        "Description": "Peut servir comme combustible.",
+        "Description": "D'une couleur sombre, ce minerai contient une énergie noire et ténébreuse.",
         "Image" : "https://i.ibb.co/d2tGsxj/coal.png",
-        "Miner Points": 5,
-        "Id": 6
+        "Miner Points": 10,
+        "Id": 6,
+        "Rareté": c
     },
     "Cooper" : {
         "Proba": 6,
         "Name" : "du **Cuivre** !",
         "Emoji" : "<:copper:1078401131757182977>",
         "Price" : 150,
-        "Xp" : 20,
-        "Color" : 0xb36700,
+        "Xp" : (10, 25),
+        "Color" : 0xcf6a0a,
         "Level Requierd" : 5,
-        "Description": "Ca semble briller, mais, çe ne brille pas...",
+        "Description": "Un minerai dont la couleur évoque les flammes du Soleil, il est souvent associé à la puissance et à la royauté.",
         "Image" : "https://i.ibb.co/RvgtxhP/copper.png",
-        "Miner Points": 10,
-        "Id": 7
+        "Miner Points": 15,
+        "Id": 7,
+        "Rareté": p
     },
     "Rubis" : {
         "Proba": 4,
         "Name" : "du **Rubis** !",
         "Emoji" : "<:rubis:1078401338066608158>",
-        "Price" : 1000,
-        "Xp" : 20,
-        "Color" : 0xe0115f,
+        "Price" : 800,
+        "Xp" : 75,
+        "Color" : 0xf20707,
         "Level Requierd" : 15,
-        "Description": "D'un rouge éclatant vous récupérez cette pierre précieuse.\nCa a l'air de valoir cher !",
+        "Description": "Un cristal rouge éclatant, symbole de puissance et de passion. Les mineurs les plus expérimentés peuvent en extraire les gemmes les plus précieuses.",
         "Image" : "https://i.ibb.co/xGF5X7N/rubis.png",
-        "Miner Points": 200,
-        "Id": 8
+        "Miner Points": 150,
+        "Id": 8,
+        "Rareté": r
     },
     "Grenat" : {
         "Proba": 5,
         "Name" : "du **Grenat** !",
         "Emoji": "<:grenat:1078401221246865549>",
-        "Price" : 400,
-        "Xp" : (50, 70),
-        "Color" : 0x6E0B14,
+        "Price" : 500,
+        "Xp" : (50, 100),
+        "Color" : 0xbf0a0a,
         "Level Requierd" : 10,
-        "Description": "D'un rouge sombre, vous sentez le côté obscur de cette pierre entrer en vous.",
+        "Description": "Un cristal rouge sombre, symbole de courage et de détermination. Les mineurs les plus habiles peuvent en extraire les gemmes les plus brillantes.",
         "Image" : "https://i.ibb.co/ZX8cMZN/grenat.png",
-        "Miner Points": (20, 60),
-        "Id": 9
+        "Miner Points": 40,
+        "Id": 9,
+        "Rareté": p
     },
     "Saphir" : {
         "Proba": 4,
         "Name" : "du **Saphire** !",
         "Emoji" : "<:saphir:1078401357159075941>",
-        "Price" : 1000,
-        "Xp" : 400,
-        "Color" : 0x6977a1,
+        "Price" : 700,
+        "Xp" : 300,
+        "Color" : 0x0d5db5,
         "Level Requierd" : 15,
-        "Description": "D'un bleu éclatant vous récupérez cette pierre précieuse.\nVous sentez que votre attrait pour le minage ne fait qu'augmenter !",
+        "Description": "Une pierre précieuse de couleur bleue profonde qui fascine les mineurs depuis des siècles. Certains disent qu'elle a des propriétés magiques.",
         "Image" : "https://i.ibb.co/XDv7D2X/saphir.png",
-        "Miner Points": 25,
-        "Id": 10
+        "Miner Points": 75,
+        "Id": 10,
+        "Rareté": r
     },
     "Platinium" : {
         "Proba": 6,
         "Name" : "du **Platine** !",
         "Emoji" : "<:platinium:1078401302838661120>",
-        "Price" : 300,
-        "Xp" : (50, 100),
-        "Color" : 0xFAF0C5,
+        "Price" : 400,
+        "Xp" : (75, 125),
+        "Color" : 0x7f7f7f,
         "Level Requierd" : 5,
-        "Description": "Ca a l'air d'être du solide !\nCa ferait un aliage parfait...",
+        "Description": "Un métal rare et précieux, connu pour sa grande résistance à la corrosion et sa brillance unique. On raconte que les objets en platine ont des propriétés magiques.",
         "Image" : "https://i.ibb.co/RznbrBK/platinium.png",
-        "Miner Points": (20, 70),
-        "Id": 11
+        "Miner Points": 50,
+        "Id": 11,
+        "Rareté": p
     },
     "Randomite" : {
         "Proba": 3,
@@ -141,21 +162,23 @@ minerals = {
         "Description": "Le prix de la randomite varie en fonction de son éclat, c'est bon à savoir.",
         "Image" : "https://i.ibb.co/jyp9Lq3/randomite.png",
         "Miner Points": (0, 500),
-        "Id": 12
+        "Id": 12,
+        "Rareté": e
     },
     "Magma Stone" : {
-        "Proba": 3,
+        "Proba": 2.5,
         "Name" : "de la **Pierre de Magma** !",
         "Emoji": "<:magma_stone:1078401266025254933>",
         "Price" : 150,
         "Xp" : (-300, 0),
         "Color" : 0xec8058,
         "Level Requierd" : 15,
-        "Description": "Une pierre projetant des cendres et générant une chaleur importante en son centre.",
+        "Description": "Une pierre d'un rouge ardent, avec une chaleur si intense qu'elle peut fondre le métal en un instant.",
         "Image" : "https://i.ibb.co/02y0RKP/magma-stone.png",
         "Anti-Mine" : True,
         "Miner Points": (-1000, 0),
-        "Id": 13
+        "Id": 13,
+        "Rareté": p
     },
     "Joseph" : {
         "Proba": 0.5,
@@ -167,47 +190,51 @@ minerals = {
         "Level Requierd" : 20,
         "Description": "CHING CHANG CHONG",
         "Image" : "https://i.ibb.co/fdbcdwp/joseph.png",
-        "Miner Points": 1000,
-        "Id": 14
+        "Miner Points": 500,
+        "Id": 14,
+        "Rareté": l
     },
     "Sacred Stone" : {
         "Proba": 0.125,
         "Name" : "de la **Pierre Sacrée** !",
         "Emoji" : "<:sacredstone:1078401347780608040>",
         "Price" : 10000,
-        "Xp" : 1000,
-        "Color" : 0xc5c3c2,
+        "Xp" : 750,
+        "Color" : 0xffffff,
         "Level Requierd" : 30,
-        "Description": "Ce filon est tout simplement magnifique, vous en récupérez un petit bout et sentez une aura autour de la pierre, c'est bon signe...",
+        "Description": "Une pierre sacrée, d'une rareté divine, qui est considérée comme la plus pure des pierres précieuses.",
         "Image" : "https://i.ibb.co/KXbxYBG/sacred-stone.png",
-        "Miner Points": 10000,
-        "Id": 15
+        "Miner Points": 2500,
+        "Id": 15,
+        "Rareté": d
     },
     "Fossil" : {
         "Proba": 6,
         "Name" : "un **Fossile** !",
         "Emoji" : "<:dino_fosil:1078401178070683849>",
         "Price" : 300,
-        "Xp" : 200,
-        "Color" : 0xcdc6bb,
+        "Xp" : 250,
+        "Color" : 0xd7b39d,
         "Level Requierd" : 15,
-        "Description": "Pas un fossile de dinosaure mais un fossile quand même !",
+        "Description": "Un morceau de l'histoire ancienne de la terre, un fossile est rare et précieux. Les chercheurs du monde entier seront prêts à payer une petite fortune pour en obtenir un",
         "Image" : "https://i.ibb.co/KqBKspq/fossil.png",
-        "Miner Points": 15,
-        "Id": 16
+        "Miner Points": 25,
+        "Id": 16,
+        "Rareté": p
     },
     "Emerald" : {
         "Proba": 3,
         "Name" : "de l**Émeraude** !",
         "Emoji": "<:emerald:1078401187818254346>",
         "Price" : 1500,
-        "Xp" : 400,
+        "Xp" : 325,
         "Color" : 0x01d758,
-        "Level Requierd" : 20,
-        "Description": "De sa couleure verte éclatante, l'émeraude vous assure la richesse et la paix éternellle.",
+        "Level Requierd" : 30,
+        "Description": "Une pierre précieuse rare qui brille d'un vert profond. On dit qu'elle possède des pouvoirs de guérison et de chance.",
         "Image" : "https://i.ibb.co/xf6v0VF/emerald.png",
-        "Miner Points": 200,
-        "Id": 17
+        "Miner Points": 250,
+        "Id": 17,
+        "Rareté": e
     },
     "Randomite" : {
         "Proba": 2,
@@ -220,124 +247,120 @@ minerals = {
         "Description": "Le prix de la randomite varie en fonction de son éclat, c'est bon à savoir.",
         "Image" : "https://i.ibb.co/jyp9Lq3/randomite.png",
         "Miner Points": (0, 1000),
-        "Id": 18
+        "Id": 18,
+        "Rareté": e
     },
     "Amethist" : {
         "Proba": 4,
         "Name" : "de **l'Améthyste** !",
         "Emoji": "<:amethist:1078401100102770790>",
-        "Price" : 500,
-        "Xp" : 500,
-        "Color" : 0x884da7,
-        "Level Requierd" : 20,
-        "Description": "Sa couleur violette ne passe pas innapercue.",
+        "Price" : 750,
+        "Xp" : 450,
+        "Color" : 0x800080,
+        "Level Requierd" : 25,
+        "Description": "Une pierre mystique d'un violet profond, qui semble rayonner une énergie magique.",
         "Image" : "https://i.ibb.co/xqrWnSC/amthist.png",
         "Miner Points": 40,
-        "Id": 19
+        "Id": 19,
+        "Rareté": r
     },
     "Cobalt" : {
         "Proba": 4.5,
         "Name" : "du **Cobalt** !",
         "Emoji": "<:cobalt:1078401123070791830>",
         "Price" : 750,
-        "Xp" : (200, 750),
-        "Color" : 0x22427c,
+        "Xp" : (300, 600),
+        "Color" : 0x0a77e4,
         "Level Requierd" : 20,
-        "Description": "C'est moche le cobalt, pourquoi j'ai ajouté ça déjà ?",
+        "Description": "Cette mystérieuse pierre bleue semble posséder une énergie surnaturelle. Elle est à la fois belle et inquiétante, sa couleur azur brillant rappelant la lumière de la lune.",
         "Image" : "https://i.ibb.co/ZH2tsYL/cobalt.png",
-        "Miner Points": (15, 50),
-        "Id": 20
+        "Miner Points": 40,
+        "Id": 20,
+        "Rareté": r
     },
     "Coke" : {
-        "Proba": 3,
+        "Proba": 2.5,
         "Name" : "du **Charbon à Coke** !",
         "Emoji" : "🧂",
-        "Price" : 500,
+        "Price" : 250,
         "Xp" : 0,
         "Color" : 0xF5FFFA,
-        "Level Requierd" : 20,
+        "Level Requierd" : 25,
         "Description": "\"Et ouais mamen, viens sniffer une trace tu vas te mettre bien\"",
         "Image" : "https://i.ibb.co/HzQN5cy/coke.png",
         "Miner Points": -50,
-        "Id": 21
-    },
-    "Mercury" : {
-        "Proba": 3.5,
-        "Name" : "du **Mercure** !",
-        "Emoji": "<:mercury:1078401274803920977>",
-        "Price" : 400,
-        "Xp" : 100,
-        "Color" : 0xc5473b,
-        "Level Requierd" : 30,
-        "Description": "Thermomètre simulator.",
-        "Image" : "https://i.ibb.co/7tYvJjD/mercury.png",
-        "Miner Points": 20,
-        "Id": 22
+        "Id": 21,
+        "Rareté": p
     },
     "Turquoise" : {
         "Proba": 3,
         "Name" : "de la **Turquoise** !",
         "Emoji" : "<:turquoise:1078401389039996998>",
         "Price" : 500,
-        "Xp" : 1000,
-        "Color" : 0x25fde9,
+        "Xp" : 750,
+        "Color" : 0x00f5ff,
         "Level Requierd" : 30,
-        "Description": "Comme son nom l'indique...",
+        "Description": "La Turquoise est un minerai précieux d'une couleur vert émeraude chatoyante, qui possède des propriétés magiques de guérison et de protection. On raconte que ceux qui portent de la Turquoise sont bénis par les dieux et protégés contre les forces sombres.",
         "Image" : "https://i.ibb.co/nmvW8Ls/turquoise.png",
-        "Miner Points": 10,
-        "Id": 23
+        "Miner Points": 30,
+        "Id": 23,
+        "Rareté": r
     },
     "Fluorite" : {
         "Proba": 3.5,
         "Name" : "de la **Fluorite** !",
         "Emoji" : "<:fluorite:1078401197884579891>",
-        "Price" : 400,
-        "Xp" : 800,
-        "Color" : 0x25fde9,
+        "Price" : 750,
+        "Xp" : 350,
+        "Color" : 0x9c00ff,
         "Level Requierd" : 30,
-        "Description": "Cette pierre brille dans le noir, étrange.",
+        "Description": "La Fluorite est un minerai rare et mystérieux, dont les couleurs chatoyantes passent du violet profond au vert émeraude et au bleu ciel. On dit qu'il possède des propriétés psychiques et qu'il peut révéler les secrets cachés de l'univers à ceux qui savent comment l'utiliser.",
         "Image" : "https://i.ibb.co/CmqWbNT/fluorite.png",
-        "Miner Points": 15,
-        "Id": 24
+        "Miner Points": 50,
+        "Id": 24,
+        "Rareté": r
     },
     "Obsidian" : {
         "Proba": 4,
         "Name" : "de l'**Obsidienne** !",
         "Emoji": "<:obsidian:1078401284257882222>",
         "Price" : 350,
-        "Xp" : 350,
-        "Color" : 0xd0eea4,
+        "Xp" : 500,
+        "Color" : 0x1a1a1a,
         "Level Requierd" : 30,
-        "Description": "Contrairement à ce qu'on peut croire, l'obsidienne est fragile et se casse tel du verre.",
+        "Description": "Un minerai noir et brillant, issu des profondeurs de la terre. Connue pour sa solidité et sa résistance à la magie, elle est utilisée pour créer des armes et des armures spéciales pour les guerriers et les mages. Mais elle est également convoitée pour ses propriétés magiques, et certains alchimistes l'utilisent dans leurs potions les plus puissantes.",
         "Image" : "https://i.ibb.co/NT7hk9s/obsidian.png",
-        "Miner Points": 50,
-        "Id": 25
+        "Miner Points": 45,
+        "Id": 25,
+        "Rareté": p
     },
     "Jade" : {
         "Proba": 4,
-        "Name" : "du **Jade** !",
+        "Name" : "de la **Jade** !",
         "Emoji": "<:jade:1078401240091861042>",
-        "Price" : 500,
-        "Xp" : 300,
-        "Color" : 0x799d91,
+        "Price" : 400,
+        "Xp" : 350,
+        "Color" : 0x00ff99,
         "Level Requierd" : 30,
-        "Description": "Heureusement que jade n'est pas mineure...",
+        "Description": "Cette pierre vert émeraude est réputée pour ses propriétés protectrices et apaisantes. Elle est également très prisée pour la sculpture.",
         "Image" : "https://i.ibb.co/8xmJRsM/jade.png",
-        "Miner Points": 70,
-        "Id": 26
+        "Miner Points": 60,
+        "Id": 26,
+        "Rareté": r
     },
     "Magnetite" : {
         "Proba": 2.5,
         "Name" : "de la **Magnétite** !",
         "Emoji": "<:magnetite:1078418436566294548>",
         "Price" : 750,
-        "Xp" : (250, 1000),
-        "Color" : 0xfef590,
+        "Xp" : (250, 750),
+        "Color" : 0x666666,
         "Level Requierd" : 40,
-        "Description": "Un champ de force magnétique vous attire vers cette pierre.",
+        "Description": "La Magnetite est un minerai d'une couleur noir métallique, dont les propriétés magnétiques sont si puissantes qu'elle peut attirer et repousser les objets en métal. On dit qu'elle peut renforcer les pouvoirs psychiques et donner la force de surmonter les obstacles les plus difficiles.",
         "Image" : "https://i.ibb.co/4j2zGmP/magn-tite.png",
-        "Miner Points": 15,
-        "Id": 27
+        "Miner Points": 70,
+        "Id": 27,
+        "Rareté": e
     },
     "Uranium" : {
         "Proba": 2,
@@ -345,12 +368,13 @@ minerals = {
         "Emoji": "<:uranium:1078401398384890027>",
         "Price" : 800,
         "Xp" : 300,
-        "Color" : 0x14C124,
+        "Color" : 0x00ff00,
         "Level Requierd" : 40,
-        "Description": "A manipuler avec précautions !",
+        "Description": "L'Uranium est un minerai rare et radioactif, dont la couleur varie du noir métallique au vert fluorescent. On raconte que ceux qui le manipulent doivent faire preuve de la plus grande prudence, car il peut être mortel s'il est utilisé de manière irresponsable.",
         "Image" : "https://i.ibb.co/k5mbZdj/uranium.png",
         "Miner Points": 35,
-        "Id": 28
+        "Id": 28,
+        "Rareté": r
     },
     "Plutonium" : {
         "Proba": 1,
@@ -358,12 +382,13 @@ minerals = {
         "Emoji": "<:plutonium:1078401311848017920>",
         "Price" : 1000,
         "Xp" : 400,
-        "Color" : 0xACC6AE,
+        "Color" : 0xff00ff,
         "Level Requierd" : 40,
-        "Description": "A ne pas manipuler !",
+        "Description": "Le Plutonium est un minerai extrêmement rare et dangereux, utilisé principalement dans la fabrication de bombes atomiques. On dit qu'il est imprégné d'une énergie maléfique et que ceux qui le manipulent sont maudits par les dieux.",
         "Image" : "https://i.ibb.co/kxkCLSD/plutonium.png",
         "Miner Points": 50,
-        "Id": 29
+        "Id": 29,
+        "Rareté": e
     },
     "Randomite" : {
         "Proba": 1,
@@ -376,7 +401,8 @@ minerals = {
         "Description": "Le prix de la randomite varie en fonction de son éclat, c'est bon à savoir.",
         "Image" : "https://i.ibb.co/jyp9Lq3/randomite.png",
         "Miner Points": (0, 1500),
-        "Id": 30
+        "Id": 30,
+        "Rareté": e
     },
     "Fossil" : {
         "Proba": 1,
@@ -384,59 +410,124 @@ minerals = {
         "Emoji": "<:fossil:1078417050575310889>",
         "Price" : 300,
         "Xp" : (300, 500),
-        "Color" : 0xcdc6bb,
+        "Color" : 0xd7b39d,
         "Level Requierd" : 40,
-        "Description": "Cette fois ci c'est le jackpot !",
+        "Description": " Un morceau de l'histoire ancienne de la terre, un fossile est rare et précieux. Les chercheurs du monde entier seront prêts à payer une petite fortune pour en obtenir un",
         "Image" : "https://i.ibb.co/fk5gcyj/dino-fossil.png",
-        "Miner Points": 500,
-        "Id": 31
+        "Miner Points": 100,
+        "Id": 31,
+        "Rareté": r
     },
     "Quartz" : {
         "Proba": 3,
         "Name" : "du **Quartz** !",
         "Emoji": "<:quartz:1079093713386602607>",
-        "Price" : 400,
-        "Xp" : 750,
-        "Color" : 0xC8D9E6,
-        "Level Requierd" : 50,
-        "Description": "Un des crystaux les plus communs sur Terre !",
+        "Price" : 250,
+        "Xp" : (20, 50),
+        "Color" : 0xffffff,
+        "Level Requierd" : 15,
+        "Description": "Le Quartz est un minerai cristallin d'une grande beauté, dont les couleurs varient du blanc au rose, en passant par le jaune et le violet. On dit qu'il possède des propriétés curatives et apaisantes, et qu'il peut renforcer les pouvoirs psychiques.",
         "Image" : "https://i.ibb.co/nwtpZgG/quartz.png",
-        "Miner Points": 50,
-        "Id": 34
+        "Miner Points": 25,
+        "Id": 34,
+        "Rareté": p
     },
     "Dragonite" : {
         "Proba": 0.1,
         "Name" : "de la **Dragonite** !",
         "Emoji": "🐲",
         "Price" : 15000,
-        "Xp" : 1500,
+        "Xp" : 1250,
         "Color" : 0x0A9928,
         "Level Requierd" : 50,
         "Description": "Très prisée pour ses différentes propriétés indispensables dans certains domaines de l'artisanat, la dragonite se fait de plus en plus rare.\nA l'époque, la dragonite était obtenue en tuant des dragons, de nos jours des restes de dragonites fossilisées peuvent se trouver sous terre.",
         "Image" : "https://i.ibb.co/sJCKqcJ/dragonite.png",
-        "Miner Points": 10000,
-        "Id": 35
+        "Miner Points": 5000,
+        "Id": 35,
+        "Rareté": re
     },
+    "Mithril": {
+        "Proba": 2,
+        "Name" : "du Mithril !",
+        "Emoji" : "<:mithril:1079837104781148280>",
+        "Price" : 1500,
+        "Xp" : (100, 200),
+        "Color" : 0x1d8e99,
+        "Level Required" : 50,
+        "Description": "Un métal rare et mystérieux, reconnu pour sa légèreté et sa résistance.",
+        "Image" : "https://i.ibb.co/HHzHYKv/mithril.png",
+        "Miner Points": (20, 40),
+        "Id": 36,
+        "Rareté": l
+        },
+    "Dark Stone": {
+        "Proba": 3,
+        "Name": "de la **Pierre Sombre** !",
+        "Emoji": "<:dark_stone:1079837103501885491>",
+        "Price": 850,
+        "Xp": (250, 500),
+        "Color": 0x333333,
+        "Level Requierd": 60,
+        "Description": "Cette pierre noire est si sombre qu'elle semble absorber toute la lumière autour d'elle. Elle est également connue pour être la plus dure de toutes les pierres.",
+        "Image": "https://i.ibb.co/Gkp0yKg/dark-stone.png",
+        "Miner Points": (50, 75),
+        "Id": 37,
+        "Rareté": e
+    },
+    "Cursed Stone": {
+        "Proba": 0.4,
+        "Name": "de la **Pierre Maudite** !",
+        "Emoji": "<:cursed_stone:1079837101283082372>",
+        "Price": 2500,
+        "Xp": (250, 750),
+        "Color": 0x4d4d4d,
+        "Level Required": 60,
+        "Description": "Cette pierre sombre et inquiétante est maudite par des forces inconnues, la rendant à la fois redoutable et fascinante.",
+        "Image": "https://i.ibb.co/p3qtfNm/cursed-stone.png",
+        "Miner Points": 150,
+        "Id": 38,
+        "Rareté": l
+    },
+    "Black Mithril": {
+        "Proba": 0.2,
+        "Name": "du **Mithril Noir** !",
+        "Emoji": "<:black_mithrill:1079837106219798608>",
+        "Price": 3000,
+        "Xp": 750,
+        "Color": 0x231F20,
+        "Level Required": 70,
+        "Description": "Le Mithril Noir est une variante rare et puissante du Mithril, souvent associée aux ténèbres et aux ombres. Sa surface est d'un noir profond et son éclat est comme celui des étoiles.",
+        "Image": "https://i.ibb.co/kJhwkQy/black-mithril.png",
+        "Miner Points": 100,
+        "Id": 39,
+        "Rareté": m
+    },
+    
+    
     "Lucky Stone": {
         "Image": "https://i.ibb.co/dpvrYfF/lucky-stone.png",
         "Emoji": "<:lucky_stone:1078401253505249290>",
         "Price": 1500,
-        "Id": 32
+        "Id": 32,
+        "Rareté": l
     },
     "Aigue Marine": {
         "Emoji": "🔱",
         "Price": 2500,
-        "Id": 33
+        "Id": 33,
+        "Rareté": re
     },
     "Stone": {
         "Emoji": "<:stone:1078401377555976232>",
         "Price": 20,
-        "Id": 0
+        "Id": 0,
+        "Rareté": c
     },
     "Debrit": {
         "Emoji": "<:debris:1078401153953435759>",
         "Price": 10,
-        "Id": 1
+        "Id": 1,
+        "Rareté": c
     }
 }
 

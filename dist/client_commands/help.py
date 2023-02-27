@@ -278,8 +278,8 @@ async def Help(ctx, arg, cc):
         },
         "Shop • 💱" : {
             "Command" : "shop",
-            "Description" : "Affiche la boutique.",
-            "Utilisation" : "c!shop (**item** (**buy** <**id de l'item**>)) / (**rank** (**buy** <**id du rank**>) / (**forge** (**buy** <**id de l'objet**>))",
+            "Description" : "Affiche les boutiques.",
+            "Utilisation" : "c!shop (**mine** (**buy** <**id de l'item**>)) / (**rank** (**buy** <**id du rank**>) / (**forge** (**buy** <**id de l'objet**>))",
             "Cooldown" : "Aucun",
             "Category": "Économie",
             "Down" : False
@@ -295,7 +295,7 @@ async def Help(ctx, arg, cc):
         "Work • ⚒" : {
             "Command" : "work",
             "Description" : "Vous permet de travailler pour gagner de l'xp et de l'argent.",
-            "Utilisation" : "c!work (**xp**)",
+            "Utilisation" : "c!work",
             "Cooldown" : "5 Seconde par Utilisateur",
             "Category": "Économie",
             "Down" : False
@@ -334,12 +334,20 @@ async def Help(ctx, arg, cc):
         },
         "Levels • 🧪" : {
             "Command" : "levels",
-            "Description" : "Affiche votre progression dans différents métiers",
+            "Description" : "Affiche votre progression dans différents métiers.",
             "Utilisation" : "c!levels",
             "Cooldown" : "Aucun",
             "Category": "Économie",
             "Down" : False
-        }
+        },
+        "Rarity • 🎰" : {
+            "Command" : "rarity",
+            "Description" : "Permet d'afficher les différentes raretés présentes dans le jeu ainsi que leur description.",
+            "Utilisation" : "c!rarity",
+            "Cooldown" : "Aucun",
+            "Category": "Économie",
+            "Down" : False
+        },
     }
     
     if tsc:

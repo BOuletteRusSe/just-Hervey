@@ -5,9 +5,9 @@ from assets.minerals_data import minerals
 async def Mining(ctx, id, minerals, data, to_next_level):
     
     if 4 in data[id]["Inventory"]["P Forge"]:
-        n = random.randint(0, 2125)
+        n = random.randint(0, 1488)
     else:
-        n = random.randint(0, 2500)
+        n = random.randint(0, 1750)
         
     if n == 0:
         
@@ -153,16 +153,25 @@ async def Mining(ctx, id, minerals, data, to_next_level):
         embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
         embed.add_field(name="Prix de Revente :", value=f"**{revente}€**", inline=True)
         embed.add_field(name=f"{mineral_info['Emoji']} • {str(mineral_info['Name'])[int(str(mineral_info['Name']).find('*'))-1:]} :", value=data[id]['Inventory'][mineral], inline=True)
-        embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
+        xpDashes = 25
+        to_next_level_2 = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
+        dashConvert2 = int(to_next_level_2 / xpDashes)
+        currentDashes2 = int(data[id]['Xp'] / dashConvert2)
+        remain2 = xpDashes - currentDashes2
+        xpDisplay2 = '━' * currentDashes2
+        remainingDisplay2 = '᲼' * remain2
+        percent2 = f"{round(data[id]['Xp'])}/{round(to_next_level_2)}"
+        space2 = '᲼' * int((len(xpDisplay2) + len(remainingDisplay2)) / 2)
+        embed.add_field(name="Rareté :", value=mineral_info["Rareté"], inline=True)
         embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=True)
-        embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
+        embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}|{xpDisplay2}◈**{remainingDisplay2}**|{data[id]['Level'] + 1}**\n{space2}**{percent2}**", inline=False)
         embed.set_footer(text=f"+{round(mineral_xp, 2)}xp")
         await ctx.send(embed=embed)
         await ctx.message.delete()
         return True
 
 
-async def Work(ctx, xp_, cc):
+async def Work(ctx, arg, cc):
 
     # INSCRIPTION
 
@@ -178,54 +187,18 @@ async def Work(ctx, xp_, cc):
             c = False
 
     if c:
-        d = await ctx.reply("Veuillez vous inscrire avec la commande **c!sign** !")
-        await d.delete(delay=15)
+        embed=discord.Embed(title="Vous n'êtes pas encore inscrit", description="Pour vous inscrire, utilisez la commande `c!sign`", color=0x393838)
+        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+        await ctx.reply(embed=embed)
     else:
         
-        for key in data.keys():
-            if key == id and data[key]["Hobby"] != None:
-                p = False
+        def EnumerateArg(t1, t2):
+            for e in arg:
+                if e in [t1, t2]:
+                    return True
+            return False
 
-        if p:
-            jm = await ctx.reply("Veuillez choisir votre métier.\n⛏ --> **Mineur**\n(ya qun métier c la hess lol donne des idées)")
-            await jm.add_reaction("⛏")
-
-            def CheckEmoji(reaction, user):
-                return ctx.message.author == user and jm.id == reaction.message.id and (str(reaction.emoji) == "⛏")
-
-            try:
-                reaction = await cc.bot.wait_for("reaction_add", timeout=60, check=CheckEmoji)
-                data[id]["Hobby"] = 0
-                data[id]["Xp"] = 0
-                data[id]["Level"] = 1
-
-                with open("assets/player_data.json", 'w') as d:
-                    json.dump(data, d, indent=4)
-                await jm.delete()
-                await ctx.send(f"Vous êtes devenu(e) mineur avec succès {ctx.author.mention} !")
-                await ctx.send("Pour commencer à travailler faites **c!work** !")
-                
-            except:
-                await jm.delete()
-                d = await ctx.reply("Délai dépassé !")
-                await d.delete(delay=15)
-
-        # Commande XP
-        elif "xp" in xp_:
-
-            # Calcul d'xp pour le prochain niveau
-            to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
-
-            embed=discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], color=0x393838)
-            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-            embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=False)
-            embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=False)
-            embed.add_field(name="XP jusqu'au prochain niveau :", value=to_next_level, inline=False)
-            embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=False)
-            await ctx.send(embed=embed)
-
-
-        elif data[id]['Hobby'] == 0: 
+        if EnumerateArg("mine", "m"):
             
             def CheckIfIsBanned():
                 for v in [word.strip() for word in open("assets/texts/autofarm_ids.txt", encoding="utf-8")]:
@@ -312,9 +285,18 @@ async def Work(ctx, xp_, cc):
                                     embed.set_image(url="https://i.ibb.co/Lrt60yr/debris.png")
                                     embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
                                     embed.add_field(name="<:debris:1078401153953435759> • Débris :", value=data[id]['Inventory']["Debrit"], inline=True)
-                                    embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
+                                    xpDashes = 25
+                                    to_next_level_2 = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
+                                    dashConvert2 = int(to_next_level_2 / xpDashes)
+                                    currentDashes2 = int(data[id]['Xp'] / dashConvert2)
+                                    remain2 = xpDashes - currentDashes2
+                                    xpDisplay2 = '━' * currentDashes2
+                                    remainingDisplay2 = '᲼' * remain2
+                                    percent2 = f"{round(data[id]['Xp'])}/{round(to_next_level_2)}"
+                                    space2 = '᲼' * int((len(xpDisplay2) + len(remainingDisplay2)) / 2)
+                                    embed.add_field(name="Rareté :", value="⚫ • Commun", inline=True)
                                     embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=True)
-                                    embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
+                                    embed.add_field(name="XP :", value=f"**{data[id]['Level']}|{xpDisplay2}◈**{remainingDisplay2}**|{data[id]['Level'] + 1}**\n{space2}**{percent2}**", inline=False)
                                     embed.set_footer(text=f"+{xx}xp")
                                     await ctx.send(embed=embed)
                                     await ctx.message.delete()
@@ -391,9 +373,18 @@ async def Work(ctx, xp_, cc):
                             embed.set_image(url="https://i.ibb.co/DQNdPY1/stone.png")
                             embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
                             embed.add_field(name="<:stone:1078401377555976232> • Pierre :", value=data[id]['Inventory']["Stone"], inline=True)
-                            embed.add_field(name="XP :", value=f"**{round(data[id]['Xp'], 2)}**", inline=True)
+                            xpDashes = 25
+                            to_next_level_2 = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
+                            dashConvert2 = int(to_next_level_2 / xpDashes)
+                            currentDashes2 = int(data[id]['Xp'] / dashConvert2)
+                            remain2 = xpDashes - currentDashes2
+                            xpDisplay2 = '━' * currentDashes2
+                            remainingDisplay2 = '᲼' * remain2
+                            percent2 = f"{round(data[id]['Xp'])}/{round(to_next_level_2)}"
+                            space2 = '᲼' * int((len(xpDisplay2) + len(remainingDisplay2)) / 2)
+                            embed.add_field(name="Rareté :", value="⚫ • Commun", inline=True)
                             embed.add_field(name="Points de Mineur :", value=f"**{round(data[id]['Miner Points'], 2)}**", inline=True)
-                            embed.add_field(name="Niveau :", value=f"**{data[id]['Level']}**", inline=True)
+                            embed.add_field(name="XP :", value=f"**{data[id]['Level']}|{xpDisplay2}◈**{remainingDisplay2}**|{data[id]['Level'] + 1}**\n{space2}**{percent2}**", inline=False)
                             embed.set_footer(text=f"+{xx}xp")
                             await ctx.send(embed=embed)
                             await ctx.message.delete()
@@ -404,3 +395,14 @@ async def Work(ctx, xp_, cc):
                 embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                 embed.set_footer(text="Votre id a été enregistré dans la liste des potentiels personnes utilisant un système de farming automatique. Votre cas sera traité et passible d'une pénalisation.")
                 await ctx.reply(embed=embed)
+                
+        elif EnumerateArg("lj", "lumberjack"):
+            await ctx.reply("Métier de farmer en cours de création")
+            
+        else:
+            work_embed = discord.Embed(title="just Hervey 💎 | ⌛ WORK ⌛", description="Bienvenue dans le c!work, ici vous pouvez travailler dans les différents métiers disponible en jeu.", color=0xEEA30D)
+            work_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+            work_embed.add_field(name="```c!work mine``` ou ```c!work m```", value="Vous permet de travailler le métier de mineur.", inline=False)
+            work_embed.add_field(name="```c!work lumberjack``` ou ```c!work lj```", value="Vous permet de travailler le métier de bûcheron.", inline=False)
+            work_embed.set_footer(text="Différents sous-métiers sont disponibles hors de la commande c!work, pour avoir la liste de toutes les commande, faites c!help.")
+            await ctx.send(embed=work_embed)

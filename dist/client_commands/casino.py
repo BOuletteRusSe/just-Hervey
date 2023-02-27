@@ -15,8 +15,9 @@ async def CheckSign(ctx, id):
             return 0
 
     if not c:
-        d = await ctx.reply("Veuillez vous inscrire avec la commande **c!sign** !")
-        await d.delete(delay=15)
+        embed=discord.Embed(title="Vous n'êtes pas encore inscrit", description="Pour vous inscrire, utilisez la commande `c!sign`", color=0x393838)
+        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+        await ctx.reply(embed=embed)
         return 1
 
 

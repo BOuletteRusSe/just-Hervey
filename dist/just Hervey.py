@@ -350,6 +350,11 @@ async def vote(ctx):
 async def site(ctx):
     CommandWriteLogs(ctx, "Site")
     await client.Site(ctx)
+    
+@client.bot.command(aliases=["r"])
+async def rarity(ctx):
+    CommandWriteLogs(ctx, "Rarity")
+    await client.Rarity(ctx)
 
 
 @client.bot.command()

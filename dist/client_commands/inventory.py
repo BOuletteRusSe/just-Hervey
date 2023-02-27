@@ -111,7 +111,6 @@ async def Inventory(ctx, equip, c):
             
         elif page == 1:
             InventoryCheckNone(f"{minerals['Randomite']['Emoji']} • Randomite :", "Randomite", id, data, inventory_embed)
-            InventoryCheckNone(f"{minerals['Mercury']['Emoji']} • Mercure :", "Mercury", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Magma Stone']['Emoji']} • Pierre Magmatique :", "Magma Stone", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Fossil']['Emoji']} • Fossille :", "Fossil", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Sacred Stone']['Emoji']} • Pierre Sacrée :", "Sacred Stone", id, data, inventory_embed)
@@ -127,10 +126,16 @@ async def Inventory(ctx, equip, c):
             InventoryCheckNone(f"{minerals['Plutonium']['Emoji']} • Plutonium :", "Plutonium", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Uranium']['Emoji']} • Uranium :", "Uranium", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Quartz']['Emoji']} • Quartz :", "Quartz", id, data, inventory_embed)
+            
+        elif page == 2:
+            InventoryCheckNone(f"{minerals['Mithril']['Emoji']} • Mithril :", "Mithril", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Dark Stone']['Emoji']} • Pierre Sombre :", "Dark Stone", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Cursed Stone']['Emoji']} • Pierre Maudite :", "Cursed Stone", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Black Mithril']['Emoji']} • Mithril Noir :", "Black Mithril", id, data, inventory_embed)
         
         return inventory_embed
         
-    max_page = 1
+    max_page = 2
     min_page = 0
     page = min_page
     __embed__ = DefaultEmbed(page)
@@ -161,8 +166,10 @@ async def Inventory(ctx, equip, c):
                     await mess.edit(embed=DefaultEmbed(page))
             
         else:
-            await ctx.reply("Veuillez vous inscrire avec la commande **c!sign** !")
-
+            embed=discord.Embed(title="Vous n'êtes pas encore inscrit", description="Pour vous inscrire, utilisez la commande `c!sign`", color=0x393838)
+            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+            await ctx.reply(embed=embed)
+            
     elif equip[0] == "equip":
 
         if not data[id]["Inventory"] is None:

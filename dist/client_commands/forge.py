@@ -1,4 +1,4 @@
-import discord, json, time
+import discord, json, time, random
 from assets.recipes_data import recipes
 
 def EnumerateRecipes():
@@ -37,8 +37,9 @@ async def Forge(ctx, arg):
             c = False
             
     if c:
-        d = await ctx.reply("Veuillez vous inscrire avec la commande **c!sign** !")
-        await d.delete(delay=15)
+        embed=discord.Embed(title="Vous n'êtes pas encore inscrit", description="Pour vous inscrire, utilisez la commande `c!sign`", color=0x393838)
+        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+        await ctx.reply(embed=embed)
     else:          
              
         if "mix" in arg:
@@ -129,7 +130,7 @@ async def Forge(ctx, arg):
                                                 data[id]["Black-Smith Points"] += res[num][5]
                                             data[id]["Money"] -= res[num][6]
                                             for k, v in res[num][3].items():
-                                                if 5 in data[id]["Inventory"]["P Forge"]:
+                                                if 5 in data[id]["Inventory"]["P Forge"] and random.choice([True, False, False, False]):
                                                     data[id]["Inventory"][k] += v + 1
                                                     mess = f"\nVotre Marteau de Crystal vous a permis de gagner `1` {k} supplémentaire !"
                                                 else:
@@ -172,7 +173,15 @@ async def Forge(ctx, arg):
                                             buy_embed.add_field(name=":nut_and_bolt: • Points de Forgeron :", value=data[id]["Black-Smith Points"])
                                             buy_embed.add_field(name="💸 • Argent :", value=round(data[id]["Money"], 2))
                                             buy_embed.add_field(name="🧔 • Niveau de Forgeron :", value=data[id]["Forge Level"], inline=False)
-                                            buy_embed.add_field(name="🧪 • Xp actuel :", value=data[id]['Forge Xp'], inline=False)
+                                            xpDashes = 25
+                                            dashConvert = int(to_next_level / xpDashes)
+                                            currentDashes = int(data[id]['Forge Xp'] / dashConvert)
+                                            remain = xpDashes - currentDashes
+                                            xpDisplay = '━' * currentDashes
+                                            remainingDisplay = '᲼' * remain
+                                            percent = f"{round(data[id]['Forge Xp'])}/{round(to_next_level)}"
+                                            space = '᲼' * int((len(xpDisplay) + len(remainingDisplay)) / 2)
+                                            exembed.add_field(name="🧪 • Xp :", value=f"**{data[id]['Forge Level']}|{xpDisplay}◈**{remainingDisplay}**|{data[id]['Forge Level'] + 1}**\n{space}**{percent}**", inline=False)
                                             for k, v in res[num][2].items():
                                                 buy_embed.add_field(name=f"{k} : ", value=data[id]["Inventory"][k])
                                             for k, v in res[num][3].items():
@@ -191,7 +200,7 @@ async def Forge(ctx, arg):
                             await ctx.reply("Vous n'avez pas débloqué ce plan.")     
                     
             else:
-                await ctx.reply(f"Vous n'avez pas le niveau de mineur requis pour accéder à la forge !\nNiveau requis : 10\nNiveau actuel : {data[id]['Level']}")
+                await ctx.reply(f"Vous n'avez pas le niveau de mineur requis pour accéder à la Forge Sacrée !\nNiveau requis : 10\nNiveau actuel : {data[id]['Level']}")
                 
         elif "recipes" in arg:
             recipe_embed = discord.Embed(title=":nut_and_bolt: | Forge Recipes", description="Pour réaliser une des recettes ci-dessus utilisez la commande **c!forge mix** suivit de l'id de la recette.\n", color=0x556b2f)
@@ -216,14 +225,21 @@ async def Forge(ctx, arg):
                         
         else:
             to_next_level = int(100 * ((data[id]["Forge Level"] / 2) * (data[id]["Forge Level"] / 2)))
-            exembed = discord.Embed(title="just Hervey 💎 | 🛠 FORGE 🛠", description="Ici, vous pouvez combiner différent matériaux/objets afin d'en fabriquer de nouveaux grâce à des recettes que vous pouvez débloquer !\n\n```c!forge recipes```  Avoir la liste des différentes recettes\n```c!forge mix```  Combiner deux matériaux ensemble pour réaliser une des recettes et gagner des Points de Forgeron (Niveau de mineur minimal requis : 10)", color=0x59514A)
+            exembed = discord.Embed(title="just Hervey 💎 | 🛠 FORGE SACRÉE  🛠", description="Bienvenue dans la Forge Sacrée, ici, vous pouvez combiner différent matériaux/objets afin d'en fabriquer de nouveaux grâce à des recettes que vous pouvez débloquer !\n\n```c!forge recipes```  Avoir la liste des différentes recettes\n```c!forge mix```  Combiner deux matériaux ensemble pour réaliser une des recettes et gagner des Points de Forgeron (Niveau de mineur minimal requis : 10)", color=0x59514A)
             exembed.set_image(url="https://i.ibb.co/DgDTy5J/forge-icon.png")
             exembed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             exembed.add_field(name="", value="", inline=False)
             exembed.add_field(name=":nut_and_bolt: • Points de Forgeron :", value=data[id]["Black-Smith Points"], inline=False)
             exembed.add_field(name="🧔 • Niveau de Forgeron :", value=data[id]["Forge Level"], inline=False)
-            exembed.add_field(name="🧪 • Xp actuel :", value=data[id]['Forge Xp'], inline=False)
-            exembed.add_field(name="⚗ • Xp jusqu'au prochain niveau :", value=to_next_level, inline=False)
+            xpDashes = 25
+            dashConvert = int(to_next_level / xpDashes)
+            currentDashes = int(data[id]['Forge Xp'] / dashConvert)
+            remain = xpDashes - currentDashes
+            xpDisplay = '━' * currentDashes
+            remainingDisplay = '᲼' * remain
+            percent = f"{round(data[id]['Forge Xp'])}/{round(to_next_level)}"
+            space = '᲼' * int((len(xpDisplay) + len(remainingDisplay)) / 2)
+            exembed.add_field(name="🧪 • Xp :", value=f"**{data[id]['Forge Level']}|{xpDisplay}◈**{remainingDisplay}**|{data[id]['Forge Level'] + 1}**\n{space}**{percent}**", inline=False)
             exembed.set_footer(text="Les Points de Forgeron servent à acheter des objets uniques dans la boutique du forgeron !")
             
             await ctx.send(embed=exembed)

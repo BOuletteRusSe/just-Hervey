@@ -14,7 +14,9 @@ async def Shop(ctx, buy):
             c = False
 
     if c:
-        await ctx.reply("Veuillez vous inscrire avec la commande **c!sign** !")
+        embed=discord.Embed(title="Vous n'êtes pas encore inscrit", description="Pour vous inscrire, utilisez la commande `c!sign`", color=0x393838)
+        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+        await ctx.reply(embed=embed)
 
     else:
 
@@ -22,7 +24,7 @@ async def Shop(ctx, buy):
         s.add_field(name="**🎭 Boutique de Grade 🎭**", value="c!shop **rank** pour accéder à la boutique.", inline=False)
         s.add_field(name="**⛏ Boutique du Mineur ⛏**", value="c!shop **mine** pour accéder à la boutiuqe.", inline=False)
         s.add_field(name="**🔨 Boutique du Forgeron 🔨**", value="Boutique accesible à partir du niveau `15`. c!shop **forge** pour accéder à la boutique.", inline=False)
-        s.add_field(name="**🪓 Boutique du Bûcheron 🪓**", value="Bientôt disponible !", inline=False)
+        s.add_field(name="**👨‍🌾 Boutique du Fermier 👨‍🌾**", value="Bientôt disponible !", inline=False)
         s.set_footer(text="Chaque boutique vend des articles différents.")
 
         if not buy:
