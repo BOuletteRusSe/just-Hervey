@@ -249,7 +249,7 @@ item_shop_price_3 = {
         "Name": "🐉|Marteau en Plaques de Dragon",
         "Price": {"Dragonite": 5, "Platinium": 50},
         "Black-Smith Points": 10000,
-        "Money": 500000,
+        "Money": 250000,
         "Rank": False 
     },
     7: {

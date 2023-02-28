@@ -509,25 +509,40 @@ minerals = {
         "Emoji": "<:lucky_stone:1078401253505249290>",
         "Price": 1500,
         "Id": 32,
-        "Rareté": l
+        "Level Required": 0,
+        "Rareté": l,
+        "Color": 0x64c778,
+        "Description": "La Lucky Stone, un minerai d'un vert chatoyant, est une source de chance inestimable pour quiconque a la chance de la trouver. Les légendes racontent que cette pierre était autrefois utilisée par les fées pour bénir les mortels qui avaient été assez chanceux pour la trouver, leur offrant une vie de prospérité et de bonheur."
     },
     "Aigue Marine": {
         "Emoji": "🔱",
-        "Price": 2500,
+        "Price": 3000,
         "Id": 33,
-        "Rareté": re
+        "Level Required": 0,
+        "Rareté": d,
+        "Image": "https://i.ibb.co/Z897zgV/aquamarine.png",
+        "Color": 0x7FFFD4,
+        "Description": "L'aigue marine, ce minerai d'un bleu cristallin profond, évoque immédiatement la majesté des profondeurs marines. Les légendes racontent que c'est le dieu de la mer Poséidon lui-même qui aurait offert cette pierre aux mortels, en signe de son affection. Certains affirment même que les eaux tumultueuses de l'océan se calment à la vue de cette pierre sacrée, obéissant à la volonté du dieu qui l'a bénie de sa puissance divine."
     },
     "Stone": {
         "Emoji": "<:stone:1078401377555976232>",
         "Price": 20,
         "Id": 0,
-        "Rareté": c
+        "Rareté": c,
+        "Level Required": 0,
+        "Color": 0x808080,
+        "Description": "La pierre, un minerai ancestral d'un gris élégant, est la base de nombreuses civilisations depuis des siècles. Les légendes disent que cette pierre est née de la fusion des éléments primordiaux qui ont créé notre monde. Certains croyaient même que la pierre avait des pouvoirs magiques, capables de guérir les maladies et de protéger les esprits des mauvais esprits.",
+        "Image": "https://i.ibb.co/DQNdPY1/stone.png"
     },
     "Debrit": {
         "Emoji": "<:debris:1078401153953435759>",
         "Price": 10,
         "Id": 1,
-        "Rareté": c
+        "Level Required": 0,
+        "Rareté": c,
+        "Color": 0x414642,
+        "Description": "Les débrits, des fragments de roche éparpillés dans les mines, semblent insignifiants à première vue. Pourtant, ces modestes éclats recèlent un potentiel incroyable. Les mineurs les ramassent en passant, sachant que ces résidus de pierre peuvent être fondus et transformés en matériaux précieux.",
+        "Image": "https://i.ibb.co/Lrt60yr/debris.png"
     }
 }
 

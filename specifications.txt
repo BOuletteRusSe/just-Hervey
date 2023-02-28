@@ -1,49 +1,3 @@
-Régler bug diamants *
-Ajouter lots casino + cooldown
-Ajouter levels pour minage  et minéraux *
-Système de trade + shops
-Ajouter la forge
-c!mabite (tssc)
-
-Patch Note v. 3.9.1 :
-
-- Réglage du bug lors de l'achat de la multi-pioches
-- Ajout de la "magnétite", qui aura de futurs fonctions
-- Passage du cooldown de la commande "c!casino" de 5s à 3s
-- Augmentation de la progression de la commande "c!cwork" jusqu'au niveau 40
-
-Ajouts à venir :
-
-- Plus de lots pour la commande "c!casino" (dont des lots uniques)
-- De nouveaux minerais et une progression de la commande "c!work" jusqu'au niveau 50
-- Plus de pioches dans le "c!shop" et plus de ranks pouvant être fabriqués à partir des nouveaux minerais + modification du prix de la multi-pioche en remplaçant les diamants par d'autres ressources au fur et à mesure
-- Corriger bug inventaire affichage minerais *
-
-Ajouts futurs potentiels :
-
-- Système de trade et de shops personnalisés
-- Minerais uniques et rares permettant de fabriquer des reliques 
-- Ajout de la forge permettant des combinaisons de minerais et de fabrications d'objets uniques et de reliques
-- Système de fatigue
-- Nouvelle monnaie
-- Commande c!mabite (ref à ruben)
-
-
-
-FORGE:
-
-    Sans argument : Explications embed + image
-
-    mix: combine deux éléments entre eux pour potentiellement donner un nouvelle élement
-        vérification de la possibilité de la combianaison 
-            si oui alors procéder
-            sinon message d'imposibilité
-
-    recipes: avoir les recetttes 
-
-    Ajout des forge points à chaque recette + de forge points, permettera d'acheter des articles spéciaux dans la boutique du forgeron (nouvelle boutique)
-
-
 
 Système de trade
 dark net shop
@@ -52,14 +6,12 @@ special armure passif
 1 combat + 1 potion
 dongeons boss
 non trade inter serveurs
-
 comencer jeu avec combat final
 bouts parchemin lore
 vestiges de la guerre
 fin dongeon lettres dieux
 tablettes demeraude commande a debloquer
 guerre dieu humain
-
 taux et revente journalière
 métier bûcheron cliquer reaction casse dura selon arbre
 kit réparation rareté
@@ -71,39 +23,13 @@ metier farmer herboriste et bucheron
 ad --> forge ap --> astrologie potions --> alchimiste
 haricot magique dongeon
 marteau thanos
-
-gobelin shop
-finir update casino
-inventaire mine/bucheron/combattant
-
-events
 carte dongeons
 barre d'amitié dieux
 barre xp
 retour dans le passé avec les évents et des tickets
 resultat event --> aliance --> bonus selon l'aliance
-
-Les divinités avaient des factions qui se disputaient le contrôle du monde des mortels. Certaines divinités croyaient que les mortels devaient être laissés à eux-mêmes, tandis que d'autres croyaient qu'ils devaient être guidés et protégés par les dieux.
-
-Les mortels vénéraient les divinités et leur offraient des sacrifices en échange de leur protection et de leur bénédiction. Cependant, certains mortels étaient mécontents de cette situation et se rebellaient contre les divinités, refusant de leur offrir des sacrifices.
-
-La guerre divine a été déclenchée par un événement majeur, qui a causé la rupture entre les factions des divinités. Les rumeurs courent que cet événement impliquait une trahison entre les dieux, mais personne ne sait exactement ce qui s'est passé.
-
-Les cités divines étaient des lieux de grande beauté et de puissance, construites pour refléter la gloire des divinités. Cependant, ces cités sont maintenant en ruines, ravagées par la guerre et laissées à l'abandon.
-
-Certains artefacts magiques ont été créés pour aider les divinités dans la guerre, mais ont depuis été perdus ou cachés. Ces artefacts sont très convoités, car ils contiennent une grande puissance magique.
-
-Les mortels ont été touchés de différentes manières par la guerre divine. Certains ont été directement impliqués dans la guerre, tandis que d'autres ont été affectés par les conséquences de la guerre, telles que des catastrophes naturelles ou des épidémies.
-
-Les dieux avaient des noms et des personnalités distinctes, mais ces informations ont été perdues avec le temps. Certains mortels croient que les dieux sont encore présents dans le monde, agissant de manière subtile pour aider les mortels dans les moments de besoin.
-
-Il y avait des prophéties concernant la guerre divine, mais leur signification exacte est encore inconnue. Certains croient que ces prophéties pourraient aider à comprendre les raisons de la guerre et les motivations des divinités impliquées.
-
-La guerre divine a eu un impact sur le temps et l'espace, et certains endroits du monde sont maintenant instables ou dangereux. Les mortels doivent être prudents lorsqu'ils explorent ces zones, car ils pourraient rencontrer des phénomènes étranges et potentiellement mortels.
-
 quetes
 cursed stone --> armes glitch
-dark stone
 map avec biomes combattant
 clairière foret toundra volcan oecan + casque * jungle marecageu montagnes sacrées 
 dilemme
@@ -111,5 +37,24 @@ amitié clans
 hybride ultra rare alliance dieux 
 kit de repa hybride
 stats baguettes type
-rareté minerais
-émoji couleur rareté
+délai fixe armes ad mana armes ap
+infuser minerais
+astrologue --> alchimiste
+regen rapide jusquà 75%hp puis plus longue et non regain vie entre combat
+
+
+Les divinités avaient des factions qui se disputaient le contrôle du monde des mortels. Certaines divinités croyaient que les mortels devaient être laissés à eux-mêmes, tandis que d'autres croyaient qu'ils devaient être guidés et protégés par les dieux.
+Les mortels vénéraient les divinités et leur offraient des sacrifices en échange de leur protection et de leur bénédiction. Cependant, certains mortels étaient mécontents de cette situation et se rebellaient contre les divinités, refusant de leur offrir des sacrifices.
+La guerre divine a été déclenchée par un événement majeur, qui a causé la rupture entre les factions des divinités. Les rumeurs courent que cet événement impliquait une trahison entre les dieux, mais personne ne sait exactement ce qui s'est passé.
+Les cités divines étaient des lieux de grande beauté et de puissance, construites pour refléter la gloire des divinités. Cependant, ces cités sont maintenant en ruines, ravagées par la guerre et laissées à l'abandon.
+Certains artefacts magiques ont été créés pour aider les divinités dans la guerre, mais ont depuis été perdus ou cachés. Ces artefacts sont très convoités, car ils contiennent une grande puissance magique.
+Les mortels ont été touchés de différentes manières par la guerre divine. Certains ont été directement impliqués dans la guerre, tandis que d'autres ont été affectés par les conséquences de la guerre, telles que des catastrophes naturelles ou des épidémies.
+Les dieux avaient des noms et des personnalités distinctes, mais ces informations ont été perdues avec le temps. Certains mortels croient que les dieux sont encore présents dans le monde, agissant de manière subtile pour aider les mortels dans les moments de besoin.
+Il y avait des prophéties concernant la guerre divine, mais leur signification exacte est encore inconnue. Certains croient que ces prophéties pourraient aider à comprendre les raisons de la guerre et les motivations des divinités impliquées.
+La guerre divine a eu un impact sur le temps et l'espace, et certains endroits du monde sont maintenant instables ou dangereux. Les mortels doivent être prudents lorsqu'ils explorent ces zones, car ils pourraient rencontrer des phénomènes étranges et potentiellement mortels.
+
+gobelin shop
+finir update casino
+inventaire mine/bucheron/combattant
+
+ajouter role forgeron niv 50

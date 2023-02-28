@@ -311,7 +311,7 @@ async def Help(ctx, arg, cc):
         "Minerals • 💎" : {
             "Command" : "minerals",
             "Description" : "Permet de voir les stats des matériaux.",
-            "Utilisation" : "c!minerals stats",
+            "Utilisation" : "c!minerals stats (**<id>**)",
             "Cooldown" : "Aucun",
             "Category": "Économie",
             "Down" : False
