@@ -122,7 +122,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, job):
             await ctx.reply(embed=embed)
             return True
 
-        ml = RandomStats()
+        ml = RandomStats(mineral_info)
         mineral_price = ml[1]
         mineral_xp = ml[0]
         revente = ml[2]
@@ -190,7 +190,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, job):
         mineral = ml[0]
         mineral_info = ml[1]
         
-        ml = RandomStats()
+        ml = RandomStats(mineral_info)
         mm = ml[1]
         mineral_xp = ml[0]
         revente = ml[2]
