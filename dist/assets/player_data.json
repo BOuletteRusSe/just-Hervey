@@ -3,12 +3,14 @@
         "Money": 100,
         "Black-Smith Points": 0,
         "Miner Points": 537.5,
-        "Lumberjack Points": 0,
         "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
         "Bank": 0,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Ticket": 0,
         "Level": 10,
         "Forge Level": 1,
@@ -67,31 +69,34 @@
             ],
             "Plans": [],
             "P Forge": []
-        }
+        },
+        "Inventory_2": {}
     },
     "809412081358733332": {
-        "Money": 92197,
-        "Black-Smith Points": 2950,
-        "Miner Points": 35761.180000000044,
-        "Lumberjack Points": 0,
+        "Money": 90197,
+        "Black-Smith Points": 3300,
+        "Miner Points": 35938.280000000035,
         "Last Daily": 1677600705.5678246,
         "Forge Cooldown": {
-            "1677602161.3943088": 180
+            "1677612892.8735793": 180
         },
         "Bank": 125000,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Ticket": 24,
         "Level": 68,
-        "Forge Level": 7,
-        "Xp": 17238.69999999998,
-        "Forge Xp": 1075,
+        "Forge Level": 8,
+        "Xp": 17709.799999999977,
+        "Forge Xp": 50,
         "Inventory": {
             "Debrit": 561,
-            "Stone": 2105,
+            "Stone": 2111,
             "Iron": 111,
             "Gold": 27,
-            "Diamond": 41,
+            "Diamond": 42,
             "Rubis": 103,
-            "Silver": 76,
+            "Silver": 73,
             "Fluorite": 60,
             "Saphir": 58,
             "Platinium": 67,
@@ -100,14 +105,14 @@
             "Obsidian": 121,
             "Joseph": 20,
             "Jade": 60,
-            "Coal": 25,
+            "Coal": 27,
             "Cooper": 72,
             "Coke": 124,
             "Sacred Stone": 7,
             "Fossil": 32,
             "Emerald": 94,
             "Grenat": 47,
-            "Cobalt": 95,
+            "Cobalt": 97,
             "Turquoise": 23,
             "Mercury": 140,
             "Item Limit": 5,
@@ -162,18 +167,21 @@
                 4,
                 5
             ]
-        }
+        },
+        "Inventory_2": {}
     },
     "358634555546009604": {
         "Money": 100,
         "Black-Smith Points": 0,
         "Miner Points": 50068,
-        "Lumberjack Points": 0,
         "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
         "Bank": 0,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Ticket": 0,
         "Level": 32,
         "Forge Level": 1,
@@ -232,18 +240,21 @@
             "MP": [],
             "Plans": [],
             "P Forge": []
-        }
+        },
+        "Inventory_2": {}
     },
     "793223268118036481": {
         "Money": 100,
         "Black-Smith Points": 0,
         "Miner Points": 11231,
-        "Lumberjack Points": 0,
         "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
         "Bank": 0,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Level": 20,
         "Forge Level": 1,
         "Ticket": 0,
@@ -303,18 +314,21 @@
             "MP": [],
             "Plans": [],
             "P Forge": []
-        }
+        },
+        "Inventory_2": {}
     },
     "781946621473849365": {
         "Money": 501900,
         "Black-Smith Points": 4550,
         "Miner Points": 250466.4000000003,
-        "Lumberjack Points": 0,
         "Last Daily": 1677601698.737649,
         "Forge Cooldown": {
             "1677601869.9022357": 180
         },
         "Bank": 500000,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Ticket": 58,
         "Level": 124,
         "Forge Level": 5,
@@ -395,18 +409,21 @@
             "P Forge": [
                 1
             ]
-        }
+        },
+        "Inventory_2": {}
     },
     "210124607833899008": {
         "Money": 100,
         "Black-Smith Points": 0,
         "Miner Points": 1875,
-        "Lumberjack Points": 0,
         "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
         "Bank": 0,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Level": 12,
         "Forge Level": 1,
         "Xp": 357.79999999999984,
@@ -465,18 +482,21 @@
             ],
             "Plans": [],
             "P Forge": []
-        }
+        },
+        "Inventory_2": {}
     },
     "778570551602053153": {
         "Money": 100,
         "Black-Smith Points": 0,
         "Miner Points": 1887,
-        "Lumberjack Points": 0,
         "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
         "Bank": 0,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Level": 15,
         "Forge Level": 1,
         "Xp": 183.39999999999964,
@@ -536,18 +556,21 @@
             ],
             "Plans": [],
             "P Forge": []
-        }
+        },
+        "Inventory_2": {}
     },
     "749256962234908723": {
         "Money": 0,
         "Black-Smith Points": 1400,
         "Miner Points": 77603.21,
-        "Lumberjack Points": 0,
         "Last Daily": 1677256807,
         "Forge Cooldown": {
             "1676635760.5535934": 60
         },
         "Bank": 0,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Level": 46,
         "Forge Level": 1,
         "Xp": 620.399999999999,
@@ -611,18 +634,21 @@
             ],
             "Plans": [],
             "P Forge": []
-        }
+        },
+        "Inventory_2": {}
     },
     "728504535949246484": {
         "Money": 100,
         "Black-Smith Points": 0,
         "Miner Points": 29564.200000000004,
-        "Lumberjack Points": 0,
         "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
         },
         "Bank": 0,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Level": 24,
         "Forge Level": 1,
         "Xp": 2385.8,
@@ -682,18 +708,21 @@
             ],
             "Plans": [],
             "P Forge": []
-        }
+        },
+        "Inventory_2": {}
     },
     "617293677626392636": {
         "Money": 133653,
         "Black-Smith Points": 2750,
         "Miner Points": 139331.89000000004,
-        "Lumberjack Points": 0,
         "Last Daily": 1677525106.8256245,
         "Forge Cooldown": {
             "1677606026.1706405": 120
         },
         "Bank": 0,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Level": 67,
         "Forge Level": 7,
         "Xp": 6408.799999999996,
@@ -770,18 +799,21 @@
             "P Forge": [
                 5
             ]
-        }
+        },
+        "Inventory_2": {}
     },
     "953167347621986335": {
         "Money": 100,
         "Black-Smith Points": 250,
         "Miner Points": 32192.229999999992,
-        "Lumberjack Points": 0,
         "Last Daily": 1677256807,
         "Forge Cooldown": {
             "1677004024.31272": 360
         },
         "Bank": 0,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Level": 35,
         "Forge Level": 1,
         "Xp": 1173.999999999999,
@@ -844,13 +876,13 @@
             ],
             "Plans": [],
             "P Forge": []
-        }
+        },
+        "Inventory_2": {}
     },
     "807692157901078549": {
         "Money": 100,
         "Black-Smith Points": 0,
         "Miner Points": 182,
-        "Lumberjack Points": 0,
         "Last Daily": 1677256807,
         "Forge Cooldown": {
             "": 0
@@ -859,6 +891,9 @@
             "": 0
         },
         "Bank": 0,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Level": 6,
         "Forge Level": 1,
         "Xp": 52,
@@ -916,18 +951,21 @@
             ],
             "Plans": [],
             "P Forge": []
-        }
+        },
+        "Inventory_2": {}
     },
     "612378210235318282": {
         "Money": 100,
         "Black-Smith Points": 0,
         "Miner Points": 0,
-        "Lumberjack Points": 0,
         "Forge Cooldown": {
             "": 0
         },
         "Last Daily": 1677343207.8307042,
         "Bank": 0,
+        "Lj Level": 1,
+        "Lj Xp": 0,
+        "Lj Points": 0,
         "Level": 0,
         "Forge Level": 1,
         "Xp": 0,
@@ -985,6 +1023,7 @@
             ],
             "Plans": [],
             "P Forge": []
-        }
+        },
+        "Inventory_2": {}
     }
 }

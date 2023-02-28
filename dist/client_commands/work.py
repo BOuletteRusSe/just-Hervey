@@ -1,8 +1,57 @@
 import discord, json, random
 from assets.items_price import item_shop_price, item_shop_price_2
 from assets.minerals_data import minerals
+from assets.woods_data import woods
 
-async def Mining(ctx, id, minerals, data, to_next_level):
+async def Mining(ctx, id, minerals, data, to_next_level, job):
+    
+    def ChoseFromList():
+        while True:
+            keys = []
+            values = []
+            for k, v in minerals.items():
+                for k_, v_ in v.items():
+                    if k_ == "Proba":
+                        keys += [k]
+                        values += [v_]
+                    
+            r = random.choices(keys, values)
+
+            for k, v in minerals.items():
+                if k == r[0]:
+                    mineral = k
+                    mineral_info = v
+                
+            if data[id]["Level"] >= mineral_info["Level Requierd"]:
+                return [mineral, mineral_info]
+            
+    def RandomStats(mineral_info):
+        
+        try:
+            mineral_info["Xp"] + 1
+            mineral_xp = mineral_info["Xp"]
+        except:
+            mineral_xp = random.randint(mineral_info["Xp"][0], mineral_info["Xp"][1])
+        if 11 in data[id]["Inventory"]["MP"]:
+            mineral_xp = mineral_xp + (mineral_xp / 100 * 10)
+        try:
+            mineral_info["Miner Points"] + 1
+            mineral_price = mineral_info["Miner Points"]
+        except:
+            mineral_price = random.randint(mineral_info["Miner Points"][0], mineral_info["Miner Points"][1])
+        try:
+            mineral_info["Price"] + 1
+            revente = mineral_info["Price"]
+        except:
+            revente = random.randint(mineral_info["Price"][0], mineral_info["Price"][1])
+        try:
+            mineral_info["Anti-Mine"]
+            if 3 in data[id]['Inventory']["MP"]:
+                return False
+        except:
+            1 + 1
+            
+        return [mineral_xp, mineral_price, revente]
     
     if 4 in data[id]["Inventory"]["P Forge"]:
         n = random.randint(0, 1488)
@@ -46,7 +95,7 @@ async def Mining(ctx, id, minerals, data, to_next_level):
                         json.dump(data, d, indent=4)
                     return True
     
-    else:
+    elif job == "miner":
         if 1 not in data[id]["Inventory"]["MP"]:
             dic = {"Stone": 45, "Other": 55}
         else:
@@ -55,25 +104,9 @@ async def Mining(ctx, id, minerals, data, to_next_level):
         if list(random.choices(*zip(*dic.items())))[0] == "Stone":
             return False
         
-        while True:
-        
-            keys = []
-            values = []
-            for k, v in minerals.items():
-                for k_, v_ in v.items():
-                    if k_ == "Proba":
-                        keys += [k]
-                        values += [v_]
-                    
-            r = random.choices(keys, values)
-
-            for k, v in minerals.items():
-                if k == r[0]:
-                    mineral = k
-                    mineral_info = v
-                
-            if data[id]["Level"] >= mineral_info["Level Requierd"]:
-                break
+        ml = ChoseFromList()
+        mineral = ml[0]
+        mineral_info = ml[1]
 
         if mineral in ["Rubis", "Saphir", "Emerald"] and not (4 in data[id]["Inventory"]["Alliages"]):
             embed = discord.Embed(title=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\nVous avez besoin d'un aliage en platine pour pouvoir le miner ! (c!shop item pour en acheter)", color=0x393838)
@@ -89,29 +122,10 @@ async def Mining(ctx, id, minerals, data, to_next_level):
             await ctx.reply(embed=embed)
             return True
 
-        try:
-            mineral_info["Xp"] + 1
-            mineral_xp = mineral_info["Xp"]
-        except:
-            mineral_xp = random.randint(mineral_info["Xp"][0], mineral_info["Xp"][1])
-        if 11 in data[id]["Inventory"]["MP"]:
-            mineral_xp = mineral_xp + (mineral_xp / 100 * 10)
-        try:
-            mineral_info["Miner Points"] + 1
-            mineral_price = mineral_info["Miner Points"]
-        except:
-            mineral_price = random.randint(mineral_info["Miner Points"][0], mineral_info["Miner Points"][1])
-        try:
-            mineral_info["Price"] + 1
-            revente = mineral_info["Price"]
-        except:
-            revente = random.randint(mineral_info["Price"][0], mineral_info["Price"][1])
-        try:
-            mineral_info["Anti-Mine"]
-            if 3 in data[id]['Inventory']["MP"]:
-                return False
-        except:
-            1 + 1
+        ml = RandomStats()
+        mineral_price = ml[1]
+        mineral_xp = ml[0]
+        revente = ml[2]
 
         if 2 in data[id]["Inventory"]["MP"]:
             mm = mineral_price * 1.1
@@ -169,7 +183,23 @@ async def Mining(ctx, id, minerals, data, to_next_level):
         await ctx.send(embed=embed)
         await ctx.message.delete()
         return True
-
+    
+    elif job == "lj":
+        
+        ml = ChoseFromList()
+        mineral = ml[0]
+        mineral_info = ml[1]
+        
+        ml = RandomStats()
+        mm = ml[1]
+        mineral_xp = ml[0]
+        revente = ml[2]
+        
+        """
+        Embed découverte minerai à partir des stats
+        Cliques (Hp)
+        Obtention des récompenses
+        """
 
 async def Work(ctx, arg, cc):
 
@@ -198,47 +228,52 @@ async def Work(ctx, arg, cc):
                     return True
             return False
 
+        def CheckIfIsBanned():
+            for v in [word.strip() for word in open("assets/texts/autofarm_ids.txt", encoding="utf-8")]:
+                if str(id) == v:
+                    return False
+            return True
+        
+        async def AfkTest():
+            if random.randint(0, 100) == 0:
+                embed = discord.Embed(title="Test Anti-AFK", description="Êtes vous toujours là ?", color=0x777777)
+                embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                embed.set_footer(text="Veuillez réagir avec la réaction \"✅\" si dessous dans les 30 prochaines secondes afin de prouver que vous n'utilisez pas un système de farming automatique.")
+                message = await ctx.reply(embed=embed)
+                
+                await message.add_reaction("✅")
+
+                try:
+                
+                    def CheckEmoji(reaction, user):
+                        return id == str(user.id) and message.id == reaction.message.id and str(reaction.emoji) == "✅"
+
+
+                    reaction, user = await cc.bot.wait_for("reaction_add", timeout=30, check=CheckEmoji)
+
+                    if reaction.emoji == "✅":
+                        embed = discord.Embed(title="Test Anti-AFK", description="Merci de votre réponse.", color=0x54CD23)
+                        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                        embed.set_footer(text="Vous gagnez 1€ en gage d'honnêteté.")
+                        data[id]["Money"] += 1
+                        await message.edit(embed=embed) 
+                        return False
+                        
+                except:
+                    embed = discord.Embed(title="Test Anti-AFK", description="Délai dépassé !", color=0xCD2323)
+                    embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                    embed.set_footer(text="Votre id a été enregistré dans la liste des potentiels personnes utilisant un système de farming automatique. Votre cas sera traité et passible d'une pénalisation.")
+                    with open("assets/texts/autofarm_ids.txt", "a", encoding="utf-8") as b: b.write(f"{id}\n")
+                    await message.edit(embed=embed)
+                    return False
+                
+            else:
+                return True
+
         if EnumerateArg("mine", "m"):
             
-            def CheckIfIsBanned():
-                for v in [word.strip() for word in open("assets/texts/autofarm_ids.txt", encoding="utf-8")]:
-                    if str(id) == v:
-                        return False
-                return True
-            
             if CheckIfIsBanned():
-            
-                # Test Anti AFK
-                if random.randint(0, 100) == 0:
-                    embed = discord.Embed(title="Test Anti-AFK", description="Êtes vous toujours là ?", color=0x777777)
-                    embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                    embed.set_footer(text="Veuillez réagir avec la réaction \"✅\" si dessous dans les 30 prochaines secondes afin de prouver que vous n'utilisez pas un système de farming automatique.")
-                    message = await ctx.reply(embed=embed)
-                    
-                    await message.add_reaction("✅")
-
-                    try:
-                    
-                        def CheckEmoji(reaction, user):
-                            return id == str(user.id) and message.id == reaction.message.id and str(reaction.emoji) == "✅"
-
-
-                        reaction, user = await cc.bot.wait_for("reaction_add", timeout=30, check=CheckEmoji)
-
-                        if reaction.emoji == "✅":
-                            embed = discord.Embed(title="Test Anti-AFK", description="Merci de votre réponse.", color=0x54CD23)
-                            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                            embed.set_footer(text="Vous gagnez 1€ en gage d'honnêteté.")
-                            data[id]["Money"] += 1
-                            await message.edit(embed=embed) 
-                    except:
-                        embed = discord.Embed(title="Test Anti-AFK", description="Délai dépassé !", color=0xCD2323)
-                        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                        embed.set_footer(text="Votre id a été enregistré dans la liste des potentiels personnes utilisant un système de farming automatique. Votre cas sera traité et passible d'une pénalisation.")
-                        with open("assets/texts/autofarm_ids.txt", "a", encoding="utf-8") as b: b.write(f"{id}\n")
-                        await message.edit(embed=embed)
-                        
-                else:
+                if await AfkTest():
 
                     # Calcul d'xp pour le prochain niveau
                     to_next_level = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
@@ -254,7 +289,7 @@ async def Work(ctx, arg, cc):
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                             await ctx.reply(embed=embed)
 
-                    if await Mining(ctx, id, minerals, data, to_next_level) == False:
+                    if await Mining(ctx, id, minerals, data, to_next_level, "miner") == False:
                         
                         # PIOCHE DU MARAUDEUR A REVOIR
                         if 7 not in data[id]['Inventory']["MP"] and data[id]['Level'] >= 10:
@@ -397,7 +432,17 @@ async def Work(ctx, arg, cc):
                 await ctx.reply(embed=embed)
                 
         elif EnumerateArg("lj", "lumberjack"):
-            await ctx.reply("Métier de farmer en cours de création")
+            
+            if ctx.author.id == 809412081358733332:
+                if CheckIfIsBanned():
+                    if await AfkTest():
+                        to_next_level = int(10 * (int(data[id]["Lj Level"] / 2) * data[id]["Lj Level"]))
+                        
+                        await Mining(ctx, id, woods, data, to_next_level, "lj")
+                
+            
+            else:
+                await ctx.reply("Métier de bûcheron en cours de création")
             
         else:
             work_embed = discord.Embed(title="just Hervey 💎 | ⌛ WORK ⌛", description="Bienvenue dans le c!work, ici vous pouvez travailler dans les différents métiers disponible en jeu.", color=0xEEA30D)

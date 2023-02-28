@@ -18,12 +18,14 @@ async def Sign(ctx):
             "Money": 100,
             "Black-Smith Points" : 0,
             "Miner Points": 0,
-            "Lumberjack Points": 0,
             "Forge Cooldown" : {"": 0},
             "Last Daily": 1677343207.8307042,
             "Bank": 0,
-            "Level": 0,
+            "Level": 1,
             "Forge Level": 1,
+            "Lj Level": 1,
+            "Lj Xp": 0,
+            "Lj Points": 0,
             "Xp": 0,
             "Forge Xp": 0,
             "Ticket": 0,
@@ -80,8 +82,10 @@ async def Sign(ctx):
                 "Plans": [],
                 "P Forge" : [
                 ]
-            }
+            },
+            "Inventory_2" : {}
         }
+        
 
         with open("assets/player_data.json", 'w') as d:
             json.dump(data, d, indent=4)
