@@ -205,14 +205,16 @@ item_shop_price_3 = {
         "Price": {"Magnetite": 100},
         "Black-Smith Points": 5000,
         "Money": 100000,
-        "Rank": False
+        "Rank": False,
+        "Level": 0
     },
-    11: {
+    13: {
         "Name": "🧔-Forgeron de renommée",
         "Price": {},
         "Black-Smith Points": 10000,
         "Money": 0,
-        "Rank": True
+        "Rank": True,
+        "Level": 50
     },
     
     2: {
@@ -220,7 +222,8 @@ item_shop_price_3 = {
         "Price": {"Lucky Stone": 25},
         "Black-Smith Points": 1500,
         "Money": 150000,
-        "Rank": False
+        "Rank": False,
+        "Level": 0
     },
     
     3: {
@@ -228,7 +231,8 @@ item_shop_price_3 = {
         "Price": {"Uranium": 25, "Plutonium": 25, "Fluorite": 25},
         "Black-Smith Points": 7500,
         "Money": 0,
-        "Rank": False
+        "Rank": False,
+        "Level": 0
     },
     
     4: {
@@ -236,28 +240,32 @@ item_shop_price_3 = {
         "Price": {"Aigue Marine": 3},
         "Black-Smith Points": 10000,
         "Money": 500000,
-        "Rank": False
+        "Rank": False,
+        "Level": 10
     },
     5: {
         "Name": "🔮|Crystal Hammer",
         "Price": {"Amethist": 25, "Jade": 10},
         "Black-Smith Points": 7500,
         "Money": 150000,
-        "Rank": False
+        "Rank": False,
+        "Level": 5
     },
     6: {
         "Name": "🐉|Marteau en Plaques de Dragon",
         "Price": {"Dragonite": 5, "Platinium": 50},
         "Black-Smith Points": 10000,
         "Money": 250000,
-        "Rank": False 
+        "Rank": False,
+        "Level": 10
     },
     7: {
         "Name": "⛑|Casque de Forgeron",
         "Price": {"Iron": 25, "Platinium": 25, "Silver": 25},
         "Black-Smith Points": 5000,
         "Money": 75000,
-        "Rank": False 
+        "Rank": False,
+        "Level": 0
     }
 }
 

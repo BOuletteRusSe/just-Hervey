@@ -5,7 +5,7 @@ from assets.woods_data import woods
 
 async def Mining(ctx, id, minerals, data, to_next_level, job):
     
-    def ChoseFromList():
+    def ChoseFromList(level):
         while True:
             keys = []
             values = []
@@ -22,23 +22,23 @@ async def Mining(ctx, id, minerals, data, to_next_level, job):
                     mineral = k
                     mineral_info = v
                 
-            if data[id]["Level"] >= mineral_info["Level Requierd"]:
+            if data[id][level] >= mineral_info["Level Requierd"]:
                 return [mineral, mineral_info]
             
-    def RandomStats(mineral_info):
+    def RandomStats(mineral_info, points):
         
         try:
             mineral_info["Xp"] + 1
             mineral_xp = mineral_info["Xp"]
         except:
             mineral_xp = random.randint(mineral_info["Xp"][0], mineral_info["Xp"][1])
-        if 11 in data[id]["Inventory"]["MP"]:
+        if 11 in data[id]["Inventory"]["MP"] and points == "Miner Points":
             mineral_xp = mineral_xp + (mineral_xp / 100 * 10)
         try:
-            mineral_info["Miner Points"] + 1
-            mineral_price = mineral_info["Miner Points"]
+            mineral_info[points] + 1
+            mineral_price = mineral_info[points]
         except:
-            mineral_price = random.randint(mineral_info["Miner Points"][0], mineral_info["Miner Points"][1])
+            mineral_price = random.randint(mineral_info[points][0], mineral_info[points][1])
         try:
             mineral_info["Price"] + 1
             revente = mineral_info["Price"]
@@ -104,7 +104,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, job):
         if list(random.choices(*zip(*dic.items())))[0] == "Stone":
             return False
         
-        ml = ChoseFromList()
+        ml = ChoseFromList("Level")
         mineral = ml[0]
         mineral_info = ml[1]
 
@@ -122,7 +122,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, job):
             await ctx.reply(embed=embed)
             return True
 
-        ml = RandomStats(mineral_info)
+        ml = RandomStats(mineral_info, "Miner Points")
         mineral_price = ml[1]
         mineral_xp = ml[0]
         revente = ml[2]
@@ -186,14 +186,17 @@ async def Mining(ctx, id, minerals, data, to_next_level, job):
     
     elif job == "lj":
         
-        ml = ChoseFromList()
+        ml = ChoseFromList("Lj Level")
         mineral = ml[0]
         mineral_info = ml[1]
         
-        ml = RandomStats(mineral_info)
+        ml = RandomStats(mineral_info, "Lj Points")
         mm = ml[1]
         mineral_xp = ml[0]
         revente = ml[2]
+        
+        print(mineral)
+        print(mineral_info)
         
         """
         Embed découverte minerai à partir des stats

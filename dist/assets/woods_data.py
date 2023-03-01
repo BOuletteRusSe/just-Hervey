@@ -11,7 +11,7 @@ woods = {
         "Level Requierd" : 0,
         "Description": "Nom Scientifique : `Quercus`\nL'un des bois les plus basiques et les plus communs.",
         "Image" : "https://i.ibb.co/DLQ9X43/image-2023-02-26-201131792.png",
-        "Lumberjack Points": 25,
+        "Lj Points": 25,
         "Id": 0
     },
     "Acacia" : {
@@ -25,7 +25,7 @@ woods = {
         "Level Requierd" : 0,
         "Description": "Nom Scientifique : `Akis - Robinia Pseudacacia`\nL'acacia tient son nom du mot grec akis qui signifie \"la pointe\". C'est une référence aux épines qui recouvrent ses branches et qui lui permettent de repousser les prédateurs avides de ses fleurs et de son feuillage.",
         "Image" : "https://i.ibb.co/6Pt9fnf/acacia.png",
-        "Lumberjack Points": 40,
+        "Lj Points": 40,
         "Id": 1
     },
     "Dark Oak" : {
@@ -39,7 +39,7 @@ woods = {
         "Level Requierd" : 5,
         "Description": "Nom Scientifique : `Quercus`\nUne version noire du chêne classique.",
         "Image" : "https://i.ibb.co/j3Rh3T2/dark-oak.png",
-        "Lumberjack Points": 50,
+        "Lj Points": 50,
         "Id": 2
     },
     "Basswood" : {
@@ -53,7 +53,7 @@ woods = {
         "Level Requierd" : 5,
         "Description": "Nom Scientifique : `Tilia cordata`\nLe tilleul est très réptuté pour ses vertues médicinales.",
         "Image" : "https://i.ibb.co/z2F0vfn/basswood.png",
-        "Lumberjack Points": (35, 50),
+        "Lj Points": (35, 50),
         "Id": 3
     }
 }
