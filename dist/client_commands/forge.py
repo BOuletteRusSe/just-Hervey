@@ -137,9 +137,10 @@ async def Forge(ctx, arg):
                                                     data[id]["Inventory"][k] += v
                                                     mess = ""
                                             if 7 in data[id]["Inventory"]["P Forge"]:
-                                                data[id]["Forge Xp"] += res[num][9] + (res[num][9] / 100 * 15)
+                                                winned_xp =  res[num][9] + (res[num][9] / 100 * 25)     
                                             else:
-                                                data[id]["Forge Xp"] += res[num][9]
+                                                winned_xp = res[num][9]
+                                            data[id]["Forge Xp"] += winned_xp
                                             
                                             while True:
                                             
@@ -181,7 +182,7 @@ async def Forge(ctx, arg):
                                             remainingDisplay = '᲼' * remain
                                             percent = f"{round(data[id]['Forge Xp'])}/{round(to_next_level)}"
                                             space = '᲼' * int((len(xpDisplay) + len(remainingDisplay)) / 2)
-                                            buy_embed.add_field(name=f"🧪 • Xp *(+{res[num][9]}xp)* :", value=f"**{data[id]['Forge Level']}|{xpDisplay}◈**{remainingDisplay}**|{data[id]['Forge Level'] + 1}**\n{space}**{percent}**", inline=False)
+                                            buy_embed.add_field(name=f"🧪 • Xp *(+{winned_xp}xp)* :", value=f"**{data[id]['Forge Level']}|{xpDisplay}◈**{remainingDisplay}**|{data[id]['Forge Level'] + 1}**\n{space}**{percent}**", inline=False)
                                             for k, v in res[num][2].items():
                                                 buy_embed.add_field(name=f"{k} : ", value=data[id]["Inventory"][k])
                                             for k, v in res[num][3].items():

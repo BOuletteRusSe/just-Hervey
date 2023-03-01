@@ -63,10 +63,11 @@ async def Casino(ctx, arg):
 
     if not arg:
         
-        casino_embed = discord.Embed(title="just Hervey 💎 | 🍀 CASINO 🍀", description="Bienvenue dans le casino, ici vous pouvez acheter des tickets afin de tenter votre chance, et de gagner le gros lot !\n\n```c!casino rewards```  Afficher les différents lots pouvant être gagnés avec la commande c!casino.\n```c!casino buy <montant>```  Acheter un certains montant de tickets pour pouvoir jouer au casino.\n```c!casino roll (nombre de tours)```  Vous permet d'utiliser vos tickets et de jouer au casino. Si vous possédez le Lucky Hammer, vous pouvez préciser un nombre de tours (5max) à faire en même temps.", color=0x0B9629)
+        casino_embed = discord.Embed(title="just Hervey 💎 | 🍀 CASINO 🍀", description="Bienvenue dans le casino, ici vous pouvez acheter des tickets afin de tenter votre chance, et de gagner le gros lot !\n\n```c!casino rewards```  Afficher les différents lots pouvant être gagnés avec la commande c!casino.\n```c!casino buy (<montant>)```  Permet d'acheter des tickets, les id des tickets peuvent être consultés en faisant la commande `c!caison rewards`.\n```c!casino roll (nombre de tours)```  Vous permet d'utiliser vos tickets et de jouer au casino. Si vous possédez le Lucky Hammer, vous pouvez préciser un nombre de tours (5max) à faire en même temps.", color=0x0B9629)
         casino_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
         casino_embed.add_field(name="", value="", inline=False)
         casino_embed.add_field(name="🎟 • Tickets :", value=data[id]["Ticket"], inline=False)
+        casino_embed.add_field(name="🎫 • Tickets spécials mineur :", value=data[id]["Miner Ticket"], inline=False)
         casino_embed.set_footer(text="Dans de futures mises à jour, plusieurs raretés de tickets à des prix différents seront disponibles !")
         await ctx.send(embed=casino_embed)
         

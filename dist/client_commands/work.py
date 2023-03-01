@@ -450,6 +450,8 @@ async def Work(ctx, arg, cc):
         else:
             work_embed = discord.Embed(title="just Hervey 💎 | ⌛ WORK ⌛", description="Bienvenue dans le c!work, ici vous pouvez travailler dans les différents métiers disponible en jeu.", color=0xEEA30D)
             work_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+            work_embed.add_field(name="⛏ • Points de Mineur :", value=round(data[id]["Miner Points"]), inline=True)
+            work_embed.add_field(name="🪓 • Points de Bûcheron :", value=data[id]["Lj Points"], inline=True)
             work_embed.add_field(name="```c!work mine``` ou ```c!work m```", value="Vous permet de travailler le métier de mineur.", inline=False)
             work_embed.add_field(name="```c!work lumberjack``` ou ```c!work lj```", value="Vous permet de travailler le métier de bûcheron.", inline=False)
             work_embed.set_footer(text="Différents sous-métiers sont disponibles hors de la commande c!work, pour avoir la liste de toutes les commande, faites c!help.")

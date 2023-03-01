@@ -3,19 +3,19 @@ rewards = {
         "Description" : {
             ":heavy_dollar_sign: :heavy_dollar_sign: :heavy_dollar_sign: **:**" : "Vous gagnez **1,000**€."
         },
-        "Money" : 1000
+        "Money" : 5000
     },
     (":moneybag:", ":moneybag:", ":moneybag:") : {
         "Description" : {
             ":moneybag: :moneybag: :moneybag: **:**" : "Vous gagnez **5,000**€."
         },
-        "Money" : 5000
+        "Money" : 10000
     },
     (":gem:", ":gem:", ":gem:") : {
         "Description": {
             ":gem: :gem: :gem: **:**" : "Vous gagnez **10,000**€."
         },
-        "Money" : 10000
+        "Money" : 25000
     },
     (":question:", ":question:", ":question:") : {
         "Description" : {
@@ -35,4 +35,7 @@ rewards = {
         },
         "Rank" : 12
     }
+}
+rewards_mineur = {
+    ""
 }

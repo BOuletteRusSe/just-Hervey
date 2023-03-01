@@ -23,7 +23,7 @@ async def Shop(ctx, buy):
         s=discord.Embed(title="CHOIX DE LA BOUTIQUE", description="Ici, vous pouvez choisir la boutique dans laquelle vous voulez aller.", color=0x116792)
         s.add_field(name="**🎭 Boutique de Grade 🎭**", value="c!shop **rank** pour accéder à la boutique.", inline=False)
         s.add_field(name="**⛏ Boutique du Mineur ⛏**", value="c!shop **mine** pour accéder à la boutiuqe.", inline=False)
-        s.add_field(name="**🔨 Boutique du Forgeron 🔨**", value="Boutique accesible à partir du niveau `15`. c!shop **forge** pour accéder à la boutique.", inline=False)
+        s.add_field(name="**🔨 Boutique du Forgeron 🔨**", value="Boutique accesible à partir du niveau `15` du métier de mineur. c!shop **forge** pour accéder à la boutique.", inline=False)
         s.add_field(name="**👨‍🌾 Boutique du Fermier 👨‍🌾**", value="Bientôt disponible !", inline=False)
         s.set_footer(text="Chaque boutique vend des articles différents.")
 
@@ -210,7 +210,7 @@ async def Shop(ctx, buy):
                 forge_embed.add_field(name="**1** - 🧲|Marteau Magnétique : **100**Magnétite, **5,000** Points de Forgeron et 100,000€.", value="Une fois équipé, le cooldown de la forge est réduis de 40%.", inline=True)
                 forge_embed.add_field(name="**13** - RANK | 🧔 - Forgeron de renommée : **10,000** Points de Forgeron, niveau de forgeron requis : **50**.", value="Un grade spécial pour les utilisateurs affirmés de la forge.", inline=True)
                 forge_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop forge buy NUMÉRO DE L'OBJET.")
-                forge_embed.add_field(name="**7** - ⛑|Casque de Forgeron : **25**Iron, Platine et Silver, **5,000** Points de Forgeron et 75,000€.", value=f"Un casque que tout bon forgeron se doit d'avoir. Une fois équipé vous gagnez 15{'%'} d'xp supplémentaire.", inline=True)
+                forge_embed.add_field(name="**7** - ⛑|Casque de Forgeron : **25**Iron, Platine et Silver, **5,000** Points de Forgeron et 75,000€.", value=f"Un casque que tout bon forgeron se doit d'avoir. Une fois équipé vous gagnez 25{'%'} d'xp supplémentaire.", inline=True)
                 forge_embed.add_field(name=f"**2** - 🍀|Lucky-Hammer : **25**Lucky Stones, **1,500** Points de Forgeron, **150,000**€.", value=f"Vous permet de lancer la commande c!casino jusqu'à 5 fois en même temps afin de gagner du temps.", inline=True)
                 forge_embed.add_field(name=f"**3** - ☢|Marteau Radioactif : **25**Uranium, Plutonium, Fluorite, et **7,500** Points de Forgeron.", value=f"Les plans que vous découvrez demandent 5 niveaux en moins afin d'être fabriqués.", inline=True)
                 forge_embed.add_field(name=f"**4** - ⚓|Trident de Poséidon : **3**Aigue Marine, **10,000** Points de Forgeron, **500,000**€, niveau de forgeron requis : **10**.", value=f"Les dieux vous guident, vos chances d'obtenir un plan augmentent de 15%.", inline=True)

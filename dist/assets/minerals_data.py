@@ -1,13 +1,14 @@
 # Liste des minéraux
 
 
-c = "⚫ • Commun"
-p = "🟢 • Peu Commun"
+c = "🟢 • Commun"
+p = "🔵 • Peu Commun"
 r = "🟡 • Rare"
 e = "🟣 • Épique"
 l = "🟠 • Légendaire"
 m = "🔴 • Mythique"
 re = "🟤 • Reliques"
+b = "⚫ • Black Market"
 d = "⚪ • Divin"
 
 minerals = {
@@ -290,7 +291,7 @@ minerals = {
         "Image" : "https://i.ibb.co/HzQN5cy/coke.png",
         "Miner Points": -50,
         "Id": 21,
-        "Rareté": p
+        "Rareté": b
     },
     "Turquoise" : {
         "Proba": 3,
@@ -450,7 +451,7 @@ minerals = {
         "Proba": 2,
         "Name" : "du Mithril !",
         "Emoji" : "<:mithril:1079837104781148280>",
-        "Price" : 1500,
+        "Price" : 1000,
         "Xp" : (100, 200),
         "Color" : 0x1d8e99,
         "Level Requierd" : 50,
@@ -461,7 +462,7 @@ minerals = {
         "Rareté": l
         },
     "Dark Stone": {
-        "Proba": 3,
+        "Proba": 2,
         "Name": "de la **Pierre Sombre** !",
         "Emoji": "<:dark_stone:1079837103501885491>",
         "Price": 850,
@@ -478,7 +479,7 @@ minerals = {
         "Proba": 0.4,
         "Name": "de la **Pierre Maudite** !",
         "Emoji": "<:cursed_stone:1079837101283082372>",
-        "Price": 2500,
+        "Price": 1500,
         "Xp": (250, 750),
         "Color": 0x4d4d4d,
         "Level Requierd": 60,

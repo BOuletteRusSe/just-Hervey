@@ -29,6 +29,7 @@ async def Sign(ctx):
             "Xp": 0,
             "Forge Xp": 0,
             "Ticket": 0,
+            "Miner Ticket": 0,
             "Inventory": {
                 "Jade": 0, 
                 "Cooper": 0, 
