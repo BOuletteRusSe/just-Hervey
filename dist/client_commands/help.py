@@ -361,6 +361,7 @@ async def Help(ctx, arg, cc):
         commands_help['Ping • 🔗'] = {"Command" : "ping", "Description" : "Ping un utilisateur discord aléatoire (l'utilisateur est souvent invalide).", "Utilisation" : "c!ping (nombre d'itérations)", "Cooldown" : "Aucun", "Category": "Autre", "Down" : False}
         commands_help['CMaBite • 🍆'] = {"Command" : "mabite", "Description" : "Pose une énigme du père fouras.", "Utilisation" : "c!mabite (add **énigme**)", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
         commands_help['CbronJames • 🦾'] = {"Command" : "bronjames", "Description" : "Fait part d'une analogie à la pignouf.", "Utilisation" : "c!bronjames (add **texte**)", "Cooldown" : "Aucun", "Category": "Fun", "Down" : False}
+        commands_help['Drug • 💊'] = {"Command" : "drug", "Description" : "Envoie une drogue random.", "Utilisation" : "c!drug", "Cooldown" : "5s par utilisateur.", "Category": "Fun", "Down" : False}
 
     if not arg:
 

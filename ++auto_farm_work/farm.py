@@ -7,6 +7,6 @@ pyautogui.click(484, 1011)
 
 while True:
 
-    keyboard.write("c!work")
+    keyboard.write("c!work m")
     pyautogui.press("enter")
     time.sleep(3.1)

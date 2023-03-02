@@ -17,7 +17,7 @@ client.bot.remove_command("help")
 def CommandWriteLogs(ctx, command_name):
     logs = open("logs/logs.log", "a", encoding="utf-8")
     log_message = f"{str(datetime.now())} - {ctx.message.guild.name} : {ctx.message.channel.name} : {ctx.message.author} ({ctx.author.id}) : {command_name} : {ctx.message.content}"
-    print(f"{fg(40)}{str(datetime.now())}{attr(1)} - {fg(255)}{ctx.message.guild.name}{attr(0)} : {fg(21)}{ctx.message.channel.name}{attr(1)} : {fg(160)}{ctx.message.author}{attr(1)} ({ctx.author.id}) : {fg(3)}{command_name}{attr(0)} : {fg(255)}{ctx.message.content}{attr(0)}")
+    print(f"{fg(93)}{str(datetime.now())}{attr(1)} - {fg(255)}{ctx.message.guild.name}{attr(0)} : {fg(99)}{ctx.message.channel.name}{attr(1)} : {fg(57)}{ctx.message.author}{attr(1)} ({ctx.author.id}) : {fg(165)}{command_name}{attr(0)} : {fg(255)}{ctx.message.content}{attr(0)}")
     logs.write(f"{log_message}\n")
     logs.close()
 
@@ -131,6 +131,17 @@ async def blacknwhite(ctx):
 async def curse(ctx, *, translat=None):
     CommandWriteLogs(ctx, 'Curse')
     await client.Curse(ctx, translat)
+
+@client.bot.command()
+@cmd.cooldown(1, 5, cmd.BucketType.user)
+async def drug(ctx):
+    CommandWriteLogs(ctx, 'Drug')
+    with open('assets/sscc.json') as sscc:
+        ssccd = json.load(sscc)
+    if ssccd[str(ctx.guild.id)]:
+        await client.Drug(ctx)
+    else:
+        await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 @client.bot.command()
 @cmd.cooldown(1, 5, cmd.BucketType.user)
@@ -609,6 +620,12 @@ async def work_error(ctx, error):
         await dele.delete(delay=1)
         
 @sell.error
+async def work_error(ctx, error):
+    if isinstance(error, cmd.CommandOnCooldown):
+        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        await dele.delete(delay=1)
+        
+@drug.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
