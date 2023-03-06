@@ -65,7 +65,7 @@ finir update casino
 inventaire mine/bucheron/combattant
 
 
-casino points mineurs
-1 ticket + 10000 points = ticket special
 loot 100% dans une seule case du casino
-ajouter dans le c!casino rewards la possibilité de voir les id, les prix et les récompenes de touts les tickets
+lucky hammer
+couleur selon le lot gagné casino
+ajouter loots casino mineur

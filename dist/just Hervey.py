@@ -133,7 +133,7 @@ async def curse(ctx, *, translat=None):
     await client.Curse(ctx, translat)
 
 @client.bot.command()
-@cmd.cooldown(1, 5, cmd.BucketType.user)
+@cmd.cooldown(3, 5, cmd.BucketType.user)
 async def drug(ctx):
     CommandWriteLogs(ctx, 'Drug')
     with open('assets/sscc.json') as sscc:
