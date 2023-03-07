@@ -1,9 +1,9 @@
-import discord, json, random
+import discord, json, random, asyncio
 from assets.items_price import item_shop_price, item_shop_price_2
 from assets.minerals_data import minerals
 from assets.woods_data import woods
 
-async def Mining(ctx, id, minerals, data, to_next_level, job):
+async def Mining(ctx, id, minerals, data, to_next_level, job, cc):
     
     def ChoseFromList(level):
         while True:
@@ -79,8 +79,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, job):
                     t = True
             
             if not t:
-                await ctx.reply("Vous avez déjà débloqué tout les plans disponibles en minant !")
-                return True
+                return False
             else:
                 r = list(random.choices(keys, values))[0]
                 if r not in data[id]["Inventory"]["Plans"]:
@@ -194,15 +193,45 @@ async def Mining(ctx, id, minerals, data, to_next_level, job):
         mm = ml[1]
         mineral_xp = ml[0]
         revente = ml[2]
+        dura = mineral_info["Hp"]
         
-        print(mineral)
-        print(mineral_info)
+        await ctx.message.delete()
         
-        """
-        Embed découverte minerai à partir des stats
-        Cliques (Hp)
-        Obtention des récompenses
-        """
+        def CreateEmbed(d):
+            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\n{mineral_info['Description']}", color=mineral_info["Color"])
+            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+            embed.set_image(url=mineral_info["Image"])
+            embed.add_field(name="Rareté :", value=mineral_info["Rareté"], inline=True)
+            embed.add_field(name="🧱 Résistance", value=d, inline=False)
+            embed.set_footer(text=f"Pour pouvoir récolter ce bois, veuillez cliquez réaction ci-dessous {d} fois.")
+            return embed
+        
+        embed = CreateEmbed(dura)
+        mess = await ctx.send(embed=embed)
+        
+        while dura > 0:
+        
+            await mess.add_reaction("🪓")
+
+            def CheckEmoji(reaction, user):
+                return ctx.message.author == user and mess.id == reaction.message.id and (str(reaction.emoji) == "🪓")
+
+            try:
+                reaction, user = await cc.bot.wait_for("reaction_add", timeout=60, check=CheckEmoji)
+            except asyncio.TimeoutError:
+                break
+            else:
+                if str(reaction.emoji) == "🪓":
+                   dura -= 1
+            
+            embed = CreateEmbed(dura)
+            await mess.edit(embed=embed)
+            
+        await mess.delete()
+        
+        # Embed cassé + récompenses et level up
+        
+        return True
 
 async def Work(ctx, arg, cc):
 
@@ -292,7 +321,7 @@ async def Work(ctx, arg, cc):
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                             await ctx.reply(embed=embed)
 
-                    if await Mining(ctx, id, minerals, data, to_next_level, "miner") == False:
+                    if await Mining(ctx, id, minerals, data, to_next_level, "miner", cc) == False:
                         
                         # PIOCHE DU MARAUDEUR A REVOIR
                         if 7 not in data[id]['Inventory']["MP"] and data[id]['Level'] >= 10:
@@ -408,9 +437,9 @@ async def Work(ctx, arg, cc):
                                 json.dump(data, d, indent=4)
                             embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé de la **pierre** ! <:stone:1078401377555976232>\nLa pierre, un minerai ancestral d'un gris élégant, est la base de nombreuses civilisations depuis des siècles. Les légendes disent que cette pierre est née de la fusion des éléments primordiaux qui ont créé notre monde. Certains croyaient même que la pierre avait des pouvoirs magiques, capables de guérir les maladies et de protéger les esprits des mauvais esprits.{txt}", color=0x808080)
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                            embed.set_image(url="https://i.ibb.co/DQNdPY1/stone.png")
+                            embed.set_image(url="https://i.ibb.co/br7d4sL/stone.png")
                             embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
-                            embed.add_field(name="<:stone:1078401377555976232> • Pierre :", value=data[id]['Inventory']["Stone"], inline=True)
+                            embed.add_field(name="<:stone:1082728403104444498> • Pierre :", value=data[id]['Inventory']["Stone"], inline=True)
                             xpDashes = 25
                             to_next_level_2 = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
                             dashConvert2 = int(to_next_level_2 / xpDashes)
@@ -441,7 +470,7 @@ async def Work(ctx, arg, cc):
                     if await AfkTest():
                         to_next_level = int(10 * (int(data[id]["Lj Level"] / 2) * data[id]["Lj Level"]))
                         
-                        await Mining(ctx, id, woods, data, to_next_level, "lj")
+                        await Mining(ctx, id, woods, data, to_next_level, "lj", cc)
                 
             
             else:

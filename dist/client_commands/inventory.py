@@ -132,6 +132,8 @@ async def Inventory(ctx, equip, c):
             InventoryCheckNone(f"{minerals['Dark Stone']['Emoji']} • Pierre Sombre :", "Dark Stone", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Cursed Stone']['Emoji']} • Pierre Maudite :", "Cursed Stone", id, data, inventory_embed)
             InventoryCheckNone(f"{minerals['Black Mithril']['Emoji']} • Mithril Noir :", "Black Mithril", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Iliosite']['Emoji']} • Iliosite :", "Iliosite", id, data, inventory_embed)
+            InventoryCheckNone(f"{minerals['Fengarite']['Emoji']} • Fengarite :", "Fengarite", id, data, inventory_embed)
         
         return inventory_embed
         

@@ -68,6 +68,8 @@ async def Sign(ctx):
                 "Dark Stone": 0,
                 "Cursed Stone": 0,
                 "Black Mithril": 0,
+                "Fengarite": 0,
+                "Iliosite": 0,
                 "Alliages": [],
                 "Rank": 0,
                 "Item Limit": 1,

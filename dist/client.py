@@ -68,7 +68,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.13.4'
+            self.client_version = '3.13.5'
             self.key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(self.key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -228,8 +228,7 @@ with open(r"assets\player_data.json") as data:
         @staticmethod
         async def Forge(ctx, arg): await Forge(ctx, arg)
 
-        @staticmethod
-        async def Leaderboard(ctx): await Leaderboard(ctx)
+        async def Leaderboard(self, ctx): await Leaderboard(ctx, self)
 
         @staticmethod
         async def Phrase(ctx):

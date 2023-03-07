@@ -56,6 +56,8 @@
             "Dark Stone": 0,
             "Cursed Stone": 0,
             "Black Mithril": 0,
+            "Fengarite": 0,
+            "Iliosite": 0,
             "Rank": 0,
             "P Item": [
                 0,
@@ -74,12 +76,12 @@
         "Inventory_2": {}
     },
     "809412081358733332": {
-        "Money": 18878,
-        "Black-Smith Points": 2500,
+        "Money": 17136,
+        "Black-Smith Points": 3100,
         "Miner Points": 30577.580000000155,
-        "Last Daily": 1678119715.2244148,
+        "Last Daily": 1678204267.3966126,
         "Forge Cooldown": {
-            "1678119723.0142286": 36
+            "1678210408.1127927": 36
         },
         "Bank": 150000,
         "Lj Level": 1,
@@ -90,18 +92,18 @@
         "Level": 70,
         "Forge Level": 10,
         "Xp": 21174.399999999987,
-        "Forge Xp": 922.5,
+        "Forge Xp": 1672.5,
         "Inventory": {
             "Debrit": 561,
             "Stone": 1701,
-            "Iron": 87,
+            "Iron": 83,
             "Gold": 34,
             "Diamond": 3,
             "Rubis": 57,
-            "Silver": 43,
+            "Silver": 39,
             "Fluorite": 64,
             "Saphir": 61,
-            "Platinium": 76,
+            "Platinium": 80,
             "Randomite": 36,
             "Magma Stone": 74,
             "Obsidian": 30,
@@ -130,6 +132,8 @@
             "Dark Stone": 6,
             "Cursed Stone": 2,
             "Black Mithril": 0,
+            "Fengarite": 0,
+            "Iliosite": 0,
             "Rank": 11,
             "P Item": [
                 0,
@@ -306,6 +310,8 @@
             "Dark Stone": 0,
             "Cursed Stone": 0,
             "Black Mithril": 0,
+            "Fengarite": 0,
+            "Iliosite": 0,
             "Rank": 0,
             "P Item": [
                 0,
@@ -381,6 +387,8 @@
             "Dark Stone": 0,
             "Cursed Stone": 0,
             "Black Mithril": 0,
+            "Fengarite": 0,
+            "Iliosite": 0,
             "Rank": 9,
             "P Item": [
                 0,
@@ -476,6 +484,8 @@
             "Dark Stone": 0,
             "Cursed Stone": 0,
             "Black Mithril": 0,
+            "Fengarite": 0,
+            "Iliosite": 0,
             "Alliages": [],
             "Rank": 0,
             "Item Limit": 1,
@@ -703,6 +713,8 @@
             "Dark Stone": 0,
             "Cursed Stone": 0,
             "Black Mithril": 0,
+            "Fengarite": 0,
+            "Iliosite": 0,
             "Alliages": [
                 4
             ],
@@ -778,6 +790,8 @@
             "Dark Stone": 27,
             "Cursed Stone": 0,
             "Black Mithril": 0,
+            "Fengarite": 0,
+            "Iliosite": 0,
             "Alliages": [
                 4,
                 12
@@ -872,6 +886,8 @@
             "Dark Stone": 0,
             "Cursed Stone": 0,
             "Black Mithril": 0,
+            "Fengarite": 0,
+            "Iliosite": 0,
             "Alliages": [
                 4
             ],
@@ -953,6 +969,8 @@
             "Dark Stone": 0,
             "Cursed Stone": 0,
             "Black Mithril": 0,
+            "Fengarite": 0,
+            "Iliosite": 0,
             "Alliages": [],
             "Rank": 0,
             "Item Limit": 1,
@@ -1026,6 +1044,8 @@
             "Dark Stone": 0,
             "Cursed Stone": 0,
             "Black Mithril": 0,
+            "Fengarite": 0,
+            "Iliosite": 0,
             "Alliages": [],
             "Rank": 0,
             "Item Limit": 1,

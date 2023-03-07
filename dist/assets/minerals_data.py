@@ -503,6 +503,34 @@ minerals = {
         "Id": 39,
         "Rareté": m
     },
+    "Fengarite": {
+        "Proba": 4,
+        "Name": "de la **Fengarite** !",
+        "Emoji": "<:fengarite:1082726262981791774>",
+        "Price": 1000,
+        "Xp": (100, 250),
+        "Color": 0xa2a2a2,
+        "Level Requierd": 70,
+        "Description": "Ce minerai légendaire est d'un gris chatoyant qui rappelle la lueur de la lune. Il est connu pour renfermer une énergie magique puissante, ce qui en fait un matériau de choix pour les artisans les plus exigeants.",
+        "Image": "https://i.ibb.co/Hp3C4TP/fengarite.png",
+        "Miner Points": (50, 100),
+        "Id": 40,
+        "Rareté": e
+    },
+    "Iliosite" : {
+        "Proba": 4,
+        "Name" : "de l'**Iliosite** !",
+        "Emoji" : "<:iliosite:1082726810187472978>",
+        "Price" : 1000,
+        "Xp" : (100, 250),
+        "Color" : 0xFFFF00,
+        "Level Requierd" : 70,
+        "Description": "Cette pierre lumineuse, imprégnée de l'énergie du soleil, est très rare et recherchée pour sa capacité à augmenter la puissance des objets qu'elle compose. Sa couleur dorée étincelante attire l'oeil des mineurs les plus expérimentés.",
+        "Image" : "https://i.ibb.co/NZp3QFw/iliosite.png",
+        "Miner Points": (50, 100),
+        "Id": 41,
+        "Rareté": e
+    },
     
     
     "Lucky Stone": {
@@ -526,14 +554,14 @@ minerals = {
         "Description": "L'aigue marine, ce minerai d'un bleu cristallin profond, évoque immédiatement la majesté des profondeurs marines. Les légendes racontent que c'est le dieu de la mer Poséidon lui-même qui aurait offert cette pierre aux mortels, en signe de son affection. Certains affirment même que les eaux tumultueuses de l'océan se calment à la vue de cette pierre sacrée, obéissant à la volonté du dieu qui l'a bénie de sa puissance divine."
     },
     "Stone": {
-        "Emoji": "<:stone:1078401377555976232>",
+        "Emoji": "<:stone:1082728403104444498>",
         "Price": 20,
         "Id": 0,
         "Rareté": c,
         "Level Requierd": 0,
         "Color": 0x808080,
         "Description": "La pierre, un minerai ancestral d'un gris élégant, est la base de nombreuses civilisations depuis des siècles. Les légendes disent que cette pierre est née de la fusion des éléments primordiaux qui ont créé notre monde. Certains croyaient même que la pierre avait des pouvoirs magiques, capables de guérir les maladies et de protéger les esprits des mauvais esprits.",
-        "Image": "https://i.ibb.co/DQNdPY1/stone.png"
+        "Image": "https://i.ibb.co/br7d4sL/stone.png"
     },
     "Debrit": {
         "Emoji": "<:debris:1078401153953435759>",

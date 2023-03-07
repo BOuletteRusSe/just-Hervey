@@ -329,9 +329,12 @@ async def Casino(ctx, arg):
                             d1 = "Niveau :"
                                 
                         if wplan is not None:
-                            data[id]["Inventory"]["Plans"].append(wplan)
-                            sec = f"Vous avez gagné le plan n°`{wplan}` !\nFaites `c!forge recipes` pour voir votre nouveau plan !"
-                                
+                            if str(wplan) not in str(data[id]["Inventory"]["Plans"]):
+                                data[id]["Inventory"]["Plans"].append(wplan)
+                                sec = f"Vous avez gagné le plan n°`{wplan}` !\nFaites `c!forge recipes` pour voir votre nouveau plan !"
+                            else:
+                                sec = f"Vous avez gagné le plan n°`{wplan}` !\nMalheureusement vous possédez déjà ce plan...\nLes dieux vous donnent 10,000€ en dédomagement."
+                                data[id]["Money"] += 10000
 
                         with open("assets/player_data.json", 'w') as d:
                             json.dump(data, d, indent=4)

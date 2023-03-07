@@ -2,7 +2,7 @@
 # Ranks
 item_shop_price = {
     0: {
-        "Name": "Mineur"
+        "Name": "Aventurier"
     },
     1: {
         "Level": 0,
