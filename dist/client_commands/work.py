@@ -435,7 +435,7 @@ async def Work(ctx, arg, cc):
                         if v == 1:
                             with open("assets/player_data.json", 'w') as d:
                                 json.dump(data, d, indent=4)
-                            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé de la **pierre** ! <:stone:1078401377555976232>\nLa pierre, un minerai ancestral d'un gris élégant, est la base de nombreuses civilisations depuis des siècles. Les légendes disent que cette pierre est née de la fusion des éléments primordiaux qui ont créé notre monde. Certains croyaient même que la pierre avait des pouvoirs magiques, capables de guérir les maladies et de protéger les esprits des mauvais esprits.{txt}", color=0x808080)
+                            embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé de la **pierre** ! <:stone:1082728403104444498>\nLa pierre, un minerai ancestral d'un gris élégant, est la base de nombreuses civilisations depuis des siècles. Les légendes disent que cette pierre est née de la fusion des éléments primordiaux qui ont créé notre monde. Certains croyaient même que la pierre avait des pouvoirs magiques, capables de guérir les maladies et de protéger les esprits des mauvais esprits.{txt}", color=0x808080)
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                             embed.set_image(url="https://i.ibb.co/br7d4sL/stone.png")
                             embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)

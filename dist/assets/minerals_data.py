@@ -442,7 +442,7 @@ minerals = {
         "Color" : 0x0A9928,
         "Level Requierd" : 50,
         "Description": "Très prisée pour ses différentes propriétés indispensables dans certains domaines de l'artisanat, la dragonite se fait de plus en plus rare.\nA l'époque, la dragonite était obtenue en tuant des dragons, de nos jours des restes de dragonites fossilisées peuvent se trouver sous terre.",
-        "Image" : "https://i.ibb.co/sJCKqcJ/dragonite.png",
+        "Image" : "https://i.ibb.co/TB0N0Q2/dragonite.png",
         "Miner Points": 5000,
         "Id": 35,
         "Rareté": re
