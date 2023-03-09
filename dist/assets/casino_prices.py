@@ -49,5 +49,8 @@ rewards_mineur = {
             "7": 9,
             "0": 8   
             }
-    }
+    },
+    ":gem:": {
+        "Description": ":test_tube: • Vous gagnez des minerais aléatoires !",
+    },
 }

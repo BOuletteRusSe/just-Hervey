@@ -1,5 +1,6 @@
 import json, discord, random, asyncio
 from assets.items_price import item_shop_price, item_shop_price_2
+from assets.minerals_data import minerals
 from assets.casino_prices import rewards, rewards_mineur
 
 async def CheckSign(ctx, id):
@@ -63,8 +64,7 @@ async def Casino(ctx, arg):
         ":question:": 100
     }
     minor_loots = {
-        ":test_tube:": 100,
-        ":scroll:": 50
+        ":gem:": 100
     }
     line_0 = []
     line_1 = []
@@ -91,7 +91,6 @@ async def Casino(ctx, arg):
 """
     minor_table_ = minor_table
     minor_table__ = minor_table
-    minor_table___ = minor_table
     
     with open("assets/player_data.json") as data:
         data = json.load(data)
@@ -302,6 +301,9 @@ async def Casino(ctx, arg):
                                     elif k_ == "Xp": wxp = random.randint(v_[0], v_[1])
                                     elif k_ == "Plan": wplan = list(random.choices(*zip(*v_.items())))[0]
                                 break
+                            
+                        d1 = ""
+                        d2 = ""
                                     
                         if wxp is not None:
                             
@@ -328,13 +330,46 @@ async def Casino(ctx, arg):
                             d2 = f"**{data[id]['Level']}|{xpDisplay2}◈**{remainingDisplay2}**|{data[id]['Level'] + 1}**\n{space2}**{percent2}**"
                             d1 = "Niveau :"
                                 
-                        if wplan is not None:
+                        elif wplan is not None:
                             if str(wplan) not in str(data[id]["Inventory"]["Plans"]):
                                 data[id]["Inventory"]["Plans"].append(wplan)
                                 sec = f"Vous avez gagné le plan n°`{wplan}` !\nFaites `c!forge recipes` pour voir votre nouveau plan !"
                             else:
                                 sec = f"Vous avez gagné le plan n°`{wplan}` !\nMalheureusement vous possédez déjà ce plan...\nLes dieux vous donnent 10,000€ en dédomagement."
                                 data[id]["Money"] += 10000
+                                
+                        elif win == ":gem:":
+                            
+                            while True:
+                                keys = []
+                                values = []
+                                for k, v in minerals.items():
+                                    for k_, v_ in v.items():
+                                        if k_ == "Proba":
+                                            keys += [k]
+                                            values += [v_]
+                                        
+                                r = random.choices(keys, values)
+
+                                for k, v in minerals.items():
+                                    if k == r[0]:
+                                        mineral = k
+                                        mineral_info = v
+                                    
+                                if data[id]["Level"] >= mineral_info["Level Requierd"]:
+                                    break
+                        
+                            p = mineral_info["Proba"]
+                            if p <= 3:
+                                rate = 1
+                            else:
+                                rate = int(round((p * p) / (p / 2)))
+                            
+                            data[id]["Inventory"][mineral] += rate
+                            sec = f"Vous avez obtenu `{rate}` {mineral} !"
+                            d1 = f"{mineral_info['Emoji']} • {mineral} :"
+                            d2 = f"`{data[id]['Inventory'][mineral]}`"
+                            
 
                         with open("assets/player_data.json", 'w') as d:
                             json.dump(data, d, indent=4)

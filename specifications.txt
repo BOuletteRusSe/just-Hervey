@@ -73,10 +73,8 @@ c!stats m/w
 lucky hammer
 trous noirs combinaison iliosite + fengarite
 couleur selon le lot gagné casino
-ajouter loots casino mineur
-updata help casino
 pioche totem
-xp exponentielle c!forge
 rework texte c!work
-cool stickman 02 — Aujourd’hui à 20:33
 refaire les images de minerais moches
+orbes/quetes
+récompenses journalières/fontaine/casino

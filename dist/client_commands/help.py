@@ -231,7 +231,7 @@ async def Help(ctx, arg, cc):
         "Casino • 🎰" : {
             "Command" : "casino",
             "Description" : "Tentez votre chance en jouant au casino. L'argument rewards vous permet de voir les récompenses possible.\nL'argument buy vous permet d'acheter des tickets.",
-            "Utilisation" : "c!casino (**roll** (nombre)) / (**rewards**) / (**buy** <**nombre de tickets**>)",
+            "Utilisation" : "c!casino (roll <id du ticket>, buy <montant> <id du ticket>, shop)",
             "Cooldown" : "5 Secondes par Utilisateur",
             "Category": "Économie",
             "Down" : False

@@ -140,6 +140,7 @@ async def Forge(ctx, arg):
                                                 winned_xp =  res[num][9] + (res[num][9] / 100 * 25)     
                                             else:
                                                 winned_xp = res[num][9]
+                                            winned_xp = int(round(winned_xp + ((winned_xp / 10) * (data[id]["Forge Level"] / 2))))
                                             data[id]["Forge Xp"] += winned_xp
                                             
                                             while True:
