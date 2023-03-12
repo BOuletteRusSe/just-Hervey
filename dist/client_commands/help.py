@@ -238,8 +238,8 @@ async def Help(ctx, arg, cc):
         },
         "Inventory • 🎁" : {
             "Command" : "inventory",
-            "Description" : "Affiche le contenu de votre inventaire. Vous pouvez changer vos objets équipés avec les arguments.\nPour voir l'inventaire de quelqu'un vous pouvez le mentionner après la commande.",
-            "Utilisation" : "c!inventory (**equip** **item** <**id de l'item**> / **equip** **rank** <**id du rank**> / <@**utilisateur**>",
+            "Description" : "Affiche le contenu de vos inventaires. Vous pouvez changer vos objets équipés avec les arguments.\nPour voir l'inventaire de quelqu'un vous pouvez le mentionner après la commande.",
+            "Utilisation" : "c!inventory mine (<mention>) / lj (<mention>) / equip item/rank <id de l'item ou du rank>",
             "Cooldown" : "Aucun",
             "Category": "Économie",
             "Down" : False
@@ -308,10 +308,10 @@ async def Help(ctx, arg, cc):
             "Category": "Économie",
             "Down" : False
         },
-        "Minerals • 💎" : {
-            "Command" : "minerals",
+        "Stats • 💹" : {
+            "Command" : "stats",
             "Description" : "Permet de voir les stats des matériaux.",
-            "Utilisation" : "c!minerals stats (**<id>**)",
+            "Utilisation" : "c!stats minerals/woods (<id>)",
             "Cooldown" : "Aucun",
             "Category": "Économie",
             "Down" : False

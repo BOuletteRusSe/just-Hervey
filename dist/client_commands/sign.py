@@ -86,7 +86,13 @@ async def Sign(ctx):
                 "P Forge" : [
                 ]
             },
-            "Inventory_2" : {}
+            "Inventory_2" : {
+                "Oak": 0,
+                "Acacia": 0,
+                "Dark Oak": 0,
+                "Basswood": 0,
+                "Palm Tree": 0
+            }
         }
         
 

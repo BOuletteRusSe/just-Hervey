@@ -165,7 +165,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, job, cc):
         embed.set_image(url=mineral_info["Image"])
         embed.add_field(name="Points de Mineur gagnés :", value=f"**{round(mm, 2)}**", inline=True)
         embed.add_field(name="Prix de Revente :", value=f"**{revente}€**", inline=True)
-        embed.add_field(name=f"{mineral_info['Emoji']} • {str(mineral_info['Name'])[int(str(mineral_info['Name']).find('*'))-1:]} :", value=data[id]['Inventory'][mineral], inline=True)
+        embed.add_field(name="%s • %s :" % (mineral_info['Emoji'], str(mineral_info['Name'])[int(str(mineral_info['Name']).find('*'))-1:].replace('!', '').replace("'", "")), value=data[id]['Inventory'][mineral], inline=True)
         xpDashes = 25
         to_next_level_2 = int(10 * (int(data[id]["Level"] / 2) * data[id]["Level"]))
         dashConvert2 = int(to_next_level_2 / xpDashes)
@@ -228,8 +228,54 @@ async def Mining(ctx, id, minerals, data, to_next_level, job, cc):
             await mess.edit(embed=embed)
             
         await mess.delete()
+
+        data[id]["Lj Xp"] += mineral_xp
+        data[id]['Lj Points'] += mm
+        data[id]["Inventory_2"][mineral] += 1
         
-        # Embed cassé + récompenses et level up
+        to_next_level = int(10 * (int(data[id]["Lj Level"] / 2) * data[id]["Lj Level"]))
+
+        if data[id]["Lj Xp"] < 0:
+            data[id]["Lj Xp"] = 0
+        if data[id]['Lj Points'] < 0:
+            data[id]['Lj Points'] = 0
+        if data[id]["Lj Xp"] >= to_next_level:
+            data[id]['Lj Level'] += 1
+            data[id]["Lj Xp"] -= to_next_level
+
+            # Calcul d'xp pour le prochain niveau
+            to_next_level = int(10 * (int(data[id]["Lj Level"] / 2) * data[id]["Lj Level"]))
+
+            with open("assets/player_data.json", 'w') as d:
+                json.dump(data, d, indent=4)
+            embed = discord.Embed(title=f"**GG**, vous avez atteint le niveau **{data[id]['Lj Level']}** !", description=f"XP nécessaire pour passer au prochain niveau : **{to_next_level}xp**", color=0x56860e)
+            embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+            embed.set_image(url="https://i.ibb.co/wyYCHVR/level-up.png")
+            await ctx.send(embed=embed)
+        with open("assets/player_data.json", 'w') as d:
+            json.dump(data, d, indent=4)
+
+        
+        embed = discord.Embed(title=item_shop_price[data[id]['Inventory']["Rank"]]["Name"], description=f"Vous avez trouvé {mineral_info['Name']} {mineral_info['Emoji']}\n{mineral_info['Description']}", color=mineral_info["Color"])
+        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+        embed.set_image(url=mineral_info["Image"])
+        embed.add_field(name="Rareté :", value=mineral_info["Rareté"], inline=True)
+        embed.add_field(name="Points de Bûcheron gagnés :", value=f"**{round(mm, 2)}**", inline=True)
+        embed.add_field(name="Prix de Revente :", value=f"**{revente}€**", inline=True)
+        embed.add_field(name="%s • %s :" % (mineral_info['Emoji'], str(mineral_info['Name'])[int(str(mineral_info['Name']).find('*'))-1:].replace('!', '').replace("'", "")), value=data[id]['Inventory_2'][mineral], inline=True)
+        xpDashes = 25
+        to_next_level_2 = int(10 * (int(data[id]["Lj Level"] / 2) * data[id]["Lj Level"]))
+        dashConvert2 = int(to_next_level_2 / xpDashes)
+        currentDashes2 = int(data[id]['Lj Xp'] / dashConvert2)
+        remain2 = xpDashes - currentDashes2
+        xpDisplay2 = '━' * currentDashes2
+        remainingDisplay2 = '᲼' * remain2
+        percent2 = f"{round(data[id]['Lj Xp'])}/{round(to_next_level_2)}"
+        space2 = '᲼' * int((len(xpDisplay2) + len(remainingDisplay2)) / 2)
+        embed.add_field(name="Points de Bûcheron :", value=f"**{round(data[id]['Lj Points'], 2)}**", inline=True)
+        embed.add_field(name="Niveau :", value=f"**{data[id]['Lj Level']}|{xpDisplay2}◈**{remainingDisplay2}**|{data[id]['Lj Level'] + 1}**\n{space2}**{percent2}**", inline=False)
+        embed.set_footer(text=f"+{round(mineral_xp, 2)}xp")
+        await ctx.send(embed=embed)
         
         return True
 
@@ -465,16 +511,10 @@ async def Work(ctx, arg, cc):
                 
         elif EnumerateArg("lj", "lumberjack"):
             
-            if ctx.author.id == 809412081358733332:
                 if CheckIfIsBanned():
                     if await AfkTest():
                         to_next_level = int(10 * (int(data[id]["Lj Level"] / 2) * data[id]["Lj Level"]))
-                        
                         await Mining(ctx, id, woods, data, to_next_level, "lj", cc)
-                
-            
-            else:
-                await ctx.reply("Métier de bûcheron en cours de création")
             
         else:
             work_embed = discord.Embed(title="just Hervey 💎 | ⌛ WORK ⌛", description="Bienvenue dans le c!work, ici vous pouvez travailler dans les différents métiers disponible en jeu.", color=0xEEA30D)

@@ -14,7 +14,7 @@ woods = {
     "Oak" : {
         "Proba": 7,
         "Hp": 5,
-        "Name" : "un **chêne** !",
+        "Name" : "un **Chêne** !",
         "Emoji" : "<:oak:1079481150822686781>",
         "Price" : 100,
         "Xp" : 25,
@@ -29,7 +29,7 @@ woods = {
     "Acacia" : {
         "Proba": 6,
         "Hp": 6,
-        "Name" : "de l'**acacia** !",
+        "Name" : "de l'**Acacia** !",
         "Emoji" : "<:acacia:1079483548353957918>",
         "Price" : 200,
         "Xp" : 50,
@@ -44,7 +44,7 @@ woods = {
     "Dark Oak" : {
         "Proba": 5,
         "Hp": 7,
-        "Name" : "un **chêne noir** !\n",
+        "Name" : "un **Chêne Noir** !\n",
         "Emoji" : "<:darkoak:1079485589512007740>",
         "Price" : 250,
         "Xp" : (50, 100),
@@ -59,7 +59,7 @@ woods = {
     "Basswood" : {
         "Proba": 6,
         "Hp": 10,
-        "Name" : "du **tilleul** !",
+        "Name" : "du **Tilleul** !",
         "Emoji" : "<:basswood:1079487621241241651>",
         "Price" : (150, 300),
         "Xp" : 75,
@@ -74,7 +74,7 @@ woods = {
     "Palm Tree" : {
         "Proba": 4,
         "Hp": 20,
-        "Name" : "un **palmier** !",
+        "Name" : "un **Palmier** !",
         "Emoji" : "<:palm_tree:1082723602434113616>",
         "Price" : (250, 500),
         "Xp" : 100,

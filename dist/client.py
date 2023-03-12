@@ -48,7 +48,7 @@ from client_commands.forge import Forge
 from client_commands.mabite import MaBite
 from client_commands.bronjames import bronJames
 from client_commands.sell import Sell
-from client_commands.minerals import Minerals
+from client_commands.stats import Stats
 from client_commands.daily import Daily
 from client_commands.levels import Levels
 from client_commands.rarity import Rarity
@@ -68,7 +68,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.13.5.2'
+            self.client_version = '3.13.6'
             self.key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(self.key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -165,7 +165,7 @@ with open(r"assets\player_data.json") as data:
         @staticmethod
         async def Bouliste(ctx): await Bouliste(ctx)
         
-        async def Minerals(self, ctx, arg): await Minerals(ctx, arg, self)
+        async def Stats(self, ctx, arg): await Stats(ctx, arg, self)
 
         @staticmethod
         async def Daily(ctx): await Daily(ctx)

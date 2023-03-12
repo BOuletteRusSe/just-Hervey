@@ -76,11 +76,21 @@ async def Levels(ctx, arg, cc):
             percent2 = f"{round(data[id]['Xp'])}/{round(to_next_level_2)}"
             space2 = '᲼' * int((len(xpDisplay2) + len(remainingDisplay2)) / 2)
             
+            to_next_level_3 = int(10 * (int(data[id]["Lj Level"] / 2) * data[id]["Lj Level"]))
+            dashConvert3 = int(to_next_level_3 / xpDashes)
+            currentDashes3 = int(data[id]['Lj Xp'] / dashConvert3)
+            remain3 = xpDashes - currentDashes3
+            xpDisplay3 = '━' * currentDashes3
+            remainingDisplay3 = '᲼' * remain3
+            percent3 = f"{round(data[id]['Lj Xp'])}/{round(to_next_level_3)}"
+            space3 = '᲼' * int((len(xpDisplay3) + len(remainingDisplay3)) / 2)
+            
             levels_embed = discord.Embed(title="just Hervey 💎 | 🧪 NIVEAUX 🧪", description="Ici, vous pouvez consulter vos niveaux dans les différents métiers disponibles.", color=0x19DF43)
             user = await cc.bot.fetch_user(id)
             levels_embed.set_author(name=user, icon_url=user.avatar_url)
-            levels_embed.add_field(name="⛏ Métier de Mineur :", value=f"Niveau : `{data[id]['Level']}`\nXp : **{data[id]['Level']}|{xpDisplay2}◈**{remainingDisplay2}**|{data[id]['Level'] + 1}**\n{space2}**{percent2}**", inline=False)
-            levels_embed.add_field(name="🔨 Métier de Forgeron :", value=f"Niveau : `{data[id]['Forge Level']}`\nXp : **{data[id]['Forge Level']}|{xpDisplay}◈**{remainingDisplay}**|{data[id]['Forge Level'] + 1}**\n{space}**{percent}**", inline=False)
+            levels_embed.add_field(name="⛏ • Métier de Mineur :", value=f"Niveau : `{data[id]['Level']}`\nXp : **{data[id]['Level']}|{xpDisplay2}◈**{remainingDisplay2}**|{data[id]['Level'] + 1}**\n{space2}**{percent2}**", inline=False)
+            levels_embed.add_field(name="🔨 • Métier de Forgeron :", value=f"Niveau : `{data[id]['Forge Level']}`\nXp : **{data[id]['Forge Level']}|{xpDisplay}◈**{remainingDisplay}**|{data[id]['Forge Level'] + 1}**\n{space}**{percent}**", inline=False)
+            levels_embed.add_field(name="🪓 • Métier de Bûcheron :", value=f"Niveau : `{data[id]['Lj Level']}`\nXp : **{data[id]['Lj Level']}|{xpDisplay3}◈**{remainingDisplay3}**|{data[id]['Lj Level'] + 1}**\n{space3}**{percent3}**", inline=False)
             levels_embed.set_footer(text="Pour plus d'informations, vous pouvez directement éxécuter la commande liée à chaque métier.")
             
             await ctx.send(embed=levels_embed)

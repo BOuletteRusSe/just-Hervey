@@ -73,49 +73,55 @@
             "Plans": [],
             "P Forge": []
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "809412081358733332": {
-        "Money": 4136,
-        "Black-Smith Points": 4250,
-        "Miner Points": 25567.690000000104,
-        "Last Daily": 1678376847.1484513,
+        "Money": 8136,
+        "Black-Smith Points": 4800,
+        "Miner Points": 25866.8900000001,
+        "Last Daily": 1678462333.8990054,
         "Forge Cooldown": {
-            "1678376853.4469116": 36
+            "1678462351.6321974": 216
         },
-        "Bank": 150000,
-        "Lj Level": 1,
-        "Lj Xp": 0,
-        "Lj Points": 0,
+        "Bank": 140000,
+        "Lj Level": 5,
+        "Lj Xp": 20,
+        "Lj Points": 435,
         "Ticket": 11,
         "Miner Ticket": 0,
         "Level": 72,
         "Forge Level": 11,
-        "Xp": 366.2999999999891,
-        "Forge Xp": 610.0,
+        "Xp": 1018.4999999999891,
+        "Forge Xp": 1676.0,
         "Inventory": {
             "Debrit": 561,
-            "Stone": 1767,
-            "Iron": 96,
+            "Stone": 1769,
+            "Iron": 94,
             "Gold": 42,
-            "Diamond": 8,
-            "Rubis": 58,
-            "Silver": 40,
+            "Diamond": 9,
+            "Rubis": 60,
+            "Silver": 39,
             "Fluorite": 66,
             "Saphir": 66,
-            "Platinium": 96,
+            "Platinium": 101,
             "Randomite": 38,
             "Magma Stone": 82,
             "Obsidian": 40,
             "Joseph": 2,
             "Jade": 22,
-            "Coal": 18,
-            "Cooper": 89,
+            "Coal": 8,
+            "Cooper": 91,
             "Coke": 31,
             "Sacred Stone": 7,
             "Fossil": 33,
             "Emerald": 31,
-            "Grenat": 57,
+            "Grenat": 56,
             "Cobalt": 40,
             "Turquoise": 36,
             "Mercury": 140,
@@ -124,7 +130,7 @@
             "Magnetite": 18,
             "Lucky Stone": 1,
             "Aigue Marine": 2,
-            "Uranium": 13,
+            "Uranium": 14,
             "Plutonium": 8,
             "Quartz": 22,
             "Dragonite": 2,
@@ -177,7 +183,13 @@
                 7
             ]
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 7,
+            "Acacia": 4,
+            "Dark Oak": 2,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "358634555546009604": {
         "Money": 100,
@@ -251,7 +263,13 @@
             "Plans": [],
             "P Forge": []
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "793223268118036481": {
         "Money": 100,
@@ -328,7 +346,13 @@
             "Plans": [],
             "P Forge": []
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "781946621473849365": {
         "Money": 497900,
@@ -426,7 +450,13 @@
                 1
             ]
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "210124607833899008": {
         "Money": 100,
@@ -502,7 +532,13 @@
             "Plans": [],
             "P Forge": []
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "778570551602053153": {
         "Money": 100,
@@ -577,7 +613,13 @@
             "Plans": [],
             "P Forge": []
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "749256962234908723": {
         "Money": 0,
@@ -655,7 +697,13 @@
             "Plans": [],
             "P Forge": []
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "728504535949246484": {
         "Money": 100,
@@ -732,66 +780,72 @@
             "Plans": [],
             "P Forge": []
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "617293677626392636": {
-        "Money": 471,
-        "Black-Smith Points": 4900,
-        "Miner Points": 164107.620000001,
-        "Last Daily": 1677948686.1910136,
+        "Money": 61471,
+        "Black-Smith Points": 5500,
+        "Miner Points": 172017.36000000103,
+        "Last Daily": 1678386194.305721,
         "Forge Cooldown": {
-            "1677951271.2018652": 360
+            "1678392530.7232125": 60
         },
         "Bank": 0,
         "Lj Level": 1,
         "Lj Xp": 0,
         "Lj Points": 0,
-        "Level": 70,
+        "Level": 71,
         "Miner Ticket": 0,
-        "Forge Level": 8,
-        "Xp": 12436.799999999996,
-        "Forge Xp": 1400,
+        "Forge Level": 9,
+        "Xp": 18748.799999999996,
+        "Forge Xp": 664,
         "Ticket": 0,
         "Inventory": {
-            "Jade": 101,
-            "Cooper": 111,
-            "Coal": 51,
-            "Fluorite": 88,
+            "Jade": 103,
+            "Cooper": 121,
+            "Coal": 70,
+            "Fluorite": 92,
             "Debrit": 158,
-            "Obsidian": 95,
-            "Turquoise": 83,
+            "Obsidian": 103,
+            "Turquoise": 89,
             "Mercury": 62,
-            "Coke": 16,
-            "Stone": 380,
-            "Iron": 79,
-            "Gold": 19,
-            "Silver": 114,
-            "Diamond": 53,
-            "Rubis": 108,
-            "Saphir": 103,
-            "Platinium": 106,
+            "Coke": 21,
+            "Stone": 479,
+            "Iron": 86,
+            "Gold": 23,
+            "Silver": 101,
+            "Diamond": 62,
+            "Rubis": 103,
+            "Saphir": 105,
+            "Platinium": 122,
             "Randomite": 29,
-            "Magma Stone": 75,
-            "Joseph": 18,
+            "Magma Stone": 79,
+            "Joseph": 0,
             "Sacred Stone": 10,
-            "Cobalt": 93,
-            "Fossil": 64,
-            "Emerald": 93,
-            "Grenat": 104,
-            "Amethist": 83,
-            "Magnetite": 104,
+            "Cobalt": 102,
+            "Fossil": 68,
+            "Emerald": 97,
+            "Grenat": 111,
+            "Amethist": 87,
+            "Magnetite": 108,
             "Lucky Stone": 0,
             "Aigue Marine": 1,
-            "Uranium": 51,
-            "Plutonium": 26,
-            "Quartz": 36,
+            "Uranium": 54,
+            "Plutonium": 27,
+            "Quartz": 38,
             "Dragonite": 3,
             "Mithril": 11,
-            "Dark Stone": 27,
+            "Dark Stone": 30,
             "Cursed Stone": 0,
             "Black Mithril": 0,
-            "Fengarite": 0,
-            "Iliosite": 0,
+            "Fengarite": 7,
+            "Iliosite": 10,
             "Alliages": [
                 4,
                 12
@@ -828,7 +882,13 @@
                 5
             ]
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "953167347621986335": {
         "Money": 100,
@@ -908,7 +968,13 @@
             "Plans": [],
             "P Forge": []
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "807692157901078549": {
         "Money": 100,
@@ -986,7 +1052,13 @@
             "Plans": [],
             "P Forge": []
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     },
     "612378210235318282": {
         "Money": 100,
@@ -1061,6 +1133,12 @@
             "Plans": [],
             "P Forge": []
         },
-        "Inventory_2": {}
+        "Inventory_2": {
+            "Oak": 0,
+            "Acacia": 0,
+            "Dark Oak": 0,
+            "Basswood": 0,
+            "Palm Tree": 0
+        }
     }
 }

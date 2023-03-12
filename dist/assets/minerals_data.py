@@ -225,7 +225,7 @@ minerals = {
     },
     "Emerald" : {
         "Proba": 3,
-        "Name" : "de l**Émeraude** !",
+        "Name" : "de l'**Émeraude** !",
         "Emoji": "<:emerald:1078401187818254346>",
         "Price" : 1500,
         "Xp" : 325,
@@ -449,7 +449,7 @@ minerals = {
     },
     "Mithril": {
         "Proba": 2,
-        "Name" : "du Mithril !",
+        "Name" : "du **Mithril** !",
         "Emoji" : "<:mithril:1079837104781148280>",
         "Price" : 1000,
         "Xp" : (100, 200),

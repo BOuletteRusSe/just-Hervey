@@ -149,7 +149,7 @@ async def filter(ctx, *color):
     CommandWriteLogs(ctx, "Filter")
     await client.Filter(ctx, color)
     
-@client.bot.command(aliases=["s"])
+@client.bot.command(aliases=["sp"])
 async def shop(ctx, *buy):
     CommandWriteLogs(ctx, "Shop")
     await client.Shop(ctx, buy)
@@ -195,11 +195,11 @@ async def sell(ctx, *arg):
     CommandWriteLogs(ctx, "Sell")
     await client.Sell(ctx, arg)
 
-@client.bot.command(aliases=["m"])
+@client.bot.command(aliases=["s"])
 @cmd.cooldown(1, 5, cmd.BucketType.channel)
-async def minerals(ctx, *arg):
-    CommandWriteLogs(ctx, "Minerals")
-    await client.Minerals(ctx, arg)
+async def stats(ctx, *arg):
+    CommandWriteLogs(ctx, "Stats")
+    await client.Stats(ctx, arg)
 
 @client.bot.command()
 async def logs(ctx):
@@ -583,11 +583,11 @@ async def work_error(ctx, error):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
         await dele.delete(delay=1)
 
-'''@casino.error
+@casino.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
-        await dele.delete(delay=1)'''
+        await dele.delete(delay=1)
         
 @daily.error
 async def work_error(ctx, error):
@@ -655,7 +655,7 @@ async def work_error(ctx, error):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
         await dele.delete(delay=1)
         
-@minerals.error
+@stats.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
