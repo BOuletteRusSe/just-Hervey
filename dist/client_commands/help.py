@@ -279,7 +279,7 @@ async def Help(ctx, arg, cc):
         "Shop • 💱" : {
             "Command" : "shop",
             "Description" : "Affiche les boutiques.",
-            "Utilisation" : "c!shop (**mine** (**buy** <**id de l'item**>)) / (**rank** (**buy** <**id du rank**>) / (**forge** (**buy** <**id de l'objet**>))",
+            "Utilisation" : "c!shop (**mine** (**buy** <**id de l'item**>)) / (**rank** (**buy** <**id du rank**>) / (**forge** (**buy** <**id de l'objet**>) / (**lj** (**buy** <**id de l'objet**>))",
             "Cooldown" : "Aucun",
             "Category": "Économie",
             "Down" : False

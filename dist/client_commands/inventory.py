@@ -1,5 +1,5 @@
 import discord, json, re, asyncio
-from assets.items_price import item_shop_price, item_shop_price_2, item_shop_price_3
+from assets.items_price import item_shop_price, item_shop_price_2, item_shop_price_3, item_shop_price_5
 from assets.minerals_data import *
 from assets.woods_data import woods
 
@@ -146,12 +146,20 @@ async def Inventory(ctx, equip, c):
         
         return [inventory_embed, max_page, min_page]
     
+    upgrades = ""
+    for upgrade in data[id]["Inventory_2"]["Upgrades"]:
+        upgrades += f"{str(item_shop_price_5[upgrade]['Name'])} ({upgrade}) | "
+        
+    if data[id]["Inventory_2"]["Upgrades"] == []:
+        upgrades = "Aucun"
+    
     def LjEmbed(page):
         max_page = 0
         min_page = 0
         inventory_embed = discord.Embed(title="⚔ INVENTAIRE BÛCHERON ⚔ | Page %s" % (page + 1), description="Ici, vous pouvez voir tout ce que vous avez a disposition dans votre inventaire de bûcheron. Vous pouvez faire défiler les pages avec les flèches en bas du message.", color=0x1e4843)
         inventory_embed.set_author(name=user, icon_url=user.avatar_url)
         inventory_embed.add_field(name="💎 • Points de Bûcheron :", value=data[id]["Lj Points"])
+        inventory_embed.add_field(name="🔺 • Améliorations de hache :", value=upgrades, inline=True)
         inventory_embed.add_field(name="🎭 • Grade :", value=item_shop_price[data[id]["Inventory"]["Rank"]]["Name"], inline=True)
         inventory_embed.add_field(name="Liste des Grades :", value=ranks, inline=True)
         inventory_embed.set_footer(text=f"c!inventory equip item/rank 'nombre' pour équiper une objet ou un grade.")

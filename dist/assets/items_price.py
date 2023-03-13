@@ -76,6 +76,10 @@ item_shop_price = {
     
     16 : {
         "Name": "<:sacredstone:882234999145922621>-Récolteur de cristaux"
+    },
+    
+    17 : {
+        "Name": "🌳-Partisan Écologiste"
     }
 }
 
@@ -277,5 +281,26 @@ item_shop_price_4 = {
         "Black-Smith Points": 6000,
         "Money": 1000000,
         "Rank": False
+    }
+}
+
+item_shop_price_5 = {
+    1: {
+        "Name": "🌲|Moule en Bois d'Acacia Enchanté",
+        "MPrice": {},
+        "LPrice": {"Acacia": 10},
+        "Lj Points": 1000,
+        "Money": 2500,
+        "Rank": False,
+        "Level": 0
+    },
+    17 : {
+        "Name": "🌳-Partisan Écologiste",
+        "MPrice": {},
+        "LPrice": {"Oak": 100},
+        "Lj Points": 10000,
+        "Money": 5000,
+        "Rank": True,
+        "Level": 25
     }
 }

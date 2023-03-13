@@ -296,7 +296,7 @@ async def music(ctx):
         await ctx.reply('Vous devez accepter les TSSC pour pourvoir utiliser cette commande.\nPour plus d\'info vous pouvez faire la commande **c!tssc** ou **c!help tssc**.')
 
 
-@client.bot.command()
+@client.bot.command(aliases=["f"])
 @cmd.cooldown(1, 300, cmd.BucketType.user)
 async def fountain(ctx, *m):
     CommandWriteLogs(ctx, "Foutain")

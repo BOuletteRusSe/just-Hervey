@@ -91,7 +91,10 @@ async def Sign(ctx):
                 "Acacia": 0,
                 "Dark Oak": 0,
                 "Basswood": 0,
-                "Palm Tree": 0
+                "Palm Tree": 0,
+                
+                "Upgrades": [],
+                "Moule": {}
             }
         }
         

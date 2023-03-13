@@ -77,5 +77,10 @@ async def Bank(ctx, pos):
             await deleted_message.delete(delay=15)
 
     else:
-        d = await ctx.reply("**c!bank get** --> Retirer l'argent depuis la banque.\n**c!bank pos** --> Poser de l'argent en banque.")
-        await d.delete(delay=15)
+        bank_embed = discord.Embed(title="just Hervey 💎 | 💱 BANQUE 💱", description="Bienvenue dans la banque. Ici vous pouvez déposer de l'argent afin de le retirer plus tard.\n\n```c!bank pos <montant>```  Permet de déposer de l'argent en banque.\n```c!bank get <montant>```  Permet de retirer de l'argent de la banque.", color=0x278B4D)
+        bank_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+        bank_embed.add_field(name="", value="", inline=False)
+        bank_embed.add_field(name="Argent :", value=data[id]['Money'], inline=False)
+        bank_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
+        bank_embed.set_footer(text="Dans de futures mises à jour, la banque vous permettera de gagner des intérêts sur votre argent !")
+        await ctx.send(embed=bank_embed)
