@@ -33,17 +33,18 @@ async def Shop(ctx, buy):
 
         elif buy[0] in ["rank", "r"]:
 
-            rank_embed=discord.Embed(title="**🎭 BOUTIQUE DES GRADES 🎭**", description="Ici, vous pouvez acheter les grades qui vous plaisent.", color=0x963636)
+            rank_embed=discord.Embed(title="**🎭 BOUTIQUE DES GRADES 🎭**", description="Vous marchez tranquillement sur la place publique, soudain un stand attire votre attention. Un homme masqué se présente sous le nom de `Falstaff le Fantaisiste`, ils vous tend un masque afin de l'essayer.", color=0xC922B7)
+            rank_embed.set_image(url="https://i.ibb.co/VYvGtKV/shop-rank.png")
             rank_embed.add_field(name="`1` - GRADE | 😮 - Débutant :", value="Prix : `1,000€`", inline=False)
-            rank_embed.add_field(name="`2` - GRADE | 😋 - Amateur :", value="Prix : `10,000€`", inline=True)
-            rank_embed.add_field(name="`3` - GRADE | 🤑 -  Affirmé :", value="Prix : `25,000€`", inline=True)
-            rank_embed.add_field(name="`4` - GRADE | 😎 - Professionel :", value="Prix : `50,000€`", inline=True)
-            rank_embed.add_field(name="`5` - GRADE | 🐱‍🏍 - Légende :", value="Prix : `100,000€`", inline=True)
-            rank_embed.add_field(name="`8` - GRADE | 🧚‍♂️ - Mineur Mythique :", value="Prix : `500,000€`", inline=True)
-            rank_embed.add_field(name="`9` - GRADE | 👑 - N°1 :", value="Prix : `1,000,000€`", inline=True)
-            rank_embed.add_field(name="`10` - GRADE | <:drogue:882314468086931466>-DROGUÉ :", value="Prix : `100 Charbons à Coke`", inline=True)
-            rank_embed.add_field(name="`14` - GRADE | 🚮 - Éboueur :", value="Prix : `1000 Débrits`", inline=True)
-            rank_embed.set_footer(text="Pour acheter un grade, faites la commande c!shop rank buy NUMÉRO DU GRADE.")
+            rank_embed.add_field(name="`2` - GRADE | 😋 - Amateur :", value="Prix : `10,000€`", inline=False)
+            rank_embed.add_field(name="`3` - GRADE | 🤑 -  Affirmé :", value="Prix : `25,000€`", inline=False)
+            rank_embed.add_field(name="`4` - GRADE | 😎 - Professionel :", value="Prix : `50,000€`", inline=False)
+            rank_embed.add_field(name="`5` - GRADE | 🐱‍🏍 - Légende :", value="Prix : `100,000€`", inline=False)
+            rank_embed.add_field(name="`8` - GRADE | 🧚‍♂️ - Mineur Mythique :", value="Prix : `500,000€`", inline=False)
+            rank_embed.add_field(name="`9` - GRADE | 👑 - N°1 :", value="Prix : `1,000,000€`", inline=False)
+            rank_embed.add_field(name="`10` - GRADE | <:drogue:882314468086931466>-DROGUÉ :", value="Prix : `100 Charbons à Coke`", inline=False)
+            rank_embed.add_field(name="`14` - GRADE | 🚮 - Éboueur :", value="Prix : `1000 Débrits`", inline=False)
+            rank_embed.set_footer(text="Pour acheter un grade, faites la commande c!shop rank buy <NUMÉRO DU GRADE>.")
 
             try:
                 if buy[1] == "buy":
@@ -98,20 +99,21 @@ async def Shop(ctx, buy):
 
         elif buy[0] in ["mine", "m"]:
 
-            item_embed=discord.Embed(title="⚔ **BOUTIQUE D'OBJET** ⚔", description="Ici, vous pouvez acheter les objets qui vous plaisent.", color=0x540788)
-            item_embed.add_field(name="`1` - 🧲|Pioche en Fer : `5 Fer`, `1,000 Points de Mineur`", value="Vous avez `10` de chance supplémentaire de miner des minerais.", inline=True)
-            item_embed.add_field(name="`2` - 🥇|Pioche en Or : `5 Or`, `2,500 Points de Mineur`", value="Augmente le gain des points de mineur `10`", inline=True)
-            item_embed.add_field(name="`3` - 🔥|Pioche de Magma : `5 Pierre de Magma`, `1,500 Points de Mineur`", value="Vous ne perdez plus de **Points de Mineur** ni d'**xp** à cause de la Roche Magmatique.", inline=True)
-            item_embed.add_field(name="`4` - ⛏|Alliage en Platine : `5 Platine`, `2,000 Points de Mineur`", value="Vous permet d'améliorer votre pioche pour qu'elle puisse miner le **rubis**, le **saphir** et l'**émeraude**. (n'a pas besoin d'être équipé dans l'inventaire)", inline=True)
-            item_embed.add_field(name="`12` - ⛏|Alliage en Obsidienne : `15 Obsidienne`, `15,000 Points de Mineur`, `20,000€`", value="Vous permet d'améliorer votre pioche pour qu'elle puisse miner l'**uranium** et le **plutonium**. (n'a pas besoin d'être équipé dans l'inventaire)", inline=True)
-            item_embed.add_field(name="`11` - 🧪|Pioche Expérimentale : `20 Cuivre`, `5,000 Points de Mineur`, `10,000€`.", value=f"Vous gagnez `10{'%'}` d'**xp supplémentaire** en minant.", inline=True)
-            item_embed.add_field(name="`5` - 👨‍🔬|PIOCHE DU CHINOIS : `10 Joseph`, `10,000 Points de Mineur`, `50,000€`.", value="GG, vous avez la **meilleure pioche du jeu** (ne sert à rien).", inline=True)
-            item_embed.add_field(name="`13` - GRADE | 💎 - Géologue :", value="Requiert : Métier de Mineur Niv. `50`\nPrix : `15,000 Points de Mineur`, `75,000€`", inline=True)
-            item_embed.add_field(name="`14` - GRADE | <:sacredstone:1078401347780608040> - Récolteur de cristaux :", value="Requiert : Métier de Mineur Niv. `75`\nPrix : `25,000 Points de Mineur`, `100,000€`", inline=True)
-            item_embed.add_field(name="`6` - ✖|Pioche de multiplication : `100 Cobaltes`, `20,000 Points de Mineur`, `50,000€`.", value=f"A `33.33{'%'}` de **dupliquer** les minerais que vous minez.", inline=True)
-            item_embed.add_field(name="`7` - 🕵️‍♂️|Pioche du maraudeur : `250 Pierres`, `15,000 Points de Mineur`, `20,000€`.", value="Vous ne minerez plus de **débrits** (ouf).", inline=True)
-            item_embed.add_field(name=f"`9` - 👾|Multi-Pioche : `{data[id]['Inventory']['Item Limit'] * 10} Diamant`, `{(data[id]['Inventory']['Item Limit'])*5}0,000€`.", value=f"Vous permet d'équiper {data[id]['Inventory']['Item Limit'] + 1} pioches à la fois. Requier : Métier de Mineur Niv. {data[id]['Inventory']['Item Limit'] * 10} (pour équiper plusieurs pioches, faites __c!inventory equip item__ suivi du numéro des objets séparés d'espaces)", inline=True)
-            item_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop mine buy NUMÉRO DE L'ITEM.")
+            item_embed=discord.Embed(title="⚔ **BOUTIQUE D'OBJET** ⚔", description="Vous vous avancez un peu plus pronfondémment dans les mines et découvez un vieil homme tenant une lanterne. Il vous salut de la main et vous fait signe d'approcher. Se présentant sous le nom de `Drogath le Taciturne` puis ouvre son sac et vous propose diffférentes offres.", color=0xBCD8E8)
+            item_embed.set_image(url="https://i.ibb.co/fCkHMpN/shop-mine.png")
+            item_embed.add_field(name="`1` - 🧲|Pioche en Fer : `5 Fer`, `1,000 Points de Mineur`", value="Vous avez `10` de chance supplémentaire de miner des minerais.", inline=False)
+            item_embed.add_field(name="`2` - 🥇|Pioche en Or : `5 Or`, `2,500 Points de Mineur`", value="Augmente le gain des points de mineur `10`", inline=False)
+            item_embed.add_field(name="`3` - 🔥|Pioche de Magma : `5 Pierre de Magma`, `1,500 Points de Mineur`", value="Vous ne perdez plus de **Points de Mineur** ni d'**xp** à cause de la Roche Magmatique.", inline=False)
+            item_embed.add_field(name="`4` - ⛏|Alliage en Platine : `5 Platine`, `2,000 Points de Mineur`", value="Vous permet d'améliorer votre pioche pour qu'elle puisse miner le **rubis**, le **saphir** et l'**émeraude**. (n'a pas besoin d'être équipé dans l'inventaire)", inline=False)
+            item_embed.add_field(name="`12` - ⛏|Alliage en Obsidienne : `15 Obsidienne`, `15,000 Points de Mineur`, `20,000€`", value="Vous permet d'améliorer votre pioche pour qu'elle puisse miner l'**uranium** et le **plutonium**. (n'a pas besoin d'être équipé dans l'inventaire)", inline=False)
+            item_embed.add_field(name="`11` - 🧪|Pioche Expérimentale : `20 Cuivre`, `5,000 Points de Mineur`, `10,000€`.", value=f"Vous gagnez `10{'%'}` d'**xp supplémentaire** en minant.", inline=False)
+            item_embed.add_field(name="`5` - 👨‍🔬|PIOCHE DU CHINOIS : `10 Joseph`, `10,000 Points de Mineur`, `50,000€`.", value="GG, vous avez la **meilleure pioche du jeu** (ne sert à rien).", inline=False)
+            item_embed.add_field(name="`13` - GRADE | 💎 - Géologue :", value="Requiert : Métier de Mineur Niv. `50`\nPrix : `15,000 Points de Mineur`, `75,000€`", inline=False)
+            item_embed.add_field(name="`14` - GRADE | <:sacredstone:1078401347780608040> - Récolteur de cristaux :", value="Requiert : Métier de Mineur Niv. `75`\nPrix : `25,000 Points de Mineur`, `100,000€`", inline=False)
+            item_embed.add_field(name="`6` - ✖|Pioche de multiplication : `100 Cobaltes`, `20,000 Points de Mineur`, `50,000€`.", value=f"A `33.33{'%'}` de **dupliquer** les minerais que vous minez.", inline=False)
+            item_embed.add_field(name="`7` - 🕵️‍♂️|Pioche du maraudeur : `250 Pierres`, `15,000 Points de Mineur`, `20,000€`.", value="Vous ne minerez plus de **débrits** (ouf).", inline=False)
+            item_embed.add_field(name=f"`9` - 👾|Multi-Pioche : `{data[id]['Inventory']['Item Limit'] * 10} Diamant`, `{(data[id]['Inventory']['Item Limit'])*5}0,000€`.", value=f"Vous permet d'équiper {data[id]['Inventory']['Item Limit'] + 1} pioches à la fois. Requier : Métier de Mineur Niv. {data[id]['Inventory']['Item Limit'] * 10} (pour équiper plusieurs pioches, faites __c!inventory equip item__ suivi du numéro des objets séparés d'espaces)", inline=False)
+            item_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop mine buy <NUMÉRO DE L'ITEM>.")
             
             try:
                 if buy[1] == "buy":
@@ -212,16 +214,17 @@ async def Shop(ctx, buy):
             
             if data[id]["Level"] >= 15:
             
-                forge_embed = discord.Embed(title="**🔨 BOUTIQUE DU FORGERON 🔨**", description="Ici, vous pouvez acheter des objets liés à l'utilisation de la commande c!forge.", color=0xC0712C)
-                forge_embed.add_field(name="`1` - 🧲|Marteau Magnétique : `100 Magnétite`, `5,000 Points de Forgeron` et `100,000€`.", value="Une fois équipé, le **cooldown de la forge** est réduis de `40%`.", inline=True)
-                forge_embed.add_field(name="`13` - RANK | 🧔 - Forgeron de renommée : `10,000 Points de Forgeron`, niveau de forgeron requis : `50`", value="Un grade spécial pour les utilisateurs affirmés de la forge.", inline=True)
-                forge_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop forge buy NUMÉRO DE L'OBJET.")
-                forge_embed.add_field(name="`7` - ⛑|Casque de Forgeron : `25 Iron`, `Platine` et `Silver`, `5,000 Points de Forgeron` et `75,000€`.", value=f"Un casque que tout bon forgeron se doit d'avoir. Une fois équipé vous gagnez `25{'%'}` d'**xp supplémentaire**.", inline=True)
+                forge_embed = discord.Embed(title="**🔨 BOUTIQUE DU FORGERON 🔨**", description="Dans une petite cabane non loin de là, réside `Arcturus le Maître-forgeron`, l'un des forgerons les plus réputés de la région. Vous pénétrez en son logis et jetez un coup d'oeil.", color=0x929292)
+                forge_embed.set_image(url="https://i.ibb.co/vjBgd5s/shop-forge.png")
+                forge_embed.add_field(name="`1` - 🧲|Marteau Magnétique : `100 Magnétite`, `5,000 Points de Forgeron` et `100,000€`.", value="Une fois équipé, le **cooldown de la forge** est réduis de `40%`.", inline=False)
+                forge_embed.add_field(name="`13` - RANK | 🧔 - Forgeron de renommée : `10,000 Points de Forgeron`, niveau de forgeron requis : `50`", value="Un grade spécial pour les utilisateurs affirmés de la forge.", inline=False)
+                forge_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop forge buy <NUMÉRO DE L'OBJET>.")
+                forge_embed.add_field(name="`7` - ⛑|Casque de Forgeron : `25 Iron`, `Platine` et `Silver`, `5,000 Points de Forgeron` et `75,000€`.", value=f"Un casque que tout bon forgeron se doit d'avoir. Une fois équipé vous gagnez `25{'%'}` d'**xp supplémentaire**.", inline=False)
                 forge_embed.add_field(name=f"`2` - 🍀|Lucky-Hammer : `25 Lucky Stones`, `1,500 Points de Forgeron`, `150,000€`.", value=f"En cours de création....", inline=True)
-                forge_embed.add_field(name=f"`3` - ☢|Marteau Radioactif : `25 Uranium`, `Plutonium`, `Fluorite`, et `7,500 Points de Forgeron`.", value=f"Les plans que vous découvrez demandent `5` **niveaux en moins** afin d'être fabriqués.", inline=True)
-                forge_embed.add_field(name=f"`4` - ⚓|Trident de Poséidon : `3 Aigue Marine`, `10,000 Points de Forgeron`, `500,000€`, niveau de forgeron requis : `10`", value=f"Les dieux vous guident, vos chances d'**obtenir un plan** augmentent de `15%`.", inline=True)
-                forge_embed.add_field(name=f"`5` - 🔮|Marteau de Crystale : `25 Améthiste`, `10 Jades`, `7,500 Points de Forgeron`, `150,000€`, niveau de forgeron requis : `5`", value=f"Une combinaison de crystaux permettant d'avoir `25{'%'}` de chance de **multiplier un minerai** en le forgeant.", inline=True)
-                forge_embed.add_field(name=f"`6` - 🐉|Marteau en Plaques de Dragon : `5 Dragonite`, `50 Platine`, `10,000 Points de Forgeron`, `250,000€`, niveau de forgeron requis : `10`", value=f"La puissance des dragons vous envahie, vous gagnez `25{'%'}` de **Points de Forgeron** lors de la fabrication d'une recette !", inline=True)
+                forge_embed.add_field(name=f"`3` - ☢|Marteau Radioactif : `25 Uranium`, `Plutonium`, `Fluorite`, et `7,500 Points de Forgeron`.", value=f"Les plans que vous découvrez demandent `5` **niveaux en moins** afin d'être fabriqués.", inline=False)
+                forge_embed.add_field(name=f"`4` - ⚓|Trident de Poséidon : `3 Aigue Marine`, `10,000 Points de Forgeron`, `500,000€`, niveau de forgeron requis : `10`", value=f"Les dieux vous guident, vos chances d'**obtenir un plan** augmentent de `15%`.", inline=False)
+                forge_embed.add_field(name=f"`5` - 🔮|Marteau de Crystale : `25 Améthiste`, `10 Jades`, `7,500 Points de Forgeron`, `150,000€`, niveau de forgeron requis : `5`", value=f"Une combinaison de crystaux permettant d'avoir `25{'%'}` de chance de **multiplier un minerai** en le forgeant.", inline=False)
+                forge_embed.add_field(name=f"`6` - 🐉|Marteau en Plaques de Dragon : `5 Dragonite`, `50 Platine`, `10,000 Points de Forgeron`, `250,000€`, niveau de forgeron requis : `10`", value=f"La puissance des dragons vous envahie, vous gagnez `25{'%'}` de **Points de Forgeron** lors de la fabrication d'une recette !", inline=False)
 
                 try:
                     if buy[1] == "buy":
@@ -298,14 +301,15 @@ async def Shop(ctx, buy):
         
         elif buy[0] in ["lumberjack", "lj"]:
             
-            lj_embed = discord.Embed(title="**🪓 SCIERIE DU BÛCHERON 🪓**", description="Ici, vous pouvez acheter tout le matériel nécessaire afin d'améliorer votre hache de bûcheron !\nPour pouvoir commencer, vous devrez acheter un `Moule en Bois Enchanté`. A partir de ce moule, vous pourrez faire toute sorte d'améliorations depuis la Forge. Vous pourez utiliser votre moule en débloquant des recette d'améliorations de différentes manières.", color=0xC0712C)
-            lj_embed.add_field(name=f"`1` - 🌲|Moule en Bois d'Acacia Enchanté : `10 Acacia`, `1,000 Points de Bûcheron`, `2,500€`.", value=f"Un des moules les plus basiques, ils vous permettera de fabriquer la pluspart des améliorations du métier de bûcheron.", inline=True)
-            lj_embed.add_field(name=f"`17` - 🌳-Partisan Écologiste : `100 Bois de Chêne`, `10,000 Points de Bûcheron`, `5,000€`, niveau de bûcheron requis : `25`.", value=f"Faut bien protéger la planète...", inline=True)
-            
+            lj_embed = discord.Embed(title="**🪓 SCIERIE DU BÛCHERON 🪓**", description="Besoin d'améliorer votre hache ? Pas de soucis, `Thorne Ombrebois` se fera un plaisir de le faire pour vous en échange de quelques dûs.", color=0x48290D)
+            lj_embed.set_image(url="https://i.ibb.co/58KQL5c/shop-lj.png")
+            lj_embed.add_field(name=f"`17` - 🌳-Partisan Écologiste : `100 Bois de Chêne`, `10,000 Points de Bûcheron`, `5,000€`, niveau de bûcheron requis : `25`.", value=f"Faut bien protéger la planète...", inline=False)
+            lj_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop lj buy <NUMÉRO DE L'OBJET>.")
+
             try:
                 if buy[1] == "buy":
                     try:
-                        if int(buy[2]) in [1, 17]:
+                        if int(buy[2]) in [1]:
                             buy_item = item_shop_price_5[int(buy[2])]
                             
                             if data[id]["Lj Level"] >= buy_item["Level"]:
@@ -346,17 +350,17 @@ async def Shop(ctx, buy):
                                                         with open("assets/player_data.json", 'w') as d:
                                                             json.dump(data, d, indent=4)
                                                         
-                                                        if int(buy[2]) in [1]:
+                                                        if int(buy[2]) in []:
                                                         
                                                             if buy_item["Money"] > 0:
-                                                                money_embed = discord.Embed(title=f"Vous avez acheter le moule n°{buy[2]} avec succès", description=f"-**{buy_item['Money']}**€\n-**{buy_item['Lj Points']}** Points de Bûcheron", color=0x5455b0)
+                                                                money_embed = discord.Embed(title=f"Vous avez acheter l'amélioration n°{buy[2]} avec succès", description=f"-**{buy_item['Money']}**€\n-**{buy_item['Lj Points']}** Points de Bûcheron", color=0x5455b0)
                                                             else:
-                                                                money_embed = discord.Embed(title=f"Vous avez acheter le moule n°{buy[2]} avec succès", description=f"-**{buy_item['Lj Points']}** Points de Bûcheron", color=0x5455b0)
+                                                                money_embed = discord.Embed(title=f"Vous avez acheter l'amélioration n°{buy[2]} avec succès", description=f"-**{buy_item['Lj Points']}** Points de Bûcheron", color=0x5455b0)
                                                             money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                             money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
                                                             money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
                                                             money_embed.add_field(name="Points de Bûcheron restant:", value=data[id]['Lj Points'], inline=False)
-                                                            money_embed.set_footer(text="Le moule a été ajouté à votre inventaire de bûcheron. c!inventory lj pour afficher votre inventaire de bûcheron.")
+                                                            money_embed.set_footer(text="L'amélioration a été ajouté à votre inventaire de bûcheron. c!inventory lj pour afficher votre inventaire de bûcheron.")
                                                             await ctx.reply(embed=money_embed)
                                                             
                                                         elif int(buy[2]) in [17]:

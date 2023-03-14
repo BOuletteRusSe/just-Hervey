@@ -1,5 +1,6 @@
 import discord, json, time, random
 from assets.recipes_data import recipes
+from assets.woods_data import woods
 
 def EnumerateRecipes():
     global unlocked_plans
@@ -169,12 +170,11 @@ async def Forge(ctx, arg):
                                             with open("assets/player_data.json", 'w') as d:
                                                 json.dump(data, d, indent=4)
                                                 
-                                            buy_embed = discord.Embed(title="🛠 FORGE 🛠", description=f"Forge de **{res[num][1]}**{mess}", color=0xC0712C)
+                                            buy_embed = discord.Embed(title="🔨 FORGE COMBINAISON 🔨", description=f"Combinaison de **{res[num][1]}**{mess}", color=0xC0712C)
                                             buy_embed.set_image(url="https://i.ibb.co/DgDTy5J/forge-icon.png")
                                             buy_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                             buy_embed.add_field(name=":nut_and_bolt: • Points de Forgeron :", value=data[id]["Black-Smith Points"])
-                                            buy_embed.add_field(name="💸 • Argent :", value=round(data[id]["Money"], 2))
-                                            buy_embed.add_field(name="🧔 • Niveau de Forgeron :", value=data[id]["Forge Level"], inline=False)
+                                            buy_embed.add_field(name="💸 • Argent :", value=round(data[id]["Money"], 2))                                            
                                             xpDashes = 25
                                             dashConvert = int(to_next_level / xpDashes)
                                             currentDashes = int(data[id]['Forge Xp'] / dashConvert)
@@ -189,9 +189,9 @@ async def Forge(ctx, arg):
                                             for k, v in res[num][3].items():
                                                 buy_embed.add_field(name=f"{k} : ", value=data[id]["Inventory"][k])
                                             if 1 in data[id]["Inventory"]["P Forge"]:
-                                                buy_embed.set_footer(text="Vous devez maintenant vous reposer pendant %ss afin de pouvoir réutiliser la commande c!forge !" % (int(round(res[num][4]) / 100 * 60)))
+                                                buy_embed.set_footer(text="Vous devez maintenant vous reposer pendant %ss afin de pouvoir réutiliser la commande c!forge mix !" % (int(round(res[num][4]) / 100 * 60)))
                                             else:
-                                                buy_embed.set_footer(text="Vous devez maintenant vous reposer pendant %ss afin de pouvoir réutiliser la commande c!forge !" % (res[num][4]))
+                                                buy_embed.set_footer(text="Vous devez maintenant vous reposer pendant %ss afin de pouvoir réutiliser la commande c!forge mix !" % (res[num][4]))
                                                 
                                             await ctx.send(embed=buy_embed)
                                         
@@ -224,15 +224,93 @@ async def Forge(ctx, arg):
                             
             recipe_embed.set_footer(text=f"Recettes cachées non débloquées : {locked}")
             await ctx.reply(embed=recipe_embed)
-                        
+            
+        elif "extract" in arg:
+            try:
+                wid = int(arg[1])
+            except:
+                await ctx.reply("Veuillez entrer un id correct ! c!forge extract **id**.\nLes id et les prix d'extractions peuvent être consultés depuis la commande **c!stats woods**.")
+            else:           
+                try:
+                    wn = int(arg[2])
+                except:
+                    wn = 1
+                    
+                if wn <= 0:
+                    await ctx.reply("Veuillez entrer un montant correct !\nc!forge extract <id> **<montant>**.")
+                else:
+                    
+                    
+                    def LoadStats():
+                        for k, v in woods.items():
+                            wname = None
+                            for k_, v_ in v.items():
+                                if k_ == "Ex":
+                                    wex = v_
+                                    print(wex)
+                                if k_ == "Emoji":
+                                    wemoji = v_
+                                if k_ == "Id":
+                                    if wid == v_:
+                                        wname = k
+                            if wname is not None:
+                                return [wname, wemoji, wex]
+                        return False
+                    
+                    l = LoadStats()
+                    
+                    if not l:
+                        await ctx.reply("Veuillez entrer un id correct ! c!forge extract **id**.\nLes id et les prix d'extractions peuvent être consultés depuis la commande **c!stats woods**.")
+                    else:
+                        wname = l[0]
+                        wemoji = l[1]
+                        wex = l[2]
+           
+                        if data[id]["Inventory_2"][wname] < wn:
+                            await ctx.reply(f"Vous n'avez pas assez de **{wname}** pour en extraire **{wn}**...\n{wname} dans l'inventaire : **{data[id]['Inventory_2'][wname]}**")
+                        else:
+                            wex *= wn
+                            if data[id]["Lj Points"] < wex:
+                                await ctx.reply(f"Vous n'avez pas assez de **Points de Bûcheron** pour pouvoir extraire **{wn} {wname}**...\nPoints de Bûcheron requis : **{wex}**\nPoints de Bûcheron acutels : **{data[id]['Lj Points']}**")
+                            else:
+                                data[id]["Inventory_2"][wname] -= wn
+                                data[id]["Lj Points"] -= wex
+                                data[id]["Inventory_2"]["Essences"][wid] += wn
+                                data[id]["Forge Xp"] += round(wex / 4)
+                                data[id]["Black-Smith Points"] += round(wex / 5)
+                                
+                                with open("assets/player_data.json", 'w') as d:
+                                    json.dump(data, d, indent=4)
+                                
+                                to_next_level = int(100 * ((data[id]["Forge Level"] / 2) * (data[id]["Forge Level"] / 2)))
+                                extract_embed = discord.Embed(title="🔬 FORGE EXTRACTION 🔬", description=f"Vous avez extrait `{wn}` {wname} pour le prix de `{wex}` Points de Bûcheron. Vous gagnez tout de même `{round(wex / 5)}` Points de Forgeron.", color=0x59514A)
+                                extract_embed.set_image(url="https://i.ibb.co/DgDTy5J/forge-icon.png")
+                                extract_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                                extract_embed.add_field(name="", value="", inline=False)
+                                extract_embed.add_field(name=":nut_and_bolt: • Points de Forgeron :", value=data[id]["Black-Smith Points"], inline=False)
+                                extract_embed.add_field(name="🌲 • Points de Bûcheron :", value=data[id]["Lj Points"], inline=False)
+                                extract_embed.add_field(name=f"{wemoji} • {wname} :", value=data[id]["Inventory_2"][wname], inline=False)
+                                extract_embed.add_field(name=f"🟢 • Essences de {wname} :", value=data[id]["Inventory_2"]["Essences"][wid], inline=False)
+                                xpDashes = 25
+                                dashConvert = int(to_next_level / xpDashes)
+                                currentDashes = int(data[id]['Forge Xp'] / dashConvert)
+                                remain = xpDashes - currentDashes
+                                xpDisplay = '━' * currentDashes
+                                remainingDisplay = '᲼' * remain
+                                percent = f"{round(data[id]['Forge Xp'])}/{round(to_next_level)}"
+                                space = '᲼' * int((len(xpDisplay) + len(remainingDisplay)) / 2)
+                                extract_embed.add_field(name=f"🧪 • Xp *(+{round(wex / 4)}xp)* :", value=f"**{data[id]['Forge Level']}|{xpDisplay}◈**{remainingDisplay}**|{data[id]['Forge Level'] + 1}**\n{space}**{percent}**", inline=False)
+                                extract_embed.set_footer(text="Pour afficher vos nombres d'essences, vous pouvez utiliser la commande c!inventory lj.")
+
+                                await ctx.send(embed=extract_embed)
+                            
         else:
             to_next_level = int(100 * ((data[id]["Forge Level"] / 2) * (data[id]["Forge Level"] / 2)))
-            exembed = discord.Embed(title="just Hervey 💎 | 🛠 FORGE SACRÉE  🛠", description="Bienvenue dans la Forge Sacrée, ici, vous pouvez combiner différent matériaux/objets afin d'en fabriquer de nouveaux grâce à des recettes que vous pouvez débloquer !\n\n```c!forge recipes```  Avoir la liste des différentes recettes\n```c!forge mix```  Combiner deux matériaux ensemble pour réaliser une des recettes et gagner des Points de Forgeron (Niveau de mineur minimal requis : 10)", color=0x59514A)
+            exembed = discord.Embed(title="just Hervey 💎 | 🛠 FORGE SACRÉE 🛠", description="Bienvenue dans la Forge Sacrée, ici, vous pouvez combiner différent matériaux/objets afin d'en fabriquer de nouveaux grâce à des recettes que vous pouvez débloquer !\n\n```c!forge recipes```  Avoir la liste des différentes recettes\n```c!forge mix```  Combiner deux matériaux ensemble pour réaliser une des recettes et gagner des Points de Forgeron (Niveau de mineur minimal requis : 10)\n```c!forge extract <id du bois> (<montant>)```  Permet d'extraire de l'essence du bois afin d'améliorer votre hache. Les id et les prix d'extraction des différents bois peuvent être consultés via la commande `c!stats woods`.", color=0x59514A)
             exembed.set_image(url="https://i.ibb.co/DgDTy5J/forge-icon.png")
             exembed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             exembed.add_field(name="", value="", inline=False)
             exembed.add_field(name=":nut_and_bolt: • Points de Forgeron :", value=data[id]["Black-Smith Points"], inline=False)
-            exembed.add_field(name="🧔 • Niveau de Forgeron :", value=data[id]["Forge Level"], inline=False)
             xpDashes = 25
             dashConvert = int(to_next_level / xpDashes)
             currentDashes = int(data[id]['Forge Xp'] / dashConvert)

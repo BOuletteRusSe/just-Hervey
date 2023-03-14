@@ -24,7 +24,8 @@ woods = {
         "Image" : "https://i.ibb.co/DLQ9X43/image-2023-02-26-201131792.png",
         "Lj Points": 25,
         "Id": 0,
-        "Rareté": c
+        "Rareté": c,
+        "Ex": 100
     },
     "Acacia" : {
         "Proba": 6,
@@ -39,7 +40,8 @@ woods = {
         "Image" : "https://i.ibb.co/6Pt9fnf/acacia.png",
         "Lj Points": 40,
         "Id": 1,
-        "Rareté": c
+        "Rareté": c,
+        "Ex": 200
     },
     "Dark Oak" : {
         "Proba": 5,
@@ -54,7 +56,8 @@ woods = {
         "Image" : "https://i.ibb.co/j3Rh3T2/dark-oak.png",
         "Lj Points": 50,
         "Id": 2,
-        "Rareté": p
+        "Rareté": p,
+        "Ex": 175
     },
     "Basswood" : {
         "Proba": 6,
@@ -69,7 +72,8 @@ woods = {
         "Image" : "https://i.ibb.co/z2F0vfn/basswood.png",
         "Lj Points": (35, 50),
         "Id": 3,
-        "Rareté": c
+        "Rareté": c,
+        "Ex": 150
     },
     "Palm Tree" : {
         "Proba": 4,
@@ -84,6 +88,7 @@ woods = {
         "Image" : "https://i.ibb.co/TRsKJ8Y/palm-tree.png",
         "Lj Points": 50,
         "Id": 4,
-        "Rareté": r
+        "Rareté": r,
+        "Ex": 250
     }
 }

@@ -46,11 +46,11 @@ async def Stats(ctx, arg, cc):
                                 
                             if data[id]["Inventory"][m] > 0:
                                 if page == 0 and __id__ <= 20:
-                                    minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m} *({data[id]['Inventory'][m]})*", value=f"Prix de revente : **{price}€**", inline=True)
+                                    minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m} (`{data[id]['Inventory'][m]}`)*", value=f"Prix de revente : `{price}€`", inline=True)
                                 elif page == 1 and 20 < __id__ <= 40:
-                                    minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m} *({data[id]['Inventory'][m]})*", value=f"Prix de revente : **{price}€**", inline=True)
+                                    minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m} (`{data[id]['Inventory'][m]}`)", value=f"Prix de revente : `{price}€`", inline=True)
                                 elif page == 2 and 40 < __id__ <= 60:
-                                    minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m} *({data[id]['Inventory'][m]})*", value=f"Prix de revente : **{price}€**", inline=True)
+                                    minerals_embed.add_field(name=f"Id: {__id__} | {emoji} • {m} (`{data[id]['Inventory'][m]}`)", value=f"Prix de revente : `{price}€`", inline=True)
                             else:
                                 locked += 1
                                     
@@ -95,7 +95,7 @@ async def Stats(ctx, arg, cc):
                                 membed = discord.Embed(title=f"{vv[8]} • {vv[7]} *({data[id]['Inventory'][vv[7]]})*", description=vv[3], color=vv[0])
                                 membed.set_image(url=vv[4])
                                 membed.add_field(name="Rareté :", value=vv[2], inline=False)
-                                membed.add_field(name="Niveau de minage requis :", value=vv[5], inline=False)
+                                membed.add_field(name="Niveau de mineur requis :", value=vv[5], inline=False)
                                 membed.add_field(name="Probabilité d'obtention :", value=vv[6], inline=False)
                                 membed.add_field(name="Prix de revente :", value=vv[1], inline=False)
                                 
@@ -145,14 +145,15 @@ async def Stats(ctx, arg, cc):
                                 if e == "Emoji": emoji = v
                                 elif e == "Id": __id__ = v
                                 elif e == "Price": price = v
+                                elif e == "Ex": ex = v
                                 
                             if data[id]["Inventory_2"][m] > 0:
                                 if page == 0 and __id__ <= 20:
-                                    woods__embed.add_field(name=f"Id: {__id__} | {emoji} • {m} *({data[id]['Inventory_2'][m]})*", value=f"Prix de revente : **{price}€**", inline=True)
+                                    woods__embed.add_field(name=f"Id: {__id__} | {emoji} • {m} (`{data[id]['Inventory_2'][m]}`)", value=f"Prix de revente : `{price}€`\nPrix d'extraction : `{ex} Points de Bûcheron`", inline=True)
                                 elif page == 1 and 20 < __id__ <= 40:
-                                    woods__embed.add_field(name=f"Id: {__id__} | {emoji} • {m} *({data[id]['Inventory_2'][m]})*", value=f"Prix de revente : **{price}€**", inline=True)
+                                    woods__embed.add_field(name=f"Id: {__id__} | {emoji} • {m} (`{data[id]['Inventory_2'][m]}`)", value=f"Prix de revente : `{price}€\nPrix d'extraction : `{ex} Points de Bûcheron``", inline=True)
                                 elif page == 2 and 40 < __id__ <= 60:
-                                    woods__embed.add_field(name=f"Id: {__id__} | {emoji} • {m} *({data[id]['Inventory_2'][m]})*", value=f"Prix de revente : **{price}€**", inline=True)
+                                    woods__embed.add_field(name=f"Id: {__id__} | {emoji} • {m} (`{data[id]['Inventory_2'][m]}`)", value=f"Prix de revente : `{price}€\nPrix d'extraction : `{ex} Points de Bûcheron``", inline=True)
                             else:
                                 locked += 1
                                     
@@ -177,7 +178,8 @@ async def Stats(ctx, arg, cc):
                                 elif e == "Level Requierd": __level__ = v
                                 elif e == "Emoji": __emoji__ = v
                                 elif e == "Hp": __hp__ = v
-                            ms[__id__] = [__color__, __price__, __r__, __description__, __image__, __level__, proba, m, __emoji__, __hp__]
+                                elif e == "Ex": __ex__ = v
+                            ms[__id__] = [__color__, __price__, __r__, __description__, __image__, __level__, proba, m, __emoji__, __hp__, __ex__]
                                     
                         for k, v in ms.items():
                             if str(k) == str(mid_):
@@ -198,9 +200,10 @@ async def Stats(ctx, arg, cc):
                                 membed = discord.Embed(title=f"{vv[8]} • {vv[7]} *({data[id]['Inventory_2'][vv[7]]})*", description=vv[3], color=vv[0])
                                 membed.set_image(url=vv[4])
                                 membed.add_field(name="Rareté :", value=vv[2], inline=False)
-                                membed.add_field(name="Niveau de minage requis :", value=vv[5], inline=False)
+                                membed.add_field(name="Niveau de bûcheron requis :", value=vv[5], inline=False)
                                 membed.add_field(name="Probabilité d'obtention :", value=vv[6], inline=False)
                                 membed.add_field(name="Prix de revente :", value=vv[1], inline=False)
+                                membed.add_field(name="Prix d'extraction :", value=vv[10], inline=False)
                                 membed.add_field(name="Durabilité :", value=vv[9], inline=False)
                                 
                                 await ctx.reply(embed=membed)

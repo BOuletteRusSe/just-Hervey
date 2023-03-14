@@ -285,15 +285,6 @@ item_shop_price_4 = {
 }
 
 item_shop_price_5 = {
-    1: {
-        "Name": "🌲|Moule en Bois d'Acacia Enchanté",
-        "MPrice": {},
-        "LPrice": {"Acacia": 10},
-        "Lj Points": 1000,
-        "Money": 2500,
-        "Rank": False,
-        "Level": 0
-    },
     17 : {
         "Name": "🌳-Partisan Écologiste",
         "MPrice": {},

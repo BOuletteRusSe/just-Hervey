@@ -94,7 +94,7 @@ async def Sign(ctx):
                 "Palm Tree": 0,
                 
                 "Upgrades": [],
-                "Moule": {}
+                "Essences": [0, 0, 0, 0, 0]
             }
         }
         

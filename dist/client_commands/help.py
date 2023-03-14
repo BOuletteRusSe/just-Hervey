@@ -302,8 +302,8 @@ async def Help(ctx, arg, cc):
         },
         "Forge • 🔨" : {
             "Command" : "forge",
-            "Description" : "Permet de faire des combinaisons. Pour plus d'info vous pouvez faire c!forge !",
-            "Utilisation" : "c!forge (**recipes**/**mix**)",
+            "Description" : "Permet d'utiliser la forge sacrée. Pour plus d'info vous pouvez faire la commande c!forge.",
+            "Utilisation" : "c!forge (**recipes**/**mix**/**extract**)",
             "Cooldown" : "Aucun",
             "Category": "Économie",
             "Down" : False

@@ -24,7 +24,7 @@ async def Sell(ctx, arg):
             n = int(arg[0])
             __m__ = int(arg[1])
         except:
-            sell_embed = discord.Embed(title="just Hervey 💎 | 💰 VENTE 💰", description="Bienvenue sur le lieu de vente. Pour vendre des matérieaux veuillez éxécuter la commande `c!sell <montant à vendre> <id du minéral>`.\nEx pour vendre 10 de pierre: `c!sell 10 0`\nPour afficher les ids et les prix de revente des minéraux tapez la commande `c!minerals stats`.", color=0xC7D62C)
+            sell_embed = discord.Embed(title="just Hervey 💎 | 💰 VENTE 💰", description="Bienvenue sur le lieu de vente. Pour vendre des matérieaux veuillez éxécuter la commande `c!sell <montant à vendre> <id du minéral>`.\nEx pour vendre 10 de pierre: `c!sell 10 0`\nPour afficher les ids et les prix de revente des minéraux tapez la commande `c!stats stats`.", color=0xC7D62C)
             sell_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             sell_embed.add_field(name="", value="", inline=False)
             sell_embed.add_field(name="💵 • Argent :", value=data[id]["Money"], inline=False)

@@ -80,38 +80,44 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "809412081358733332": {
-        "Money": 6636,
-        "Black-Smith Points": 4950,
+        "Money": 4636,
+        "Black-Smith Points": 5350,
         "Miner Points": 25936.1900000001,
-        "Last Daily": 1678633661.7109094,
+        "Last Daily": 1678727700.7532678,
         "Forge Cooldown": {
-            "1678633673.7933164": 36
+            "1678728136.1459904": 36
         },
         "Bank": 140000,
         "Lj Level": 5,
         "Lj Xp": 95,
-        "Lj Points": 500,
+        "Lj Points": 0,
         "Ticket": 14,
         "Miner Ticket": 0,
         "Level": 72,
         "Forge Level": 11,
         "Xp": 1640.499999999989,
-        "Forge Xp": 1967.0,
+        "Forge Xp": 2674.0,
         "Inventory": {
             "Debrit": 561,
             "Stone": 1770,
-            "Iron": 93,
+            "Iron": 91,
             "Gold": 42,
             "Diamond": 9,
             "Rubis": 60,
-            "Silver": 38,
+            "Silver": 36,
             "Fluorite": 66,
             "Saphir": 66,
-            "Platinium": 102,
+            "Platinium": 108,
             "Randomite": 38,
             "Magma Stone": 82,
             "Obsidian": 42,
@@ -186,13 +192,19 @@
             ]
         },
         "Inventory_2": {
-            "Oak": 7,
-            "Acacia": 4,
+            "Oak": 6,
+            "Acacia": 2,
             "Dark Oak": 2,
             "Basswood": 1,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                1,
+                2,
+                0,
+                0,
+                0
+            ]
         }
     },
     "358634555546009604": {
@@ -274,7 +286,13 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "793223268118036481": {
@@ -359,7 +377,13 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "781946621473849365": {
@@ -465,7 +489,13 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "210124607833899008": {
@@ -549,7 +579,13 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "778570551602053153": {
@@ -632,7 +668,13 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "749256962234908723": {
@@ -718,7 +760,13 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "728504535949246484": {
@@ -803,7 +851,13 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "617293677626392636": {
@@ -907,7 +961,13 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "953167347621986335": {
@@ -995,7 +1055,13 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "807692157901078549": {
@@ -1081,7 +1147,13 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "612378210235318282": {
@@ -1164,7 +1236,13 @@
             "Basswood": 0,
             "Palm Tree": 0,
             "Upgrades": [],
-            "Moule": {"1": 0}
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     }
 }
