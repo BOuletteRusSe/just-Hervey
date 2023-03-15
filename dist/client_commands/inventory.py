@@ -5,24 +5,23 @@ from assets.woods_data import woods
 
 
 def InventoryCheckNone(name, value, id, data, inventory_embed, car):
-    
+
     if car == "mine":
         iv = data[id]["Inventory"]
         ess = ""
+        if iv[value] != 0: 
+            inventory_embed.add_field(name=name, value=iv[value], inline=True)   
+            
     elif car == "lj":
         iv = data[id]["Inventory_2"]
         for k, v in woods.items():
             if k == value:
                 for k_, v_ in v.items():
                     if k_ == "Id":
-                        ess = data [id]["Inventory_2"]["Essences"][v_]
-            
-    
-    if iv[value] != 0:
-        inventory_embed.add_field(name=name, value=f"{iv[value]} | 🟢 : {ess}", inline=True)
+                        ess = data[id]["Inventory_2"]["Essences"][v_]
+        if (iv[value] != 0) or (ess != 0):
+            inventory_embed.add_field(name=name, value=f"{iv[value]} | 🟢 : {ess}", inline=True)            
         
-
-
 async def CheckIfUserIsInGuild(ctx, arg):
 
     """

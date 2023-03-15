@@ -319,8 +319,8 @@ async def Help(ctx, arg, cc):
         "Sell • 💰" : {
             "Command" : "sell",
             "Description" : "Permet de vendre des matériaux.",
-            "Utilisation" : "c!sell (**<montant> <id>**)",
-            "Cooldown" : "5s par salon",
+            "Utilisation" : "c!sell **m/w <montant> <id>**",
+            "Cooldown" : "5s par Utilisateur",
             "Category": "Économie",
             "Down" : False
         },

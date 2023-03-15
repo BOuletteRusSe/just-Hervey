@@ -289,9 +289,30 @@ item_shop_price_5 = {
         "Name": "🌳-Partisan Écologiste",
         "MPrice": {},
         "LPrice": {"Oak": 100},
+        "Ess": {},
         "Lj Points": 10000,
         "Money": 5000,
         "Rank": True,
         "Level": 25
+    },
+    1 : {
+        "Name": "🍃|Amélioration: Envol",
+        "MPrice": {},
+        "LPrice": {"Oak": 10},
+        "Ess": {"1": 10},
+        "Lj Points": 1000,
+        "Money": 500,
+        "Rank": False,
+        "Level": 0
+    },
+    2 : {
+        "Name": "🪒|Amélioration: Tranchant",
+        "MPrice": {},
+        "LPrice": {"Oak": 10},
+        "Ess": {"1": 10},
+        "Lj Points": 1000,
+        "Money": 500,
+        "Rank": False,
+        "Level": 0
     }
 }

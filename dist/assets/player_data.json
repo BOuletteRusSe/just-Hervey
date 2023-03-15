@@ -85,33 +85,44 @@
             "Dark Conifer": 0,
             "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "809412081358733332": {
-        "Money": 4136,
-        "Black-Smith Points": 5500,
+        "Money": 8136,
+        "Black-Smith Points": 5750,
         "Miner Points": 25936.1900000001,
-        "Last Daily": 1678818348.7259893,
+        "Last Daily": 1678882055.6985552,
         "Forge Cooldown": {
-            "1678818350.1791437": 36
+            "1678882067.7100754": 216
         },
-        "Bank": 140000,
-        "Lj Level": 5,
-        "Lj Xp": 95,
-        "Lj Points": 0,
+        "Bank": 130000,
+        "Lj Level": 6,
+        "Lj Xp": 77.5,
+        "Lj Points": 36,
         "Ticket": 14,
         "Miner Ticket": 0,
         "Level": 72,
-        "Forge Level": 11,
+        "Forge Level": 12,
         "Xp": 1640.499999999989,
-        "Forge Xp": 2965.0,
+        "Forge Xp": 424.0,
         "Inventory": {
             "Debrit": 561,
             "Stone": 1770,
             "Iron": 90,
             "Gold": 42,
-            "Diamond": 9,
+            "Diamond": 10,
             "Rubis": 60,
             "Silver": 35,
             "Fluorite": 66,
@@ -122,13 +133,13 @@
             "Obsidian": 42,
             "Joseph": 2,
             "Jade": 22,
-            "Coal": 9,
+            "Coal": 3,
             "Cooper": 91,
             "Coke": 31,
             "Sacred Stone": 7,
             "Fossil": 33,
             "Emerald": 31,
-            "Grenat": 56,
+            "Grenat": 55,
             "Cobalt": 40,
             "Turquoise": 36,
             "Mercury": 140,
@@ -194,15 +205,28 @@
             "Oak": 6,
             "Acacia": 2,
             "Dark Oak": 2,
-            "Basswood": 1,
+            "Basswood": 2,
             "Palm Tree": 0,
             "Birch": 0,
             "Plane Tree": 0,
             "Fir": 0,
             "Dark Conifer": 0,
             "Moon Conifer": 0,
-            "Upgrades": [],
-            "Essences": [1, 2, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Upgrades": [
+                1
+            ],
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "358634555546009604": {
@@ -289,7 +313,18 @@
             "Dark Conifer": 0,
             "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "793223268118036481": {
@@ -379,7 +414,18 @@
             "Dark Conifer": 0,
             "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "781946621473849365": {
@@ -490,7 +536,18 @@
             "Dark Conifer": 0,
             "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "210124607833899008": {
@@ -579,7 +636,18 @@
             "Dark Conifer": 0,
             "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "778570551602053153": {
@@ -667,7 +735,18 @@
             "Dark Conifer": 0,
             "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "749256962234908723": {
@@ -758,7 +837,18 @@
             "Dark Conifer": 0,
             "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "728504535949246484": {
@@ -844,7 +934,18 @@
             "Palm Tree": 0,
             "Birch": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "617293677626392636": {
@@ -953,7 +1054,18 @@
             "Dark Conifer": 0,
             "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "953167347621986335": {
@@ -1046,7 +1158,18 @@
             "Dark Conifer": 0,
             "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "807692157901078549": {
@@ -1137,7 +1260,18 @@
             "Dark Conifer": 0,
             "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     },
     "612378210235318282": {
@@ -1225,7 +1359,18 @@
             "Dark Conifer": 0,
             "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            "Essences": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
         }
     }
 }

@@ -32,7 +32,7 @@ async def Mining(ctx, id, minerals, data, to_next_level, job, cc):
             mineral_xp = mineral_info["Xp"]
         except:
             mineral_xp = random.randint(mineral_info["Xp"][0], mineral_info["Xp"][1])
-        if 11 in data[id]["Inventory"]["MP"] and points == "Miner Points":
+        if (11 in data[id]["Inventory"]["MP"] and points == "Miner Points") or (1 in data[id]["Inventory_2"]["Upgrades"] and points == "Lj Points"):
             mineral_xp = mineral_xp + (mineral_xp / 100 * 10)
         try:
             mineral_info[points] + 1

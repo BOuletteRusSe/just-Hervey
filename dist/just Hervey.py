@@ -196,7 +196,7 @@ async def sell(ctx, *arg):
     await client.Sell(ctx, arg)
 
 @client.bot.command(aliases=["s"])
-@cmd.cooldown(1, 5, cmd.BucketType.channel)
+@cmd.cooldown(1, 5, cmd.BucketType.user)
 async def stats(ctx, *arg):
     CommandWriteLogs(ctx, "Stats")
     await client.Stats(ctx, arg)

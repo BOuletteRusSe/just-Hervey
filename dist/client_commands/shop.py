@@ -1,5 +1,6 @@
 import discord, json
 from assets.items_price import item_shop_price, item_shop_price_2, item_shop_price_3, item_shop_price_5
+from assets.woods_data import woods
 
 async def Shop(ctx, buy):
 
@@ -78,7 +79,7 @@ async def Shop(ctx, buy):
                                             money_embed = discord.Embed(title=f"Vous avez acheter le grade n°{buy[2]} avec succès (c!inventory equip rank {buy[2]} pour équiper votre rank !) !", description=f"-**{buy_item['Money']}**€", color=0x5455b0)
                                             money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                             money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
-                                            money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
+                                            money_embed.add_field(name=f"**{buy_item['Price'][0]}** restant :", value=data[id]['Inventory'][buy_item['Price'][0]], inline=False)
                                             await ctx.reply(embed=money_embed)
                                         
                                     else:
@@ -158,7 +159,7 @@ async def Shop(ctx, buy):
                                                                 money_embed = discord.Embed(title=f"Vous avez acheter l'alliage n°{buy[2]} avec succès ! (vous n'avez pas besoin d'équiper cet alliage)", description=f"-**{money}**€", color=0x5455b0)
                                                                 money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                                 money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
-                                                                money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
+                                                                money_embed.add_field(name=f"**{buy_item['Price'][0]}** restant :", value=data[id]['Inventory'][buy_item['Price'][0]], inline=False)
                                                                 await ctx.reply(embed=money_embed)
                                                                 
                                                             
@@ -169,7 +170,7 @@ async def Shop(ctx, buy):
                                                                 money_embed = discord.Embed(title=f"Vous avez acheter l'amélioration n°{buy[2]} avec succès ! (pour équiper plusieurs pioches, faites __c!inventory equip item__ suivi du numéro des objets séparés d'espaces)", description=f"-**{money}**€", color=0x5455b0)
                                                                 money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                                 money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
-                                                                money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
+                                                                money_embed.add_field(name=f"**{buy_item['Price'][0]}** restant :", value=data[id]['Inventory'][buy_item['Price'][0]], inline=False)
                                                                 await ctx.reply(embed=money_embed)
 
                                                             else:
@@ -183,7 +184,7 @@ async def Shop(ctx, buy):
                                                                 json.dump(data, d, indent=4)
                                                                 money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                                 money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
-                                                                money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
+                                                                money_embed.add_field(name=f"**{buy_item['Price'][0]}** restant :", value=data[id]['Inventory'][buy_item['Price'][0]], inline=False)
                                                                 await ctx.reply(embed=money_embed)
 
                                                     else:
@@ -267,9 +268,11 @@ async def Shop(ctx, buy):
                                                             money_embed = discord.Embed(title=f"Vous avez acheter l'objet n°{buy[2]} avec succès", description=f"-**{buy_item['Black-Smith Points']}** Points de Forgeron", color=0x5455b0)
                                                         money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                                                         money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
-                                                        money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
                                                         money_embed.add_field(name="Points de Forgeron restant:", value=data[id]['Black-Smith Points'], inline=False)
                                                         money_embed.set_footer(text="L'objet a été ajouté à votre établi. Pour voir tout les objets de votre établi, faites la commande c!inventory.")
+                                                        t = ""
+                                                        for k, v in buy_item["Price"].items():
+                                                            money_embed.add_field(name=f"**{k}** restant:", value=data[id]['Inventory'][k], inline=False)
                                                         await ctx.reply(embed=money_embed)
                                                         
                                                     else:
@@ -301,20 +304,29 @@ async def Shop(ctx, buy):
         
         elif buy[0] in ["lumberjack", "lj"]:
             
-            lj_embed = discord.Embed(title="**🪓 SCIERIE DU BÛCHERON 🪓**", description="Besoin d'améliorer votre hache ? Pas de soucis, `Thorne Ombrebois` se fera un plaisir de le faire pour vous en échange de quelques dûs.", color=0x48290D)
+            lj_embed = discord.Embed(title="**🪓 SCIERIE DU BÛCHERON 🪓**", description="Besoin d'améliorer votre hache ? Pas de soucis, `Thorne Ombrebois` se fera un plaisir de le faire pour vous en échange de quelques dûs.\nLes essences de bois sont fabriquables à partir de la commande `c!forge extract`.\nVous pourrez par la suite augmenter le niveau de vos améliorations dans de futures mises à jours.", color=0x48290D)
             lj_embed.set_image(url="https://i.ibb.co/58KQL5c/shop-lj.png")
+            lj_embed.add_field(name=f"`1` - 🍃|Amélioration: Envol : `10 Bois de Chêne`, `1,000 Points de Bûcheron`, `500€`, `10 essences d'acacia`.", value=f"Cette amélioration augmente votre pourcentage d'xp lors du cassage d'un arbre de `10{'%'}` au niveau 1. (améliorable)", inline=False)
             lj_embed.add_field(name=f"`17` - 🌳-Partisan Écologiste : `100 Bois de Chêne`, `10,000 Points de Bûcheron`, `5,000€`, niveau de bûcheron requis : `25`.", value=f"Faut bien protéger la planète...", inline=False)
             lj_embed.set_footer(text="Pour acheter un objet, faites la commande c!shop lj buy <NUMÉRO DE L'OBJET>.")
 
             try:
                 if buy[1] == "buy":
                     try:
-                        if int(buy[2]) in [1]:
+                        if int(buy[2]) in [17, 1]:
                             buy_item = item_shop_price_5[int(buy[2])]
                             
                             if data[id]["Lj Level"] >= buy_item["Level"]:
                                 
-                                if int(buy[2]) not in data[id]['Inventory']["P Rank"]:
+                                rn = None
+                                if buy_item["Rank"]:
+                                    if int(buy[2]) in data[id]['Inventory']["P Rank"]:
+                                        rn = "ce grade"
+                                else:
+                                    if int(buy[2]) in data[id]['Inventory_2']["Upgrades"]:
+                                        rn = "cette amélioration"
+                                        
+                                if rn is None:
 
                                     if data[id]['Money'] >= buy_item["Money"]:
                                         
@@ -332,57 +344,89 @@ async def Shop(ctx, buy):
                                                     if data[id]["Inventory_2"][k] < v:
                                                         __c__ = False
                                                         
+                                                ___c___ = True
+                                                for k, v in buy_item["Ess"].items():
+                                                    if data[id]["Inventory_2"]["Essences"][int(k)] < v:
+                                                        ___c___ = False
+                                                        
                                                 if _c_:
                                                     if __c__:
-                                                        data[id]['Money'] -= buy_item["Money"]
-                                                        for k, v in buy_item["MPrice"].items():        
-                                                            data[id]['Inventory'][k] -= v
-                                                        for k, v in buy_item["LPrice"].items():        
-                                                            data[id]['Inventory_2'][k] -= v
-                                                        data[id]["Lj Points"] -= buy_item["Lj Points"]
-                                                        if not buy_item["Rank"]:
-                                                            print(data[id]['Inventory_2']["Moule"])
-                                                            data[id]['Inventory_2']["Moule"][str(buy[2])] += 1
-                                                        else:
-                                                            data[id]['Inventory']["P Rank"].append(int(buy[2]))
-                                                        data[id]['Money'] = round(data[id]['Money'], 2)
-
-                                                        with open("assets/player_data.json", 'w') as d:
-                                                            json.dump(data, d, indent=4)
-                                                        
-                                                        if int(buy[2]) in []:
-                                                        
-                                                            if buy_item["Money"] > 0:
-                                                                money_embed = discord.Embed(title=f"Vous avez acheter l'amélioration n°{buy[2]} avec succès", description=f"-**{buy_item['Money']}**€\n-**{buy_item['Lj Points']}** Points de Bûcheron", color=0x5455b0)
+                                                        if ___c___:
+                                                            data[id]['Money'] -= buy_item["Money"]
+                                                            for k, v in buy_item["MPrice"].items():        
+                                                                data[id]['Inventory'][k] -= v
+                                                            for k, v in buy_item["LPrice"].items():        
+                                                                data[id]['Inventory_2'][k] -= v
+                                                            for k, v in buy_item["Ess"].items():        
+                                                                data[id]["Inventory_2"]["Essences"][int(k)] -= v
+                                                            data[id]["Lj Points"] -= buy_item["Lj Points"]
+                                                            if not buy_item["Rank"]:
+                                                                data[id]['Inventory_2']["Upgrades"].append(int(buy[2]))
                                                             else:
-                                                                money_embed = discord.Embed(title=f"Vous avez acheter l'amélioration n°{buy[2]} avec succès", description=f"-**{buy_item['Lj Points']}** Points de Bûcheron", color=0x5455b0)
-                                                            money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                                                            money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
-                                                            money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
-                                                            money_embed.add_field(name="Points de Bûcheron restant:", value=data[id]['Lj Points'], inline=False)
-                                                            money_embed.set_footer(text="L'amélioration a été ajouté à votre inventaire de bûcheron. c!inventory lj pour afficher votre inventaire de bûcheron.")
-                                                            await ctx.reply(embed=money_embed)
+                                                                data[id]['Inventory']["P Rank"].append(int(buy[2]))
+                                                            data[id]['Money'] = round(data[id]['Money'], 2)
+
+                                                            with open("assets/player_data.json", 'w') as d:
+                                                                json.dump(data, d, indent=4)
                                                             
-                                                        elif int(buy[2]) in [17]:
-                                                            money_embed = discord.Embed(title=f"Vous avez acheter le grade n°{buy[2]} avec succès (c!inventory equip rank {buy[2]} pour équiper votre rank !) !", description=f"-**{buy_item['Money']}**€\n-**{buy_item['Lj Points']}** Points de Bûcheron", color=0x5455b0)
-                                                            money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-                                                            money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
-                                                            money_embed.add_field(name="Argent en banque :", value=data[id]['Bank'], inline=False)
-                                                            money_embed.add_field(name="Points de Bûcheron restant:", value=data[id]['Lj Points'], inline=False)
+                                                            if not buy_item["Rank"]:
+                                                            
+                                                                if buy_item["Money"] > 0:
+                                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'amélioration n°{buy[2]} avec succès", description=f"-**{buy_item['Money']}**€\n-**{buy_item['Lj Points']}** Points de Bûcheron", color=0x5455b0)
+                                                                else:
+                                                                    money_embed = discord.Embed(title=f"Vous avez acheter l'amélioration n°{buy[2]} avec succès", description=f"-**{buy_item['Lj Points']}** Points de Bûcheron", color=0x5455b0)
+                                                                money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                                                                money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
+                                                                money_embed.add_field(name="Points de Bûcheron restants:", value=data[id]['Lj Points'], inline=False)
+                                                                money_embed.set_footer(text="L'amélioration a été ajouté à votre inventaire de bûcheron. c!inventory lj pour afficher votre inventaire de bûcheron.")
+                                                                
+                                                            else:
+                                                                money_embed = discord.Embed(title=f"Vous avez acheter le grade n°{buy[2]} avec succès (c!inventory equip rank {buy[2]} pour équiper votre rank !) !", description=f"-**{buy_item['Money']}**€\n-**{buy_item['Lj Points']}** Points de Bûcheron", color=0x5455b0)
+                                                                money_embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+                                                                money_embed.add_field(name="Argent restant :", value=data[id]['Money'], inline=False)
+                                                                money_embed.add_field(name="Points de Bûcheron restant:", value=data[id]['Lj Points'], inline=False)                                            
+                                                                
+                                                            t = ""
+                                                            for k, v in buy_item["Ess"].items():
+                                                                for k_, v_ in woods.items():
+                                                                    for k__, v__ in v_.items():
+                                                                        if k__ == "Id":
+                                                                            if int(k) == v__:                                                                
+                                                                                money_embed.add_field(name=f"🟢 Essences de **{k_}** restants:", value=data[id]['Inventory_2']['Essences'][int(k)], inline=False)
+                                                            t = ""
+                                                            for k, v in buy_item["LPrice"].items():
+                                                                money_embed.add_field(name=f"**{k}** restant:", value=data[id]['Inventory_2'][k], inline=False)
+                                                            
+                                                            t = ""
+                                                            for k, v in buy_item["MPrice"].items():
+                                                                money_embed.add_field(name=f"**{k}** restant:", value=data[id]['Inventory'][k], inline=False)
+                                                            
                                                             await ctx.reply(embed=money_embed)
+
+
+                                                        else:
+                                                            t = ""
+                                                            for k, v in buy_item["Ess"].items():
+                                                                if data[id]["Inventory_2"]["Essences"][int(k)] < v:
+                                                                    for k_, v_ in woods.items():
+                                                                        for k__, v__ in v_.items():
+                                                                            if k__ == "Id":
+                                                                                if int(k) == v__:
+                                                                                    t += f"\n🟢 Essences de **{k_}** nécessaires : **{v}**\n🟢 Essences de **{k_}** dans l'inventaire : **{data[id]['Inventory_2']['Essences'][int(k)]}**" 
+                                                            await ctx.reply(f"Vous n'avez pas assez de ressources !{t}\nPour obtenir des essences, utilisez la commande **c!forge extract**.")
                                                                                                                 
                                                     else:
                                                         t = ""
                                                         for k, v in buy_item["LPrice"].items():
                                                             if data[id]["Inventory_2"][k] < v:
-                                                                t += f"\n**{k}** nécessaires : `{v}`\n**{k}** dans l'inventaire : `{data[id]['Inventory_2'][k]}`" 
+                                                                t += f"\n**{k}** nécessaires : **{v}**\n**{k}** dans l'inventaire : **{data[id]['Inventory_2'][k]}**" 
                                                         await ctx.reply(f"Vous n'avez pas assez de ressources !{t}")
                                                     
                                                 else:
                                                     t = ""
                                                     for k, v in buy_item["MPrice"].items():
                                                         if data[id]["Inventory"][k] < v:
-                                                            t += f"\n**{k}** nécessaires : `{v}`\n**{k}** dans l'inventaire : `{data[id]['Inventory'][k]}`" 
+                                                            t += f"\n**{k}** nécessaires : **{v}**\n**{k}** dans l'inventaire : **{data[id]['Inventory'][k]}**" 
                                                     await ctx.reply(f"Vous n'avez pas assez de ressources !{t}")
                                             else:
                                                 await ctx.reply("Vous possédez déjà ce grade !")                         
@@ -391,7 +435,7 @@ async def Shop(ctx, buy):
                                     else:
                                         await ctx.reply("Vous n'avez pas l'argent requis !\nArgent : **%s**\nArgent Requis : **%s**" % (data[id]["Money"], buy_item["Money"]))
                                 else:
-                                    await ctx.reply("Vous possédez déjà ce grade !")
+                                    await ctx.reply(f"Vous possédez déjà {rn} !")
                             else:
                                 await ctx.reply(f"Vous n'avez pas le niveau requis pour pouvoir acheter cela !\nNiveau requis : **{buy_item['Level']}**\nNiveau actuel : **{data[id]['Lj Level']}**")
                         else:

@@ -45,7 +45,7 @@ async def Forge(ctx, arg):
              
         if "mix" in arg:
             
-            if data[id]["Level"] >= 10:
+            if (data[id]["Level"] >= 10) or (data[id]["Lj Level"] >= 10):
             
                 content = ""
                 for word in arg:
@@ -202,7 +202,7 @@ async def Forge(ctx, arg):
                             await ctx.reply("Vous n'avez pas débloqué ce plan.")     
                     
             else:
-                await ctx.reply(f"Vous n'avez pas le niveau de mineur requis pour accéder à la Forge Sacrée !\nNiveau requis : 10\nNiveau actuel : {data[id]['Level']}")
+                await ctx.reply(f"Vous n'avez pas le niveau de mineur/bûcheron requis pour accéder à la Forge Sacrée !\nNiveau requis : 10\nNiveau actuel mineur, bûcheron : {data[id]['Level']}, {data[id]['Lj Level']}")
                 
         elif "recipes" in arg:
             recipe_embed = discord.Embed(title=":nut_and_bolt: | Forge Recipes", description="Pour réaliser une des recettes ci-dessus utilisez la commande **c!forge mix** suivit de l'id de la recette.\n", color=0x556b2f)
@@ -306,7 +306,7 @@ async def Forge(ctx, arg):
                             
         else:
             to_next_level = int(100 * ((data[id]["Forge Level"] / 2) * (data[id]["Forge Level"] / 2)))
-            exembed = discord.Embed(title="just Hervey 💎 | 🛠 FORGE SACRÉE 🛠", description="Bienvenue dans la Forge Sacrée, ici, vous pouvez combiner différent matériaux/objets afin d'en fabriquer de nouveaux grâce à des recettes que vous pouvez débloquer !\n\n```c!forge recipes```  Avoir la liste des différentes recettes\n```c!forge mix```  Combiner deux matériaux ensemble pour réaliser une des recettes et gagner des Points de Forgeron (Niveau de mineur minimal requis : 10)\n```c!forge extract <id du bois> (<montant>)```  Permet d'extraire de l'essence du bois afin d'améliorer votre hache. Les id et les prix d'extraction des différents bois peuvent être consultés via la commande `c!stats woods`.", color=0x59514A)
+            exembed = discord.Embed(title="just Hervey 💎 | 🛠 FORGE SACRÉE 🛠", description="Bienvenue dans la Forge Sacrée, ici, vous pouvez combiner différent matériaux/objets afin d'en fabriquer de nouveaux grâce à des recettes que vous pouvez débloquer !\n\n```c!forge recipes```  Avoir la liste des différentes recettes\n```c!forge mix```  Combiner deux matériaux ensemble pour réaliser une des recettes et gagner des Points de Forgeron (Niveau de mineur/bûcheron minimal requis : 10)\n```c!forge extract <id du bois> (<montant>)```  Permet d'extraire de l'essence du bois afin d'améliorer votre hache. Les id et les prix d'extraction des différents bois peuvent être consultés via la commande `c!stats woods`.", color=0x59514A)
             exembed.set_image(url="https://i.ibb.co/DgDTy5J/forge-icon.png")
             exembed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
             exembed.add_field(name="", value="", inline=False)
