@@ -79,23 +79,22 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "809412081358733332": {
-        "Money": 4636,
-        "Black-Smith Points": 5350,
+        "Money": 4136,
+        "Black-Smith Points": 5500,
         "Miner Points": 25936.1900000001,
-        "Last Daily": 1678727700.7532678,
+        "Last Daily": 1678818348.7259893,
         "Forge Cooldown": {
-            "1678728136.1459904": 36
+            "1678818350.1791437": 36
         },
         "Bank": 140000,
         "Lj Level": 5,
@@ -106,24 +105,24 @@
         "Level": 72,
         "Forge Level": 11,
         "Xp": 1640.499999999989,
-        "Forge Xp": 2674.0,
+        "Forge Xp": 2965.0,
         "Inventory": {
             "Debrit": 561,
             "Stone": 1770,
-            "Iron": 91,
+            "Iron": 90,
             "Gold": 42,
             "Diamond": 9,
             "Rubis": 60,
-            "Silver": 36,
+            "Silver": 35,
             "Fluorite": 66,
             "Saphir": 66,
-            "Platinium": 108,
+            "Platinium": 109,
             "Randomite": 38,
             "Magma Stone": 82,
             "Obsidian": 42,
             "Joseph": 2,
             "Jade": 22,
-            "Coal": 8,
+            "Coal": 9,
             "Cooper": 91,
             "Coke": 31,
             "Sacred Stone": 7,
@@ -137,7 +136,7 @@
             "Amethist": 22,
             "Magnetite": 18,
             "Lucky Stone": 1,
-            "Aigue Marine": 2,
+            "Aigue Marine": 3,
             "Uranium": 14,
             "Plutonium": 8,
             "Quartz": 22,
@@ -197,14 +196,13 @@
             "Dark Oak": 2,
             "Basswood": 1,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                1,
-                2,
-                0,
-                0,
-                0
-            ]
+            "Essences": [1, 2, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "358634555546009604": {
@@ -285,14 +283,13 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "793223268118036481": {
@@ -376,14 +373,13 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "781946621473849365": {
@@ -488,14 +484,13 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "210124607833899008": {
@@ -578,14 +573,13 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "778570551602053153": {
@@ -667,14 +661,13 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "749256962234908723": {
@@ -759,14 +752,13 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "728504535949246484": {
@@ -850,14 +842,9 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "617293677626392636": {
@@ -960,14 +947,13 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "953167347621986335": {
@@ -1054,14 +1040,13 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "807692157901078549": {
@@ -1146,14 +1131,13 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     },
     "612378210235318282": {
@@ -1235,14 +1219,13 @@
             "Dark Oak": 0,
             "Basswood": 0,
             "Palm Tree": 0,
+            "Birch": 0,
+            "Plane Tree": 0,
+            "Fir": 0,
+            "Dark Conifer": 0,
+            "Moon Conifer": 0,
             "Upgrades": [],
-            "Essences": [
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+            "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     }
 }

@@ -92,9 +92,14 @@ async def Sign(ctx):
                 "Dark Oak": 0,
                 "Basswood": 0,
                 "Palm Tree": 0,
+                "Birch": 0,
+                "Plane Tree": 0,
+                "Fir": 0,
+                "Dark Conifer": 0,
+                "Moon Conifer": 0,
                 
                 "Upgrades": [],
-                "Essences": [0, 0, 0, 0, 0]
+                "Essences": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             }
         }
         

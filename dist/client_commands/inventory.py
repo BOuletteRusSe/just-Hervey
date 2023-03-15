@@ -178,6 +178,11 @@ async def Inventory(ctx, equip, c):
             InventoryCheckNone(f"{woods['Dark Oak']['Emoji']} • Chêne Noir :", "Dark Oak", id, data, inventory_embed, "lj")
             InventoryCheckNone(f"{woods['Basswood']['Emoji']} • Tilleul :", "Basswood", id, data, inventory_embed, "lj")
             InventoryCheckNone(f"{woods['Palm Tree']['Emoji']} • Palmier :", "Palm Tree", id, data, inventory_embed, "lj")
+            InventoryCheckNone(f"{woods['Birch']['Emoji']} • Bouleau :", "Birch", id, data, inventory_embed, "lj")
+            InventoryCheckNone(f"{woods['Plane Tree']['Emoji']} • Platane :", "Plane Tree", id, data, inventory_embed, "lj")
+            InventoryCheckNone(f"{woods['Fir']['Emoji']} • Sapin :", "Fir", id, data, inventory_embed, "lj")
+            InventoryCheckNone(f"{woods['Dark Conifer']['Emoji']} • Conifère Sombre :", "Dark Conifer", id, data, inventory_embed, "lj")
+            InventoryCheckNone(f"{woods['Moon Conifer']['Emoji']} • Conifère Lunaire :", "Moon Conifer", id, data, inventory_embed, "lj")
 
         return [inventory_embed, max_page, min_page]
         
