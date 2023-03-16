@@ -48,7 +48,12 @@ async def Fountain(ctx, m):
                         "Aigue Marine Plan": 5
                     }
                     
-                    if random.randint(0, 6) == 0:
+                    if 2 in data[id]["Inventory"]["P Forge"]:
+                        l2 = 5
+                    else:
+                        l2 = 6
+                    
+                    if random.randint(0, l2) == 0:
                         r = list(random.choices(*zip(*prob.items())))[0]
                     else:
                         r = None

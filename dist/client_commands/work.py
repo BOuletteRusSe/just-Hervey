@@ -358,11 +358,11 @@ async def Work(ctx, arg, cc):
 
                     # Pioche ticket (pas de modification  nécessaire)
                     if 9 in data[id]['Inventory']["MP"]:
-                        if random.randint(0, 7) == 7:
+                        if random.randint(0, 10) == 10:
                             data[id]["Ticket"] += 1
                             with open("assets/player_data.json", 'w') as d:
                                 json.dump(data, d, indent=4)
-                            embed = discord.Embed(title="🎟 • Vous avez trouvé un ticket en minant !", description="", color=0x157c0e)
+                            embed = discord.Embed(title="🎟 • Vous avez trouvé un ticket en minant !", color=0x157c0e)
                             embed.add_field(name="🎟 • Tickets :", value=data[id]["Ticket"])
                             embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
                             await ctx.reply(embed=embed)

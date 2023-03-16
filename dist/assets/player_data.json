@@ -100,34 +100,34 @@
         }
     },
     "809412081358733332": {
-        "Money": 8136,
-        "Black-Smith Points": 5750,
+        "Money": 7636,
+        "Black-Smith Points": 5900,
         "Miner Points": 25936.1900000001,
-        "Last Daily": 1678882055.6985552,
+        "Last Daily": 1678971475.380999,
         "Forge Cooldown": {
-            "1678882067.7100754": 216
+            "1678907139.295721": 36
         },
         "Bank": 130000,
         "Lj Level": 6,
         "Lj Xp": 77.5,
         "Lj Points": 36,
-        "Ticket": 14,
+        "Ticket": 17,
         "Miner Ticket": 0,
         "Level": 72,
         "Forge Level": 12,
         "Xp": 1640.499999999989,
-        "Forge Xp": 424.0,
+        "Forge Xp": 724.0,
         "Inventory": {
             "Debrit": 561,
             "Stone": 1770,
-            "Iron": 90,
+            "Iron": 89,
             "Gold": 42,
             "Diamond": 10,
             "Rubis": 60,
-            "Silver": 35,
+            "Silver": 34,
             "Fluorite": 66,
             "Saphir": 66,
-            "Platinium": 109,
+            "Platinium": 111,
             "Randomite": 38,
             "Magma Stone": 82,
             "Obsidian": 42,
@@ -1010,7 +1010,7 @@
                 4,
                 12
             ],
-            "Rank": 0,
+            "Rank": 18,
             "Item Limit": 5,
             "MP": [
                 10,
@@ -1029,7 +1029,8 @@
                 10
             ],
             "P Rank": [
-                0
+                0,
+                18
             ],
             "Plans": [
                 2,

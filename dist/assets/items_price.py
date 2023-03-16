@@ -2,49 +2,49 @@
 # Ranks
 item_shop_price = {
     0: {
-        "Name": "Aventurier"
+        "Name": "♦-Vagabond Errant"
     },
     1: {
         "Level": 0,
         "Money": 1000,
         "Price": False,
-        "Name": "😮- Débutant"
+        "Name": "😮-Novice"
     },
     2: {
         "Level": 0,
         "Money": 10000,
         "Price": False,
-        "Name": "😋- Amateur"
+        "Name": "😋-Initié"
     },
     3: {
         "Level": 0,
-        "Money": 10000,
+        "Money": 100000,
         "Price": False,
-        "Name": "🤑- Affirmé"
+        "Name": "🤑-Affirmé"
     },
     4: {
         "Level": 0,
-        "Money": 50000,
+        "Money": 500000,
         "Price": False,
-        "Name": "😎-Mineur Professionel"
+        "Name": "😎-Professionel"
     },
     5: {
         "Level": 0,
-        "Money": 100000,
+        "Money": 1000000,
         "Price": False,
-        "Name": "🐱‍🏍-Mineur Légendaire"
+        "Name": "🐱‍🏍-Légende"
     },
     8: {
         "Level": 0,
-        "Money": 500000,
+        "Money": 2500000,
         "Price": False,
-        "Name": "🧚‍♀️-Mineur Mythique"
+        "Name": "🧚‍♀️-Divin"
     },
     9: {
         "Level": 0,
-        "Money": 1000000,
+        "Money": 5000000,
         "Price": False,
-        "Name": "👑-Mineur Suprême"
+        "Name": "👑-N°1"
     },
     10: {
         "Level": 0,
@@ -80,6 +80,10 @@ item_shop_price = {
     
     17 : {
         "Name": "🌳-Partisan Écologiste"
+    },
+    
+    18: {
+        "Name": "🎓-Co-Fondateur"
     }
 }
 
