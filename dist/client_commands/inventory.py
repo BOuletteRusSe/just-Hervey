@@ -150,6 +150,9 @@ async def Inventory(ctx, equip, c):
             InventoryCheckNone(f"{minerals['Black Mithril']['Emoji']} • Mithril Noir :", "Black Mithril", id, data, inventory_embed, "mine")
             InventoryCheckNone(f"{minerals['Iliosite']['Emoji']} • Iliosite :", "Iliosite", id, data, inventory_embed, "mine")
             InventoryCheckNone(f"{minerals['Fengarite']['Emoji']} • Fengarite :", "Fengarite", id, data, inventory_embed, "mine")
+            InventoryCheckNone(f"{minerals['Death Tree']['Emoji']} • Arbre Mort :", "Death Tree", id, data, inventory_embed, "mine")
+            InventoryCheckNone(f"{minerals['Hêtre']['Emoji']} • Hêtre :", "Hêtre", id, data, inventory_embed, "mine")
+            InventoryCheckNone(f"{minerals['Sacred Oak']['Emoji']} • Chêne Sacré :", "Sacred Oak", id, data, inventory_embed, "mine")
         
         return [inventory_embed, max_page, min_page]
     

@@ -155,6 +155,38 @@ woods = {
         "Rareté": e,
         "Ex": 750
     },
+    "Hêtre" : {
+        "Proba": 3,
+        "Hp": 30,
+        "Name" : "de l'**Hêtre** !",
+        "Emoji" : "<:hetre:1085978345755394189>",
+        "Price" : 600,
+        "Xp" : 300,
+        "Color" : 0x8B5A2B,
+        "Level Requierd" : 10,
+        "Description": "Nom Scientifique : `Fagus Sylvatica`\nL'**Hêtre** est un arbre majestueux au tronc imposant et aux feuilles en forme de coeur. Il est considéré comme l'un des arbres les plus sacrés de la forêt, et on raconte que ses racines plongent dans les profondeurs de la terre jusqu'au royaume des morts. Les branches du Hêtre sont le refuge de nombreuses créatures magiques et mystiques, mais il est également connu pour être le lieu de rassemblement des sorcières lors des nuits de pleine lune.",
+        "Image" : "https://i.ibb.co/F8h0pd4/hetre.png",
+        "Lj Points": 75,
+        "Id": 10,
+        "Rareté": r,
+        "Ex": 800
+    },
+    "Death Tree" : {
+        "Proba": 2,
+        "Hp": 3,
+        "Name" : "un **Arbre Mort** !",
+        "Emoji" : "<:death_tree:1085981143821729882>",
+        "Price" : 100,
+        "Xp" : 75,
+        "Color" : 0x808080,
+        "Level Requierd" : 20,
+        "Description": "Dans les profondeurs des bois hantés, se dresse un **Arbre Mort**. Son tronc est recouvert de marques et de cicatrices qui semblent avoir été infligées par des griffes acérées. Les racines s'étendent telle une toile qui piége tout ce qui s'en approche. Les feuilles, autrefois vertes et pleines de vie, sont maintenant fanées et desséchées, donnant à l'arbre un aspect sinistre et mortuaire. Pourtant, malgré cette apparence effrayante, les voyageurs intrépides qui osent s'en approcher pourront y trouver des trésors enfouis depuis des siècles.",
+        "Image" : "https://i.ibb.co/bL18WKg/death-tree.png",
+        "Lj Points": 75,
+        "Id": 11,
+        "Rareté": r,
+        "Ex": 500
+    },
     "Moon Conifer": {
         "Proba": 1,
         "Hp": 50,
@@ -170,5 +202,25 @@ woods = {
         "Id": 9,
         "Rareté": l,
         "Ex": 1500
+    },
+    "Sacred Oak": {
+        "Proba": 0.125,
+        "Hp": 100,
+        "Name": "un **Chêne Sacré** !",
+        "Emoji": "<:sacred_oak:1085982467044950047>",
+        "Price": 10000,
+        "Xp": 750,
+        "Color": 0x5D4037,
+        "Level Requierd": 25,
+        "Description": "Le **Chêne sacré** est un arbre millénaire qui incarne la puissance de la nature. Ses racines plongent profondément dans la terre, tandis que ses branches majestueuses s'élèvent vers le ciel, tel un témoignage de la grandeur et de la sagesse des anciens dieux. Les feuilles du Chêne sacré sont d'un vert émeraude éclatant, mais leur beauté cache un pouvoir mystique et terrifiant. Quiconque ose profaner l'arbre sacré en sera maudit à jamais, condamné à errer dans les ténèbres éternelles.",
+        "Image": "https://i.ibb.co/gFGnGS4/sacred-oak.png",
+        "Lj Points": 2500,
+        "Id": 12,
+        "Rareté": d,
+        "Ex": 17500
     }
+}
+
+seeds = {
+    
 }
