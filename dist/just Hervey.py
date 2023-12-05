@@ -194,6 +194,12 @@ async def casino(ctx, *arg):
 async def sell(ctx, *arg):
     CommandWriteLogs(ctx, "Sell")
     await client.Sell(ctx, arg)
+    
+@client.bot.command()
+@cmd.cooldown(1, 5, cmd.BucketType.user)
+async def amazon(ctx, *arg):
+    CommandWriteLogs(ctx, "Amazon")
+    await client.Amazon(ctx, arg)
 
 @client.bot.command(aliases=["s"])
 @cmd.cooldown(1, 5, cmd.BucketType.user)
@@ -759,6 +765,12 @@ async def work_error(ctx, error):
         await dele.delete(delay=1)
 
 @thanos.error
+async def work_error(ctx, error):
+    if isinstance(error, cmd.CommandOnCooldown):
+        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        await dele.delete(delay=1)
+        
+@amazon.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')

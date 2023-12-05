@@ -170,7 +170,15 @@ async def Help(ctx, arg, cc):
             "Utilisation" : "c!question <**question**>",
             "Cooldown" : "10 Secondes par Utilisateur",
             "Category": "Fun",
-            "Down" : False
+            "Down" : True
+        },
+        "Amazon • 📦" : {
+            "Command" : "amazon",
+            "Description" : "Recherche un article amazon ou envoie un article aléatoire.",
+            "Utilisation" : "c!amazon (<**préciser la recherche**>)",
+            "Cooldown" : "5 Secondes par Utilisateur",
+            "Category": "Fun",
+            "Down" : True
         },
         "Say • 🗣" : {
             "Command" : "say",

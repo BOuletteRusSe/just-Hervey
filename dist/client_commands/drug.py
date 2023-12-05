@@ -1,9 +1,8 @@
-
-import random
+import requests
 
 async def Drug(ctx):
     
-
-    ls = [word.strip() for word in open("assets/texts/drugs.txt", encoding="utf-8")]
-    
-    await ctx.reply(random.choice(ls))
+    url = "https://psychonautwiki.org/wiki/Special:Random"
+    r = requests.get(url)
+        
+    await ctx.reply(r.url)
