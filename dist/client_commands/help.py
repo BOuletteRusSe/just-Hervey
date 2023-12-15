@@ -148,6 +148,14 @@ async def Help(ctx, arg, cc):
             "Category": "Fun",
             "Down" : False
         },
+        "Chatbot • 🤖" : {
+            "Command" : "chatbot",
+            "Description" : "Pour parler avec JustHervey !",
+            "Utilisation" : "c!chatbot <**question**>",
+            "Cooldown" : "5 Secondes par Utilisateur",
+            "Category": "Fun",
+            "Down" : False
+        },
         "Philo • 👨‍🔬" : {
             "Command" : "philo",
             "Description" : "Hervey devient philosophe et vous envoie des phrases digne des plus grands.",

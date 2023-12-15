@@ -443,6 +443,11 @@ async def vdm(ctx):
     CommandWriteLogs(ctx, "Vdm")
     await client.Vdm(ctx)
 
+@client.bot.command(aliases=['ia'])
+@cmd.cooldown(1, 5, cmd.BucketType.user)
+async def chatbot(ctx, *arg):
+    CommandWriteLogs(ctx, "Chatbot")
+    await client.Chatbot(ctx, arg)
 
 @client.bot.command()
 @cmd.cooldown(5, 3, cmd.BucketType.user)
@@ -728,6 +733,12 @@ async def work_error(ctx, error):
         await dele.delete(delay=1)
 
 @question.error
+async def work_error(ctx, error):
+    if isinstance(error, cmd.CommandOnCooldown):
+        dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')
+        await dele.delete(delay=1)
+        
+@chatbot.error
 async def work_error(ctx, error):
     if isinstance(error, cmd.CommandOnCooldown):
         dele = await ctx.reply(f'La commande est en cooldown, veuillez réssayer dans {int(error.retry_after)} secondes !')

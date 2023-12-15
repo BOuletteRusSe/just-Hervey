@@ -54,6 +54,7 @@ from client_commands.levels import Levels
 from client_commands.rarity import Rarity
 from client_commands.amazon import Amazon
 from client_commands.drug import Drug
+from client_commands.chatbot import Chatbot
 
 import discord, time, os, json
 from colored import fg, attr
@@ -69,7 +70,7 @@ with open(r"assets\player_data.json") as data:
         def __init__(self):
             intents = discord.Intents().all()
             self.bot = commands.Bot(command_prefix="c!", description="#Nazomazochiste", intents=intents)
-            self.client_version = '3.13.8.1'
+            self.client_version = '3.13.9.0'
             self.key = open(".PRIVATE/key.key", "rb").read()
             f = Fernet(self.key)
             with open(".PRIVATE/token", "rb") as file: encrypted_data = file.read()
@@ -158,6 +159,9 @@ with open(r"assets\player_data.json") as data:
 
         @staticmethod
         async def RdMusic(ctx, is_activate): await RdMusic(ctx, is_activate)
+        
+        @staticmethod
+        async def Chatbot(ctx, arg): await Chatbot(ctx, arg)
 
         async def Play(self, ctx, music): await Play(ctx, music, self)
 
